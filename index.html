@@ -10,7 +10,7 @@
 :root{
   --navy:#0A0A93; --rosa:#FF38C6; --ciano:#008BFE; --lima:#BDE44E;
   --amber:#D97706; --amber-bg:#FFFBEB; --amber-mid:#FEF3C7;
-  --verde:#008BFE; --verde-bg:#F0FDF4;
+  --verde:#BDE44E; --verde-bg:#f5fbd8;
   --canvas:#f0f0f6; --card:#fff; --texto:#26264a; --muted:#6b6b8a;
   --borda:#e4e4ef; --claro:#f5f5fb;
   --mono:'IBM Plex Mono',ui-monospace,monospace;
@@ -56,7 +56,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 .crumb{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--muted)}
 .crumb b{color:var(--navy);font-weight:600}
 .proto-badge{margin-left:auto;display:inline-flex;align-items:center;gap:7px;background:var(--verde-bg);
-  border:1px solid var(--verde);color:var(--verde);font-size:9px;font-weight:800;letter-spacing:1.8px;
+  border:1px solid var(--verde);color:#0A0A93;font-size:9px;font-weight:800;letter-spacing:1.8px;
   text-transform:uppercase;border-radius:100px;padding:4px 12px}
 .proto-badge i{width:5px;height:5px;border-radius:50%;background:var(--verde);animation:pulse 1.6s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
@@ -206,8 +206,8 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 .warn-label{font-size:8px;font-weight:900;letter-spacing:1.8px;text-transform:uppercase;color:#D97706;margin-bottom:6px}
 .warn-text{font-size:11.5px;font-weight:600;color:#78350F;line-height:1.55}
 .tip-box{background:var(--verde-bg);border:1px solid var(--verde);border-radius:10px;padding:12px 14px;margin-top:8px}
-.tip-label{font-size:8px;font-weight:900;letter-spacing:1.8px;text-transform:uppercase;color:var(--verde);margin-bottom:6px}
-.tip-text{font-size:11.5px;font-weight:600;color:#14532D;line-height:1.55}
+.tip-label{font-size:8px;font-weight:900;letter-spacing:1.8px;text-transform:uppercase;color:#0A0A93;margin-bottom:6px}
+.tip-text{font-size:11.5px;font-weight:600;color:#0A0A93;line-height:1.55}
 
 /* ── DEMO ── */
 .demo-flow{border-radius:14px;padding:20px 22px;border:2px solid}
@@ -273,11 +273,11 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 .week-task b{color:var(--navy)}
 
 .grad-card{background:var(--verde-bg);border:1.5px solid var(--verde);border-radius:14px;padding:20px 22px;margin-top:4px}
-.grad-label{font-size:9px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--verde);margin-bottom:10px}
-.grad-title{font-size:15px;font-weight:800;color:#14532D;margin-bottom:14px}
+.grad-label{font-size:9px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#0A0A93;margin-bottom:10px}
+.grad-title{font-size:15px;font-weight:800;color:#0A0A93;margin-bottom:14px}
 .grad-items{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.grad-item{display:flex;align-items:baseline;gap:10px;font-size:12.5px;font-weight:600;color:#14532D;line-height:1.45}
-.grad-item::before{content:"✓";color:var(--verde);font-weight:900;font-size:13px;flex:0 0 13px}
+.grad-item{display:flex;align-items:baseline;gap:10px;font-size:12.5px;font-weight:600;color:#0A0A93;line-height:1.45}
+.grad-item::before{content:"✓";color:#0A0A93;font-weight:900;font-size:13px;flex:0 0 13px}
 
 /* ── ONBOARDING STEPPER ── */
 .ob-stepper{display:flex;align-items:flex-start;gap:0;margin-bottom:28px;position:relative}
@@ -663,7 +663,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 
     <div style="display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap">
       <button onclick="go('novo')" style="flex:1;min-width:200px;background:var(--verde-bg);border:2px solid var(--verde);border-radius:12px;padding:14px 18px;cursor:pointer;font-family:inherit;text-align:left;transition:.15s" onmouseover="this.style.filter='brightness(.96)'" onmouseout="this.style.filter=''">
-        <div style="font-size:9.5px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--verde);margin-bottom:4px">Primeira vez aqui?</div>
+        <div style="font-size:9.5px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#0A0A93;margin-bottom:4px">Primeira vez aqui?</div>
         <div style="font-size:13.5px;font-weight:800;color:var(--texto)">Começar pelo Onboarding →</div>
         <div style="font-size:11px;font-weight:600;color:var(--muted);margin-top:3px">Trilha de 3 etapas para sua primeira call</div>
       </button>
@@ -717,10 +717,10 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
       </div>
 
       <div class="moment" onclick="go('novo')">
-        <div class="mi" style="background:var(--verde-bg);color:var(--verde);font-size:12px;font-weight:900;letter-spacing:.5px;">NV</div>
+        <div class="mi" style="background:var(--verde-bg);color:#0A0A93;font-size:12px;font-weight:900;letter-spacing:.5px;">NV</div>
         <h3>Onboarding</h3>
         <p>O que estudar, em qual ordem e como se preparar para a primeira reunião.</p>
-        <span class="mbadge" style="background:var(--verde-bg);color:var(--verde);">NOVO VENDEDOR</span>
+        <span class="mbadge" style="background:var(--verde-bg);color:#0A0A93;">NOVO VENDEDOR</span>
         <div class="cover" style="background:var(--verde)"></div>
       </div>
 
@@ -1008,7 +1008,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
       <div class="obj-head" onclick="toggleObj(this)">
         <div class="obj-num" style="background:#008BFE">5</div>
         <div class="obj-trigger">"Nossos fornecedores não vão adotar uma nova plataforma"</div>
-        <div class="obj-tag" style="background:#DCFCE7;color:#14532D">Adoção · MPP</div>
+        <div class="obj-tag" style="background:#DCFCE7;color:#0A0A93">Adoção · MPP</div>
       </div>
       <div class="obj-body">
         <div class="obj-label">Como responder</div>
@@ -1020,7 +1020,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
       <div class="obj-head" onclick="toggleObj(this)">
         <div class="obj-num" style="background:#008BFE">6</div>
         <div class="obj-trigger">"Temos contratos exclusivos, não podemos abrir concorrência"</div>
-        <div class="obj-tag" style="background:#DCFCE7;color:#14532D">Exclusividade · MPP</div>
+        <div class="obj-tag" style="background:#DCFCE7;color:#0A0A93">Exclusividade · MPP</div>
       </div>
       <div class="obj-body">
         <div class="obj-label">Como responder</div>
@@ -1032,7 +1032,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
       <div class="obj-head" onclick="toggleObj(this)">
         <div class="obj-num" style="background:#008BFE">7</div>
         <div class="obj-trigger">"O rebate parece interessante — qual é o valor real para nós?"</div>
-        <div class="obj-tag" style="background:#DCFCE7;color:#14532D">Rebate · MPP</div>
+        <div class="obj-tag" style="background:#DCFCE7;color:#0A0A93">Rebate · MPP</div>
       </div>
       <div class="obj-body">
         <div class="obj-label">Como responder</div>
@@ -1048,7 +1048,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
       <div class="obj-head" onclick="toggleObj(this)">
         <div class="obj-num" style="background:#008BFE">8</div>
         <div class="obj-trigger">"Se o fornecedor paga para entrar, vai repassar no preço"</div>
-        <div class="obj-tag" style="background:#DCFCE7;color:#14532D">Custo · MPP</div>
+        <div class="obj-tag" style="background:#DCFCE7;color:#0A0A93">Custo · MPP</div>
       </div>
       <div class="obj-body">
         <div class="obj-label">Como responder</div>
@@ -1247,24 +1247,24 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
       <div class="card-title">Empresa D (energia elétrica) — 8 anos · 1º cliente Compras Free ME</div>
       <div class="g4" style="margin-top:4px">
         <div style="background:var(--verde-bg);border:1px solid var(--verde);border-radius:10px;padding:14px;text-align:center">
-          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--verde);margin-bottom:4px">Parceria</div>
-          <div style="font-size:24px;font-weight:900;color:#14532D">8 anos</div>
-          <div style="font-size:10px;font-weight:700;color:var(--verde)">Desde 2017</div>
+          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#0A0A93;margin-bottom:4px">Parceria</div>
+          <div style="font-size:24px;font-weight:900;color:#0A0A93">8 anos</div>
+          <div style="font-size:10px;font-weight:700;color:#0A0A93">Desde 2017</div>
         </div>
         <div style="background:var(--verde-bg);border:1px solid var(--verde);border-radius:10px;padding:14px;text-align:center">
-          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--verde);margin-bottom:4px">Pedidos</div>
-          <div style="font-size:24px;font-weight:900;color:#14532D">12 mil</div>
-          <div style="font-size:10px;font-weight:700;color:var(--verde)">Via Compras Free</div>
+          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#0A0A93;margin-bottom:4px">Pedidos</div>
+          <div style="font-size:24px;font-weight:900;color:#0A0A93">12 mil</div>
+          <div style="font-size:10px;font-weight:700;color:#0A0A93">Via Compras Free</div>
         </div>
         <div style="background:var(--verde-bg);border:1px solid var(--verde);border-radius:10px;padding:14px;text-align:center">
-          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--verde);margin-bottom:4px">Volume</div>
-          <div style="font-size:24px;font-weight:900;color:#14532D">R$181M</div>
-          <div style="font-size:10px;font-weight:700;color:var(--verde)">Transacionados</div>
+          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#0A0A93;margin-bottom:4px">Volume</div>
+          <div style="font-size:24px;font-weight:900;color:#0A0A93">R$181M</div>
+          <div style="font-size:10px;font-weight:700;color:#0A0A93">Transacionados</div>
         </div>
         <div style="background:var(--verde-bg);border:1px solid var(--verde);border-radius:10px;padding:14px;text-align:center">
-          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--verde);margin-bottom:4px">Economia</div>
-          <div style="font-size:24px;font-weight:900;color:#14532D">R$4,5M</div>
-          <div style="font-size:10px;font-weight:700;color:var(--verde)">NPS Promotor · Nota 8</div>
+          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#0A0A93;margin-bottom:4px">Economia</div>
+          <div style="font-size:24px;font-weight:900;color:#0A0A93">R$4,5M</div>
+          <div style="font-size:10px;font-weight:700;color:#0A0A93">NPS Promotor · Nota 8</div>
         </div>
       </div>
       <div style="margin-top:12px;font-size:11.5px;font-weight:600;color:var(--muted)">Use para mostrar longevidade e confiança — dados cumulativos desde 2021. Para ROI em 12 meses, use o case Energia Renovável (Elera, 11,84%).</div>
@@ -1305,7 +1305,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
         </div>
         <div class="proof-item">
           <div class="proof-sector">Energia Elétrica</div>
-          <div class="proof-num" style="color:var(--verde)">8 anos</div>
+          <div class="proof-num" style="color:#0A0A93">8 anos</div>
           <div class="proof-desc">R$181M transacionados · R$4,5M economia · NPS 10</div>
           <span class="proof-model" style="background:var(--verde)">Compras Free · Pioneer</span>
         </div>
