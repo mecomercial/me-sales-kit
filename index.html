@@ -183,8 +183,8 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 .filt-btn:hover{border-color:var(--navy);color:var(--navy)}
 .filt-btn.on{background:var(--navy);border-color:var(--navy);color:#fff}
 .filt-btn.on.rosa{background:var(--rosa);border-color:var(--rosa)}
-.filt-btn.on.amber{background:var(--amber);border-color:var(--amber)}
-.filt-btn.on.comp{background:#D97706;border-color:#D97706}
+.filt-btn.on.amber{background:var(--ciano);border-color:var(--ciano);color:#fff}
+.filt-btn.on.comp{background:var(--lima);border-color:var(--lima);color:#0A0A93}
 
 /* ── OBJECTION CARD ── */
 .obj-card{background:var(--card);border:1px solid var(--borda);border-radius:14px;overflow:hidden;margin-bottom:12px}
@@ -635,7 +635,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 
     <div class="nav-sec">Onboarding</div>
     <button class="ni" id="n-novo" onclick="go('novo')">
-      <span class="dot"></span>Novo Vendedor
+      <span class="dot" style="background:var(--verde)"></span>Novo Vendedor<span style="font-size:8.5px;font-weight:900;background:var(--verde);color:#fff;border-radius:20px;padding:2px 7px;letter-spacing:.5px;margin-left:6px;vertical-align:middle">COMECE AQUI</span>
     </button>
 
     <div class="nav-sec">Material</div>
@@ -643,7 +643,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
       <span class="dot"></span>One Pager
     </button>
     <button class="ni" id="n-flux" onclick="go('flux')">
-      <span class="dot"></span>Fluxograma
+      <span class="dot"></span>Fluxograma<span style="font-size:9px;font-weight:700;color:rgba(255,255,255,.5);display:block;padding-left:16px;margin-top:1px;line-height:1.3">Seu papel em cada etapa</span>
     </button>
   </nav>
 </aside>
@@ -660,6 +660,20 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
   <div class="screen on" id="s-home">
     <div class="ph">O que você vai fazer hoje?</div>
     <div class="ps">6 momentos de venda. O material certo para cada um.</div>
+
+    <div style="display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap">
+      <button onclick="go('novo')" style="flex:1;min-width:200px;background:var(--verde-bg);border:2px solid var(--verde);border-radius:12px;padding:14px 18px;cursor:pointer;font-family:inherit;text-align:left;transition:.15s" onmouseover="this.style.filter='brightness(.96)'" onmouseout="this.style.filter=''">
+        <div style="font-size:9.5px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--verde);margin-bottom:4px">🚀 Primeira vez aqui?</div>
+        <div style="font-size:13.5px;font-weight:800;color:var(--texto)">Começar pelo Onboarding →</div>
+        <div style="font-size:11px;font-weight:600;color:var(--muted);margin-top:3px">Trilha de 3 etapas para sua primeira call</div>
+      </button>
+      <button onclick="go('antes')" style="flex:1;min-width:200px;background:#EFF6FF;border:2px solid var(--ciano);border-radius:12px;padding:14px 18px;cursor:pointer;font-family:inherit;text-align:left;transition:.15s" onmouseover="this.style.filter='brightness(.96)'" onmouseout="this.style.filter=''">
+        <div style="font-size:9.5px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--ciano);margin-bottom:4px">📋 Preparando uma call?</div>
+        <div style="font-size:13.5px;font-weight:800;color:var(--texto)">Ir direto para Antes da Call →</div>
+        <div style="font-size:11px;font-weight:600;color:var(--muted);margin-top:3px">Checklist + produto certo em 5 min</div>
+      </button>
+    </div>
+
     <div class="moment-grid">
 
       <div class="moment" onclick="go('antes')">
@@ -712,13 +726,6 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 
     </div>
 
-    <div class="card" style="border-left:4px solid var(--verde);display:flex;align-items:center;gap:20px;flex-wrap:wrap">
-      <div style="flex:1">
-        <div class="k" style="color:var(--verde)">Novo no time?</div>
-        <div style="font-size:13px;font-weight:600;color:var(--texto)">Comece pela trilha de onboarding — tem a sequência certa do que estudar e quando.</div>
-      </div>
-      <button class="btn" onclick="go('novo')" style="background:var(--verde);flex:0 0 auto">Iniciar onboarding →</button>
-    </div>
   </div><!-- /home -->
 
   <!-- ═══ ANTES DA CALL ═══ -->
@@ -797,9 +804,13 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
         <div style="border:1.5px solid var(--borda);border-radius:10px;padding:14px">
           <div style="font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:6px">Pós-reunião positiva</div>
           <div style="font-size:12.5px;font-weight:600;color:var(--texto);line-height:1.55">"Vou te mandar uma síntese de uma página com os números que seu diretor vai querer ver: saving de clientes reais do mesmo setor e o modelo de ROI simplificado."</div>
-          <div style="font-size:10.5px;font-weight:600;color:var(--muted);margin-top:8px">Use quando o champion precisa escalar para o CFO. Ver tela <button onclick="go('onepager')" style="display:inline;background:none;border:none;padding:0;font-family:inherit;font-size:10.5px;font-weight:800;color:var(--navy);text-decoration:underline;cursor:pointer;">One Pager →</button></div>
+          <div style="font-size:10.5px;font-weight:600;color:var(--muted);margin-top:8px">Use quando o champion precisa escalar para o CFO.</div>
         </div>
       </div>
+    </div>
+
+    <div style="display:flex;justify-content:flex-end;margin-top:4px">
+      <button onclick="go('onepager')" class="btn" style="background:var(--navy)">Ver One Pager personalizado →</button>
     </div>
   </div><!-- /antes -->
 
@@ -914,6 +925,10 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
         <div style="font-size:12.5px;font-weight:600;color:#78350F;line-height:1.55">Depois de 2 reuniões sem saber quem assina o contrato, a venda vai travar. Peça ao champion para escalar para o decisor — ofereça o <button onclick="go('onepager')" style="display:inline;background:none;border:none;padding:0;font-family:inherit;font-size:12.5px;font-weight:800;color:#92400E;text-decoration:underline;text-underline-offset:3px;cursor:pointer;">resumo executivo de 1 página</button> para ele fazer essa apresentação internamente.</div>
       </div>
     </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:8px">
+      <span style="font-size:11.5px;font-weight:600;color:var(--muted)">Qualificou o lead? Agora prepare as respostas para o que vai surgir em call.</span>
+      <button onclick="go('obj')" class="btn" style="background:var(--rosa);flex:0 0 auto">Ver scripts de objeção →</button>
+    </div>
   </div><!-- /qualif -->
 
   <!-- ═══ OBJEÇÃO ═══ -->
@@ -926,9 +941,10 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
       <button class="filt-btn on" data-group="all" onclick="filterObj('all',this)">Todos (17)</button>
       <button class="filt-btn" data-group="geral" onclick="filterObj('geral',this)">Gerais (4)</button>
       <button class="filt-btn" data-group="mp" onclick="filterObj('mp',this)">Marketplace Privado (4)</button>
-      <button class="filt-btn" data-group="cf" onclick="filterObj('cf',this)" style="border-color:var(--amber);color:var(--amber)">Compras Free (4)</button>
+      <button class="filt-btn" data-group="cf" onclick="filterObj('cf',this)" style="border-color:var(--ciano);color:var(--ciano)">Compras Free (4)</button>
       <button class="filt-btn" data-group="comp" onclick="filterObj('comp',this)">Concorrentes (5)</button>
     </div>
+    <div id="obj-counter" style="font-size:11px;font-weight:700;color:var(--muted);margin-bottom:14px;display:none">Exibindo <span id="obj-counter-n"></span> de 17 scripts</div>
 
     <!-- GERAL -->
     <div class="obj-card" data-group="geral">
@@ -1253,6 +1269,10 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
       </div>
       <div style="margin-top:12px;font-size:11.5px;font-weight:600;color:var(--muted)">Use para mostrar longevidade e confiança — dados cumulativos desde 2021. Para ROI em 12 meses, use o case Energia Renovável (Elera, 11,84%).</div>
     </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:8px">
+      <span style="font-size:11.5px;font-weight:600;color:var(--muted)">Demo bem-feita? Hora de converter com números reais e a tática do executivo.</span>
+      <button onclick="go('fech')" class="btn" style="background:var(--navy);flex:0 0 auto">Ir para Fechamento →</button>
+    </div>
   </div><!-- /demo -->
 
   <!-- ═══ FECHAMENTO ═══ -->
@@ -1418,7 +1438,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
               </div>
             </div>
             <div class="fund-insight" style="margin-top:12px"><strong>Dica de campo:</strong> Clientes desconfiam que o fornecedor vai subir preço para cobrir o rebate. Na prática isso não acontece — ele está competindo na cotação, então subir preço significa perder o pedido.</div>
-            <button class="fund-link" onclick="go('flux')" style="cursor:pointer;font-family:inherit">Ver fluxograma completo dentro do kit →</button>
+            <button class="fund-link" onclick="goFlux()" style="cursor:pointer;font-family:inherit">Ver fluxograma completo dentro do kit →</button>
           </div>
         </div>
 
@@ -1820,10 +1840,11 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 
   <!-- ═══ FLUXOGRAMA ═══ -->
   <div class="screen" id="s-flux">
-    <button class="back-btn" onclick="go('novo')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Novo Vendedor</button>
+    <button class="back-btn" onclick="go(window._fluxFromOnboarding ? 'novo' : 'home'); window._fluxFromOnboarding = false;"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Voltar</button>
 
     <div style="margin-bottom:8px;">
       <span style="font-size:13px;font-weight:900;color:var(--navy);letter-spacing:.3px;">Fluxograma de Vendas</span>
+      <div style="font-size:11.5px;font-weight:600;color:var(--muted);margin-top:4px">Use para entender seu papel em cada etapa do processo — de qual lead abordar até o handoff para Pós-Venda. Consulte sempre que tiver dúvida sobre quem age em qual momento.</div>
     </div>
 
     <div class="legend">
@@ -2167,6 +2188,11 @@ function goMat(screen) {
   go(screen, 'novo');
 }
 
+function goFlux() {
+  window._fluxFromOnboarding = true;
+  go('flux');
+}
+
 function go(id, from) {
   if (id === 'novo') {
     if (window._returnToNovoPg2) {
@@ -2250,9 +2276,22 @@ function filterObj(group, btn) {
     if (group === 'cf') btn.classList.add('amber');
     if (group === 'comp') btn.classList.add('comp');
   }
+  var visible = 0;
   document.querySelectorAll('.obj-card').forEach(c => {
-    c.style.display = (group === 'all' || c.dataset.group === group) ? '' : 'none';
+    var show = (group === 'all' || c.dataset.group === group);
+    c.style.display = show ? '' : 'none';
+    if (show) visible++;
   });
+  var counter = document.getElementById('obj-counter');
+  var counterN = document.getElementById('obj-counter-n');
+  if (counter && counterN) {
+    if (group === 'all') {
+      counter.style.display = 'none';
+    } else {
+      counterN.textContent = visible;
+      counter.style.display = '';
+    }
+  }
 }
 
 function toggleObj(head) {
