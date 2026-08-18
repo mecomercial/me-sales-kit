@@ -10,7 +10,7 @@
 :root{
   --navy:#0A0A93; --rosa:#FF38C6; --ciano:#008BFE; --lima:#BDE44E;
   --amber:#D97706; --amber-bg:#FFFBEB; --amber-mid:#FEF3C7;
-  --verde:#16A34A; --verde-bg:#F0FDF4;
+  --verde:#008BFE; --verde-bg:#F0FDF4;
   --canvas:#f0f0f6; --card:#fff; --texto:#26264a; --muted:#6b6b8a;
   --borda:#e4e4ef; --claro:#f5f5fb;
   --mono:'IBM Plex Mono',ui-monospace,monospace;
@@ -285,11 +285,11 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 .ob-step::after{content:'';position:absolute;top:18px;left:50%;width:100%;height:2px;background:var(--borda);z-index:0}
 .ob-step:last-child::after{display:none}
 .ob-step-dot{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;border:2px solid var(--borda);background:var(--fundo);color:var(--muted);z-index:1;transition:.3s;position:relative}
-.ob-step.done .ob-step-dot{background:#16A34A;border-color:#16A34A;color:#fff}
+.ob-step.done .ob-step-dot{background:#008BFE;border-color:#008BFE;color:#fff}
 .ob-step.active .ob-step-dot{background:var(--navy);border-color:var(--navy);color:#fff;box-shadow:0 0 0 4px rgba(10,10,147,.12)}
-.ob-step.done::after{background:#16A34A}
+.ob-step.done::after{background:#008BFE}
 .ob-step-label{font-size:9px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);margin-top:6px;text-align:center;line-height:1.3}
-.ob-step.done .ob-step-label{color:#16A34A}
+.ob-step.done .ob-step-label{color:#008BFE}
 .ob-step.active .ob-step-label{color:var(--navy)}
 /* fundamentos */
 .fund-section{margin-bottom:24px}
@@ -324,15 +324,15 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 .fund-insight strong{color:#166534}
 .fund-done-btn{margin-top:16px;display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;border:0;border-radius:8px;font-family:inherit;font-size:11px;font-weight:800;padding:10px 20px;cursor:pointer;transition:.15s}
 .fund-done-btn:hover{background:#08087a}
-.fund-done-btn.done{background:#16A34A;cursor:default}
+.fund-done-btn.done{background:#008BFE;cursor:default}
 .fund-link{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:var(--navy);text-decoration:none;padding:8px 14px;border:1.5px solid var(--navy);border-radius:8px;margin-top:10px;transition:.15s}
 .fund-link:hover{background:var(--navy);color:#fff}
 /* material study cards */
 .mat-study-list{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
 .mat-card{display:flex;align-items:center;gap:14px;background:var(--fundo);border:1.5px solid var(--borda);border-radius:12px;padding:14px 16px;transition:.2s}
-.mat-card.checked{border-color:#16A34A;background:#f0fdf4}
+.mat-card.checked{border-color:#008BFE;background:#f0fdf4}
 .mat-num{width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.mat-card.checked .mat-num{background:#16A34A}
+.mat-card.checked .mat-num{background:#008BFE}
 .mat-info{flex:1;min-width:0}
 .mat-name{font-size:12.5px;font-weight:800;color:var(--texto);margin-bottom:2px}
 .mat-desc{font-size:10.5px;font-weight:600;color:var(--muted);line-height:1.4}
@@ -340,7 +340,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 .mat-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
 .mat-go-btn{font-size:10px;font-weight:800;padding:6px 12px;background:var(--claro);border:1.5px solid var(--borda);border-radius:6px;cursor:pointer;color:var(--navy);font-family:inherit;white-space:nowrap;transition:.15s}
 .mat-go-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
-.mat-check{width:20px;height:20px;accent-color:#16A34A;cursor:pointer;flex-shrink:0}
+.mat-check{width:20px;height:20px;accent-color:#008BFE;cursor:pointer;flex-shrink:0}
 /* ── ONBOARDING WIZARD PAGES ── */
 .ob-page{display:none}
 .ob-page.ob-active{display:block}
@@ -348,7 +348,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 .ob-page-nav-btn{display:inline-flex;align-items:center;gap:7px;border-radius:10px;font-family:inherit;font-size:12.5px;font-weight:800;padding:11px 22px;cursor:pointer;transition:.15s;border:none;line-height:1}
 .ob-page-nav-btn.primary{background:var(--navy);color:#fff}
 .ob-page-nav-btn.primary:hover{background:#08087a}
-.ob-page-nav-btn.primary.done{background:#16A34A;cursor:default}
+.ob-page-nav-btn.primary.done{background:#008BFE;cursor:default}
 .ob-page-nav-btn.ghost{background:none;color:var(--muted);border:1.5px solid var(--borda)}
 .ob-page-nav-btn.ghost:hover{border-color:var(--navy);color:var(--navy);background:var(--claro)}
 /* ── QUIZ ── */
@@ -368,11 +368,11 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 .quiz-opt:hover{border-color:var(--navy);background:var(--claro)}
 .quiz-opt input{accent-color:var(--navy);width:14px;height:14px;cursor:pointer;flex-shrink:0}
 .quiz-opt span{font-size:12px;font-weight:600;color:var(--texto);line-height:1.4}
-.quiz-opt.correct{border-color:#16A34A;background:#f0fdf4}
+.quiz-opt.correct{border-color:#008BFE;background:#f0fdf4}
 .quiz-opt.correct span{color:#15803d}
 .quiz-opt.wrong{border-color:#DC2626;background:#fef2f2}
 .quiz-opt.wrong span{color:#DC2626}
-.quiz-opt.show-answer{border-color:#16A34A;background:#f0fdf4;opacity:.7}
+.quiz-opt.show-answer{border-color:#008BFE;background:#f0fdf4;opacity:.7}
 .quiz-opt.show-answer span{color:#15803d}
 .quiz-footer{padding:0 24px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .quiz-btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;border:0;border-radius:8px;font-family:inherit;font-size:12px;font-weight:800;padding:11px 24px;cursor:pointer;transition:.15s}
@@ -390,7 +390,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 .quiz-pass-sub{font-size:11px;font-weight:700;color:rgba(255,255,255,.75);margin-top:4px}
 .quiz-pass-checks{display:flex;flex-direction:column;gap:7px;text-align:left;margin:0 auto 18px;max-width:400px}
 .quiz-pass-check{display:flex;align-items:flex-start;gap:8px;font-size:12px;font-weight:600;color:var(--texto);line-height:1.45}
-.quiz-pass-check::before{content:'✓';font-weight:900;color:#16A34A;flex-shrink:0;margin-top:1px}
+.quiz-pass-check::before{content:'✓';font-weight:900;color:#008BFE;flex-shrink:0;margin-top:1px}
 .quiz-pass-retry{font-size:11px;color:var(--muted);text-decoration:underline;cursor:pointer;background:none;border:0;font-family:inherit;padding:0}
 .quiz-pass-retry:hover{color:var(--navy)}
 
@@ -409,7 +409,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 .op-copy-btn.loading{opacity:.6;pointer-events:none}
 .op-btn-group{display:flex;gap:8px;flex-wrap:wrap}
 /* toast */
-#op-toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#16A34A;color:#fff;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:800;padding:10px 22px;border-radius:100px;opacity:0;pointer-events:none;transition:.25s;z-index:9999}
+#op-toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#008BFE;color:#fff;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:800;padding:10px 22px;border-radius:100px;opacity:0;pointer-events:none;transition:.25s;z-index:9999}
 #op-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
 /* ── ONE PAGER CONTENT (scoped) ── */
@@ -419,7 +419,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 #op-wrap .op-hero::after{content:'';position:absolute;right:-60px;top:-80px;width:300px;height:300px;border-radius:50%;background:rgba(255,56,198,.08);pointer-events:none}
 #op-wrap .op-brand{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:900;letter-spacing:4px;text-transform:uppercase;color:#BDE44E;margin-bottom:14px}
 #op-wrap .op-headline{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:900;color:#fff;line-height:1.2;max-width:440px;margin-bottom:10px}
-#op-wrap .op-headline em{font-style:normal;color:#FF38C6}
+#op-wrap .op-headline em{font-style:normal;color:#008BFE}
 #op-wrap .op-sub{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;color:rgba(255,255,255,.65);max-width:420px;line-height:1.6}
 #op-wrap .op-badge{position:absolute;right:48px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:flex-end;gap:8px}
 #op-wrap .op-badge-item{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:10px 14px;text-align:right}
@@ -663,12 +663,12 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 
     <div style="display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap">
       <button onclick="go('novo')" style="flex:1;min-width:200px;background:var(--verde-bg);border:2px solid var(--verde);border-radius:12px;padding:14px 18px;cursor:pointer;font-family:inherit;text-align:left;transition:.15s" onmouseover="this.style.filter='brightness(.96)'" onmouseout="this.style.filter=''">
-        <div style="font-size:9.5px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--verde);margin-bottom:4px">🚀 Primeira vez aqui?</div>
+        <div style="font-size:9.5px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--verde);margin-bottom:4px">Primeira vez aqui?</div>
         <div style="font-size:13.5px;font-weight:800;color:var(--texto)">Começar pelo Onboarding →</div>
         <div style="font-size:11px;font-weight:600;color:var(--muted);margin-top:3px">Trilha de 3 etapas para sua primeira call</div>
       </button>
       <button onclick="go('antes')" style="flex:1;min-width:200px;background:#EFF6FF;border:2px solid var(--ciano);border-radius:12px;padding:14px 18px;cursor:pointer;font-family:inherit;text-align:left;transition:.15s" onmouseover="this.style.filter='brightness(.96)'" onmouseout="this.style.filter=''">
-        <div style="font-size:9.5px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--ciano);margin-bottom:4px">📋 Preparando uma call?</div>
+        <div style="font-size:9.5px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--ciano);margin-bottom:4px">Preparando uma call?</div>
         <div style="font-size:13.5px;font-weight:800;color:var(--texto)">Ir direto para Antes da Call →</div>
         <div style="font-size:11px;font-weight:600;color:var(--muted);margin-top:3px">Checklist + produto certo em 5 min</div>
       </button>
@@ -677,7 +677,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
     <div class="moment-grid">
 
       <div class="moment" onclick="go('antes')">
-        <div class="mi" style="background:#EFF6FF;color:var(--ciano);">📋</div>
+        <div class="mi" style="background:#EFF6FF;color:var(--ciano);font-size:13px;font-weight:900;letter-spacing:.5px;">01</div>
         <h3>Antes da Call</h3>
         <p>Pesquise o cliente, identifique o produto certo e prepare a abertura.</p>
         <span class="mbadge" style="background:#EFF6FF;color:var(--ciano);">PREPARAÇÃO</span>
@@ -685,7 +685,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
       </div>
 
       <div class="moment" onclick="go('qualif')">
-        <div class="mi" style="background:var(--amber-mid);color:var(--amber);">🎯</div>
+        <div class="mi" style="background:var(--amber-mid);color:var(--amber);font-size:13px;font-weight:900;letter-spacing:.5px;">02</div>
         <h3>Qualificação</h3>
         <p>Uma pergunta que bifurca o produto certo. Dois caminhos, dois roteiros.</p>
         <span class="mbadge" style="background:var(--amber-mid);color:var(--amber);">DISCOVERY</span>
@@ -693,7 +693,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
       </div>
 
       <div class="moment" onclick="go('obj')">
-        <div class="mi" style="background:#fff5fb;color:var(--rosa);">💬</div>
+        <div class="mi" style="background:#fff5fb;color:var(--rosa);font-size:13px;font-weight:900;letter-spacing:.5px;">03</div>
         <h3>Objeção</h3>
         <p>17 scripts prontos. Gerais, Marketplace, Compras Free e concorrentes.</p>
         <span class="mbadge" style="background:#fff5fb;color:var(--rosa);">CAMPO</span>
@@ -701,7 +701,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
       </div>
 
       <div class="moment" onclick="go('demo')">
-        <div class="mi" style="background:#EFF6FF;color:var(--navy);">🖥</div>
+        <div class="mi" style="background:#EFF6FF;color:var(--navy);font-size:13px;font-weight:900;letter-spacing:.5px;">04</div>
         <h3>Demo</h3>
         <p>Fluxo por modelo. Marketplace Privado / Contratação Direta e Compras Free — separados.</p>
         <span class="mbadge" style="background:#EFF6FF;color:var(--navy);">DEMONSTRAÇÃO</span>
@@ -709,7 +709,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
       </div>
 
       <div class="moment" onclick="go('fech')">
-        <div class="mi" style="background:var(--amber-mid);color:var(--amber);">✅</div>
+        <div class="mi" style="background:var(--amber-mid);color:var(--amber);font-size:13px;font-weight:900;letter-spacing:.5px;">05</div>
         <h3>Fechamento</h3>
         <p>Business case em 4 números, tática do executivo e scripts de encerramento.</p>
         <span class="mbadge" style="background:var(--amber-mid);color:var(--amber);">CLOSE</span>
@@ -717,7 +717,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
       </div>
 
       <div class="moment" onclick="go('novo')">
-        <div class="mi" style="background:var(--verde-bg);color:var(--verde);">🚀</div>
+        <div class="mi" style="background:var(--verde-bg);color:var(--verde);font-size:12px;font-weight:900;letter-spacing:.5px;">NV</div>
         <h3>Onboarding</h3>
         <p>O que estudar, em qual ordem e como se preparar para a primeira reunião.</p>
         <span class="mbadge" style="background:var(--verde-bg);color:var(--verde);">NOVO VENDEDOR</span>
@@ -847,7 +847,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
           <div class="disc-item"><b>Decisão:</b> "Quem aprovaria a terceirização?"</div>
         </div>
         <div style="margin-top:10px;background:rgba(16,163,74,.08);border:1px solid #86efac;border-radius:8px;padding:10px 12px">
-          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#16A34A;margin-bottom:5px">Prova de campo</div>
+          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#008BFE;margin-bottom:5px">Prova de campo</div>
           <div style="font-size:11.5px;font-weight:800;color:#166534;margin-bottom:4px">EDP — 8 anos · 1º cliente Compras Free ME</div>
           <div style="font-size:10.5px;font-weight:600;color:#166534;line-height:1.55">R$181M transacionados · 12 mil pedidos · R$4,5M de economia · NPS Promotor · Renovação em 2025</div>
         </div>
@@ -1006,7 +1006,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
     <!-- MARKETPLACE PRIVADO -->
     <div class="obj-card" data-group="mp">
       <div class="obj-head" onclick="toggleObj(this)">
-        <div class="obj-num" style="background:#16A34A">5</div>
+        <div class="obj-num" style="background:#008BFE">5</div>
         <div class="obj-trigger">"Nossos fornecedores não vão adotar uma nova plataforma"</div>
         <div class="obj-tag" style="background:#DCFCE7;color:#14532D">Adoção · MPP</div>
       </div>
@@ -1018,7 +1018,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 
     <div class="obj-card" data-group="mp">
       <div class="obj-head" onclick="toggleObj(this)">
-        <div class="obj-num" style="background:#16A34A">6</div>
+        <div class="obj-num" style="background:#008BFE">6</div>
         <div class="obj-trigger">"Temos contratos exclusivos, não podemos abrir concorrência"</div>
         <div class="obj-tag" style="background:#DCFCE7;color:#14532D">Exclusividade · MPP</div>
       </div>
@@ -1030,7 +1030,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 
     <div class="obj-card" data-group="mp">
       <div class="obj-head" onclick="toggleObj(this)">
-        <div class="obj-num" style="background:#16A34A">7</div>
+        <div class="obj-num" style="background:#008BFE">7</div>
         <div class="obj-trigger">"O rebate parece interessante — qual é o valor real para nós?"</div>
         <div class="obj-tag" style="background:#DCFCE7;color:#14532D">Rebate · MPP</div>
       </div>
@@ -1046,7 +1046,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 
     <div class="obj-card" data-group="mp">
       <div class="obj-head" onclick="toggleObj(this)">
-        <div class="obj-num" style="background:#16A34A">8</div>
+        <div class="obj-num" style="background:#008BFE">8</div>
         <div class="obj-trigger">"Se o fornecedor paga para entrar, vai repassar no preço"</div>
         <div class="obj-tag" style="background:#DCFCE7;color:#14532D">Custo · MPP</div>
       </div>
@@ -1372,7 +1372,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 
         <div class="fund-card" id="fc-msg">
           <div class="fund-card-head" onclick="toggleFund('fc-msg')">
-            <div class="fund-card-icon">💡</div>
+            <div class="fund-card-icon" style="width:28px;height:28px;border-radius:8px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:var(--navy);letter-spacing:.3px">ME</div>
             <div class="fund-card-title">O que é o ME — mensagem central</div>
             <div class="fund-card-arrow">▼</div>
           </div>
@@ -1394,7 +1394,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 
         <div class="fund-card" id="fc-icp">
           <div class="fund-card-head" onclick="toggleFund('fc-icp')">
-            <div class="fund-card-icon">🎯</div>
+            <div class="fund-card-icon" style="width:28px;height:28px;border-radius:8px;background:var(--amber-mid);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:#92400E;letter-spacing:.3px">ICP</div>
             <div class="fund-card-title">Quem é o cliente certo — ICP</div>
             <div class="fund-card-arrow">▼</div>
           </div>
@@ -1418,7 +1418,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 
         <div class="fund-card" id="fc-mod">
           <div class="fund-card-head" onclick="toggleFund('fc-mod')">
-            <div class="fund-card-icon">💳</div>
+            <div class="fund-card-icon" style="width:28px;height:28px;border-radius:8px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:var(--ciano);letter-spacing:.3px">3M</div>
             <div class="fund-card-title">Os 3 modelos de contratação</div>
             <div class="fund-card-arrow">▼</div>
           </div>
@@ -1444,14 +1444,14 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 
         <div class="fund-card" id="fc-per">
           <div class="fund-card-head" onclick="toggleFund('fc-per')">
-            <div class="fund-card-icon">📋</div>
+            <div class="fund-card-icon" style="width:28px;height:28px;border-radius:8px;background:#fff5fb;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:var(--rosa);letter-spacing:.3px">CF</div>
             <div class="fund-card-title">Lições de campo — personas reais</div>
             <div class="fund-card-arrow">▼</div>
           </div>
           <div class="fund-card-body">
             <div style="display:flex;flex-direction:column;gap:10px">
-              <div style="border-radius:10px;padding:12px 14px;background:#f0fdf4;border-left:4px solid #16A34A">
-                <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;color:#16A34A;text-transform:uppercase;margin-bottom:4px">Fechou ✓</div>
+              <div style="border-radius:10px;padding:12px 14px;background:#f0fdf4;border-left:4px solid #008BFE">
+                <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;color:#008BFE;text-transform:uppercase;margin-bottom:4px">Fechou ✓</div>
                 <div style="font-size:12px;font-weight:800;color:#166534;margin-bottom:6px">Oleoplan — Indústria, operação complexa</div>
                 <ul class="fund-list"><li>Grande empresa, materiais + serviços de longo prazo</li><li>Câmera ligada, perguntas técnicas, engajamento alto</li><li>Convenceu: flexibilidade, medição de serviço, integração gradual</li></ul>
                 <div style="font-size:11px;font-weight:700;color:#166534;margin-top:8px;padding:7px 10px;background:rgba(22,163,74,.1);border-radius:6px">Cliente técnico quer profundidade. Vendedor precisa dominar o produto — não só o pitch.</div>
@@ -1584,7 +1584,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
     </div>
     <div class="quiz-wrap" id="quiz-wrap">
       <div class="quiz-header">
-        <div class="quiz-header-icon">🎯</div>
+        <div class="quiz-header-icon" style="width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:#fff;flex-shrink:0">?</div>
         <div>
           <div class="quiz-header-title">Teste rápido — você está pronto?</div>
           <div class="quiz-header-sub">6 perguntas baseadas nos materiais deste kit</div>
@@ -1670,7 +1670,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
       <!-- TELA DE APROVAÇÃO -->
       <div class="quiz-pass" id="quiz-pass">
         <div class="quiz-pass-badge">
-          <div class="quiz-pass-icon">🏆</div>
+          <div class="quiz-pass-icon" style="font-size:48px;font-weight:900;color:#BDE44E;line-height:1">✓</div>
           <div class="quiz-pass-title">Pronto para a primeira reunião</div>
           <div class="quiz-pass-sub">Você domina o essencial do kit de campo</div>
         </div>
@@ -1698,8 +1698,8 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
     <div class="op-toolbar">
       <div class="op-toolbar-label">Uso externo · clientes e prospects</div>
       <div class="op-btn-group">
-        <button class="op-copy-btn" id="copy-btn-top" onclick="copyOnePagerPNG(this)">📋 Copiar como imagem</button>
-        <button class="op-print-btn" onclick="window.print()">🖨 Imprimir / PDF</button>
+        <button class="op-copy-btn" id="copy-btn-top" onclick="copyOnePagerPNG(this)">Copiar como imagem</button>
+        <button class="op-print-btn" onclick="window.print()">Imprimir / PDF</button>
       </div>
     </div>
 
@@ -1738,8 +1738,8 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
         <!-- CASOS -->
         <div class="op-cases" id="op-cases-inner">
           <div class="op-case">
-            <div class="op-case-bar" style="background:#16A34A"></div>
-            <div class="op-case-sector" style="color:#16A34A">Energia Elétrica — Indiretos operacionais</div>
+            <div class="op-case-bar" style="background:#008BFE"></div>
+            <div class="op-case-sector" style="color:#008BFE">Energia Elétrica — Indiretos operacionais</div>
             <div class="op-case-data">8 anos de parceria · 12 mil pedidos · R$181M transacionados · R$4,5M de economia · NPS Promotor</div>
           </div>
           <div class="op-case">
@@ -1832,8 +1832,8 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
         </div>
       </div>
       <div class="op-btn-group" style="flex:0 0 auto;align-self:center">
-        <button class="op-copy-btn" id="copy-btn-bottom" onclick="copyOnePagerPNG(this)">📋 Copiar como imagem</button>
-        <button class="op-print-btn" onclick="window.print()">🖨 Imprimir / PDF</button>
+        <button class="op-copy-btn" id="copy-btn-bottom" onclick="copyOnePagerPNG(this)">Copiar como imagem</button>
+        <button class="op-print-btn" onclick="window.print()">Imprimir / PDF</button>
       </div>
     </div>
   </div><!-- /onepager -->
@@ -2095,7 +2095,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
           <div class="section-label">Etapa 8 — Fechamento</div>
           <div class="wl-row">
             <div class="wl-card wl-win">
-              <h4>✅ Contrato Assinado</h4>
+              <h4>Contrato Assinado</h4>
               <ul>
                 <li>Proposta aceita e contrato fechado</li>
                 <li>Passagem formal ao time de Projetos e KAM</li>
@@ -2171,7 +2171,7 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 </div><!-- /main -->
 </div><!-- /app -->
 
-<div id="op-toast">✅ Imagem copiada!</div>
+<div id="op-toast">Imagem copiada!</div>
 
 <script>
 const SCREENS = ['home','antes','qualif','obj','demo','fech','novo','onepager','flux'];
@@ -2457,8 +2457,8 @@ const OP_VARIANTS = {
     b2v: 'R$181M', b2l: 'transacionados · 1º cliente Compras Free ME',
     cases: `
       <div class="op-case">
-        <div class="op-case-bar" style="background:#16A34A"></div>
-        <div class="op-case-sector" style="color:#16A34A">Energia Elétrica — Indiretos operacionais</div>
+        <div class="op-case-bar" style="background:#008BFE"></div>
+        <div class="op-case-sector" style="color:#008BFE">Energia Elétrica — Indiretos operacionais</div>
         <div class="op-case-data">8 anos de parceria · 12 mil pedidos · R$181M transacionados · R$4,5M de economia · NPS Promotor</div>
       </div>
       <div class="op-case">
@@ -2484,8 +2484,8 @@ const OP_VARIANTS = {
         <div class="op-case-data">11,41% de saving · R$3,1M economizados · R$27M em cotações · 200 pedidos gerenciados</div>
       </div>
       <div class="op-case">
-        <div class="op-case-bar" style="background:#16A34A"></div>
-        <div class="op-case-sector" style="color:#16A34A">Energia Elétrica — parceria de longo prazo</div>
+        <div class="op-case-bar" style="background:#008BFE"></div>
+        <div class="op-case-sector" style="color:#008BFE">Energia Elétrica — parceria de longo prazo</div>
         <div class="op-case-data">8 anos · R$181M transacionados · contrato renovado em 2025 · NPS Promotor · nota 8</div>
       </div>
       <div class="op-case">
@@ -2548,19 +2548,19 @@ async function copyOnePagerPNG(btn) {
     canvas.toBlob(async blob => {
       try {
         await navigator.clipboard.write([new ClipboardItem({'image/png': blob})]);
-        showToast('✅ Imagem copiada! Cole diretamente no e-mail.');
+        showToast('Imagem copiada! Cole diretamente no e-mail.');
       } catch {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url; a.download = 'me-onepager.png'; a.click();
         URL.revokeObjectURL(url);
-        showToast('📥 Imagem salva! (Ctrl+C não disponível neste navegador)');
+        showToast('Imagem salva! (Ctrl+C não disponível neste navegador)');
       }
-      btns.forEach(b => { b.classList.remove('loading'); b.textContent = '📋 Copiar como imagem'; });
+      btns.forEach(b => { b.classList.remove('loading'); b.textContent = 'Copiar como imagem'; });
     }, 'image/png');
   } catch(e) {
-    btns.forEach(b => { b.classList.remove('loading'); b.textContent = '📋 Copiar como imagem'; });
-    showToast('❌ Erro ao gerar imagem. Tente pelo PDF.');
+    btns.forEach(b => { b.classList.remove('loading'); b.textContent = 'Copiar como imagem'; });
+    showToast('Erro ao gerar imagem. Tente pelo PDF.');
   }
 }
 
