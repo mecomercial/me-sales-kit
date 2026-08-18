@@ -1,0 +1,2527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sales Kit · me.</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+:root{
+  --navy:#0A0A93; --rosa:#FF38C6; --ciano:#008BFE; --lima:#BDE44E;
+  --amber:#D97706; --amber-bg:#FFFBEB; --amber-mid:#FEF3C7;
+  --verde:#16A34A; --verde-bg:#F0FDF4;
+  --canvas:#f0f0f6; --card:#fff; --texto:#26264a; --muted:#6b6b8a;
+  --borda:#e4e4ef; --claro:#f5f5fb;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{font-family:'Montserrat',Arial,sans-serif;background:var(--canvas);color:var(--texto);
+  line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* ── APP FRAME ── */
+.app{display:grid;grid-template-columns:230px 1fr;height:100vh}
+
+/* ── SIDEBAR ── */
+aside{background:var(--navy);color:#fff;display:flex;flex-direction:column;padding:0 0 16px;overflow:hidden;position:relative}
+aside::after{content:"";position:absolute;left:-70px;bottom:-70px;width:240px;height:240px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,56,198,.22),transparent 65%);pointer-events:none}
+.logo{padding:24px 24px 20px;border-bottom:1px solid rgba(255,255,255,.09)}
+.logo-mark{font-size:28px;font-weight:900;letter-spacing:-1.2px;color:#fff;line-height:1}
+.logo-mark b{color:var(--lima)}
+.logo-sub{font-size:8.5px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.38);margin-top:5px}
+nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
+.nav-sec{font-size:8.5px;font-weight:800;letter-spacing:2.4px;text-transform:uppercase;
+  color:rgba(255,255,255,.3);padding:16px 10px 6px}
+.nav-sec:first-child{padding-top:4px}
+.ni{display:flex;align-items:center;gap:10px;width:100%;border:0;background:none;color:rgba(255,255,255,.6);
+  font-family:inherit;font-size:12.5px;font-weight:700;padding:9px 12px;border-radius:10px;cursor:pointer;
+  text-align:left;transition:.15s;letter-spacing:.1px;position:relative}
+.ni .dot{width:8px;height:8px;border-radius:50%;flex:0 0 8px;background:rgba(255,255,255,.2)}
+.ni:hover{color:#fff;background:rgba(255,255,255,.07)}
+.ni.on{color:#fff;background:rgba(255,255,255,.11)}
+.ni.on .dot{background:var(--lima)}
+.userchip{margin:0 12px;background:rgba(255,255,255,.07);border-radius:10px;padding:11px 13px;
+  display:flex;gap:10px;align-items:center;position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.06);margin-top:8px}
+.av{width:30px;height:30px;border-radius:50%;background:var(--rosa);display:flex;align-items:center;
+  justify-content:center;font-size:11px;font-weight:900;flex:0 0 30px;color:#fff}
+.un{font-size:11.5px;font-weight:800;color:#fff;line-height:1.25}
+.ur{font-size:9.5px;color:rgba(255,255,255,.45);font-weight:600}
+
+/* ── MAIN ── */
+.main{display:flex;flex-direction:column;height:100vh;overflow:hidden}
+.topbar{background:var(--card);border-bottom:1px solid var(--borda);padding:0 28px;height:54px;
+  display:flex;align-items:center;gap:14px;flex:0 0 54px}
+.crumb{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--muted)}
+.crumb b{color:var(--navy);font-weight:600}
+.proto-badge{margin-left:auto;display:inline-flex;align-items:center;gap:7px;background:var(--verde-bg);
+  border:1px solid var(--verde);color:var(--verde);font-size:9px;font-weight:800;letter-spacing:1.8px;
+  text-transform:uppercase;border-radius:100px;padding:4px 12px}
+.proto-badge i{width:5px;height:5px;border-radius:50%;background:var(--verde);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+.canvas{flex:1;overflow-y:auto;padding:28px 30px 60px;scroll-behavior:smooth}
+
+/* ── SCREENS ── */
+.screen{display:none;max-width:1040px;margin:0 auto;animation:fadeup .4s cubic-bezier(.2,.8,.2,1) both}
+.screen.on{display:block}
+#s-flux.on{display:block;max-width:none;padding:28px 20px 60px}
+.back-btn{display:inline-flex;align-items:center;gap:6px;background:none;border:1.5px solid var(--borda);border-radius:100px;font-family:inherit;font-size:11.5px;font-weight:700;color:var(--muted);padding:6px 14px 6px 10px;cursor:pointer;margin-bottom:18px;transition:.15s}
+.back-btn:hover{border-color:var(--navy);color:var(--navy);background:var(--claro)}
+.back-btn svg{flex:0 0 14px}
+@keyframes fadeup{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+.ph{font-size:30px;font-weight:900;letter-spacing:-1px;color:var(--navy);line-height:1.1;margin-bottom:6px}
+.ps{font-size:13.5px;font-weight:500;color:var(--muted);margin-bottom:24px}
+
+/* ── GENERIC CARD ── */
+.card{background:var(--card);border:1px solid var(--borda);border-radius:14px;padding:22px 24px;margin-bottom:16px}
+.k{font-size:8.5px;font-weight:900;letter-spacing:2.2px;text-transform:uppercase;display:block;margin-bottom:10px}
+.card-title{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:12px;line-height:1.3}
+.mono{font-family:var(--mono);font-size:11px;color:var(--muted)}
+
+/* ── BTN ── */
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;border:0;
+  border-radius:100px;font-family:inherit;font-size:12px;font-weight:800;padding:10px 20px;cursor:pointer;
+  transition:.15s;letter-spacing:.2px;text-decoration:none}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(10,10,147,.3)}
+.btn.rosa{background:var(--rosa)}
+.btn.rosa:hover{box-shadow:0 8px 20px rgba(255,56,198,.35)}
+
+/* ── GRID UTILS ── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:860px){.g2,.g3,.g4{grid-template-columns:1fr}}
+
+/* ── HOME: MOMENT CARDS ── */
+.moment-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px}
+@media(max-width:860px){.moment-grid{grid-template-columns:1fr 1fr}}
+.moment{background:var(--card);border:1px solid var(--borda);border-radius:16px;padding:22px 20px;
+  cursor:pointer;transition:.18s;position:relative;overflow:hidden}
+.moment:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(10,10,147,.11)}
+.moment .mi{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  font-size:17px;margin-bottom:14px;flex:0 0 40px}
+.moment h3{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:5px}
+.moment p{font-size:12px;color:var(--muted);font-weight:500;line-height:1.5;margin-bottom:12px}
+.moment .mbadge{font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;
+  border-radius:100px;padding:4px 11px;display:inline-block}
+.moment .cover{position:absolute;right:-30px;top:-30px;width:100px;height:100px;border-radius:50%;opacity:.07}
+
+/* ── CHECKLIST ── */
+.checklist{list-style:none;display:flex;flex-direction:column;gap:0}
+.cl-item{display:flex;align-items:baseline;gap:12px;padding:11px 0;border-bottom:1px solid var(--borda);
+  font-size:13px;font-weight:600;color:var(--texto);line-height:1.5}
+.cl-item:last-child{border-bottom:none}
+.cl-num{width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;display:flex;
+  align-items:center;justify-content:center;font-size:10px;font-weight:900;flex:0 0 22px;margin-top:1px}
+
+/* ── BIFURCAÇÃO ── */
+.bifurc{display:grid;grid-template-columns:1fr 40px 1fr;align-items:stretch;gap:0}
+.bif-lado{border-radius:12px;padding:18px 16px}
+.bif-lado b{display:block;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:900}
+.bif-lado p{font-size:12.5px;font-weight:600;line-height:1.6;margin-bottom:10px}
+.bif-lado.cf{background:var(--amber-bg);border:1.5px solid var(--amber)}
+.bif-lado.cf b{color:var(--amber)}
+.bif-lado.mp{background:var(--claro);border:1.5px solid var(--navy)}
+.bif-lado.mp b{color:var(--navy)}
+.bif-sinal{font-size:9.5px;font-weight:700;color:var(--muted);margin-top:4px}
+.bif-tag{display:inline-block;border-radius:6px;padding:3px 10px;font-size:10px;font-weight:800;margin-top:8px}
+.bif-tag.cf{background:var(--amber-mid);color:#92400E}
+.bif-tag.mp{background:#EFF6FF;color:var(--navy)}
+.bif-seta{display:flex;align-items:center;justify-content:center;color:var(--rosa);font-weight:900;font-size:18px}
+
+/* ── PERGUNTA DESTAQUE ── */
+.big-question{background:var(--navy);border-radius:14px;padding:28px 28px 24px;margin-bottom:16px;position:relative;overflow:hidden}
+.big-question::after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,56,198,.35),transparent 65%);pointer-events:none}
+.big-question>*{position:relative;z-index:1}
+.bq-label{font-size:9px;font-weight:800;letter-spacing:2.4px;text-transform:uppercase;color:var(--lima);margin-bottom:12px}
+.bq-text{font-size:20px;font-weight:900;color:#fff;line-height:1.25;letter-spacing:-.3px;margin-bottom:12px}
+.bq-text b{color:var(--lima)}
+.bq-note{font-size:12px;font-weight:600;color:rgba(255,255,255,.6);line-height:1.5}
+
+/* ── ROTA CARDS ── */
+.rota{border-radius:14px;padding:20px 22px;margin-bottom:16px;border:2px solid}
+.rota-label{font-size:9px;font-weight:900;letter-spacing:2.2px;text-transform:uppercase;margin-bottom:10px;display:block}
+.rota-title{font-size:15px;font-weight:800;margin-bottom:14px;line-height:1.3}
+.rota.cf{border-color:var(--amber);background:var(--amber-bg)}
+.rota.cf .rota-label,.rota.cf .rota-title{color:var(--amber)}
+.rota.mp{border-color:var(--navy);background:var(--claro)}
+.rota.mp .rota-label,.rota.mp .rota-title{color:var(--navy)}
+.signal-list{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.signal-list li{font-size:12.5px;font-weight:600;color:var(--texto);display:flex;align-items:baseline;gap:8px;line-height:1.45}
+.signal-list li::before{content:"";width:6px;height:6px;border-radius:50%;flex:0 0 6px}
+.rota.cf .signal-list li::before{background:var(--amber)}
+.rota.mp .signal-list li::before{background:var(--navy)}
+.disc-list{display:flex;flex-direction:column;gap:5px}
+.disc-item{font-size:12px;font-weight:600;color:var(--muted);padding:7px 10px;background:rgba(255,255,255,.6);
+  border-radius:7px;line-height:1.45}
+.disc-item b{font-weight:800}
+.acionar{display:inline-flex;align-items:center;gap:7px;border-radius:100px;padding:7px 14px;
+  font-size:11px;font-weight:800;margin-top:12px}
+.acionar.cf{background:var(--amber-mid);color:#92400E}
+.acionar.mp{background:#DBEAFE;color:var(--navy)}
+
+/* ── DECISORES ── */
+.dec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:860px){.dec-grid{grid-template-columns:1fr}}
+.dec-card{background:var(--claro);border:1px solid var(--borda);border-radius:12px;padding:16px 16px 14px}
+.dec-role{font-size:8.5px;font-weight:900;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.dec-name{font-size:14px;font-weight:800;color:var(--navy);margin-bottom:8px}
+.dec-body{font-size:12px;font-weight:600;color:var(--muted);line-height:1.5;margin-bottom:8px}
+.dec-arg{font-size:12px;font-weight:700;color:var(--texto)}
+.dec-arg::before{content:"→ ";color:var(--rosa);font-weight:900}
+.dec-card.primary{border-color:var(--rosa);background:#fff5fb}
+.dec-card.primary .dec-role{color:var(--rosa)}
+
+/* ── OBJECTION FILTER ── */
+.filter-bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.filt-btn{border:1.5px solid var(--borda);background:var(--card);color:var(--muted);font-family:inherit;
+  font-size:11px;font-weight:700;border-radius:100px;padding:8px 16px;cursor:pointer;transition:.14s;letter-spacing:.2px}
+.filt-btn:hover{border-color:var(--navy);color:var(--navy)}
+.filt-btn.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.filt-btn.on.rosa{background:var(--rosa);border-color:var(--rosa)}
+.filt-btn.on.amber{background:var(--amber);border-color:var(--amber)}
+.filt-btn.on.comp{background:#D97706;border-color:#D97706}
+
+/* ── OBJECTION CARD ── */
+.obj-card{background:var(--card);border:1px solid var(--borda);border-radius:14px;overflow:hidden;margin-bottom:12px}
+.obj-head{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--claro);
+  border-bottom:1px solid var(--borda);cursor:pointer;user-select:none}
+.obj-head:hover{background:#ebebf5}
+.obj-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:900;color:#fff;flex:0 0 28px}
+.obj-trigger{font-size:13px;font-weight:700;color:var(--texto);flex:1;line-height:1.35}
+.obj-tag{font-size:8.5px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;border-radius:100px;
+  padding:3px 10px;flex:0 0 auto}
+.obj-body{padding:16px 18px;font-size:13px;font-weight:600;color:#444;line-height:1.7;border-top:1px solid var(--borda);
+  background:#fff;display:none}
+.obj-body.open{display:block;animation:fadeup .25s both}
+.obj-label{font-size:8.5px;font-weight:900;letter-spacing:1.8px;text-transform:uppercase;color:var(--ciano);margin-bottom:8px}
+.obj-body blockquote{border-left:3px solid var(--ciano);border-radius:0 8px 8px 0;padding:12px 16px;
+  background:rgba(0,139,254,.04);font-size:12.5px;font-weight:600;color:#333;line-height:1.7;margin-bottom:12px}
+.warn-box{background:#FEF3C7;border:1px solid #D97706;border-radius:10px;padding:12px 14px;margin-top:8px}
+.warn-label{font-size:8px;font-weight:900;letter-spacing:1.8px;text-transform:uppercase;color:#D97706;margin-bottom:6px}
+.warn-text{font-size:11.5px;font-weight:600;color:#78350F;line-height:1.55}
+.tip-box{background:var(--verde-bg);border:1px solid var(--verde);border-radius:10px;padding:12px 14px;margin-top:8px}
+.tip-label{font-size:8px;font-weight:900;letter-spacing:1.8px;text-transform:uppercase;color:var(--verde);margin-bottom:6px}
+.tip-text{font-size:11.5px;font-weight:600;color:#14532D;line-height:1.55}
+
+/* ── DEMO ── */
+.demo-flow{border-radius:14px;padding:20px 22px;border:2px solid}
+.demo-flow.mp{border-color:var(--navy);background:var(--claro)}
+.demo-flow.cf{border-color:var(--amber);background:var(--amber-bg)}
+.demo-label{font-size:9px;font-weight:900;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;display:block}
+.demo-flow.mp .demo-label{color:var(--navy)}
+.demo-flow.cf .demo-label{color:var(--amber)}
+.demo-flow h3{font-size:15px;font-weight:800;margin-bottom:16px}
+.demo-flow.mp h3{color:var(--navy)}
+.demo-flow.cf h3{color:var(--amber)}
+.demo-steps{display:flex;flex-direction:column;gap:10px}
+.ds{display:flex;gap:13px;align-items:flex-start}
+.ds-n{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:900;color:#fff;flex:0 0 26px;margin-top:1px}
+.demo-flow.mp .ds-n{background:var(--navy)}
+.demo-flow.cf .ds-n{background:var(--amber)}
+.ds-t{font-size:13px;font-weight:600;color:var(--texto);line-height:1.55;padding-top:2px}
+.ds-t strong{font-weight:800}
+.demo-tip{border-left:3px solid;border-radius:0 8px 8px 0;padding:10px 14px;font-size:12.5px;
+  font-weight:600;line-height:1.55;margin-top:12px}
+.demo-flow.mp .demo-tip{border-color:var(--navy);background:rgba(10,10,147,.04);color:#333}
+.demo-flow.cf .demo-tip{border-color:var(--amber);background:var(--amber-mid);color:#78350F}
+
+/* ── FECHAMENTO ── */
+.proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--borda);border-radius:12px;overflow:hidden;margin-bottom:16px}
+@media(max-width:860px){.proof-grid{grid-template-columns:1fr 1fr}}
+.proof-item{padding:16px 14px;background:var(--card);border-right:1px solid var(--borda)}
+.proof-item:last-child{border-right:none}
+.proof-sector{font-size:8.5px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.proof-num{font-size:22px;font-weight:900;line-height:1;margin-bottom:4px}
+.proof-desc{font-size:10.5px;font-weight:700;color:var(--muted)}
+.proof-model{font-size:9.5px;font-weight:800;color:#fff;border-radius:4px;padding:2px 8px;
+  display:inline-block;margin-top:6px}
+
+.silvio-card{background:var(--navy);border-radius:14px;padding:22px 24px;margin-bottom:16px;position:relative;overflow:hidden}
+.silvio-card::after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,56,198,.35),transparent 65%);pointer-events:none}
+.silvio-card>*{position:relative;z-index:1}
+.silvio-label{font-size:9px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--lima);margin-bottom:10px}
+.silvio-title{font-size:16px;font-weight:900;color:#fff;margin-bottom:14px}
+.silvio-script{background:rgba(255,255,255,.08);border-left:3px solid var(--lima);border-radius:0 10px 10px 0;
+  padding:14px 18px;font-size:13px;font-weight:600;color:rgba(255,255,255,.88);line-height:1.7}
+.silvio-note{font-size:11px;font-weight:600;color:rgba(255,255,255,.5);margin-top:10px}
+
+.close-scripts{display:flex;flex-direction:column;gap:10px}
+.cs-item{background:var(--card);border:1px solid var(--borda);border-radius:12px;overflow:hidden}
+.cs-head{background:var(--navy);padding:10px 16px;font-size:11.5px;font-weight:700;color:rgba(255,255,255,.8)}
+.cs-head strong{color:#fff}
+.cs-body{padding:13px 16px;font-size:13px;font-weight:500;color:var(--texto);line-height:1.65;border-top:1px solid var(--borda)}
+
+/* ── NOVO VENDEDOR ── */
+.weeks{display:flex;flex-direction:column;gap:14px}
+.week-card{background:var(--card);border:1px solid var(--borda);border-radius:14px;overflow:hidden}
+.week-head{display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid var(--borda)}
+.week-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:900;color:#fff;flex:0 0 36px}
+.week-title{font-size:14px;font-weight:800;color:var(--navy)}
+.week-sub{font-size:11px;font-weight:600;color:var(--muted);margin-top:2px}
+.week-body{padding:16px 20px;display:flex;flex-direction:column;gap:8px}
+.week-task{display:flex;align-items:baseline;gap:11px;font-size:13px;font-weight:600;color:var(--texto);line-height:1.5}
+.week-task::before{content:"□";color:var(--muted);font-size:14px;flex:0 0 14px}
+.week-task b{color:var(--navy)}
+
+.grad-card{background:var(--verde-bg);border:1.5px solid var(--verde);border-radius:14px;padding:20px 22px;margin-top:4px}
+.grad-label{font-size:9px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--verde);margin-bottom:10px}
+.grad-title{font-size:15px;font-weight:800;color:#14532D;margin-bottom:14px}
+.grad-items{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.grad-item{display:flex;align-items:baseline;gap:10px;font-size:12.5px;font-weight:600;color:#14532D;line-height:1.45}
+.grad-item::before{content:"✓";color:var(--verde);font-weight:900;font-size:13px;flex:0 0 13px}
+
+/* ── ONBOARDING STEPPER ── */
+.ob-stepper{display:flex;align-items:flex-start;gap:0;margin-bottom:28px;position:relative}
+.ob-step{flex:1;display:flex;flex-direction:column;align-items:center;position:relative}
+.ob-step::after{content:'';position:absolute;top:18px;left:50%;width:100%;height:2px;background:var(--borda);z-index:0}
+.ob-step:last-child::after{display:none}
+.ob-step-dot{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;border:2px solid var(--borda);background:var(--fundo);color:var(--muted);z-index:1;transition:.3s;position:relative}
+.ob-step.done .ob-step-dot{background:#16A34A;border-color:#16A34A;color:#fff}
+.ob-step.active .ob-step-dot{background:var(--navy);border-color:var(--navy);color:#fff;box-shadow:0 0 0 4px rgba(10,10,147,.12)}
+.ob-step.done::after{background:#16A34A}
+.ob-step-label{font-size:9px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);margin-top:6px;text-align:center;line-height:1.3}
+.ob-step.done .ob-step-label{color:#16A34A}
+.ob-step.active .ob-step-label{color:var(--navy)}
+/* fundamentos */
+.fund-section{margin-bottom:24px}
+.fund-section-label{font-size:9px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--navy);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.fund-section-label::before{content:'';display:inline-block;width:3px;height:14px;background:var(--navy);border-radius:2px}
+.fund-cards{display:flex;flex-direction:column;gap:10px}
+.fund-card{background:var(--fundo);border:1.5px solid var(--borda);border-radius:12px;overflow:hidden}
+.fund-card-head{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;user-select:none}
+.fund-card-head:hover{background:var(--claro)}
+.fund-card-icon{font-size:18px;flex-shrink:0}
+.fund-card-title{font-size:12.5px;font-weight:800;color:var(--texto);flex:1}
+.fund-card-arrow{font-size:10px;color:var(--muted);transition:.2s}
+.fund-card.open .fund-card-arrow{transform:rotate(180deg)}
+.fund-card-body{display:none;padding:0 16px 16px}
+.fund-card.open .fund-card-body{display:block}
+.fund-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.fund-chip{font-size:10px;font-weight:700;padding:4px 11px;border-radius:20px;background:var(--claro);color:var(--navy);border:1px solid var(--borda)}
+.fund-chip.icp{background:#EFF6FF;color:var(--ciano);border-color:var(--ciano)}
+.fund-chip.anti{background:#fef2f2;color:#DC2626;border-color:#DC2626}
+.fund-chip.cf{background:#fffbeb;color:var(--amber);border-color:var(--amber)}
+.fund-quote{background:var(--claro);border-left:3px solid var(--navy);border-radius:0 8px 8px 0;padding:10px 14px;font-size:11.5px;font-weight:600;color:var(--texto);line-height:1.6;font-style:italic;margin-bottom:10px}
+.fund-list{list-style:none;display:flex;flex-direction:column;gap:5px}
+.fund-list li{font-size:11.5px;font-weight:600;color:var(--texto);padding-left:14px;position:relative;line-height:1.5}
+.fund-list li::before{content:'›';position:absolute;left:0;color:var(--navy);font-weight:900}
+.fund-model-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:6px}
+.fund-model{border-radius:10px;padding:12px;font-size:10.5px;font-weight:600;line-height:1.5}
+.fund-model-name{font-size:11px;font-weight:900;margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px}
+.fund-model.cd{background:#EFF6FF;color:var(--navy)}
+.fund-model.mp{background:#fff5fb;color:#c0209d}
+.fund-model.bpo{background:#fffbeb;color:var(--amber)}
+.fund-insight{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px 12px;font-size:11px;font-weight:600;color:#15803d;line-height:1.5;margin-top:10px}
+.fund-insight strong{color:#166534}
+.fund-done-btn{margin-top:16px;display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;border:0;border-radius:8px;font-family:inherit;font-size:11px;font-weight:800;padding:10px 20px;cursor:pointer;transition:.15s}
+.fund-done-btn:hover{background:#08087a}
+.fund-done-btn.done{background:#16A34A;cursor:default}
+.fund-link{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:var(--navy);text-decoration:none;padding:8px 14px;border:1.5px solid var(--navy);border-radius:8px;margin-top:10px;transition:.15s}
+.fund-link:hover{background:var(--navy);color:#fff}
+/* material study cards */
+.mat-study-list{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.mat-card{display:flex;align-items:center;gap:14px;background:var(--fundo);border:1.5px solid var(--borda);border-radius:12px;padding:14px 16px;transition:.2s}
+.mat-card.checked{border-color:#16A34A;background:#f0fdf4}
+.mat-num{width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mat-card.checked .mat-num{background:#16A34A}
+.mat-info{flex:1;min-width:0}
+.mat-name{font-size:12.5px;font-weight:800;color:var(--texto);margin-bottom:2px}
+.mat-desc{font-size:10.5px;font-weight:600;color:var(--muted);line-height:1.4}
+.mat-card.checked .mat-name{color:#15803d}
+.mat-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.mat-go-btn{font-size:10px;font-weight:800;padding:6px 12px;background:var(--claro);border:1.5px solid var(--borda);border-radius:6px;cursor:pointer;color:var(--navy);font-family:inherit;white-space:nowrap;transition:.15s}
+.mat-go-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.mat-check{width:20px;height:20px;accent-color:#16A34A;cursor:pointer;flex-shrink:0}
+/* ── ONBOARDING WIZARD PAGES ── */
+.ob-page{display:none}
+.ob-page.ob-active{display:block}
+.ob-page-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:24px}
+.ob-page-nav-btn{display:inline-flex;align-items:center;gap:7px;border-radius:10px;font-family:inherit;font-size:12.5px;font-weight:800;padding:11px 22px;cursor:pointer;transition:.15s;border:none;line-height:1}
+.ob-page-nav-btn.primary{background:var(--navy);color:#fff}
+.ob-page-nav-btn.primary:hover{background:#08087a}
+.ob-page-nav-btn.primary.done{background:#16A34A;cursor:default}
+.ob-page-nav-btn.ghost{background:none;color:var(--muted);border:1.5px solid var(--borda)}
+.ob-page-nav-btn.ghost:hover{border-color:var(--navy);color:var(--navy);background:var(--claro)}
+/* ── QUIZ ── */
+.quiz-wrap{margin-top:20px;border:1.5px solid var(--borda);border-radius:16px;overflow:hidden}
+.quiz-header{background:var(--navy);padding:18px 24px;display:flex;align-items:center;gap:12px}
+.quiz-header-icon{font-size:20px}
+.quiz-header-title{font-size:13px;font-weight:900;color:#fff;letter-spacing:.2px}
+.quiz-header-sub{font-size:10px;font-weight:600;color:rgba(255,255,255,.6);margin-top:2px}
+.quiz-progress{height:4px;background:rgba(255,255,255,.15);border-radius:0}
+.quiz-progress-bar{height:100%;background:var(--lima);border-radius:0;transition:.4s}
+.quiz-body{padding:20px 24px;display:flex;flex-direction:column;gap:20px}
+.quiz-q{display:flex;flex-direction:column;gap:8px}
+.quiz-q-label{font-size:9px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.quiz-q-text{font-size:13px;font-weight:700;color:var(--texto);line-height:1.5}
+.quiz-options{display:flex;flex-direction:column;gap:6px}
+.quiz-opt{display:flex;align-items:center;gap:10px;padding:9px 13px;border:1.5px solid var(--borda);border-radius:8px;cursor:pointer;transition:.15s;background:var(--fundo)}
+.quiz-opt:hover{border-color:var(--navy);background:var(--claro)}
+.quiz-opt input{accent-color:var(--navy);width:14px;height:14px;cursor:pointer;flex-shrink:0}
+.quiz-opt span{font-size:12px;font-weight:600;color:var(--texto);line-height:1.4}
+.quiz-opt.correct{border-color:#16A34A;background:#f0fdf4}
+.quiz-opt.correct span{color:#15803d}
+.quiz-opt.wrong{border-color:#DC2626;background:#fef2f2}
+.quiz-opt.wrong span{color:#DC2626}
+.quiz-opt.show-answer{border-color:#16A34A;background:#f0fdf4;opacity:.7}
+.quiz-opt.show-answer span{color:#15803d}
+.quiz-footer{padding:0 24px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.quiz-btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;border:0;border-radius:8px;font-family:inherit;font-size:12px;font-weight:800;padding:11px 24px;cursor:pointer;transition:.15s}
+.quiz-btn:hover{background:#08087a;transform:translateY(-1px)}
+.quiz-btn.secondary{background:var(--claro);color:var(--navy);border:1.5px solid var(--navy)}
+.quiz-btn.secondary:hover{background:var(--navy);color:#fff}
+.quiz-result-msg{font-size:12px;font-weight:700;color:var(--muted)}
+.quiz-result-msg.erros{color:#DC2626}
+/* tela de aprovação */
+.quiz-pass{padding:32px 24px;text-align:center;display:none}
+.quiz-pass.show{display:block}
+.quiz-pass-badge{display:inline-flex;flex-direction:column;align-items:center;gap:10px;background:linear-gradient(135deg,#0A0A93 0%,#1a1aa0 100%);border-radius:20px;padding:28px 36px;margin-bottom:18px}
+.quiz-pass-icon{font-size:40px}
+.quiz-pass-title{font-size:18px;font-weight:900;color:#BDE44E;letter-spacing:.3px}
+.quiz-pass-sub{font-size:11px;font-weight:700;color:rgba(255,255,255,.75);margin-top:4px}
+.quiz-pass-checks{display:flex;flex-direction:column;gap:7px;text-align:left;margin:0 auto 18px;max-width:400px}
+.quiz-pass-check{display:flex;align-items:flex-start;gap:8px;font-size:12px;font-weight:600;color:var(--texto);line-height:1.45}
+.quiz-pass-check::before{content:'✓';font-weight:900;color:#16A34A;flex-shrink:0;margin-top:1px}
+.quiz-pass-retry{font-size:11px;color:var(--muted);text-decoration:underline;cursor:pointer;background:none;border:0;font-family:inherit;padding:0}
+.quiz-pass-retry:hover{color:var(--navy)}
+
+/* ── ONE PAGER SCREEN ── */
+.op-toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px}
+.op-toolbar-label{font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.op-print-btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;border:0;border-radius:8px;font-family:inherit;font-size:11px;font-weight:800;padding:10px 20px;cursor:pointer;letter-spacing:.2px;transition:.15s}
+.op-print-btn:hover{background:#08087a;transform:translateY(-1px)}
+.op-copy-btn{display:inline-flex;align-items:center;gap:8px;background:var(--claro);color:var(--navy);border:1.5px solid var(--navy);border-radius:8px;font-family:inherit;font-size:11px;font-weight:800;padding:10px 20px;cursor:pointer;letter-spacing:.2px;transition:.15s}
+.op-copy-btn:hover{background:var(--navy);color:#fff}
+.op-cat-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px;padding:12px 14px;background:#EFF6FF;border-radius:10px;border:1px solid #c7d9f5}
+.op-cat-lbl{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.op-cat-btn{font-family:inherit;font-size:11px;font-weight:700;padding:7px 14px;border-radius:20px;border:1.5px solid var(--navy);background:#fff;color:var(--navy);cursor:pointer;transition:.15s;white-space:nowrap}
+.op-cat-btn.active{background:var(--navy);color:#fff}
+.op-cat-btn:hover{background:var(--navy);color:#fff}
+.op-copy-btn.loading{opacity:.6;pointer-events:none}
+.op-btn-group{display:flex;gap:8px;flex-wrap:wrap}
+/* toast */
+#op-toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#16A34A;color:#fff;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:800;padding:10px 22px;border-radius:100px;opacity:0;pointer-events:none;transition:.25s;z-index:9999}
+#op-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ── ONE PAGER CONTENT (scoped) ── */
+#op-wrap{background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 8px 40px rgba(10,10,147,.15);max-width:860px}
+#op-wrap *{box-sizing:border-box;margin:0;padding:0}
+#op-wrap .op-hero{background:#0A0A93;padding:36px 48px 32px;position:relative;overflow:hidden}
+#op-wrap .op-hero::after{content:'';position:absolute;right:-60px;top:-80px;width:300px;height:300px;border-radius:50%;background:rgba(255,56,198,.08);pointer-events:none}
+#op-wrap .op-brand{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:900;letter-spacing:4px;text-transform:uppercase;color:#BDE44E;margin-bottom:14px}
+#op-wrap .op-headline{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:900;color:#fff;line-height:1.2;max-width:440px;margin-bottom:10px}
+#op-wrap .op-headline em{font-style:normal;color:#FF38C6}
+#op-wrap .op-sub{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;color:rgba(255,255,255,.65);max-width:420px;line-height:1.6}
+#op-wrap .op-badge{position:absolute;right:48px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+#op-wrap .op-badge-item{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:10px 14px;text-align:right}
+#op-wrap .op-badge-val{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:900;color:#BDE44E;line-height:1}
+#op-wrap .op-badge-lbl{font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;color:rgba(255,255,255,.6);margin-top:3px}
+#op-wrap .op-cases{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:2px solid #f0f2f8}
+#op-wrap .op-case{padding:22px 24px;border-right:1px solid #f0f2f8;position:relative}
+#op-wrap .op-case:last-child{border-right:none}
+#op-wrap .op-case-bar{position:absolute;top:0;left:0;right:0;height:4px}
+#op-wrap .op-case-sector{font-family:'Montserrat',sans-serif;font-size:8px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:5px;margin-top:8px}
+#op-wrap .op-case-data{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;color:#333;line-height:1.55}
+#op-wrap .op-metrics{background:#0A0A93;display:grid;grid-template-columns:1fr 1fr 1fr 1fr}
+#op-wrap .op-metric{padding:20px 18px;border-right:1px solid rgba(255,255,255,.1);text-align:center}
+#op-wrap .op-metric:last-child{border-right:none}
+#op-wrap .op-metric-ey{font-family:'Montserrat',sans-serif;font-size:7px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px}
+#op-wrap .op-metric-val{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;color:#BDE44E;line-height:1;margin-bottom:3px}
+#op-wrap .op-metric-lbl{font-family:'Montserrat',sans-serif;font-size:8.5px;font-weight:700;color:rgba(255,255,255,.75);line-height:1.4}
+#op-wrap .op-how{padding:24px 48px 20px;border-bottom:2px solid #f0f2f8}
+#op-wrap .op-how-title{font-family:'Montserrat',sans-serif;font-size:8px;font-weight:900;letter-spacing:2.5px;text-transform:uppercase;color:#008BFE;margin-bottom:16px}
+#op-wrap .op-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+#op-wrap .op-step{position:relative;padding-right:20px}
+#op-wrap .op-step:last-child{padding-right:0}
+#op-wrap .op-step::after{content:'';position:absolute;right:0px;top:9px;width:18px;height:12px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 12'%3E%3Cline x1='1' y1='6' x2='14' y2='6' stroke='%23c0c8e0' stroke-width='1.8' stroke-linecap='round'/%3E%3Cpolyline points='9,1 14,6 9,11' fill='none' stroke='%23c0c8e0' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-size:contain}
+#op-wrap .op-step:last-child::after{display:none}
+#op-wrap .op-step-num{width:26px;height:26px;border-radius:50%;background:#0A0A93;color:#BDE44E;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;margin-bottom:7px}
+#op-wrap .op-step-text{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;color:#333;line-height:1.4}
+#op-wrap .op-step-sub{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;color:#888;line-height:1.4;margin-top:2px}
+#op-wrap .op-cats{padding:20px 48px 18px;border-bottom:2px solid #f0f2f8;display:flex;align-items:flex-start;gap:36px}
+#op-wrap .op-cats-title{font-family:'Montserrat',sans-serif;font-size:8px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#008BFE;margin-bottom:12px}
+#op-wrap .op-cats-note{font-family:'Montserrat',sans-serif;font-size:9.5px;font-weight:600;color:#555;line-height:1.55;max-width:200px;flex-shrink:0}
+#op-wrap .op-cat-grid{flex:1;display:flex;flex-wrap:wrap;gap:7px}
+#op-wrap .op-chip{font-family:'Montserrat',sans-serif;background:#f0f4ff;border:1.5px solid #d0d8ff;border-radius:20px;padding:4px 11px;font-size:9.5px;font-weight:700;color:#0A0A93}
+#op-wrap .op-chip.hl{background:#BDE44E;border-color:#BDE44E;color:#2d5500}
+#op-wrap .op-footer{background:#0A0A93;padding:22px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+#op-wrap .op-footer-brand{display:flex;flex-direction:column;gap:5px}
+#op-wrap .op-footer-logo{font-family:'Montserrat',sans-serif;font-size:32px;font-weight:900;color:#fff;letter-spacing:-1.5px;line-height:1}
+#op-wrap .op-footer-logo span{color:#BDE44E}
+#op-wrap .op-footer-tagline{font-family:'Montserrat',sans-serif;font-size:8.5px;font-weight:600;color:rgba(255,255,255,.5);letter-spacing:.4px}
+#op-wrap .op-footer-contact-lbl{font-family:'Montserrat',sans-serif;font-size:7.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:4px;text-align:right}
+#op-wrap .op-footer-contact-info{font-family:'Montserrat',sans-serif;font-size:9.5px;font-weight:700;color:rgba(255,255,255,.85);line-height:1.6;text-align:right}
+#op-wrap .op-footer-contact-info a{color:#BDE44E;text-decoration:none}
+#op-wrap .op-confidential{font-family:'Montserrat',sans-serif;font-size:8.5px;font-weight:700;color:#9da0b8;letter-spacing:.8px;text-align:center;padding:10px 0}
+
+/* ── PRINT ── */
+@media print{
+  @page{size:A4 landscape;margin:0}
+  html,body{overflow:visible!important;height:auto!important;margin:0!important;padding:0!important;background:#fff!important}
+  aside,.topbar{display:none!important}
+  .app{display:block!important;height:auto!important}
+  .main{overflow:visible!important;height:auto!important;display:block!important}
+  .canvas{overflow:visible!important;height:auto!important;padding:0!important}
+  .screen{display:none!important}
+  #s-onepager{display:block!important;padding:0!important;max-width:none!important;animation:none!important}
+  #s-onepager > .back-btn,
+  #s-onepager > .ph,
+  #s-onepager > .ps,
+  #s-onepager > .op-toolbar,
+  #s-onepager > .warn-box,
+  #s-onepager > .op-cat-bar,
+  #s-onepager > .card{display:none!important}
+  #s-onepager > div{padding:0!important;background:transparent!important;border-radius:0!important;margin:0!important}
+  #op-wrap{max-width:none!important;width:100%!important;box-shadow:none!important;border-radius:0!important}
+}
+
+/* ── FLUXOGRAMA EMBUTIDO (escopo #s-flux) ── */
+#s-flux .page-header{text-align:center;margin-bottom:36px}
+#s-flux .page-header .eyebrow{font-size:11px;font-weight:800;letter-spacing:4px;color:#008BFE;text-transform:uppercase;margin-bottom:8px}
+#s-flux .page-header h1{font-size:26px;font-weight:900;color:#0A0A93}
+#s-flux .page-header p{font-size:12px;font-weight:600;color:#777;margin-top:6px}
+#s-flux .revision-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #BDE44E;border-radius:20px;padding:5px 14px;font-size:10px;font-weight:800;color:#5a8a00;text-transform:uppercase;letter-spacing:.5px;margin-top:12px}
+#s-flux .revision-badge::before{content:"✓";font-size:11px;color:#5a8a00}
+#s-flux .legend{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:36px}
+#s-flux .legend-item{display:flex;align-items:center;gap:7px;background:#fff;border-radius:8px;padding:7px 12px;box-shadow:0 2px 8px rgba(0,0,0,.07)}
+#s-flux .legend-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0}
+#s-flux .legend-label{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:#333}
+#s-flux .legend-desc{font-size:10px;font-weight:600;color:#888}
+#s-flux .swim-wrapper{max-width:1080px;margin:0 auto;display:flex;flex-direction:column}
+#s-flux .stage-row{display:flex;align-items:stretch}
+#s-flux .lane-col{width:138px;min-width:138px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:12px 10px;border-right:2px solid #e0e4f0;position:relative}
+#s-flux .lane-bar{width:4px;border-radius:4px;position:absolute;left:12px;top:0;bottom:0}
+#s-flux .lb-mkt{background:#6C3FC5}
+#s-flux .lb-comercial{background:#0A0A93}
+#s-flux .lb-com-prev{background:linear-gradient(180deg,#0A0A93 50%,#FF38C6 50%)}
+#s-flux .lb-prevendas{background:#FF38C6}
+#s-flux .lb-ps{background:#008BFE}
+#s-flux .lb-kam{background:#BDE44E}
+#s-flux .role-chip{font-size:9px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;padding:4px 9px;border-radius:20px;white-space:nowrap;text-align:center;position:relative;z-index:1}
+#s-flux .rc-mkt{background:#6C3FC5;color:#fff}
+#s-flux .rc-comercial{background:#0A0A93;color:#fff}
+#s-flux .rc-prevendas{background:#FF38C6;color:#fff}
+#s-flux .rc-ps{background:#008BFE;color:#fff}
+#s-flux .rc-kam{background:#BDE44E;color:#0A0A93}
+#s-flux .rc-or{font-size:8px;color:#aaa;font-weight:700}
+#s-flux .content-col{flex:1;display:flex;flex-direction:column;align-items:center;padding:12px 0 12px 24px}
+#s-flux .arrow-row{display:flex;align-items:stretch}
+#s-flux .arrow-lane-spacer{width:138px;min-width:138px;border-right:2px solid #e0e4f0}
+#s-flux .arrow-content{flex:1;display:flex;flex-direction:column;align-items:center;padding-left:24px}
+#s-flux .arrow{width:2px;height:26px;background:#0A0A93;position:relative;margin:0 auto}
+#s-flux .arrow::after{content:"";position:absolute;bottom:-7px;left:50%;transform:translateX(-50%);border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid #0A0A93}
+#s-flux .arrow-pink{background:#FF38C6}
+#s-flux .arrow-pink::after{border-top-color:#FF38C6}
+#s-flux .connector-label{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#aaa;text-align:center;margin:2px 0}
+#s-flux .section-label{font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#008BFE;text-align:center;margin-bottom:8px;width:100%}
+#s-flux .node{border-radius:12px;padding:14px 22px;text-align:center;width:100%}
+#s-flux .node-title{font-size:12.5px;font-weight:800;letter-spacing:.3px;text-transform:uppercase}
+#s-flux .node-sub{font-size:10.5px;font-weight:600;margin-top:5px;opacity:.85;line-height:1.55}
+#s-flux .node-start{background:#0A0A93;color:#fff;border-radius:50px;padding:12px 40px;box-shadow:0 4px 20px rgba(10,10,147,.35);width:auto}
+#s-flux .node-icp{background:#fff;border:3px solid #0A0A93;color:#0A0A93;max-width:560px;box-shadow:0 2px 12px rgba(10,10,147,.1)}
+#s-flux .node-disc{background:#008BFE;color:#fff;max-width:560px;box-shadow:0 4px 16px rgba(0,139,254,.3)}
+#s-flux .node-demo{background:#BDE44E;color:#0A0A93;max-width:560px;box-shadow:0 4px 16px rgba(189,228,78,.4)}
+#s-flux .node-prop{background:#0A0A93;color:#fff;max-width:560px;box-shadow:0 4px 20px rgba(10,10,147,.3)}
+#s-flux .node-leads{background:#fff;border:2.5px solid #0A0A93;color:#0A0A93;border-radius:50px;padding:11px 36px;box-shadow:0 2px 10px rgba(10,10,147,.12);width:auto;margin-top:6px}
+#s-flux .node-leads .node-title{font-size:12px}
+#s-flux .dual-entry{display:flex;gap:16px;width:100%;align-items:flex-start}
+#s-flux .dual-entry-card{flex:1;border-radius:14px;padding:18px;min-width:200px;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+#s-flux .de-mkt{background:#6C3FC5;color:#fff}
+#s-flux .de-hunter{background:#0A0A93;color:#fff}
+#s-flux .de-card-badge{font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border-radius:20px;display:inline-block;margin-bottom:9px;background:rgba(255,255,255,.22);color:#fff}
+#s-flux .de-card-title{font-size:13.5px;font-weight:800;margin-bottom:8px}
+#s-flux .de-card-list{list-style:none}
+#s-flux .de-card-list li{font-size:10.5px;font-weight:600;padding:2px 0 2px 13px;position:relative;line-height:1.5}
+#s-flux .de-card-list li::before{content:"›";position:absolute;left:0;font-weight:900;color:#BDE44E}
+#s-flux .dual-or{flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:#aaa;text-transform:uppercase;letter-spacing:2px;padding:0 4px;margin-top:40px}
+#s-flux .dual-merge{display:flex;width:70%;max-width:640px;margin:0 auto;justify-content:space-around}
+#s-flux .dual-merge-v{width:2px;height:18px;background:#0A0A93}
+#s-flux .merge-h{width:70%;max-width:640px;border-top:2px solid #0A0A93;margin:0 auto}
+#s-flux .sectors-strip{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;width:100%;margin-top:10px}
+#s-flux .sector-tag{font-size:9.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;border-radius:20px;background:#fff;color:#0A0A93;border:1.5px solid #0A0A93}
+#s-flux .sector-tag.growth{background:#BDE44E;color:#0A0A93;border-color:#BDE44E}
+#s-flux .decisores-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;width:100%}
+#s-flux .decisor-card{background:#fff;border-radius:10px;padding:13px 14px;flex:1;min-width:155px;max-width:195px;border-top:4px solid;box-shadow:0 2px 10px rgba(0,0,0,.08);text-align:center}
+#s-flux .decisor-card .dc-icon{font-size:20px;margin-bottom:5px}
+#s-flux .decisor-card .dc-role{font-size:11px;font-weight:800;color:#0A0A93;text-transform:uppercase}
+#s-flux .decisor-card .dc-desc{font-size:10px;font-weight:600;color:#555;margin-top:4px;line-height:1.4}
+#s-flux .dc-compras{border-color:#0A0A93}
+#s-flux .dc-ti{border-color:#008BFE}
+#s-flux .dc-cfo{border-color:#FF38C6}
+#s-flux .models-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;width:100%}
+#s-flux .model-card{border-radius:14px;padding:16px;flex:1;min-width:200px;max-width:255px;box-shadow:0 4px 18px rgba(0,0,0,.12)}
+#s-flux .model-card .badge{font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border-radius:20px;display:inline-block;margin-bottom:8px;background:rgba(255,255,255,.22);color:#fff}
+#s-flux .model-card h3{font-size:13px;font-weight:800;margin-bottom:7px;line-height:1.3}
+#s-flux .model-card ul{list-style:none}
+#s-flux .model-card ul li{font-size:10.5px;font-weight:600;padding:2px 0 2px 13px;position:relative;line-height:1.5}
+#s-flux .model-card ul li::before{content:"›";position:absolute;left:0;font-weight:900;color:#BDE44E}
+#s-flux .model-direta{background:#0A0A93;color:#fff}
+#s-flux .model-marketplace{background:#FF38C6;color:#fff}
+#s-flux .model-bpo{background:#008BFE;color:#fff}
+#s-flux .merge-line{width:72%;max-width:660px;border-top:2px solid #0A0A93;margin:0 auto}
+#s-flux .objections-row{display:flex;gap:11px;justify-content:center;flex-wrap:wrap;width:100%}
+#s-flux .obj-card{background:#fff;border-radius:10px;padding:12px 13px;flex:1;min-width:145px;max-width:185px;border-left:4px solid #FF38C6;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+#s-flux .obj-card .obj-label{font-size:10px;font-weight:800;color:#FF38C6;text-transform:uppercase;margin-bottom:4px}
+#s-flux .obj-card .obj-resp{font-size:10px;font-weight:600;color:#333;line-height:1.45}
+#s-flux .wl-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;width:100%}
+#s-flux .wl-card{border-radius:12px;padding:15px 18px;flex:1;min-width:190px;max-width:280px}
+#s-flux .wl-win{background:#BDE44E;color:#0A0A93}
+#s-flux .wl-lose{background:#fff;color:#0A0A93;border:2px dashed #ccc}
+#s-flux .wl-card h4{font-size:12px;font-weight:800;text-transform:uppercase;margin-bottom:7px}
+#s-flux .wl-card ul{list-style:none}
+#s-flux .wl-card ul li{font-size:10px;font-weight:600;padding:2px 0 2px 12px;position:relative;line-height:1.4}
+#s-flux .wl-card ul li::before{content:"›";position:absolute;left:0;font-weight:900}
+#s-flux .wl-win ul li::before{color:#0A0A93}
+#s-flux .wl-lose ul li::before{color:#FF38C6}
+#s-flux .handoff-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;width:100%}
+#s-flux .handoff-card{flex:1;min-width:220px;max-width:300px;border-radius:14px;padding:18px;box-shadow:0 4px 18px rgba(0,0,0,.12)}
+#s-flux .hc-ps{background:#008BFE;color:#fff}
+#s-flux .hc-kam{background:#BDE44E;color:#0A0A93}
+#s-flux .handoff-card .hc-badge{font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border-radius:20px;display:inline-block;margin-bottom:9px}
+#s-flux .hc-ps .hc-badge{background:rgba(255,255,255,.2);color:#fff}
+#s-flux .hc-kam .hc-badge{background:rgba(10,10,147,.12);color:#0A0A93}
+#s-flux .handoff-card h3{font-size:13.5px;font-weight:800;margin-bottom:8px;line-height:1.3}
+#s-flux .handoff-card ul{list-style:none}
+#s-flux .handoff-card ul li{font-size:10.5px;font-weight:600;padding:2px 0 2px 13px;position:relative;line-height:1.5}
+#s-flux .handoff-card ul li::before{content:"›";position:absolute;left:0;font-weight:900}
+#s-flux .hc-ps ul li::before{color:#BDE44E}
+#s-flux .hc-kam ul li::before{color:#0A0A93}
+#s-flux .badge-source{font-size:10px;font-weight:700;color:#aaa;text-align:center;margin-top:48px;line-height:1.8}
+#s-flux .badge-source span{color:#0A0A93;font-weight:800}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- ═══ SIDEBAR ═══ -->
+<aside>
+  <div class="logo">
+    <div class="logo-mark">me<b>.</b></div>
+    <div class="logo-sub">Sales Kit</div>
+  </div>
+  <nav>
+    <button class="ni on" id="n-home" onclick="go('home')">
+      <span class="dot"></span>Home
+    </button>
+    <div class="nav-sec">Antes da venda</div>
+    <button class="ni" id="n-antes" onclick="go('antes')">
+      <span class="dot"></span>Antes da Call
+    </button>
+    <button class="ni" id="n-qualif" onclick="go('qualif')">
+      <span class="dot"></span>Qualificação
+    </button>
+
+    <div class="nav-sec">Na call</div>
+    <button class="ni" id="n-obj" onclick="go('obj')">
+      <span class="dot"></span>Objeção
+    </button>
+    <button class="ni" id="n-demo" onclick="go('demo')">
+      <span class="dot"></span>Demo
+    </button>
+
+    <div class="nav-sec">Fechar</div>
+    <button class="ni" id="n-fech" onclick="go('fech')">
+      <span class="dot"></span>Fechamento
+    </button>
+
+    <div class="nav-sec">Onboarding</div>
+    <button class="ni" id="n-novo" onclick="go('novo')">
+      <span class="dot"></span>Novo Vendedor
+    </button>
+
+    <div class="nav-sec">Material</div>
+    <button class="ni" id="n-onepager" onclick="go('onepager')">
+      <span class="dot"></span>One Pager
+    </button>
+    <button class="ni" id="n-flux" onclick="go('flux')">
+      <span class="dot"></span>Fluxograma
+    </button>
+  </nav>
+</aside>
+
+<!-- ═══ MAIN ═══ -->
+<div class="main">
+  <div class="topbar">
+    <div class="crumb"><b id="crumb">Home</b></div>
+    <div class="proto-badge"><i></i>USO INTERNO · NÃO COMPARTILHAR</div>
+  </div>
+  <div class="canvas">
+
+  <!-- ═══ HOME ═══ -->
+  <div class="screen on" id="s-home">
+    <div class="ph">O que você vai fazer hoje?</div>
+    <div class="ps">6 momentos de venda. O material certo para cada um.</div>
+    <div class="moment-grid">
+
+      <div class="moment" onclick="go('antes')">
+        <div class="mi" style="background:#EFF6FF;color:var(--ciano);">📋</div>
+        <h3>Antes da Call</h3>
+        <p>Pesquise o cliente, identifique o produto certo e prepare a abertura.</p>
+        <span class="mbadge" style="background:#EFF6FF;color:var(--ciano);">PREPARAÇÃO</span>
+        <div class="cover" style="background:var(--ciano)"></div>
+      </div>
+
+      <div class="moment" onclick="go('qualif')">
+        <div class="mi" style="background:var(--amber-mid);color:var(--amber);">🎯</div>
+        <h3>Qualificação</h3>
+        <p>Uma pergunta que bifurca o produto certo. Dois caminhos, dois roteiros.</p>
+        <span class="mbadge" style="background:var(--amber-mid);color:var(--amber);">DISCOVERY</span>
+        <div class="cover" style="background:var(--amber)"></div>
+      </div>
+
+      <div class="moment" onclick="go('obj')">
+        <div class="mi" style="background:#fff5fb;color:var(--rosa);">💬</div>
+        <h3>Objeção</h3>
+        <p>17 scripts prontos. Gerais, Marketplace, Compras Free e concorrentes.</p>
+        <span class="mbadge" style="background:#fff5fb;color:var(--rosa);">CAMPO</span>
+        <div class="cover" style="background:var(--rosa)"></div>
+      </div>
+
+      <div class="moment" onclick="go('demo')">
+        <div class="mi" style="background:#EFF6FF;color:var(--navy);">🖥</div>
+        <h3>Demo</h3>
+        <p>Fluxo por modelo. Marketplace Privado / Contratação Direta e Compras Free — separados.</p>
+        <span class="mbadge" style="background:#EFF6FF;color:var(--navy);">DEMONSTRAÇÃO</span>
+        <div class="cover" style="background:var(--navy)"></div>
+      </div>
+
+      <div class="moment" onclick="go('fech')">
+        <div class="mi" style="background:var(--amber-mid);color:var(--amber);">✅</div>
+        <h3>Fechamento</h3>
+        <p>Business case em 4 números, tática do executivo e scripts de encerramento.</p>
+        <span class="mbadge" style="background:var(--amber-mid);color:var(--amber);">CLOSE</span>
+        <div class="cover" style="background:var(--amber)"></div>
+      </div>
+
+      <div class="moment" onclick="go('novo')">
+        <div class="mi" style="background:var(--verde-bg);color:var(--verde);">🚀</div>
+        <h3>Onboarding</h3>
+        <p>O que estudar, em qual ordem e como se preparar para a primeira reunião.</p>
+        <span class="mbadge" style="background:var(--verde-bg);color:var(--verde);">NOVO VENDEDOR</span>
+        <div class="cover" style="background:var(--verde)"></div>
+      </div>
+
+    </div>
+
+    <div class="card" style="border-left:4px solid var(--verde);display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+      <div style="flex:1">
+        <div class="k" style="color:var(--verde)">Novo no time?</div>
+        <div style="font-size:13px;font-weight:600;color:var(--texto)">Comece pela trilha de onboarding — tem a sequência certa do que estudar e quando.</div>
+      </div>
+      <button class="btn" onclick="go('novo')" style="background:var(--verde);flex:0 0 auto">Iniciar onboarding →</button>
+    </div>
+  </div><!-- /home -->
+
+  <!-- ═══ ANTES DA CALL ═══ -->
+  <div class="screen" id="s-antes">
+    <button class="back-btn" onclick="go('home')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Home</button>
+    <div class="ph">Antes da Call</div>
+    <div class="ps">5 minutos de preparo evitam 30 minutos de call mal direcionada.</div>
+
+    <div class="card">
+      <span class="k" style="color:var(--ciano)">Checklist pré-call</span>
+      <div class="card-title" style="color:var(--ciano)">Pesquise antes de entrar</div>
+      <ul class="checklist">
+        <li class="cl-item"><div class="cl-num">1</div><span><strong>Identifique o modelo:</strong> o cliente tem perfil de Marketplace Privado, Compras Free ou Contratação Direta? Adapte o argumento antes de entrar.</span></li>
+        <li class="cl-item"><div class="cl-num">2</div><span><strong>Pesquise a empresa:</strong> setor, volume estimado de compras, ERP que usam (SAP? Totvs? Oracle?).</span></li>
+        <li class="cl-item"><div class="cl-num">3</div><span><strong>Qual o time de compras:</strong> buscou no LinkedIn se tem "Gerente de Compras" ou "Head de Procurement"? Se sim → Marketplace Privado / Cont. Direta. Se não → Compras Free.</span></li>
+        <li class="cl-item"><div class="cl-num">4</div><span><strong>Sabe quem decide:</strong> Gerente de Compras, CFO ou ambos? Identifique o champion e o assinante antes de entrar.</span></li>
+        <li class="cl-item"><div class="cl-num">5</div><span><strong>Prepare o argumento financeiro:</strong> qual referência de saving usar para o setor desse cliente? (ver Fechamento)</span></li>
+        <li class="cl-item"><div class="cl-num">6</div><span><strong>Revise 2 objeções prováveis</strong> para o perfil do cliente. Leva 2 minutos e evita travamento em call.</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="k" style="color:var(--ciano)">Bifurcação rápida</span>
+      <div class="card-title" style="color:var(--ciano)">Qual produto levar para essa call?</div>
+      <div class="bifurc">
+        <div class="bif-lado cf">
+          <b>→ Compras Free / BPO</b>
+          <p>Empresa sem área de compras estruturada ou com 1–3 pessoas tentando cobrir tudo. Quer terceirizar, não comprar ferramenta.</p>
+          <div class="bif-sinal">Sinal: "não tenho time pra isso" · "só eu cuido de compras aqui"</div>
+          <span class="bif-tag cf">→ Rota Compras Free</span>
+        </div>
+        <div class="bif-seta">↔</div>
+        <div class="bif-lado mp">
+          <b>→ Marketplace Privado / Contratação Direta</b>
+          <p>Empresa com time de compras existente que quer digitalizar o processo, reduzir lead time e/ou gerar rebate.</p>
+          <div class="bif-sinal">Sinal: "meu time trabalha em planilha" · "quero uma ferramenta"</div>
+          <span class="bif-tag mp">→ Marketplace / Cont. Direta</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="k" style="color:var(--ciano)">Abertura da call</span>
+      <div class="card-title" style="color:var(--ciano)">Duas perguntas que abrem espaço sem pressionar</div>
+      <div class="g2">
+        <div style="border:1.5px solid var(--borda);border-radius:10px;padding:16px">
+          <div style="font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Opção A — contexto</div>
+          <div style="font-size:13.5px;font-weight:600;color:var(--texto);line-height:1.6">"Me conta um pouco sobre como funciona o processo de compras de vocês hoje — do pedido até o pagamento."</div>
+          <div style="font-size:11px;font-weight:600;color:var(--muted);margin-top:8px">Use quando não sabe nada sobre o processo. A resposta vai te bifurcar em qual produto seguir.</div>
+        </div>
+        <div style="border:1.5px solid var(--borda);border-radius:10px;padding:16px">
+          <div style="font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Opção B — competitivo</div>
+          <div style="font-size:13.5px;font-weight:600;color:var(--texto);line-height:1.6">"Antes de começar — com quem vocês estão nos comparando? Quero entender se a comparação está sendo feita de igual para igual."</div>
+          <div style="font-size:11px;font-weight:600;color:var(--muted);margin-top:8px">Use quando sabe que há concorrente em avaliação. Coloca a narrativa nas suas mãos desde o início.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="border-left:4px solid var(--navy)">
+      <span class="k" style="color:var(--navy)">One Pager — quando usar no outbound</span>
+      <div class="card-title">O material serve antes da primeira reunião, não só depois</div>
+      <div class="g2" style="margin-top:8px">
+        <div style="border:1.5px solid var(--borda);border-radius:10px;padding:14px">
+          <div style="font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:6px">Outbound frio — antes da call</div>
+          <div style="font-size:12.5px;font-weight:600;color:var(--texto);line-height:1.55">"Você cuida de compras na [empresa]? Tenho um resumo de uma página com cases reais do setor — saving médio de 6–12%. Posso te mandar antes de conversarmos?"</div>
+          <div style="font-size:10.5px;font-weight:600;color:var(--muted);margin-top:8px">Use para criar ancoragem de credibilidade antes da primeira reunião. Filtra leads frios que não têm dor real.</div>
+        </div>
+        <div style="border:1.5px solid var(--borda);border-radius:10px;padding:14px">
+          <div style="font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:6px">Pós-reunião positiva</div>
+          <div style="font-size:12.5px;font-weight:600;color:var(--texto);line-height:1.55">"Vou te mandar uma síntese de uma página com os números que seu diretor vai querer ver: saving de clientes reais do mesmo setor e o modelo de ROI simplificado."</div>
+          <div style="font-size:10.5px;font-weight:600;color:var(--muted);margin-top:8px">Use quando o champion precisa escalar para o CFO. Ver tela <button onclick="go('onepager')" style="display:inline;background:none;border:none;padding:0;font-family:inherit;font-size:10.5px;font-weight:800;color:var(--navy);text-decoration:underline;cursor:pointer;">One Pager →</button></div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /antes -->
+
+  <!-- ═══ QUALIFICAÇÃO ═══ -->
+  <div class="screen" id="s-qualif">
+    <button class="back-btn" onclick="go('home')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Home</button>
+    <div class="ph">Qualificação</div>
+    <div class="ps">Uma pergunta resolve. Dois caminhos, dois produtos, dois discursos.</div>
+
+    <div class="big-question">
+      <div class="bq-label">A pergunta que bifurca tudo</div>
+      <div class="bq-text">"Você tem um time de compras hoje<br><b>ou você é o time?"</b></div>
+      <div class="bq-note">Se a resposta for "tem time" → Marketplace Privado / Contratação Direta. Se for "sou eu" ou "uma pessoa só" → Compras Free. Não avance no discurso antes de saber isso.</div>
+    </div>
+
+    <div class="g2">
+
+      <div class="rota cf">
+        <span class="rota-label">Rota Compras Free / BPO</span>
+        <div class="rota-title">A empresa não tem time — ou tem 1–2 pessoas</div>
+        <div style="font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:8px">Sinais de CF</div>
+        <ul class="signal-list">
+          <li>Sem área de compras estruturada</li>
+          <li>1–3 pessoas tentando cobrir tudo</li>
+          <li>Volume de pedidos com repetição (MRO, indiretos)</li>
+          <li>Quer terceirizar, não comprar ferramenta</li>
+          <li>Setor: energia, manufatura, serviços, agro</li>
+        </ul>
+        <div style="font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:8px">Perguntas de discovery</div>
+        <div class="disc-list">
+          <div class="disc-item"><b>Volume:</b> "Quantas compras por mês? Quais categorias?"</div>
+          <div class="disc-item"><b>Time:</b> "Quantas pessoas cuidam de compras hoje?"</div>
+          <div class="disc-item"><b>Dor:</b> "Quanto tempo você passa em cotações e pedidos operacionais?"</div>
+          <div class="disc-item"><b>Decisão:</b> "Quem aprovaria a terceirização?"</div>
+        </div>
+        <div style="margin-top:10px;background:rgba(16,163,74,.08);border:1px solid #86efac;border-radius:8px;padding:10px 12px">
+          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#16A34A;margin-bottom:5px">Prova de campo</div>
+          <div style="font-size:11.5px;font-weight:800;color:#166534;margin-bottom:4px">EDP — 8 anos · 1º cliente Compras Free ME</div>
+          <div style="font-size:10.5px;font-weight:600;color:#166534;line-height:1.55">R$181M transacionados · 12 mil pedidos · R$4,5M de economia · NPS Promotor · Renovação em 2025</div>
+        </div>
+      </div>
+
+      <div class="rota mp">
+        <span class="rota-label">Rota Marketplace Privado / Contratação Direta</span>
+        <div class="rota-title">A empresa tem time — e quer ferramenta</div>
+        <div style="font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:8px">Sinais de Marketplace Privado / Cont. Direta</div>
+        <ul class="signal-list">
+          <li>Time de compras existente (2+ pessoas)</li>
+          <li>Processo atual em planilha ou e-mail</li>
+          <li>Quer digitalizar e ganhar visibilidade</li>
+          <li>Volume relevante de compras (R$5M+/ano)</li>
+          <li>Interesse em reduzir custo da plataforma (MPP = R$0)</li>
+        </ul>
+        <div style="font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:8px">Perguntas de discovery</div>
+        <div class="disc-list">
+          <div class="disc-item"><b>Spend:</b> "Quanto vocês compram por ano? Quantos fornecedores ativos?"</div>
+          <div class="disc-item"><b>Processo:</b> "Como uma cotação acontece hoje do início ao fim?"</div>
+          <div class="disc-item"><b>ERP:</b> "Qual ERP usam? SAP, Totvs, Oracle?"</div>
+          <div class="disc-item"><b>Decisão:</b> "Quem participa da avaliação de uma ferramenta assim?"</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card" style="margin-top:16px;border-left:4px solid var(--amber)">
+      <span class="k" style="color:var(--amber)">Critério de corte — antes de agendar a demo</span>
+      <div class="card-title">3 perguntas obrigatórias. Se o lead não passar, agende uma call de discovery de 15 min antes da demo.</div>
+      <div class="g3" style="margin-top:8px">
+        <div style="border:1.5px solid var(--borda);border-radius:10px;padding:13px">
+          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:6px">Critério 1 — Volume</div>
+          <div style="font-size:12.5px;font-weight:700;color:var(--texto);line-height:1.5">"Qual o volume de compras da empresa por ano?"</div>
+          <div style="font-size:10.5px;font-weight:600;color:var(--muted);margin-top:6px">Mínimo recomendado: R$3M/ano para MPP · R$500k/ano para Compras Free (ticket mínimo R$3k/pedido)</div>
+        </div>
+        <div style="border:1.5px solid var(--borda);border-radius:10px;padding:13px">
+          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:6px">Critério 2 — Cadência</div>
+          <div style="font-size:12.5px;font-weight:700;color:var(--texto);line-height:1.5">"Quantos pedidos de compra a empresa faz por mês?"</div>
+          <div style="font-size:10.5px;font-weight:600;color:var(--muted);margin-top:6px">Mínimo recomendado: 20+ pedidos/mês. Abaixo disso, ROI de plataforma é difícil de justificar.</div>
+        </div>
+        <div style="border:1.5px solid var(--borda);border-radius:10px;padding:13px">
+          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:6px">Critério 3 — Decisor</div>
+          <div style="font-size:12.5px;font-weight:700;color:var(--texto);line-height:1.5">"Quem precisa aprovar a contratação?"</div>
+          <div style="font-size:10.5px;font-weight:600;color:var(--muted);margin-top:6px">Se o contato não sabe quem assina → não agende demo ainda. Peça que ele confirme antes.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <span class="k" style="color:var(--navy)">Mapeamento do decisor</span>
+      <div class="card-title">Quem está na sala e o que cada um precisa ouvir</div>
+      <div class="dec-grid">
+        <div class="dec-card primary">
+          <div class="dec-role">Champion · decisor operacional</div>
+          <div class="dec-name">Gerente de Compras</div>
+          <div class="dec-body">Sente a dor diretamente. É quem vai defender internamente. Quer resolver o problema operacional, não aprovar orçamento.</div>
+          <div class="dec-arg">Mostre como o processo muda na prática. Fale em horas e pedidos, não em percentuais.</div>
+        </div>
+        <div class="dec-card">
+          <div class="dec-role">Barreira técnica</div>
+          <div class="dec-name">TI</div>
+          <div class="dec-body">Avalia integração com ERP, segurança e LGPD. Pode travar a compra. Transforme em aliado com documentação técnica antes da reunião de TI.</div>
+          <div class="dec-arg">API com SAP, Totvs, Oracle. Convide para a próxima call.</div>
+        </div>
+        <div class="dec-card">
+          <div class="dec-role">Aprovação final</div>
+          <div class="dec-name">CFO / Diretor</div>
+          <div class="dec-body">Aprova o orçamento. Raramente participa das demos. Precisa ver ROI em números — não em funcionalidades. Última barreira antes do contrato.</div>
+          <div class="dec-arg">Deixe o one-pager executivo com ele. Proponha reunião executiva para avançar.</div>
+        </div>
+      </div>
+      <div style="margin-top:14px;background:#FEF3C7;border:1px solid var(--amber);border-radius:10px;padding:12px 14px">
+        <div style="font-size:8.5px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:6px">⚠️ Sinal de risco</div>
+        <div style="font-size:12.5px;font-weight:600;color:#78350F;line-height:1.55">Depois de 2 reuniões sem saber quem assina o contrato, a venda vai travar. Peça ao champion para escalar para o decisor — ofereça o <button onclick="go('onepager')" style="display:inline;background:none;border:none;padding:0;font-family:inherit;font-size:12.5px;font-weight:800;color:#92400E;text-decoration:underline;text-underline-offset:3px;cursor:pointer;">resumo executivo de 1 página</button> para ele fazer essa apresentação internamente.</div>
+      </div>
+    </div>
+  </div><!-- /qualif -->
+
+  <!-- ═══ OBJEÇÃO ═══ -->
+  <div class="screen" id="s-obj">
+    <button class="back-btn" onclick="go('home')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Home</button>
+    <div class="ph">Objeção</div>
+    <div class="ps">17 scripts. Clique para expandir o que você precisa agora.</div>
+
+    <div class="filter-bar">
+      <button class="filt-btn on" data-group="all" onclick="filterObj('all',this)">Todos (17)</button>
+      <button class="filt-btn" data-group="geral" onclick="filterObj('geral',this)">Gerais (4)</button>
+      <button class="filt-btn" data-group="mp" onclick="filterObj('mp',this)">Marketplace Privado (4)</button>
+      <button class="filt-btn" data-group="cf" onclick="filterObj('cf',this)" style="border-color:var(--amber);color:var(--amber)">Compras Free (4)</button>
+      <button class="filt-btn" data-group="comp" onclick="filterObj('comp',this)">Concorrentes (5)</button>
+    </div>
+
+    <!-- GERAL -->
+    <div class="obj-card" data-group="geral">
+      <div class="obj-head" onclick="toggleObj(this)">
+        <div class="obj-num" style="background:var(--navy)">1</div>
+        <div class="obj-trigger">"O preço está alto para o nosso momento"</div>
+        <div class="obj-tag" style="background:#EFF6FF;color:var(--navy)">#1 mais ouvida</div>
+      </div>
+      <div class="obj-body">
+        <div class="obj-label">Como responder</div>
+        <blockquote>"Antes de falarmos de valor — com quem você está nos comparando? Tem as mesmas funcionalidades? A comparação precisa ser honesta porque a diferença de escopo muda tudo. Se for a NIMBI, o processo dela é padrão; o ME se ajusta ao processo de vocês. Se o preço ainda estiver alto depois disso, me conta o momento: vocês não têm verba agora ou o orçamento foi para outra prioridade? A resposta muda como a gente pode ajudar."</blockquote>
+        <div class="warn-box">
+          <div class="warn-label">⚠️ Atenção — modelo de cobrança</div>
+          <div class="warn-text">O ME cobra por todos os usuários ativos, não só pelos compradores. Com 100+ usuários, a proposta pode parecer cara na comparação com ferramentas que cobram por comprador. Antes de enviar o valor, confirme quantas pessoas realmente usarão a plataforma.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="obj-card" data-group="geral">
+      <div class="obj-head" onclick="toggleObj(this)">
+        <div class="obj-num" style="background:var(--navy)">2</div>
+        <div class="obj-trigger">"Não temos orçamento aprovado agora"</div>
+        <div class="obj-tag" style="background:#EFF6FF;color:var(--navy)">Budget</div>
+      </div>
+      <div class="obj-body">
+        <div class="obj-label">Como responder</div>
+        <blockquote>"Se vocês ficarem mais 12 meses sem resolver o processo de compras, qual é o impacto para a operação? Se esse impacto for relevante, a conversa sobre budget muda. Posso mandar um resumo executivo de uma página para você apresentar internamente?"</blockquote>
+      </div>
+    </div>
+
+    <div class="obj-card" data-group="geral">
+      <div class="obj-head" onclick="toggleObj(this)">
+        <div class="obj-num" style="background:var(--navy)">3</div>
+        <div class="obj-trigger">"Precisamos envolver o TI antes de decidir"</div>
+        <div class="obj-tag" style="background:#EFF6FF;color:var(--navy)">TI</div>
+      </div>
+      <div class="obj-body">
+        <div class="obj-label">Como responder</div>
+        <blockquote>"Ótimo — quanto antes o TI entrar, melhor. O ME tem integração via API com os principais ERPs: SAP, Totvs, Oracle. Posso incluir o TI de vocês na próxima call? Quero que eles vejam a demo e conheçam a documentação técnica antes de qualquer dúvida virar bloqueio. Quanto mais cedo a gente converter o TI para o nosso lado, mais fácil fica o processo."</blockquote>
+      </div>
+    </div>
+
+    <div class="obj-card" data-group="geral">
+      <div class="obj-head" onclick="toggleObj(this)">
+        <div class="obj-num" style="background:var(--navy)">4</div>
+        <div class="obj-trigger">"Deixa eu apresentar para o meu diretor e te retorno"</div>
+        <div class="obj-tag" style="background:#EFF6FF;color:var(--navy)">Decisor</div>
+      </div>
+      <div class="obj-body">
+        <div class="obj-label">Como responder</div>
+        <blockquote>"Claro — posso te ajudar a preparar essa apresentação. Tenho um resumo executivo de uma página com os números que o diretor vai querer ver. E se fizer sentido, consigo trazer nossa diretoria comercial para uma reunião executiva: papo de diretoria para diretoria tende a acelerar a decisão. Você quer me incluir na reunião ou prefere receber o material antes?"</blockquote>
+        <div class="tip-box">
+          <div class="tip-label">✓ Por que funciona</div>
+          <div class="tip-text">Reunião executiva entre diretores tira o vendedor da posição de pressionar e coloca pares numa conversa de igual para igual. Funciona especialmente quando o decisor final ainda não conhece o ME.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MARKETPLACE PRIVADO -->
+    <div class="obj-card" data-group="mp">
+      <div class="obj-head" onclick="toggleObj(this)">
+        <div class="obj-num" style="background:#16A34A">5</div>
+        <div class="obj-trigger">"Nossos fornecedores não vão adotar uma nova plataforma"</div>
+        <div class="obj-tag" style="background:#DCFCE7;color:#14532D">Adoção · MPP</div>
+      </div>
+      <div class="obj-body">
+        <div class="obj-label">Como responder</div>
+        <blockquote>"O ME tem mais de 1 milhão de fornecedores ativos no ecossistema — a chance de os seus fornecedores já estarem lá é alta. Posso verificar agora quantos dos seus principais fornecedores já estão cadastrados? Isso muda completamente a percepção de esforço de adoção."</blockquote>
+      </div>
+    </div>
+
+    <div class="obj-card" data-group="mp">
+      <div class="obj-head" onclick="toggleObj(this)">
+        <div class="obj-num" style="background:#16A34A">6</div>
+        <div class="obj-trigger">"Temos contratos exclusivos, não podemos abrir concorrência"</div>
+        <div class="obj-tag" style="background:#DCFCE7;color:#14532D">Exclusividade · MPP</div>
+      </div>
+      <div class="obj-body">
+        <div class="obj-label">Como responder</div>
+        <blockquote>"O Marketplace Privado não substitui seus fornecedores estratégicos — eles continuam. O que ele faz é dar uma camada de controle e visibilidade sobre as transações que já acontecem. Para contratos de longa data, vocês continuam diretamente. Para as demais categorias, a cotação entra onde faz sentido."</blockquote>
+      </div>
+    </div>
+
+    <div class="obj-card" data-group="mp">
+      <div class="obj-head" onclick="toggleObj(this)">
+        <div class="obj-num" style="background:#16A34A">7</div>
+        <div class="obj-trigger">"O rebate parece interessante — qual é o valor real para nós?"</div>
+        <div class="obj-tag" style="background:#DCFCE7;color:#14532D">Rebate · MPP</div>
+      </div>
+      <div class="obj-body">
+        <div class="obj-label">Como responder</div>
+        <blockquote>"Uma referência real: um cliente com volume similar gerou mais de R$6,6 milhões em saving nas cotações em 12 meses — e o rebate do MPP adicionou entre R$500 mil e R$1 milhão em cima disso. Com R$0 de mensalidade para o comprador. O custo de não fazer isso não é zero — é o dinheiro que você deixa na mesa toda semana."</blockquote>
+        <div class="warn-box">
+          <div class="warn-label">⚠️ Quando usar este argumento</div>
+          <div class="warn-text">Não inicie o tema de rebate proativamente com todos os perfis. Em empresas com forte foco em compliance ou familiares, pode soar como "troca de favores". Use <strong>reativamente</strong> — quando o cliente perguntar, responda com os números.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="obj-card" data-group="mp">
+      <div class="obj-head" onclick="toggleObj(this)">
+        <div class="obj-num" style="background:#16A34A">8</div>
+        <div class="obj-trigger">"Se o fornecedor paga para entrar, vai repassar no preço"</div>
+        <div class="obj-tag" style="background:#DCFCE7;color:#14532D">Custo · MPP</div>
+      </div>
+      <div class="obj-body">
+        <div class="obj-label">Como responder</div>
+        <blockquote>"Os dados mostram o contrário. Quando um fornecedor sabe que está concorrendo com outros, ele coloca o melhor preço — não o mais alto. A concorrência pressiona o preço para baixo. É exatamente isso que gera o saving médio acima de 6% que vemos nos clientes."</blockquote>
+      </div>
+    </div>
+
+    <!-- COMPRAS FREE -->
+    <div class="obj-card" data-group="cf">
+      <div class="obj-head" onclick="toggleObj(this)">
+        <div class="obj-num" style="background:var(--amber)">9</div>
+        <div class="obj-trigger">"Já trabalhamos com Level Group / BPO e estamos satisfeitos"</div>
+        <div class="obj-tag" style="background:var(--amber-mid);color:#92400E">Compras Free</div>
+      </div>
+      <div class="obj-body">
+        <div class="obj-label">Como responder</div>
+        <blockquote>"Entendo — a Level é uma referência no mercado. Me conta uma coisa: hoje você tem visibilidade em tempo real do que está sendo cotado para você? Consegue ver o status de cada pedido sem precisar ligar para alguém? Com o ME, seu time interno entra no sistema e vê tudo — histórico completo, comparativo de preços, fornecedor escolhido. BPO tradicional raramente entrega essa transparência."</blockquote>
+      </div>
+    </div>
+
+    <div class="obj-card" data-group="cf">
+      <div class="obj-head" onclick="toggleObj(this)">
+        <div class="obj-num" style="background:var(--amber)">10</div>
+        <div class="obj-trigger">"O que vocês fazem de diferente de um BPO qualquer?"</div>
+        <div class="obj-tag" style="background:var(--amber-mid);color:#92400E">Compras Free</div>
+      </div>
+      <div class="obj-body">
+        <div class="obj-label">Como responder</div>
+        <blockquote>"A maioria dos BPOs opera com planilha e e-mail — e precisa de uma equipe grande para isso. A gente tem tecnologia própria, então consegue fazer com 5 pessoas o que outro BPO faz com 10. E o que muda para você: BI, rastreabilidade e histórico completo de cada cotação. Você não terceiriza só a operação, você ganha visibilidade do que está acontecendo."</blockquote>
+      </div>
+    </div>
+
+    <div class="obj-card" data-group="cf">
+      <div class="obj-head" onclick="toggleObj(this)">
+        <div class="obj-num" style="background:var(--amber)">11</div>
+        <div class="obj-trigger">Cliente não entende a diferença entre Compras Free e ter uma plataforma</div>
+        <div class="obj-tag" style="background:var(--amber-mid);color:#92400E">Compras Free</div>
+      </div>
+      <div class="obj-body">
+        <div class="obj-label">Como responder</div>
+        <blockquote>"Deixa eu separar para ficar claro: tem empresa que quer uma plataforma de compras para o próprio time usar — Marketplace Privado ou Contratação Direta. E tem empresa que não tem time de compras, ou tem uma pessoa só tentando cobrir tudo — aí o Compras Free é para você. Você não compra um sistema, você contrata a operação. Você fica com o resultado, a gente cuida do processo."</blockquote>
+      </div>
+    </div>
+
+    <div class="obj-card" data-group="cf">
+      <div class="obj-head" onclick="toggleObj(this)">
+        <div class="obj-num" style="background:var(--amber)">12</div>
+        <div class="obj-trigger">"Como funciona a transição? Fico com medo de perder o controle"</div>
+        <div class="obj-tag" style="background:var(--amber-mid);color:#92400E">Compras Free</div>
+      </div>
+      <div class="obj-body">
+        <div class="obj-label">Como responder</div>
+        <blockquote>"A gente começa mapeando as categorias de compra que você quer terceirizar — não precisa ser tudo de uma vez. Definimos juntos o que entra no escopo, como os pedidos chegam para a gente, e como você acompanha. A transição é gradual: primeiro rodamos em paralelo com o que você já tem, depois assumimos. Você mantém visibilidade de tudo pela plataforma."</blockquote>
+        <div class="warn-box">
+          <div class="warn-label">Atenção</div>
+          <div class="warn-text">Confirmar o processo exato de transição internamente antes de detalhar em call com cliente.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONCORRENTES -->
+    <div class="obj-card" data-group="comp">
+      <div class="obj-head" onclick="toggleObj(this)">
+        <div class="obj-num" style="background:#D97706">13</div>
+        <div class="obj-trigger">"A NIMBI é mais barata / já estamos avaliando a NIMBI"</div>
+        <div class="obj-tag" style="background:#FEF3C7;color:#92400E">NIMBI</div>
+      </div>
+      <div class="obj-body">
+        <div class="obj-label">Como responder</div>
+        <blockquote>"Faz sentido comparar. Com a NIMBI, o cliente fica preso no processo dela — se precisar adaptar ao ERP, criar categorias específicas ou integrar com mais de um sistema, esbarra em limitações. O ME se ajusta ao processo que vocês já têm. Na demo deles, pede para mostrar como a ferramenta se adapta ao processo de vocês — não o processo padrão deles. Aí vocês comparam de igual para igual."</blockquote>
+        <div class="tip-box">
+          <div class="tip-label">Onde o ME ganha</div>
+          <div class="tip-text">Integração com ERP · Processo adaptado ao cliente · Demo no sistema do cliente. Risco: investimento total pode ser menor com NIMBI para e-Procurement simples.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="obj-card" data-group="comp">
+      <div class="obj-head" onclick="toggleObj(this)">
+        <div class="obj-num" style="background:#D97706">14</div>
+        <div class="obj-trigger">"Nossa sede usa Coupa, vai ser difícil mudar"</div>
+        <div class="obj-tag" style="background:#FEF3C7;color:#92400E">Coupa</div>
+      </div>
+      <div class="obj-body">
+        <div class="obj-label">Como responder</div>
+        <blockquote>"O Coupa foi escolhido globalmente. Mas o que acontece com as operações locais que têm especificidades brasileiras? O ME pode operar em paralelo para fornecedores regionais, categorias não cobertas pelo global e MPP com rebate. Complementa — não substitui."</blockquote>
+        <div class="tip-box">
+          <div class="tip-label">Onde o ME ganha sobre o Coupa</div>
+          <div class="tip-text">Preço em R$ (Coupa cobra em USD) · Fornecedores regionais · Suporte em Português · Implantação mais rápida · ME divide rebate 50/50 com o cliente — Coupa fica com 100%.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="obj-card" data-group="comp">
+      <div class="obj-head" onclick="toggleObj(this)">
+        <div class="obj-num" style="background:#D97706">15</div>
+        <div class="obj-trigger">"Já usamos SAP — o Ariba faz sentido como extensão"</div>
+        <div class="obj-tag" style="background:#FEF3C7;color:#92400E">SAP Ariba</div>
+      </div>
+      <div class="obj-body">
+        <div class="obj-label">Como responder</div>
+        <blockquote>"O Ariba é nativo SAP — mas procurement no Brasil tem especificidades que o Ariba não cobre: ecossistema de fornecedores locais, MPP com rebate, suporte em português. O ME integra com o SAP de vocês e traz o que o Ariba não tem no contexto brasileiro."</blockquote>
+      </div>
+    </div>
+
+    <div class="obj-card" data-group="comp">
+      <div class="obj-head" onclick="toggleObj(this)">
+        <div class="obj-num" style="background:#D97706">16</div>
+        <div class="obj-trigger">"Estamos avaliando o GEP — eles estão no Gartner"</div>
+        <div class="obj-tag" style="background:#FEF3C7;color:#92400E">GEP</div>
+      </div>
+      <div class="obj-body">
+        <div class="obj-label">Como responder</div>
+        <blockquote>"Eles chegaram forte ao Brasil e têm um produto sólido na Europa. A entrada deles foi via análise estratégica — pela aquisição da CostDrives. O procurement operacional ainda está sendo integrado. O ME tem mais de 20 anos operando procurement no Brasil, com ecossistema de fornecedores construído localmente. Para a operação de vocês hoje, posso mostrar o que já funciona — não o que está sendo construído."</blockquote>
+      </div>
+    </div>
+
+    <div class="obj-card" data-group="comp">
+      <div class="obj-head" onclick="toggleObj(this)">
+        <div class="obj-num" style="background:#D97706">17</div>
+        <div class="obj-trigger">"No nosso setor todo mundo usa Comlink"</div>
+        <div class="obj-tag" style="background:#FEF3C7;color:#92400E">Comlink</div>
+      </div>
+      <div class="obj-body">
+        <div class="obj-label">Como responder</div>
+        <blockquote>"Eles são muito bons em serviços para o agronegócio — faz sentido essa percepção. Mas quando a operação vai além de serviços — MRO, materiais, contratos de fornecimento, integração com ERP — a Comlink tem limitações. O ME cobre todas as categorias numa única plataforma, com Marketplace Privado para reduzir custo e fornecedores que vocês já conhecem. Posso mostrar como clientes do setor usam isso na prática?"</blockquote>
+      </div>
+    </div>
+
+  </div><!-- /obj -->
+
+  <!-- ═══ DEMO ═══ -->
+  <div class="screen" id="s-demo">
+    <button class="back-btn" onclick="go('home')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Home</button>
+    <div class="ph">Demo</div>
+    <div class="ps">Dois produtos, dois fluxos. Nunca misture — a conversa é diferente.</div>
+
+    <div class="g2">
+
+      <div class="demo-flow mp">
+        <span class="demo-label">Marketplace Privado / Contratação Direta</span>
+        <h3>Transforme Compras em Centro de Lucro</h3>
+        <div class="demo-steps">
+          <div class="ds">
+            <div class="ds-n">1</div>
+            <div class="ds-t"><strong>Antes da demo:</strong> "Quanto vocês compram por ano? Quantos fornecedores ativos?" — calibra o que mostrar e já inicia a conversa de rebate.</div>
+          </div>
+          <div class="ds">
+            <div class="ds-n">2</div>
+            <div class="ds-t"><strong>Mostre o ecossistema:</strong> busque ao vivo um fornecedor do cliente dentro do portal ME. O impacto de ver o próprio fornecedor já lá é imediato.</div>
+          </div>
+          <div class="ds">
+            <div class="ds-n">3</div>
+            <div class="ds-t"><strong>Demonstre uma cotação:</strong> abra o mapa comparativo, mostre como funciona da cotação ao pedido em tempo real.</div>
+          </div>
+          <div class="ds">
+            <div class="ds-n">4</div>
+            <div class="ds-t"><strong>Convide para análise:</strong> "Posso fazer um estudo de caso com o spend de vocês? Apresentamos os resultados direto ao time Financeiro — é uma hora de reunião com números reais do setor."</div>
+          </div>
+          <div class="ds">
+            <div class="ds-n">5</div>
+            <div class="ds-t"><strong>Reforce o controle:</strong> "Fornecedores estratégicos podem ser isentos. O cliente decide quem entra e pode usar os valores do rebate como quiser."</div>
+          </div>
+        </div>
+        <div class="demo-tip"><strong>Frase de fechamento para o CFO:</strong> "Seus fornecedores já pagam para estar no ME. Com R$0 de mensalidade e rebate sobre cada transação, o custo de não fazer isso é o dinheiro que você deixa na mesa toda semana."</div>
+      </div>
+
+      <div class="demo-flow cf">
+        <span class="demo-label">Compras Free / BPO</span>
+        <h3>O ME assume o que seu time não dá conta</h3>
+        <div class="demo-steps">
+          <div class="ds">
+            <div class="ds-n">1</div>
+            <div class="ds-t"><strong>Antes da demo:</strong> "Quantas pessoas você tem em compras hoje? Qual o volume mensal de pedidos?" — calibra o escopo que será mostrado.</div>
+          </div>
+          <div class="ds">
+            <div class="ds-n">2</div>
+            <div class="ds-t"><strong>Abre um pedido:</strong> mostra como o cliente (requisitante) faz um pedido no sistema. O fluxo dele — não o da equipe ME.</div>
+          </div>
+          <div class="ds">
+            <div class="ds-n">3</div>
+            <div class="ds-t"><strong>Mostra a cotação em andamento:</strong> como a equipe ME gerencia, compara fornecedores, negocia — tudo visível para o cliente em tempo real.</div>
+          </div>
+          <div class="ds">
+            <div class="ds-n">4</div>
+            <div class="ds-t"><strong>Resultado na tela:</strong> comparativo de preços, fornecedor escolhido, histórico. Perguntar: <em>"Hoje você consegue ver isso?"</em></div>
+          </div>
+        </div>
+        <div class="demo-tip"><strong>Foco do discurso:</strong> "quanto tempo você libera por semana" e "quanto você está pagando para fazer isso internamente hoje". O ROI é tempo + custo de oportunidade.</div>
+      </div>
+
+    </div>
+
+    <div class="card" style="margin-top:4px">
+      <span class="k" style="color:var(--navy)">Referência — cliente Compras Free pioneiro</span>
+      <div class="card-title">Empresa D (energia elétrica) — 8 anos · 1º cliente Compras Free ME</div>
+      <div class="g4" style="margin-top:4px">
+        <div style="background:var(--verde-bg);border:1px solid var(--verde);border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--verde);margin-bottom:4px">Parceria</div>
+          <div style="font-size:24px;font-weight:900;color:#14532D">8 anos</div>
+          <div style="font-size:10px;font-weight:700;color:var(--verde)">Desde 2017</div>
+        </div>
+        <div style="background:var(--verde-bg);border:1px solid var(--verde);border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--verde);margin-bottom:4px">Pedidos</div>
+          <div style="font-size:24px;font-weight:900;color:#14532D">12 mil</div>
+          <div style="font-size:10px;font-weight:700;color:var(--verde)">Via Compras Free</div>
+        </div>
+        <div style="background:var(--verde-bg);border:1px solid var(--verde);border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--verde);margin-bottom:4px">Volume</div>
+          <div style="font-size:24px;font-weight:900;color:#14532D">R$181M</div>
+          <div style="font-size:10px;font-weight:700;color:var(--verde)">Transacionados</div>
+        </div>
+        <div style="background:var(--verde-bg);border:1px solid var(--verde);border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--verde);margin-bottom:4px">Economia</div>
+          <div style="font-size:24px;font-weight:900;color:#14532D">R$4,5M</div>
+          <div style="font-size:10px;font-weight:700;color:var(--verde)">NPS Promotor · Nota 8</div>
+        </div>
+      </div>
+      <div style="margin-top:12px;font-size:11.5px;font-weight:600;color:var(--muted)">Use para mostrar longevidade e confiança — dados cumulativos desde 2021. Para ROI em 12 meses, use o case Energia Renovável (Elera, 11,84%).</div>
+    </div>
+  </div><!-- /demo -->
+
+  <!-- ═══ FECHAMENTO ═══ -->
+  <div class="screen" id="s-fech">
+    <button class="back-btn" onclick="go('home')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Home</button>
+    <div class="ph">Fechamento</div>
+    <div class="ps">Números reais, tática do executivo e scripts de encerramento.</div>
+
+    <div class="card">
+      <span class="k" style="color:var(--amber)">Business case — 4 clientes reais</span>
+      <div class="card-title">Use o argumento certo para o modelo de contratação do seu lead</div>
+      <div class="proof-grid">
+        <div class="proof-item">
+          <div class="proof-sector">Setor Alimentício</div>
+          <div class="proof-num" style="color:var(--navy)">R$6,61M</div>
+          <div class="proof-desc">Saving · 97% conversão cotação → pedido · R$150M vol.</div>
+          <span class="proof-model" style="background:var(--navy)">Marketplace Privado</span>
+        </div>
+        <div class="proof-item">
+          <div class="proof-sector">Energia Renovável</div>
+          <div class="proof-num" style="color:var(--ciano)">11,84%</div>
+          <div class="proof-desc">Saving · R$312k economia · R$9M/ano gerenciado</div>
+          <span class="proof-model" style="background:var(--ciano)">Compras Free</span>
+        </div>
+        <div class="proof-item">
+          <div class="proof-sector">Telecomunicações</div>
+          <div class="proof-num" style="color:#5a8a00">R$3,1M</div>
+          <div class="proof-desc">Saving · 11,41% · R$27M em cotações · 200 pedidos</div>
+          <span class="proof-model" style="background:#5a8a00">Contratação Direta</span>
+        </div>
+        <div class="proof-item">
+          <div class="proof-sector">Energia Elétrica</div>
+          <div class="proof-num" style="color:var(--verde)">8 anos</div>
+          <div class="proof-desc">R$181M transacionados · R$4,5M economia · NPS 10</div>
+          <span class="proof-model" style="background:var(--verde)">Compras Free · Pioneer</span>
+        </div>
+      </div>
+      <div style="margin-top:10px;font-size:10.5px;font-weight:600;color:var(--muted)">Cases 1–3: dados Jul/2025–Jul/2026 · Case 4 (energia elétrica): dados cumulativos desde 2021 · todos anonimizados · uso interno</div>
+    </div>
+
+    <div class="silvio-card">
+      <div class="silvio-label">Tática validada em campo</div>
+      <div class="silvio-title">Reunião Executiva — papo de diretoria para diretoria</div>
+      <div class="silvio-script">"Claro — posso te ajudar a preparar essa apresentação. Tenho um resumo executivo de uma página com os números que o diretor vai querer ver. E se fizer sentido, consigo trazer nossa diretoria comercial para uma reunião executiva: papo de diretoria para diretoria tende a acelerar a decisão. Você quer me incluir na reunião ou prefere receber o material antes?"</div>
+      <div class="silvio-note">Use depois da 2ª reunião sem saber quem assina. Retira o vendedor da posição de pressionar — coloca pares numa conversa de igual para igual.</div>
+    </div>
+
+    <div class="card">
+      <span class="k" style="color:var(--navy)">Scripts de encerramento</span>
+      <div class="close-scripts">
+        <div class="cs-item">
+          <div class="cs-head"><strong>Quando a venda trava e não anda:</strong> deixar a porta aberta</div>
+          <div class="cs-body">"Guarda o meu contato, não exclui não. Implementações de nova ferramenta têm taxa alta de frustrações — quando isso acontecer, me chama. A gente vê bastante isso." <br><span style="font-size:11px;color:var(--muted);font-style:italic">Use quando a decisão for irrevogável (mandato de matriz, GEP, Coupa). Não insista — deixe a porta aberta.</span></div>
+        </div>
+        <div class="cs-item">
+          <div class="cs-head"><strong>Para enviar o one-pager:</strong> posicione antes de mandar</div>
+          <div class="cs-body">"Vou te mandar uma síntese de uma página com os números que seu diretor vai querer ver: saving de clientes reais do mesmo setor e o modelo de ROI simplificado. Você consegue colocar isso na agenda dele antes de sexta?" <br><span style="font-size:11px;color:var(--muted);font-style:italic">Use o botão "Imprimir / PDF" no one-pager executivo para exportar e enviar.</span></div>
+        </div>
+        <div class="cs-item">
+          <div class="cs-head"><strong>Para proposta após reunião positiva:</strong> criar urgência sem pressionar</div>
+          <div class="cs-body">"Duas coisas antes de montar a proposta: me confirma o volume de compras e quantas pessoas usarão a plataforma. Com esses dois dados eu monto o modelo de ROI específico para vocês — para o diretor ver o retorno do investimento antes de assinar."</div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /fech -->
+
+  <!-- ═══ NOVO VENDEDOR ═══ -->
+  <div class="screen" id="s-novo">
+    <button class="back-btn" onclick="go('home')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Home</button>
+    <div class="ph">Onboarding — Novo Vendedor</div>
+    <div class="ps">Siga as três etapas abaixo. Quando concluir o quiz, você está pronto para a primeira reunião.</div>
+
+    <!-- STEPPER -->
+    <div class="ob-stepper" id="ob-stepper">
+      <div class="ob-step active" id="ob-s1">
+        <div class="ob-step-dot" id="ob-d1">1</div>
+        <div class="ob-step-label">Fundamentos<br>ME</div>
+      </div>
+      <div class="ob-step" id="ob-s2">
+        <div class="ob-step-dot" id="ob-d2">2</div>
+        <div class="ob-step-label">Estude os<br>materiais</div>
+      </div>
+      <div class="ob-step" id="ob-s3">
+        <div class="ob-step-dot" id="ob-d3">3</div>
+        <div class="ob-step-label">Quiz de<br>validação</div>
+      </div>
+    </div>
+
+    <!-- ── PÁGINA 1: FUNDAMENTOS ME ── -->
+    <div class="ob-page ob-active" id="ob-pg1">
+    <div class="card" style="border-left:4px solid var(--navy);margin-bottom:20px">
+      <div class="k" style="color:var(--navy)">Etapa 1 — Fundamentos ME</div>
+      <div style="font-size:13px;font-weight:600;color:var(--texto)">Antes de qualquer reunião, entenda o que é o ME, para quem vende e como funciona o processo comercial.</div>
+    </div>
+    <div class="fund-section">
+      <div class="fund-cards">
+
+        <div class="fund-card" id="fc-msg">
+          <div class="fund-card-head" onclick="toggleFund('fc-msg')">
+            <div class="fund-card-icon">💡</div>
+            <div class="fund-card-title">O que é o ME — mensagem central</div>
+            <div class="fund-card-arrow">▼</div>
+          </div>
+          <div class="fund-card-body">
+            <div style="background:#EFF6FF;border-left:3px solid var(--navy);border-radius:8px;padding:11px 14px;margin-bottom:12px">
+              <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:5px">Por que agora?</div>
+              <div style="font-size:11.5px;font-weight:600;color:#1e3a5f;line-height:1.6">Após 2020, empresas que terceirizaram compras sem rastreabilidade foram as que mais sofreram com ruptura de fornecedores e perda de controle. O mercado não tolera mais o ciclo invisível — comprador que não sabe o que está sendo cotado para ele perde eficiência todo dia. Ficar no processo atual tem custo real: tempo, preço e exposição.</div>
+            </div>
+            <div class="fund-quote">"O ME existe para times de compras que ainda operam entre e-mails, planilhas e cobranças manuais — sem controle, sem rastreabilidade e com ciclos que frustram quem pediu. Com o ME, o mesmo time compra mais, negocia melhor e fecha mais rápido, com tudo centralizado, rastreável e integrado ao ERP que já usam."</div>
+            <div class="fund-list" style="margin-bottom:10px">
+              <li><strong>Dor concreta:</strong> e-mails, planilhas, cobranças manuais — o cliente se reconhece</li>
+              <li><strong>Impacto emocional:</strong> ciclos que frustram quem pediu — a dor que o comprador sente todo dia</li>
+              <li><strong>Transformação:</strong> compra mais, negocia melhor, fecha mais rápido</li>
+              <li><strong>Diferencial:</strong> integrado ao ERP que já usam — argumento central contra NIMB, Coupa e Ariba</li>
+            </div>
+            <div class="fund-insight"><strong>Insight de campo:</strong> O estigma de "compras é lenta e burocrática" é o gatilho emocional mais poderoso. Quando o comprador quer sair dessa imagem, ele está pronto para ouvir.</div>
+          </div>
+        </div>
+
+        <div class="fund-card" id="fc-icp">
+          <div class="fund-card-head" onclick="toggleFund('fc-icp')">
+            <div class="fund-card-icon">🎯</div>
+            <div class="fund-card-title">Quem é o cliente certo — ICP</div>
+            <div class="fund-card-arrow">▼</div>
+          </div>
+          <div class="fund-card-body">
+            <div style="font-size:11px;font-weight:700;color:var(--muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px">Cliente ideal — sinais positivos</div>
+            <div class="fund-row">
+              <span class="fund-chip icp">Processo manual com e-mail e planilha</span>
+              <span class="fund-chip icp">Ciclo de compra &gt; 20 dias</span>
+              <span class="fund-chip icp">Setor: Agro · Comércio · Construção · Indústria · Logística</span>
+              <span class="fund-chip icp">Time de compras + 3 pessoas</span>
+            </div>
+            <div class="fund-quote" style="margin-top:10px">"A principal característica não é o segmento, mas a dificuldade que eles têm hoje com o processo manual. Recebem requisição por e-mail ou planilha, mandam cotação para 10 fornecedores separados, montam o mapa comparativo à mão — todo esse ciclo leva mais de 20 dias."</div>
+            <div style="font-size:11px;font-weight:700;color:#DC2626;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;margin-top:10px">Anti-ICP — não prospectar</div>
+            <div class="fund-row">
+              <span class="fund-chip anti">Área de compras com menos de 3 pessoas</span>
+              <span class="fund-chip anti">Empresa muito pequena — ROI difícil de justificar</span>
+            </div>
+            <div class="fund-insight" style="margin-top:10px"><strong>Atenção:</strong> Empresa interessada ≠ empresa que fecha. Qualificar pelo tamanho da operação antes de investir tempo em demo completa.</div>
+          </div>
+        </div>
+
+        <div class="fund-card" id="fc-mod">
+          <div class="fund-card-head" onclick="toggleFund('fc-mod')">
+            <div class="fund-card-icon">💳</div>
+            <div class="fund-card-title">Os 3 modelos de contratação</div>
+            <div class="fund-card-arrow">▼</div>
+          </div>
+          <div class="fund-card-body">
+            <div class="fund-model-grid">
+              <div class="fund-model cd">
+                <div class="fund-model-name">Contratação Direta</div>
+                Mensalidade por pedidos + usuários. Para quem tem budget direto e quer controle total da operação.
+              </div>
+              <div class="fund-model mp">
+                <div class="fund-model-name">Marketplace Privado</div>
+                Fornecedores pagam taxa (rebate). Cliente não paga mensalidade. ICP: alimentício e construção. O take rate pode chegar a 3%.
+              </div>
+              <div class="fund-model bpo">
+                <div class="fund-model-name">Compras Free (BPO)</div>
+                Time ME terceiriza compras não críticas do cliente. SLA definido. Ticket mínimo R$3k. Libera o time para o estratégico.
+              </div>
+            </div>
+            <div class="fund-insight" style="margin-top:12px"><strong>Dica de campo:</strong> Clientes desconfiam que o fornecedor vai subir preço para cobrir o rebate. Na prática isso não acontece — ele está competindo na cotação, então subir preço significa perder o pedido.</div>
+            <button class="fund-link" onclick="go('flux')" style="cursor:pointer;font-family:inherit">Ver fluxograma completo dentro do kit →</button>
+          </div>
+        </div>
+
+        <div class="fund-card" id="fc-per">
+          <div class="fund-card-head" onclick="toggleFund('fc-per')">
+            <div class="fund-card-icon">📋</div>
+            <div class="fund-card-title">Lições de campo — personas reais</div>
+            <div class="fund-card-arrow">▼</div>
+          </div>
+          <div class="fund-card-body">
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="border-radius:10px;padding:12px 14px;background:#f0fdf4;border-left:4px solid #16A34A">
+                <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;color:#16A34A;text-transform:uppercase;margin-bottom:4px">Fechou ✓</div>
+                <div style="font-size:12px;font-weight:800;color:#166534;margin-bottom:6px">Oleoplan — Indústria, operação complexa</div>
+                <ul class="fund-list"><li>Grande empresa, materiais + serviços de longo prazo</li><li>Câmera ligada, perguntas técnicas, engajamento alto</li><li>Convenceu: flexibilidade, medição de serviço, integração gradual</li></ul>
+                <div style="font-size:11px;font-weight:700;color:#166534;margin-top:8px;padding:7px 10px;background:rgba(22,163,74,.1);border-radius:6px">Cliente técnico quer profundidade. Vendedor precisa dominar o produto — não só o pitch.</div>
+              </div>
+              <div style="border-radius:10px;padding:12px 14px;background:#fef2f2;border-left:4px solid #DC2626">
+                <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;color:#DC2626;text-transform:uppercase;margin-bottom:4px">Travou ✗</div>
+                <div style="font-size:12px;font-weight:800;color:#DC2626;margin-bottom:6px">Novatec — Regional, Manaus, resistente</div>
+                <ul class="fund-list"><li>Demo usou exemplos de SP — cliente queria ver Manaus</li><li>Objeção real não descoberta: "Minha dúvida não é sobre o produto"</li><li>Histórico de resistência à tecnologia: "É difícil pra cacete"</li></ul>
+                <div style="font-size:11px;font-weight:700;color:#b91c1c;margin-top:8px;padding:7px 10px;background:rgba(220,38,38,.08);border-radius:6px">Demo precisa espelhar a realidade do cliente — dados e fornecedores da região certa.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /fund-cards -->
+
+    </div><!-- /etapa 1 -->
+    <div class="ob-page-nav">
+      <span></span>
+      <button class="ob-page-nav-btn primary" id="fund-done-btn" onclick="markFundDone()">
+        Concluir Etapa 1 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2l5 5-5 5"/></svg>
+      </button>
+    </div>
+    </div><!-- /ob-pg1 -->
+
+    <!-- ── PÁGINA 2: MATERIAIS ── -->
+    <div class="ob-page" id="ob-pg2">
+    <div class="card" style="border-left:4px solid var(--navy);margin-bottom:20px">
+      <div class="k" style="color:var(--navy)">Etapa 2 — Estude os materiais em ordem</div>
+      <div style="font-size:13px;font-weight:600;color:var(--texto)">Cada material tem um momento certo no ciclo de vendas. Estude nessa sequência e marque como concluído ao terminar.</div>
+    </div>
+    <div class="fund-section">
+      <div class="mat-study-list" id="mat-list">
+
+        <div class="mat-card" id="mc-qualif">
+          <div class="mat-num">1</div>
+          <div class="mat-info">
+            <div class="mat-name">Qualificação</div>
+            <div class="mat-desc">A pergunta de bifurcação e os sinais de Compras Free vs. Marketplace Privado. Comece aqui.</div>
+          </div>
+          <div class="mat-actions">
+            <button class="mat-go-btn" onclick="goMat('qualif')">Ir →</button>
+            <input type="checkbox" class="mat-check" id="chk-qualif" onchange="checkMatProgress()">
+          </div>
+        </div>
+
+        <div class="mat-card" id="mc-antes">
+          <div class="mat-num">2</div>
+          <div class="mat-info">
+            <div class="mat-name">Antes da Call</div>
+            <div class="mat-desc">Checklist de pesquisa e abertura de call. Aplique antes de toda reunião.</div>
+          </div>
+          <div class="mat-actions">
+            <button class="mat-go-btn" onclick="goMat('antes')">Ir →</button>
+            <input type="checkbox" class="mat-check" id="chk-antes" onchange="checkMatProgress()">
+          </div>
+        </div>
+
+        <div class="mat-card" id="mc-obj">
+          <div class="mat-num">3</div>
+          <div class="mat-info">
+            <div class="mat-name">Objeção</div>
+            <div class="mat-desc">Leia os 4 scripts Gerais agora. O resto você consulta na hora certa.</div>
+          </div>
+          <div class="mat-actions">
+            <button class="mat-go-btn" onclick="goMat('obj')">Ir →</button>
+            <input type="checkbox" class="mat-check" id="chk-obj" onchange="checkMatProgress()">
+          </div>
+        </div>
+
+        <div class="mat-card" id="mc-demo">
+          <div class="mat-num">4</div>
+          <div class="mat-info">
+            <div class="mat-name">Demo</div>
+            <div class="mat-desc">Dois fluxos distintos por modelo. Saiba qual usar para cada perfil de cliente.</div>
+          </div>
+          <div class="mat-actions">
+            <button class="mat-go-btn" onclick="goMat('demo')">Ir →</button>
+            <input type="checkbox" class="mat-check" id="chk-demo" onchange="checkMatProgress()">
+          </div>
+        </div>
+
+        <div class="mat-card" id="mc-fech">
+          <div class="mat-num">5</div>
+          <div class="mat-info">
+            <div class="mat-name">Fechamento</div>
+            <div class="mat-desc">4 cases com números reais. Tenha pelo menos um na cabeça antes de qualquer conversa de ROI.</div>
+          </div>
+          <div class="mat-actions">
+            <button class="mat-go-btn" onclick="goMat('fech')">Ir →</button>
+            <input type="checkbox" class="mat-check" id="chk-fech" onchange="checkMatProgress()">
+          </div>
+        </div>
+
+        <div class="mat-card" id="mc-op">
+          <div class="mat-num">6</div>
+          <div class="mat-info">
+            <div class="mat-name">One Pager</div>
+            <div class="mat-desc">Material para o CFO. Saiba quando usar: outbound e pós-reunião positiva.</div>
+          </div>
+          <div class="mat-actions">
+            <button class="mat-go-btn" onclick="goMat('onepager')">Ir →</button>
+            <input type="checkbox" class="mat-check" id="chk-op" onchange="checkMatProgress()">
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /etapa 2 -->
+    <div class="ob-page-nav">
+      <button class="ob-page-nav-btn ghost" onclick="goOBPage(1)">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg> Fundamentos
+      </button>
+      <button class="ob-page-nav-btn primary" onclick="goOBPage(3)">
+        Ir para o Quiz <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2l5 5-5 5"/></svg>
+      </button>
+    </div>
+    </div><!-- /ob-pg2 -->
+
+    <!-- ── PÁGINA 3: QUIZ ── -->
+    <div class="ob-page" id="ob-pg3">
+    <div class="card" style="border-left:4px solid var(--navy);margin-bottom:20px">
+      <div class="k" style="color:var(--navy)">Etapa 3 — Quiz de validação</div>
+      <div style="font-size:13px;font-weight:600;color:var(--texto)">6 perguntas sobre o que você estudou. Acerte todas para estar pronto para a primeira reunião com o cliente.</div>
+    </div>
+    <div class="ob-page-nav" style="margin-top:0;margin-bottom:20px">
+      <button class="ob-page-nav-btn ghost" onclick="goOBPage(2)">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg> Materiais
+      </button>
+      <span></span>
+    </div>
+    <div class="quiz-wrap" id="quiz-wrap">
+      <div class="quiz-header">
+        <div class="quiz-header-icon">🎯</div>
+        <div>
+          <div class="quiz-header-title">Teste rápido — você está pronto?</div>
+          <div class="quiz-header-sub">6 perguntas baseadas nos materiais deste kit</div>
+        </div>
+      </div>
+      <div class="quiz-progress"><div class="quiz-progress-bar" id="quiz-bar" style="width:0%"></div></div>
+
+      <div class="quiz-body" id="quiz-body">
+
+        <div class="quiz-q" data-qi="0">
+          <div class="quiz-q-label">Qualificação</div>
+          <div class="quiz-q-text">Qual pergunta define o modelo certo para o cliente?</div>
+          <div class="quiz-options">
+            <label class="quiz-opt"><input type="radio" name="q0" value="a"><span>"Qual é o orçamento anual de compras?"</span></label>
+            <label class="quiz-opt"><input type="radio" name="q0" value="b" data-correct><span>"Vocês têm um time de compras próprio?"</span></label>
+            <label class="quiz-opt"><input type="radio" name="q0" value="c"><span>"Quantos fornecedores vocês gerenciam hoje?"</span></label>
+            <label class="quiz-opt"><input type="radio" name="q0" value="d"><span>"Já usaram algum sistema de procurement antes?"</span></label>
+          </div>
+        </div>
+
+        <div class="quiz-q" data-qi="1">
+          <div class="quiz-q-label">Compras Free vs. Marketplace</div>
+          <div class="quiz-q-text">Empresa sem time de compras, compras feitas por cada área diretamente. Qual produto indicar?</div>
+          <div class="quiz-options">
+            <label class="quiz-opt"><input type="radio" name="q1" value="a"><span>Marketplace Privado — mais robusto e completo</span></label>
+            <label class="quiz-opt"><input type="radio" name="q1" value="b"><span>Contratação Direta — mais simples de implantar</span></label>
+            <label class="quiz-opt"><input type="radio" name="q1" value="c" data-correct><span>Compras Free — não precisa de time de compras centralizado</span></label>
+            <label class="quiz-opt"><input type="radio" name="q1" value="d"><span>Depende do volume de transações mensais</span></label>
+          </div>
+        </div>
+
+        <div class="quiz-q" data-qi="2">
+          <div class="quiz-q-label">Objeção</div>
+          <div class="quiz-q-text">O cliente diz: "Está caro." Como você abre a resposta?</div>
+          <div class="quiz-options">
+            <label class="quiz-opt"><input type="radio" name="q2" value="a"><span>"Entendo. Posso verificar algum desconto para vocês."</span></label>
+            <label class="quiz-opt"><input type="radio" name="q2" value="b"><span>"Na verdade nosso preço é bastante competitivo no mercado."</span></label>
+            <label class="quiz-opt"><input type="radio" name="q2" value="c" data-correct><span>"Caro comparado a quê? Ao processo atual ou a um concorrente específico?"</span></label>
+            <label class="quiz-opt"><input type="radio" name="q2" value="d"><span>"Vamos calcular o ROI juntos para ver se faz sentido."</span></label>
+          </div>
+        </div>
+
+        <div class="quiz-q" data-qi="3">
+          <div class="quiz-q-label">Cases reais</div>
+          <div class="quiz-q-text">O case de energia renovável (Elera) registrou qual percentual de saving?</div>
+          <div class="quiz-options">
+            <label class="quiz-opt"><input type="radio" name="q3" value="a"><span>6,5%</span></label>
+            <label class="quiz-opt"><input type="radio" name="q3" value="b"><span>9,3%</span></label>
+            <label class="quiz-opt"><input type="radio" name="q3" value="c" data-correct><span>11,84%</span></label>
+            <label class="quiz-opt"><input type="radio" name="q3" value="d"><span>15,2%</span></label>
+          </div>
+        </div>
+
+        <div class="quiz-q" data-qi="4">
+          <div class="quiz-q-label">Fechamento</div>
+          <div class="quiz-q-text">Quando é o momento certo para propor a Reunião Executiva?</div>
+          <div class="quiz-options">
+            <label class="quiz-opt"><input type="radio" name="q4" value="a"><span>Quando o cliente pede desconto e você precisa de autorização</span></label>
+            <label class="quiz-opt"><input type="radio" name="q4" value="b" data-correct><span>Quando o contato operacional aprova mas não tem poder de decisão para avançar</span></label>
+            <label class="quiz-opt"><input type="radio" name="q4" value="c"><span>Quando a demo correu bem e você quer fechar na mesma semana</span></label>
+            <label class="quiz-opt"><input type="radio" name="q4" value="d"><span>Quando o concorrente oferece preço menor e você precisa de argumento de peso</span></label>
+          </div>
+        </div>
+
+        <div class="quiz-q" data-qi="5">
+          <div class="quiz-q-label">Antes da Call</div>
+          <div class="quiz-q-text">O que é indispensável verificar antes de entrar em qualquer reunião?</div>
+          <div class="quiz-options">
+            <label class="quiz-opt"><input type="radio" name="q5" value="a"><span>Preparar a demo ao vivo para mostrar durante a call</span></label>
+            <label class="quiz-opt"><input type="radio" name="q5" value="b"><span>Revisar o one-pager para enviar ao final da reunião</span></label>
+            <label class="quiz-opt"><input type="radio" name="q5" value="c" data-correct><span>Pesquisar a empresa no LinkedIn, identificar o decisor e o contexto de compras atual</span></label>
+            <label class="quiz-opt"><input type="radio" name="q5" value="d"><span>Confirmar a presença do cliente por ligação antes do horário</span></label>
+          </div>
+        </div>
+
+      </div><!-- /quiz-body -->
+
+      <div class="quiz-footer">
+        <button class="quiz-btn" onclick="checkQuiz()">Verificar respostas</button>
+        <span class="quiz-result-msg" id="quiz-msg"></span>
+      </div>
+
+      <!-- TELA DE APROVAÇÃO -->
+      <div class="quiz-pass" id="quiz-pass">
+        <div class="quiz-pass-badge">
+          <div class="quiz-pass-icon">🏆</div>
+          <div class="quiz-pass-title">Pronto para a primeira reunião</div>
+          <div class="quiz-pass-sub">Você domina o essencial do kit de campo</div>
+        </div>
+        <div class="quiz-pass-checks">
+          <div class="quiz-pass-check">Sabe bifurcar Compras Free vs. Marketplace com uma pergunta</div>
+          <div class="quiz-pass-check">Sabe responder objeção de preço sem defensividade</div>
+          <div class="quiz-pass-check">Conhece pelo menos um case real com número</div>
+          <div class="quiz-pass-check">Sabe quando acionar a reunião executiva</div>
+          <div class="quiz-pass-check">Chega preparado — empresa e decisor pesquisados</div>
+        </div>
+        <button class="quiz-pass-retry" onclick="resetQuiz()">Refazer o teste</button>
+      </div>
+
+    </div><!-- /quiz-wrap -->
+    </div><!-- /ob-pg3 -->
+
+  </div><!-- /novo -->
+
+  <!-- ═══ ONE PAGER ═══ -->
+  <div class="screen" id="s-onepager">
+    <button class="back-btn" onclick="go('home')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Home</button>
+    <div class="ph">One Pager</div>
+    <div class="ps">Material para enviar ao lead ou deixar com o CFO após a reunião.</div>
+
+    <div class="op-toolbar">
+      <div class="op-toolbar-label">Uso externo · clientes e prospects</div>
+      <div class="op-btn-group">
+        <button class="op-copy-btn" id="copy-btn-top" onclick="copyOnePagerPNG(this)">📋 Copiar como imagem</button>
+        <button class="op-print-btn" onclick="window.print()">🖨 Imprimir / PDF</button>
+      </div>
+    </div>
+
+    <div class="warn-box" style="margin-bottom:14px">
+      <div class="warn-label">⚠ Se os botões acima não funcionarem</div>
+      <div class="warn-text">Isso acontece quando o arquivo está sendo visto direto na pré-visualização do SharePoint/OneDrive. Baixe o arquivo (ícone de download) e abra localmente no navegador — aí "Copiar como imagem" e "Imprimir / PDF" funcionam normalmente.</div>
+    </div>
+
+    <div class="op-cat-bar">
+      <span class="op-cat-lbl">O cliente compra:</span>
+      <button class="op-cat-btn active" id="opcat-a" onclick="setOPVariant('a')">Indiretos &amp; MRO</button>
+      <button class="op-cat-btn" id="opcat-b" onclick="setOPVariant('b')">Serviços &amp; Terceiros</button>
+      <button class="op-cat-btn" id="opcat-c" onclick="setOPVariant('c')">Insumos &amp; Matéria-prima</button>
+    </div>
+
+    <div style="background:#f0f0f6;border-radius:12px;padding:10px;margin-bottom:14px">
+      <div id="op-wrap">
+
+        <!-- HERO -->
+        <div class="op-hero">
+          <div class="op-headline" id="op-headline">Suas compras operacionais podem custar menos<br><em>e demorar muito menos.</em></div>
+          <div class="op-sub" id="op-sub">O ME centraliza compras de suprimentos, manutenção e indiretos — com rastreabilidade total, lead time reduzido e saving comprovado em operações reais.</div>
+          <div class="op-badge">
+            <div class="op-badge-item">
+              <div class="op-badge-val" id="op-b1v">↓ 95%</div>
+              <div class="op-badge-lbl" id="op-b1l">redução de lead time vs. processo manual</div>
+            </div>
+            <div class="op-badge-item">
+              <div class="op-badge-val" id="op-b2v">R$181M</div>
+              <div class="op-badge-lbl" id="op-b2l">transacionados · 1º cliente Compras Free ME</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CASOS -->
+        <div class="op-cases" id="op-cases-inner">
+          <div class="op-case">
+            <div class="op-case-bar" style="background:#16A34A"></div>
+            <div class="op-case-sector" style="color:#16A34A">Energia Elétrica — Indiretos operacionais</div>
+            <div class="op-case-data">8 anos de parceria · 12 mil pedidos · R$181M transacionados · R$4,5M de economia · NPS Promotor</div>
+          </div>
+          <div class="op-case">
+            <div class="op-case-bar" style="background:#FF38C6"></div>
+            <div class="op-case-sector" style="color:#c0209d">Energia Renovável — MRO &amp; serviços</div>
+            <div class="op-case-data">11,84% de saving · R$312k economizados · volume gerenciado 18× maior em 12 meses</div>
+          </div>
+          <div class="op-case">
+            <div class="op-case-bar" style="background:#0A0A93"></div>
+            <div class="op-case-sector" style="color:#0A0A93">Indústria Alimentícia — suprimentos &amp; embalagens</div>
+            <div class="op-case-data">R$9,3M em saving · lead time 2,3h · 97% conversão cotação→pedido</div>
+          </div>
+        </div>
+
+        <!-- MÉTRICAS -->
+        <div class="op-metrics">
+          <div class="op-metric">
+            <div class="op-metric-ey">Saving</div>
+            <div class="op-metric-val">6–12%</div>
+            <div class="op-metric-lbl">sobre o spend gerenciado</div>
+          </div>
+          <div class="op-metric">
+            <div class="op-metric-ey">Lead time</div>
+            <div class="op-metric-val">↓ 95%</div>
+            <div class="op-metric-lbl">vs. processo manual</div>
+          </div>
+          <div class="op-metric">
+            <div class="op-metric-ey">Visibilidade</div>
+            <div class="op-metric-val">real time</div>
+            <div class="op-metric-lbl">Evolução de spend por categoria</div>
+          </div>
+          <div class="op-metric">
+            <div class="op-metric-ey">Mercado</div>
+            <div class="op-metric-val">+20 anos</div>
+            <div class="op-metric-lbl">de operação em procurement B2B</div>
+          </div>
+        </div>
+
+        <!-- COMO FUNCIONA -->
+        <div class="op-how">
+          <div class="op-how-title">Como funciona na prática</div>
+          <div class="op-steps">
+            <div class="op-step">
+              <div class="op-step-num">1</div>
+              <div class="op-step-text">Diagnóstico de compras</div>
+              <div class="op-step-sub">Mapeamos seu volume, categorias e processo atual</div>
+            </div>
+            <div class="op-step">
+              <div class="op-step-num">2</div>
+              <div class="op-step-text">Modelo recomendado</div>
+              <div class="op-step-sub">Identificamos qual modelo gera mais resultado para o seu perfil</div>
+            </div>
+            <div class="op-step">
+              <div class="op-step-num">3</div>
+              <div class="op-step-text">Implementação e onboarding</div>
+              <div class="op-step-sub">Time ME estrutura a operação com sua equipe</div>
+            </div>
+            <div class="op-step">
+              <div class="op-step-num">4</div>
+              <div class="op-step-text">Resultado mensurável</div>
+              <div class="op-step-sub">Saving, lead time e spend visíveis desde o 1º ciclo</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="op-footer">
+          <div class="op-footer-brand">
+            <div class="op-footer-logo">me<span>.</span></div>
+            <div class="op-footer-tagline">Soluções tecnológicas para compras B2B</div>
+          </div>
+          <div>
+            <div class="op-footer-contact-lbl">Fale com um especialista</div>
+            <div class="op-footer-contact-info">
+              comercial@me.com.br<br>
+              +55 11 2175.3500
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /op-wrap -->
+    </div>
+
+    <div class="card" style="border-left:4px solid var(--navy);display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap">
+      <div style="flex:1">
+        <div class="k" style="color:var(--navy)">Como usar este material</div>
+        <div class="g2" style="margin-top:0;gap:12px">
+          <div style="font-size:12.5px;font-weight:600;color:var(--texto);line-height:1.55"><strong style="color:var(--navy)">Outbound</strong> — Lead pediu material antes de aceitar a reunião. Copie a imagem e cole no corpo do e-mail para enviá-lo.</div>
+          <div style="font-size:12.5px;font-weight:600;color:var(--texto);line-height:1.55"><strong style="color:var(--navy)">Pós-reunião</strong> — Deixe com o CFO ou Diretor de Compras ao final. Facilita a aprovação interna sem o vendedor presente.</div>
+        </div>
+      </div>
+      <div class="op-btn-group" style="flex:0 0 auto;align-self:center">
+        <button class="op-copy-btn" id="copy-btn-bottom" onclick="copyOnePagerPNG(this)">📋 Copiar como imagem</button>
+        <button class="op-print-btn" onclick="window.print()">🖨 Imprimir / PDF</button>
+      </div>
+    </div>
+  </div><!-- /onepager -->
+
+  <!-- ═══ FLUXOGRAMA ═══ -->
+  <div class="screen" id="s-flux">
+    <button class="back-btn" onclick="go('novo')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Novo Vendedor</button>
+
+    <div style="margin-bottom:8px;">
+      <span style="font-size:13px;font-weight:900;color:var(--navy);letter-spacing:.3px;">Fluxograma de Vendas</span>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#6C3FC5;"></div><div><div class="legend-label">Marketing / SDR</div><div class="legend-desc">Geração de leads por campanha</div></div></div>
+      <div class="legend-item"><div class="legend-dot" style="background:#0A0A93;"></div><div><div class="legend-label">Comercial · Vendas Hunter</div><div class="legend-desc">Prospecção ativa e fechamento</div></div></div>
+      <div class="legend-item"><div class="legend-dot" style="background:#FF38C6;"></div><div><div class="legend-label">Pré-vendas</div><div class="legend-desc">Demo técnica e suporte à proposta</div></div></div>
+      <div class="legend-item"><div class="legend-dot" style="background:#008BFE;"></div><div><div class="legend-label">Projetos · Professional Services</div><div class="legend-desc">Implantação técnica</div></div></div>
+      <div class="legend-item"><div class="legend-dot" style="background:#BDE44E;"></div><div><div class="legend-label">KAM · Vendas Farmer</div><div class="legend-desc">Gestão e expansão da conta</div></div></div>
+    </div>
+
+    <div class="swim-wrapper">
+
+      <!-- ══ ETAPA 1: GERAÇÃO DE LEADS ══ -->
+      <div class="stage-row">
+        <div class="lane-col" style="background:linear-gradient(180deg,rgba(108,63,197,.06) 50%,rgba(10,10,147,.06) 50%);">
+          <div class="lane-bar" style="background:linear-gradient(180deg,#6C3FC5 50%,#0A0A93 50%);"></div>
+          <div class="role-chip rc-mkt">Mkt / SDR</div>
+          <div class="rc-or">ou</div>
+          <div class="role-chip rc-comercial">Comercial</div>
+        </div>
+        <div class="content-col" style="padding-top:18px;">
+          <div class="section-label">Etapa 1 — Geração de Leads</div>
+          <div class="dual-entry">
+            <div class="dual-entry-card de-mkt">
+              <div class="de-card-badge">Opção A</div>
+              <div class="de-card-title">Marketing (SDR)</div>
+              <ul class="de-card-list">
+                <li>Campanhas inbound e outbound</li>
+                <li>Geração e qualificação de leads</li>
+                <li>Nutrição antes do repasse ao Comercial</li>
+                <li>ICP mínimo: 200+ colaboradores · 150+ pedidos/mês</li>
+              </ul>
+              <div style="margin-top:12px;background:rgba(255,255,255,.15);border-radius:10px;padding:10px 12px;border-left:3px solid #BDE44E;">
+                <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#BDE44E;margin-bottom:5px;">📄 Outbound — momento do One Pager</div>
+                <div style="font-size:10.5px;font-weight:600;color:rgba(255,255,255,.9);line-height:1.5;">Lead pede material antes de aceitar a reunião. É aqui que o One Pager entra — compacto o suficiente para ser lido sozinho, sem precisar de um vendedor na sala para explicar.</div>
+              </div>
+            </div>
+            <div class="dual-or">ou</div>
+            <div class="dual-entry-card de-hunter">
+              <div class="de-card-badge">Opção B</div>
+              <div class="de-card-title">Comercial (Vendas Hunter)</div>
+              <ul class="de-card-list">
+                <li>Prospecção ativa — cold call, LinkedIn, indicação</li>
+                <li>Qualificação direta pelo vendedor</li>
+                <li>Foco em empresas com processo manual</li>
+              </ul>
+            </div>
+          </div>
+          <div style="margin-top:14px;">
+            <div style="font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#aaa;text-align:center;margin-bottom:8px;">Setores em crescimento</div>
+            <div class="sectors-strip">
+              <span class="sector-tag">Todos os setores</span>
+              <span class="sector-tag growth">Agronegócio</span>
+              <span class="sector-tag growth">Comércio</span>
+              <span class="sector-tag growth">Construção</span>
+              <span class="sector-tag growth">Indústria</span>
+              <span class="sector-tag growth">Logística</span>
+            </div>
+          </div>
+          <div class="dual-merge" style="margin-top:14px;">
+            <div class="dual-merge-v"></div>
+            <div class="dual-merge-v"></div>
+          </div>
+          <div class="merge-h"></div>
+          <div class="arrow" style="height:16px;"></div>
+          <div class="node node-leads">
+            <div class="node-title">Lead Qualificado</div>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:14px;width:100%;max-width:640px;">
+            <div style="flex:1;background:#fff;border-radius:10px;padding:10px 12px;border-top:3px solid #008BFE;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.08);">
+              <div style="font-size:9px;font-weight:900;letter-spacing:1.2px;text-transform:uppercase;color:#008BFE;margin-bottom:4px;">200–499 colaboradores</div>
+              <div style="font-size:11px;font-weight:800;color:#0A0A93;">→ Canal Parceiro</div>
+            </div>
+            <div style="flex:1;background:#0A0A93;border-radius:10px;padding:10px 12px;border-top:3px solid #BDE44E;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.08);">
+              <div style="font-size:9px;font-weight:900;letter-spacing:1.2px;text-transform:uppercase;color:#BDE44E;margin-bottom:4px;">500+ colaboradores</div>
+              <div style="font-size:11px;font-weight:800;color:#fff;">→ Vendas Hunter</div>
+            </div>
+            <div style="flex:1;background:#fff;border-radius:10px;padding:10px 12px;border-top:3px solid #FF38C6;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.08);">
+              <div style="font-size:9px;font-weight:900;letter-spacing:1.2px;text-transform:uppercase;color:#FF38C6;margin-bottom:4px;">Campanhas pagas</div>
+              <div style="font-size:11px;font-weight:800;color:#0A0A93;">Foco em 500+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="arrow-row">
+        <div class="arrow-lane-spacer" style="background:rgba(10,10,147,.04);"></div>
+        <div class="arrow-content"><div class="arrow"></div></div>
+      </div>
+
+      <!-- ══ ETAPA 2: DESCOBERTA ══ -->
+      <div class="stage-row">
+        <div class="lane-col" style="background:rgba(10,10,147,.04);">
+          <div class="lane-bar lb-comercial"></div>
+          <div class="role-chip rc-comercial">Comercial</div>
+        </div>
+        <div class="content-col">
+          <div class="section-label">Etapa 2 — Descoberta de Dores</div>
+          <div class="node node-disc">
+            <div class="node-title">Descoberta de Dores do Cliente</div>
+            <div class="node-sub">Processo manual por e-mail · Sem rastreabilidade ou compliance · Aprovações lentas · Ciclo de compra acima de 20 dias · Requisitante sempre cobrando a área de compras</div>
+          </div>
+        </div>
+      </div>
+      <div class="arrow-row">
+        <div class="arrow-lane-spacer" style="background:rgba(10,10,147,.04);"></div>
+        <div class="arrow-content"><div class="arrow"></div></div>
+      </div>
+
+      <!-- ══ ETAPA 3: MAPEAMENTO DE DECISORES ══ -->
+      <div class="stage-row">
+        <div class="lane-col" style="background:rgba(10,10,147,.04);">
+          <div class="lane-bar lb-comercial"></div>
+          <div class="role-chip rc-comercial">Comercial</div>
+        </div>
+        <div class="content-col">
+          <div class="section-label">Etapa 3 — Mapeamento de Decisores</div>
+          <div class="decisores-row">
+            <div class="decisor-card dc-compras">
+              <div class="dc-icon">🧑‍💼</div>
+              <div class="dc-role">Gerente de Compras</div>
+              <div class="dc-desc">Decide a ferramenta e convence a equipe. Quer validação antes de fechar.</div>
+            </div>
+            <div class="decisor-card dc-ti">
+              <div class="dc-icon">💻</div>
+              <div class="dc-role">TI</div>
+              <div class="dc-desc">Avalia integração com ERP, segurança e LGPD. Pode barrar se o ERP for legado.</div>
+            </div>
+            <div class="decisor-card dc-cfo">
+              <div class="dc-icon">💰</div>
+              <div class="dc-role">CFO</div>
+              <div class="dc-desc">Aprova o orçamento. Precisa de ROI claro — métricas antes/depois.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="arrow-row">
+        <div class="arrow-lane-spacer" style="background:rgba(10,10,147,.04);"></div>
+        <div class="arrow-content"><div class="arrow"></div></div>
+      </div>
+
+      <!-- ══ ETAPA 4: DEMONSTRAÇÃO ══ -->
+      <div class="stage-row">
+        <div class="lane-col" style="background:linear-gradient(180deg,rgba(10,10,147,.04) 35%,rgba(255,56,198,.05) 65%);">
+          <div class="lane-bar lb-com-prev"></div>
+          <div class="role-chip rc-comercial">Comercial</div>
+          <div class="rc-or">+</div>
+          <div class="role-chip rc-prevendas">Pré-vendas</div>
+        </div>
+        <div class="content-col">
+          <div class="section-label">Etapa 4 — Demonstração</div>
+          <div class="node node-demo">
+            <div class="node-title" style="color:#0A0A93;">Demonstração navegando no portal real</div>
+            <div class="node-sub" style="color:#0A0A93;">Comercial faz a intro (até 10 min) · Pré-vendas conduz a demo ao vivo no portal · Sem PowerPoint · Foco nas dores do cliente, não nas funcionalidades · Fluxograma de solução + planilha de integrações</div>
+          </div>
+        </div>
+      </div>
+      <div class="arrow-row">
+        <div class="arrow-lane-spacer" style="background:rgba(10,10,147,.04);"></div>
+        <div class="arrow-content"><div class="arrow"></div><div class="connector-label">Qual modelo se encaixa?</div><div class="arrow" style="height:12px;"></div></div>
+      </div>
+
+      <!-- ══ ETAPA 5: MODELO DE CONTRATAÇÃO ══ -->
+      <div class="stage-row">
+        <div class="lane-col" style="background:rgba(10,10,147,.04);">
+          <div class="lane-bar lb-comercial"></div>
+          <div class="role-chip rc-comercial">Comercial</div>
+        </div>
+        <div class="content-col">
+          <div class="section-label">Etapa 5 — Modelo de Contratação</div>
+          <div class="models-row">
+            <div class="model-card model-direta">
+              <div class="badge">Modelo 1</div><h3>Contratação Direta</h3>
+              <ul><li>Cliente paga mensalidade</li><li>Custo por pedidos + usuários</li><li>Budget direto aprovado pelo CFO</li><li>Proposta alta → negociação</li></ul>
+            </div>
+            <div class="model-card model-marketplace">
+              <div class="badge">Modelo 2</div><h3>Marketplace Privado</h3>
+              <ul><li>Cliente não paga — fornecedores pagam taxa fixa (take rate calculado; pode chegar até 3%)</li><li>Critério de sucesso cobre o projeto</li><li>Excedente: 50% ME · 50% Cliente (para todos, sem exceção)</li></ul>
+            </div>
+            <div class="model-card model-bpo">
+              <div class="badge">Modelo 3</div><h3>Compras Free / BPO</h3>
+              <ul><li>Terceirização de compras não críticas</li><li>Ticket mínimo: R$ 3 mil</li><li>SLA e prazo definidos pela equipe ME</li></ul>
+            </div>
+          </div>
+          <div style="height:16px;width:72%;max-width:660px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-around;">
+            <div style="width:2px;height:16px;background:#0A0A93;"></div>
+            <div style="width:2px;height:16px;background:#0A0A93;"></div>
+            <div style="width:2px;height:16px;background:#0A0A93;"></div>
+          </div>
+          <div class="merge-line"></div>
+        </div>
+      </div>
+      <div class="arrow-row">
+        <div class="arrow-lane-spacer" style="background:rgba(10,10,147,.04);"></div>
+        <div class="arrow-content"><div class="arrow" style="height:20px;"></div></div>
+      </div>
+
+      <!-- ══ ETAPA 6: PROPOSTA ══ -->
+      <div class="stage-row">
+        <div class="lane-col" style="background:linear-gradient(180deg,rgba(10,10,147,.04) 35%,rgba(255,56,198,.05) 65%);">
+          <div class="lane-bar lb-com-prev"></div>
+          <div class="role-chip rc-comercial">Comercial</div>
+          <div class="rc-or">+</div>
+          <div class="role-chip rc-prevendas">Pré-vendas</div>
+        </div>
+        <div class="content-col">
+          <div class="section-label">Etapa 6 — Proposta Comercial</div>
+          <div class="node node-prop">
+            <div class="node-title">Envio de Proposta</div>
+            <div class="node-sub">Valor de referência alto → negociação aberta · Destacar flexibilidade e integração · Apresentar métricas antes/depois (lead time e savings por segmento) · Comparar diferenciais frente a NIMB, Coupa e Ariba</div>
+          </div>
+        </div>
+      </div>
+      <div class="arrow-row">
+        <div class="arrow-lane-spacer" style="background:rgba(255,56,198,.05);"></div>
+        <div class="arrow-content"><div class="arrow arrow-pink"></div></div>
+      </div>
+
+      <!-- ══ ETAPA 7: OBJEÇÕES ══ -->
+      <div class="stage-row">
+        <div class="lane-col" style="background:linear-gradient(180deg,rgba(10,10,147,.04) 35%,rgba(255,56,198,.05) 65%);">
+          <div class="lane-bar lb-com-prev"></div>
+          <div class="role-chip rc-comercial">Comercial</div>
+          <div class="rc-or">+</div>
+          <div class="role-chip rc-prevendas">Pré-vendas</div>
+        </div>
+        <div class="content-col">
+          <div class="section-label">Etapa 7 — Tratamento de Objeções</div>
+          <div class="objections-row">
+            <div class="obj-card"><div class="obj-label">Preço</div><div class="obj-resp">Abrir negociação. Mostrar valor vs concorrentes engessados. Destacar suporte e flexibilidade.</div></div>
+            <div class="obj-card"><div class="obj-label">ERP legado</div><div class="obj-resp">Planilha de integrações + API docs. Indicar consultoria ou dev temporário se necessário.</div></div>
+            <div class="obj-card"><div class="obj-label">Prioridade</div><div class="obj-resp">Mapear quando o projeto volta. Manter relacionamento ativo nos ciclos orçamentários.</div></div>
+            <div class="obj-card"><div class="obj-label">Decisor fora do radar</div><div class="obj-resp">Escalar para quem assina. Preparar o champion interno com argumentos para o superior.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="arrow-row">
+        <div class="arrow-lane-spacer" style="background:rgba(10,10,147,.04);"></div>
+        <div class="arrow-content"><div class="arrow arrow-pink"></div><div class="connector-label">Resultado</div><div class="arrow arrow-pink" style="height:12px;"></div></div>
+      </div>
+
+      <!-- ══ ETAPA 8: FECHAMENTO ══ -->
+      <div class="stage-row">
+        <div class="lane-col" style="background:rgba(10,10,147,.04);">
+          <div class="lane-bar lb-comercial"></div>
+          <div class="role-chip rc-comercial">Comercial</div>
+        </div>
+        <div class="content-col">
+          <div class="section-label">Etapa 8 — Fechamento</div>
+          <div class="wl-row">
+            <div class="wl-card wl-win">
+              <h4>✅ Contrato Assinado</h4>
+              <ul>
+                <li>Proposta aceita e contrato fechado</li>
+                <li>Passagem formal ao time de Projetos e KAM</li>
+                <li>Briefing de handoff com contexto do cliente</li>
+              </ul>
+            </div>
+            <div class="wl-card wl-lose">
+              <h4>❌ Venda Perdida</h4>
+              <ul>
+                <li>Sem acesso ao decisor final</li>
+                <li>ERP incompatível sem solução viável</li>
+                <li>Prioridade concorrente (reforma tributária)</li>
+                <li>Champion saiu da empresa</li>
+                <li>Concorrente já estabelecido</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="arrow-row">
+        <div class="arrow-lane-spacer" style="background:linear-gradient(180deg,rgba(10,10,147,.04) 50%,rgba(0,139,254,.05) 50%);"></div>
+        <div class="arrow-content"><div class="arrow arrow-pink"></div></div>
+      </div>
+
+      <!-- ══ ETAPA 9: PASSAGEM ══ -->
+      <div class="stage-row">
+        <div class="lane-col" style="background:linear-gradient(180deg,rgba(10,10,147,.04) 35%,rgba(255,56,198,.05) 65%);">
+          <div class="lane-bar lb-com-prev"></div>
+          <div class="role-chip rc-comercial">Comercial</div>
+          <div class="rc-or">+</div>
+          <div class="role-chip rc-prevendas">Pré-vendas</div>
+        </div>
+        <div class="content-col">
+          <div class="section-label">Etapa 9 — Passagem ao Projetos e KAM</div>
+          <div class="node" style="background:#fff;border:2.5px solid #0A0A93;color:#0A0A93;max-width:560px;box-shadow:0 2px 12px rgba(10,10,147,.1);">
+            <div class="node-title">Reunião de Handoff</div>
+            <div class="node-sub">Comercial e Pré-vendas passam o contexto completo do cliente · Dores mapeadas · Modelo de contratação definido · Decisores envolvidos · Expectativas e prazos alinhados · Documentação técnica de integrações</div>
+          </div>
+          <div class="arrow" style="height:16px;margin-top:2px;"></div>
+          <div class="handoff-row" style="margin-top:4px;">
+            <div class="handoff-card hc-ps">
+              <div class="hc-badge">Projetos · Professional Services</div>
+              <h3>Implantação Técnica</h3>
+              <ul>
+                <li>Configuração da plataforma</li>
+                <li>Integração com ERP do cliente</li>
+                <li>Criação de usuários e permissões</li>
+                <li>Testes e homologação</li>
+                <li>Go-live e estabilização</li>
+              </ul>
+            </div>
+            <div class="handoff-card hc-kam">
+              <div class="hc-badge">KAM · Vendas Farmer</div>
+              <h3>Gestão da Conta</h3>
+              <ul>
+                <li>Relacionamento contínuo pós-venda</li>
+                <li>Identificação de oportunidades de expansão</li>
+                <li>Renovação e upsell</li>
+                <li>Interlocução entre cliente e times internos</li>
+                <li>Acompanhamento de resultados e NPS</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /swim-wrapper -->
+
+    <p class="badge-source"><span>me. Marketing de Produto</span></p>
+  </div><!-- /flux -->
+
+  </div><!-- /canvas -->
+</div><!-- /main -->
+</div><!-- /app -->
+
+<div id="op-toast">✅ Imagem copiada!</div>
+
+<script>
+const SCREENS = ['home','antes','qualif','obj','demo','fech','novo','onepager','flux'];
+const LABELS = {
+  home:'Home', antes:'Antes da Call', qualif:'Qualificação',
+  obj:'Objeção', demo:'Demo', fech:'Fechamento', novo:'Novo Vendedor', onepager:'One Pager', flux:'Fluxograma de Vendas'
+};
+const NAV_IDS = ['home','antes','qualif','obj','demo','fech','novo','onepager','flux'];
+
+const BACK_SVG = '<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>';
+
+function goMat(screen) {
+  window._returnToNovoPg2 = true;
+  go(screen, 'novo');
+}
+
+function go(id, from) {
+  if (id === 'novo') {
+    if (window._returnToNovoPg2) {
+      window._returnToNovoPg2 = false;
+      SCREENS.forEach(s => document.getElementById('s-'+s).classList.toggle('on', s===id));
+      NAV_IDS.forEach(s => { const n = document.getElementById('n-'+s); if(n) n.classList.toggle('on', s===id); });
+      document.getElementById('crumb').textContent = LABELS[id];
+      document.querySelector('.canvas').scrollTop = 0;
+      goOBPage(2);
+      return;
+    }
+    resetOBState();
+  }
+  SCREENS.forEach(s => {
+    document.getElementById('s-'+s).classList.toggle('on', s===id);
+  });
+  NAV_IDS.forEach(s => {
+    const n = document.getElementById('n-'+s);
+    if (n) n.classList.toggle('on', s===id);
+  });
+  document.getElementById('crumb').textContent = LABELS[id] || id;
+  document.querySelector('.canvas').scrollTop = 0;
+  // Update back button of destination screen when navigating from a specific origin
+  if (from) {
+    const screen = document.getElementById('s-'+id);
+    const backBtn = screen && screen.querySelector('.back-btn');
+    if (backBtn) {
+      backBtn.innerHTML = BACK_SVG + (LABELS[from] || from);
+      backBtn.onclick = (function(f){ return function(){ go(f); }; })(from);
+    }
+  }
+}
+
+function resetOBState() {
+  try { localStorage.removeItem('me_ob'); } catch {}
+  // Reset fund button to initial state
+  const btn = document.getElementById('fund-done-btn');
+  if (btn) {
+    btn.innerHTML = 'Concluir Etapa 1 →';
+    btn.classList.remove('done');
+    btn.onclick = markFundDone;
+  }
+  // Uncheck all material cards
+  ['qualif','antes','obj','demo','fech','op'].forEach(function(id) {
+    const chk = document.getElementById('chk-'+id);
+    const mc = document.getElementById('mc-'+id);
+    if (chk) chk.checked = false;
+    if (mc) mc.classList.remove('checked');
+  });
+  // Reset quiz
+  document.querySelectorAll('.quiz-opt input[type=radio]').forEach(function(r){ r.checked = false; });
+  document.querySelectorAll('.quiz-q').forEach(function(q){ q.classList.remove('answered','correct','wrong'); });
+  document.querySelectorAll('.quiz-opt').forEach(function(o){ o.classList.remove('correct','wrong','show-answer'); });
+  var qb = document.getElementById('quiz-body'); if (qb) qb.style.display = '';
+  var qf = document.querySelector('.quiz-footer'); if (qf) qf.style.display = '';
+  var qp = document.getElementById('quiz-pass'); if (qp) qp.classList.remove('show');
+  var qbar = document.getElementById('quiz-bar'); if (qbar) qbar.style.width = '0%';
+  var qmsg = document.getElementById('quiz-msg'); if (qmsg) { qmsg.textContent = ''; qmsg.className = 'quiz-result-msg'; }
+  // Show page 1
+  document.querySelectorAll('.ob-page').forEach(function(p, i){ p.classList.toggle('ob-active', i === 0); });
+  // Reset stepper
+  ['ob-s1','ob-s2','ob-s3'].forEach(function(sid){
+    const el = document.getElementById(sid);
+    if (el) el.classList.remove('active','done');
+  });
+  const d1 = document.getElementById('ob-d1'), d2 = document.getElementById('ob-d2'), d3 = document.getElementById('ob-d3');
+  if (d1) d1.textContent = '1';
+  if (d2) d2.textContent = '2';
+  if (d3) d3.textContent = '3';
+  const s1 = document.getElementById('ob-s1');
+  if (s1) s1.classList.add('active');
+}
+
+function filterObj(group, btn) {
+  document.querySelectorAll('.filt-btn').forEach(b => {
+    b.classList.remove('on','rosa','amber','comp');
+  });
+  if (btn) {
+    btn.classList.add('on');
+    if (group === 'mp') btn.classList.add('rosa');
+    if (group === 'cf') btn.classList.add('amber');
+    if (group === 'comp') btn.classList.add('comp');
+  }
+  document.querySelectorAll('.obj-card').forEach(c => {
+    c.style.display = (group === 'all' || c.dataset.group === group) ? '' : 'none';
+  });
+}
+
+function toggleObj(head) {
+  const body = head.nextElementSibling;
+  const isOpen = body.classList.contains('open');
+  document.querySelectorAll('.obj-body.open').forEach(b => b.classList.remove('open'));
+  if (!isOpen) body.classList.add('open');
+}
+
+go('home');
+restoreOBState();
+
+/* ── ONBOARDING TRACKING ── */
+function getOBState() {
+  try { return JSON.parse(localStorage.getItem('me_ob') || '{}'); } catch { return {}; }
+}
+function saveOBState(s) { try { localStorage.setItem('me_ob', JSON.stringify(s)); } catch {} }
+
+function toggleFund(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle('open');
+}
+
+function goOBPage(n) {
+  document.querySelectorAll('.ob-page').forEach((p, i) => {
+    p.classList.toggle('ob-active', i + 1 === n);
+  });
+  const s = getOBState(); s.page = n; saveOBState(s);
+  updateStepper(n);
+  document.querySelector('.canvas').scrollTop = 0;
+}
+
+function markFundDone() {
+  const s = getOBState(); s.fund = true; saveOBState(s);
+  const btn = document.getElementById('fund-done-btn');
+  btn.innerHTML = '✓ Etapa 1 concluída';
+  btn.classList.add('done');
+  btn.onclick = () => goOBPage(2);
+  updateStepper(1);
+  setTimeout(() => goOBPage(2), 350);
+}
+
+function checkMatProgress() {
+  const checks = ['qualif','antes','obj','demo','fech','op'];
+  const s = getOBState();
+  checks.forEach(id => {
+    const el = document.getElementById('mc-'+id);
+    const chk = document.getElementById('chk-'+id);
+    if (chk.checked) el.classList.add('checked'); else el.classList.remove('checked');
+    s['mat_'+id] = chk.checked;
+  });
+  const allDone = checks.every(id => document.getElementById('chk-'+id).checked);
+  s.mats = allDone;
+  saveOBState(s);
+  updateStepper();
+}
+
+function updateStepper(currentPage) {
+  const s = getOBState();
+  const page = currentPage || s.page || 1;
+  const s1 = document.getElementById('ob-s1'), d1 = document.getElementById('ob-d1');
+  const s2 = document.getElementById('ob-s2'), d2 = document.getElementById('ob-d2');
+  const s3 = document.getElementById('ob-s3'), d3 = document.getElementById('ob-d3');
+  [s1,s2,s3].forEach(el => el.classList.remove('active','done'));
+  // done flags from completion state
+  if (s.fund) { s1.classList.add('done'); d1.textContent = '✓'; } else { d1.textContent = '1'; }
+  if (s.mats) { s2.classList.add('done'); d2.textContent = '✓'; } else { d2.textContent = '2'; }
+  if (s.quiz_done) { s3.classList.add('done'); d3.textContent = '✓'; } else { d3.textContent = '3'; }
+  // active = current page (overrides done for the current step)
+  if (page === 1) { s1.classList.remove('done'); s1.classList.add('active'); d1.textContent = '1'; }
+  else if (page === 2) { s2.classList.remove('done'); s2.classList.add('active'); d2.textContent = '2'; }
+  else if (page === 3) s3.classList.add('active');
+}
+
+function restoreOBState() {
+  const s = getOBState();
+  if (s.fund) {
+    const btn = document.getElementById('fund-done-btn');
+    if (btn) {
+      btn.innerHTML = '✓ Etapa 1 concluída';
+      btn.classList.add('done');
+      btn.onclick = () => goOBPage(2);
+    }
+  }
+  ['qualif','antes','obj','demo','fech','op'].forEach(id => {
+    if (s['mat_'+id]) {
+      const chk = document.getElementById('chk-'+id);
+      if (chk) { chk.checked = true; document.getElementById('mc-'+id).classList.add('checked'); }
+    }
+  });
+  if (s.quiz_done) {
+    document.getElementById('quiz-body').style.display = 'none';
+    document.querySelector('.quiz-footer').style.display = 'none';
+    document.getElementById('quiz-pass').classList.add('show');
+    document.getElementById('quiz-bar').style.width = '100%';
+  }
+  goOBPage(s.page || 1);
+}
+
+function checkQuiz() {
+  const answers = {q0:'b',q1:'c',q2:'c',q3:'c',q4:'b',q5:'c'};
+  let erros = 0;
+  let respondidas = 0;
+
+  Object.entries(answers).forEach(([name, correct]) => {
+    const selected = document.querySelector(`input[name="${name}"]:checked`);
+    const opts = document.querySelectorAll(`input[name="${name}"]`);
+    // reset
+    opts.forEach(o => o.closest('.quiz-opt').classList.remove('correct','wrong','show-answer'));
+    if (!selected) { erros++; return; }
+    respondidas++;
+    const selectedOpt = selected.closest('.quiz-opt');
+    const correctOpt = document.querySelector(`input[name="${name}"][data-correct]`)?.closest('.quiz-opt');
+    if (selected.value === correct) {
+      selectedOpt.classList.add('correct');
+    } else {
+      selectedOpt.classList.add('wrong');
+      if (correctOpt) correctOpt.classList.add('show-answer');
+      erros++;
+    }
+  });
+
+  const total = Object.keys(answers).length;
+  const acertos = total - erros;
+  const pct = Math.round((acertos / total) * 100);
+  document.getElementById('quiz-bar').style.width = pct + '%';
+
+  const msg = document.getElementById('quiz-msg');
+  if (erros === 0) {
+    msg.textContent = '';
+    document.getElementById('quiz-body').style.display = 'none';
+    document.querySelector('.quiz-footer').style.display = 'none';
+    document.getElementById('quiz-pass').classList.add('show');
+    // marca etapa 3 como concluída no stepper
+    const s3 = document.getElementById('ob-s3');
+    const d3 = document.getElementById('ob-d3');
+    if (s3) { s3.classList.remove('active'); s3.classList.add('done'); }
+    if (d3) { d3.textContent = '✓'; }
+    try { const st = JSON.parse(localStorage.getItem('me_ob')||'{}'); st.quiz_done = true; localStorage.setItem('me_ob', JSON.stringify(st)); } catch {}
+  } else {
+    const faltam = respondidas < total ? ` (responda todas as ${total} perguntas)` : '';
+    msg.textContent = `${acertos} de ${total} corretas${faltam} — revise as marcadas em vermelho`;
+    msg.className = 'quiz-result-msg erros';
+  }
+}
+
+function resetQuiz() {
+  document.querySelectorAll('.quiz-opt input').forEach(i => i.checked = false);
+  document.querySelectorAll('.quiz-opt').forEach(o => o.classList.remove('correct','wrong','show-answer'));
+  document.getElementById('quiz-bar').style.width = '0%';
+  document.getElementById('quiz-msg').textContent = '';
+  document.getElementById('quiz-body').style.display = '';
+  document.querySelector('.quiz-footer').style.display = '';
+  document.getElementById('quiz-pass').classList.remove('show');
+}
+
+/* ── ONE PAGER CATEGORY VARIANTS ── */
+const OP_VARIANTS = {
+  a: {
+    headline: 'Suas compras operacionais podem custar menos<br><em>e demorar muito menos.</em>',
+    sub: 'O ME centraliza compras de suprimentos, manutenção e indiretos — com rastreabilidade total, lead time reduzido e saving comprovado em operações reais.',
+    b1v: '↓ 95%', b1l: 'redução de lead time vs. processo manual',
+    b2v: 'R$181M', b2l: 'transacionados · 1º cliente Compras Free ME',
+    cases: `
+      <div class="op-case">
+        <div class="op-case-bar" style="background:#16A34A"></div>
+        <div class="op-case-sector" style="color:#16A34A">Energia Elétrica — Indiretos operacionais</div>
+        <div class="op-case-data">8 anos de parceria · 12 mil pedidos · R$181M transacionados · R$4,5M de economia · NPS Promotor</div>
+      </div>
+      <div class="op-case">
+        <div class="op-case-bar" style="background:#FF38C6"></div>
+        <div class="op-case-sector" style="color:#c0209d">Energia Renovável — MRO &amp; serviços</div>
+        <div class="op-case-data">11,84% de saving · R$312k economizados · volume gerenciado 18× maior em 12 meses</div>
+      </div>
+      <div class="op-case">
+        <div class="op-case-bar" style="background:#0A0A93"></div>
+        <div class="op-case-sector" style="color:#0A0A93">Indústria Alimentícia — suprimentos &amp; embalagens</div>
+        <div class="op-case-data">R$9,3M em saving · lead time 2,3h · 97% conversão cotação→pedido</div>
+      </div>`
+  },
+  b: {
+    headline: 'Terceirizou o serviço.<br><em>O controle fica com você.</em>',
+    sub: 'O ME rastreia contratações de serviço do pedido ao pagamento — com histórico completo, comparativo de fornecedores e controle de escopo sem planilha.',
+    b1v: '↓ 95%', b1l: 'lead time vs. processo manual de e-mail',
+    b2v: '+20 anos', b2l: 'de operação em procurement B2B',
+    cases: `
+      <div class="op-case">
+        <div class="op-case-bar" style="background:#008BFE"></div>
+        <div class="op-case-sector" style="color:#008BFE">Telecomunicações — serviços &amp; terceiros</div>
+        <div class="op-case-data">11,41% de saving · R$3,1M economizados · R$27M em cotações · 200 pedidos gerenciados</div>
+      </div>
+      <div class="op-case">
+        <div class="op-case-bar" style="background:#16A34A"></div>
+        <div class="op-case-sector" style="color:#16A34A">Energia Elétrica — parceria de longo prazo</div>
+        <div class="op-case-data">8 anos · R$181M transacionados · contrato renovado em 2025 · NPS Promotor · nota 8</div>
+      </div>
+      <div class="op-case">
+        <div class="op-case-bar" style="background:#FF38C6"></div>
+        <div class="op-case-sector" style="color:#c0209d">Energia Renovável — Compras Free</div>
+        <div class="op-case-data">11,84% de saving · operação cresceu 18× · time interno liberado para o estratégico</div>
+      </div>`
+  },
+  c: {
+    headline: 'Mais fornecedores concorrendo.<br><em>Mais saving. Menos dependência.</em>',
+    sub: 'O ME cria um marketplace privado com seus fornecedores de insumos — cotação competitiva, múltiplos fornecedores concorrendo e integração com o ERP que você já usa.',
+    b1v: '6–12%', b1l: 'saving médio sobre o spend gerenciado',
+    b2v: '97%', b2l: 'conversão cotação→pedido · cliente alimentício',
+    cases: `
+      <div class="op-case">
+        <div class="op-case-bar" style="background:#0A0A93"></div>
+        <div class="op-case-sector" style="color:#0A0A93">Indústria Alimentícia — insumos &amp; embalagens</div>
+        <div class="op-case-data">R$9,3M em saving · lead time 2,3h · 97% conversão · R$150M de volume gerenciado</div>
+      </div>
+      <div class="op-case">
+        <div class="op-case-bar" style="background:#008BFE"></div>
+        <div class="op-case-sector" style="color:#008BFE">Telecomunicações — materiais &amp; equipamentos</div>
+        <div class="op-case-data">11,41% de saving · R$3,1M economizados · R$27M em cotações gerenciadas</div>
+      </div>
+      <div class="op-case">
+        <div class="op-case-bar" style="background:#FF38C6"></div>
+        <div class="op-case-sector" style="color:#c0209d">Energia Renovável — insumos operacionais</div>
+        <div class="op-case-data">11,84% de saving · R$312k economizados · volume gerenciado 18× maior em 12 meses</div>
+      </div>`
+  }
+};
+
+function setOPVariant(v) {
+  const d = OP_VARIANTS[v];
+  if (!d) return;
+  document.getElementById('op-headline').innerHTML = d.headline;
+  document.getElementById('op-sub').textContent = d.sub;
+  document.getElementById('op-b1v').textContent = d.b1v;
+  document.getElementById('op-b1l').textContent = d.b1l;
+  document.getElementById('op-b2v').textContent = d.b2v;
+  document.getElementById('op-b2l').textContent = d.b2l;
+  document.getElementById('op-cases-inner').innerHTML = d.cases;
+  ['a','b','c'].forEach(k => {
+    document.getElementById('opcat-'+k).classList.toggle('active', k === v);
+  });
+}
+
+async function copyOnePagerPNG(btn) {
+  const btns = document.querySelectorAll('.op-copy-btn');
+  btns.forEach(b => { b.classList.add('loading'); b.textContent = '⏳ Gerando...'; });
+  try {
+    const el = document.getElementById('op-wrap');
+    const canvas = await html2canvas(el, {
+      scale: 2,
+      useCORS: true,
+      allowTaint: true,
+      backgroundColor: '#ffffff',
+      logging: false
+    });
+    canvas.toBlob(async blob => {
+      try {
+        await navigator.clipboard.write([new ClipboardItem({'image/png': blob})]);
+        showToast('✅ Imagem copiada! Cole diretamente no e-mail.');
+      } catch {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = 'me-onepager.png'; a.click();
+        URL.revokeObjectURL(url);
+        showToast('📥 Imagem salva! (Ctrl+C não disponível neste navegador)');
+      }
+      btns.forEach(b => { b.classList.remove('loading'); b.textContent = '📋 Copiar como imagem'; });
+    }, 'image/png');
+  } catch(e) {
+    btns.forEach(b => { b.classList.remove('loading'); b.textContent = '📋 Copiar como imagem'; });
+    showToast('❌ Erro ao gerar imagem. Tente pelo PDF.');
+  }
+}
+
+function showToast(msg) {
+  const t = document.getElementById('op-toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+</script>
+</body>
+</html>
