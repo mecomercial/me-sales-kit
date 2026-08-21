@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Sales Kit · me.</title>
+<title>Estudo de Sales · me.</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
@@ -463,6 +463,70 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 #op-wrap .op-footer-contact-info a{color:#BDE44E;text-decoration:none}
 #op-wrap .op-confidential{font-family:'Montserrat',sans-serif;font-size:8.5px;font-weight:700;color:#9da0b8;letter-spacing:.8px;text-align:center;padding:10px 0}
 
+/* ── COMPETITION ACCORDION ── */
+.comp-head{background:var(--card);border:1px solid var(--borda);border-radius:12px;padding:15px 20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;transition:.15s;user-select:none}
+.comp-head:hover{border-color:var(--navy);background:var(--claro)}
+.comp-head.open{border-color:var(--navy);border-bottom-left-radius:0;border-bottom-right-radius:0;margin-bottom:0}
+.comp-head-name{font-size:14px;font-weight:800;color:var(--navy);line-height:1.2}
+.comp-head-tag{font-size:10.5px;font-weight:600;color:var(--muted);margin-top:3px}
+.comp-head-arr{font-size:20px;color:var(--muted);transition:.2s;flex-shrink:0;margin-left:12px}
+.comp-head.open .comp-head-arr{transform:rotate(180deg);color:var(--navy)}
+.comp-body{display:none;background:var(--card);border:1.5px solid var(--navy);border-top:none;border-radius:0 0 12px 12px;padding:18px 22px;margin-bottom:14px}
+.comp-gain-lbl{font-size:8.5px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--ciano);margin:0 0 6px}
+.comp-gain-list{list-style:none;margin-bottom:14px}
+.comp-gain-list li{font-size:11.5px;font-weight:600;color:var(--texto);padding:2px 0 2px 14px;position:relative;line-height:1.5}
+.comp-gain-list li::before{content:"›";position:absolute;left:0;font-weight:900;color:var(--navy)}
+.comp-scripts-lbl{font-size:8.5px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--rosa);margin:0 0 8px}
+.comp-script{background:var(--claro);border-left:3px solid var(--navy);border-radius:0 8px 8px 0;padding:11px 14px;margin-bottom:8px}
+.comp-trigger{font-size:9.5px;font-weight:800;letter-spacing:.3px;color:var(--muted);margin-bottom:5px;text-transform:uppercase}
+.comp-response{font-size:11.5px;font-weight:600;color:var(--texto);line-height:1.55}
+/* Competition table */
+.comp-table-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--borda);margin-bottom:24px}
+table.comp-table{width:100%;border-collapse:collapse;font-size:10.5px}
+.comp-table th{background:var(--navy);color:#fff;font-weight:800;font-size:9px;letter-spacing:.5px;padding:10px 12px;text-align:left;white-space:nowrap}
+.comp-table td{padding:9px 12px;border-bottom:1px solid var(--borda);color:var(--texto);font-weight:600;line-height:1.4}
+.comp-table tr:last-child td{border-bottom:none}
+.comp-table td:first-child{font-weight:800;color:var(--navy);background:var(--claro);white-space:nowrap;min-width:160px}
+.comp-table .me{background:#EFF6FF;font-weight:700}
+.comp-table .tick{color:#16a34a;font-weight:800}
+.comp-table .cross{color:#dc2626;font-weight:600}
+/* Field cases */
+.field-case{border-radius:14px;border:1.5px solid var(--borda);padding:20px 22px;background:var(--card);border-top:4px solid}
+.field-case.win{border-top-color:var(--ciano)}
+.field-case.neg{border-top-color:var(--amber)}
+.field-case.lost{border-top-color:var(--rosa)}
+.field-status{font-size:8.5px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;display:inline-block;padding:3px 10px;border-radius:20px}
+.win .field-status{background:#EFF6FF;color:var(--ciano)}
+.neg .field-status{background:var(--amber-mid);color:#92400E}
+.lost .field-status{background:#fff5fb;color:var(--rosa)}
+.field-lesson{background:var(--claro);border-radius:8px;padding:10px 13px;margin-top:12px;font-size:11px;font-weight:700;color:var(--navy);line-height:1.5}
+.field-lesson::before{content:"Lição: ";font-size:8.5px;letter-spacing:1px;text-transform:uppercase;display:block;color:var(--muted);margin-bottom:3px}
+/* Maturity levels */
+.mat-level{background:var(--card);border:1px solid var(--borda);border-radius:12px;padding:16px 18px;border-top:4px solid}
+.mat-level.l1{border-top-color:#d1d5db}
+.mat-level.l2{border-top-color:var(--amber)}
+.mat-level.l3{border-top-color:var(--ciano)}
+.mat-level.l4{border-top-color:var(--navy)}
+.mat-lv-badge{font-size:8px;font-weight:900;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:20px;display:inline-block;margin-bottom:8px;background:var(--claro);color:var(--muted)}
+/* Stat cards */
+.stat-card{background:var(--navy);border-radius:14px;padding:20px 18px;text-align:center;color:#fff}
+.stat-val{font-size:32px;font-weight:900;color:var(--lima);line-height:1;margin-bottom:6px}
+.stat-label{font-size:10px;font-weight:700;color:rgba(255,255,255,.75);line-height:1.4}
+.stat-source{font-size:8.5px;font-weight:600;color:rgba(255,255,255,.4);margin-top:5px}
+/* Result cards */
+.result-card{background:var(--card);border:1px solid var(--borda);border-radius:14px;overflow:hidden}
+.result-card-header{padding:14px 18px;display:flex;align-items:center;gap:10px}
+.result-card-body{padding:0 18px 16px}
+.result-tag{font-size:8.5px;font-weight:900;letter-spacing:1.2px;text-transform:uppercase;padding:4px 10px;border-radius:20px}
+.result-client{font-size:13px;font-weight:800;color:var(--navy)}
+.result-metric{text-align:center;padding:12px 8px;border-radius:10px;background:var(--claro)}
+.result-metric-val{font-size:20px;font-weight:900;color:var(--navy);line-height:1;margin-bottom:3px}
+.result-metric-lbl{font-size:9px;font-weight:700;color:var(--muted);line-height:1.3}
+/* Quote block */
+.quote-block{background:var(--navy);border-radius:14px;padding:28px 32px;color:#fff;position:relative;overflow:hidden;margin-bottom:16px}
+.quote-block::before{content:'"';position:absolute;left:18px;top:-10px;font-size:120px;font-weight:900;color:rgba(255,255,255,.06);line-height:1;font-family:Georgia,serif}
+.quote-text{font-size:14px;font-weight:700;line-height:1.65;color:rgba(255,255,255,.92);position:relative;z-index:1}
+/* PRINT */
 /* ── PRINT ── */
 @media print{
   @page{size:A4 landscape;margin:0}
@@ -606,44 +670,46 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 <aside>
   <div class="logo">
     <div class="logo-mark">me<b>.</b></div>
-    <div class="logo-sub">Sales Kit</div>
+    <div class="logo-sub">Estudo de Sales</div>
   </div>
   <nav>
     <button class="ni on" id="n-home" onclick="go('home')">
       <span class="dot"></span>Home
     </button>
-    <div class="nav-sec">Antes da venda</div>
-    <button class="ni" id="n-antes" onclick="go('antes')">
-      <span class="dot"></span>Antes da Call
+    <div class="nav-sec">Capítulos</div>
+    <button class="ni" id="n-fluxo" onclick="go('fluxo')">
+      <span class="dot"></span>01 · Fluxo Comercial
     </button>
-    <button class="ni" id="n-qualif" onclick="go('qualif')">
-      <span class="dot"></span>Qualificação
+    <button class="ni" id="n-icp" onclick="go('icp')">
+      <span class="dot"></span>02 · Cliente Ideal
     </button>
-
-    <div class="nav-sec">Na call</div>
-    <button class="ni" id="n-obj" onclick="go('obj')">
-      <span class="dot"></span>Objeção
+    <button class="ni" id="n-modelos" onclick="go('modelos')">
+      <span class="dot"></span>03 · Modelos
     </button>
-    <button class="ni" id="n-demo" onclick="go('demo')">
-      <span class="dot"></span>Demo
+    <button class="ni" id="n-decisores" onclick="go('decisores')">
+      <span class="dot"></span>04 · Decisores &amp; Objeções
     </button>
-
-    <div class="nav-sec">Fechar</div>
-    <button class="ni" id="n-fech" onclick="go('fech')">
-      <span class="dot"></span>Fechamento
+    <button class="ni" id="n-narrativa" onclick="go('narrativa')">
+      <span class="dot"></span>05 · Narrativa Central
     </button>
-
-    <div class="nav-sec">Onboarding</div>
-    <button class="ni" id="n-novo" onclick="go('novo')">
-      <span class="dot" style="background:var(--verde)"></span>Novo Vendedor<span style="font-size:8.5px;font-weight:900;background:var(--verde);color:#fff;border-radius:20px;padding:2px 7px;letter-spacing:.5px;margin-left:6px;vertical-align:middle">COMECE AQUI</span>
+    <button class="ni" id="n-campo" onclick="go('campo')">
+      <span class="dot"></span>06 · Lições de Campo
     </button>
-
-    <div class="nav-sec">Material</div>
+    <button class="ni" id="n-comp" onclick="go('comp')">
+      <span class="dot"></span>07 · Concorrência
+    </button>
+    <button class="ni" id="n-bench" onclick="go('bench')">
+      <span class="dot"></span>08 · Benchmarks
+    </button>
+    <button class="ni" id="n-resultados" onclick="go('resultados')">
+      <span class="dot"></span>09 · Resultados Reais
+    </button>
+    <div class="nav-sec">Materiais</div>
     <button class="ni" id="n-onepager" onclick="go('onepager')">
       <span class="dot"></span>One Pager
     </button>
     <button class="ni" id="n-flux" onclick="go('flux')">
-      <span class="dot"></span>Fluxograma<span style="font-size:9px;font-weight:700;color:rgba(255,255,255,.5);display:block;padding-left:16px;margin-top:1px;line-height:1.3">Seu papel em cada etapa</span>
+      <span class="dot"></span>Fluxograma
     </button>
   </nav>
 </aside>
@@ -658,1189 +724,697 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 
   <!-- ═══ HOME ═══ -->
   <div class="screen on" id="s-home">
-    <div class="ph">O que você vai fazer hoje?</div>
-    <div class="ps">6 momentos de venda. O material certo para cada um.</div>
-
-    <div style="display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap">
-      <button onclick="go('novo')" style="flex:1;min-width:200px;background:var(--verde-bg);border:2px solid var(--verde);border-radius:12px;padding:14px 18px;cursor:pointer;font-family:inherit;text-align:left;transition:.15s" onmouseover="this.style.filter='brightness(.96)'" onmouseout="this.style.filter=''">
-        <div style="font-size:9.5px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#0A0A93;margin-bottom:4px">Primeira vez aqui?</div>
-        <div style="font-size:13.5px;font-weight:800;color:var(--texto)">Começar pelo Onboarding →</div>
-        <div style="font-size:11px;font-weight:600;color:var(--muted);margin-top:3px">Trilha de 3 etapas para sua primeira call</div>
-      </button>
-      <button onclick="go('antes')" style="flex:1;min-width:200px;background:#EFF6FF;border:2px solid var(--ciano);border-radius:12px;padding:14px 18px;cursor:pointer;font-family:inherit;text-align:left;transition:.15s" onmouseover="this.style.filter='brightness(.96)'" onmouseout="this.style.filter=''">
-        <div style="font-size:9.5px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--ciano);margin-bottom:4px">Preparando uma call?</div>
-        <div style="font-size:13.5px;font-weight:800;color:var(--texto)">Ir direto para Antes da Call →</div>
-        <div style="font-size:11px;font-weight:600;color:var(--muted);margin-top:3px">Checklist + produto certo em 5 min</div>
-      </button>
-    </div>
-
+    <div class="ph">Sales Enablement no ME</div>
+    <div class="ps">Um estudo de Karina · Marketing de Produto · 9 capítulos sobre o fluxo comercial, o cliente ideal, a narrativa e os materiais que sustentam cada etapa da venda.</div>
     <div class="moment-grid">
-
-      <div class="moment" onclick="go('antes')">
-        <div class="mi" style="background:#EFF6FF;color:var(--ciano);font-size:13px;font-weight:900;letter-spacing:.5px;">01</div>
-        <h3>Antes da Call</h3>
-        <p>Pesquise o cliente, identifique o produto certo e prepare a abertura.</p>
-        <span class="mbadge" style="background:#EFF6FF;color:var(--ciano);">PREPARAÇÃO</span>
-        <div class="cover" style="background:var(--ciano)"></div>
+      <div class="moment" onclick="go('fluxo')" style="cursor:pointer">
+        <div class="mi" style="background:#0A0A93;color:#BDE44E;font-size:12px;font-weight:900;">01</div>
+        <h3>Fluxo Comercial</h3>
+        <p>9 etapas, 5 times. A venda como um revezamento estruturado.</p>
+        <span class="mbadge" style="background:#EFF6FF;color:#0A0A93;">Processo</span>
+        <div class="cover" style="background:#0A0A93"></div>
       </div>
-
-      <div class="moment" onclick="go('qualif')">
-        <div class="mi" style="background:var(--amber-mid);color:var(--amber);font-size:13px;font-weight:900;letter-spacing:.5px;">02</div>
-        <h3>Qualificação</h3>
-        <p>Uma pergunta que bifurca o produto certo. Dois caminhos, dois roteiros.</p>
-        <span class="mbadge" style="background:var(--amber-mid);color:var(--amber);">DISCOVERY</span>
-        <div class="cover" style="background:var(--amber)"></div>
+      <div class="moment" onclick="go('icp')" style="cursor:pointer">
+        <div class="mi" style="background:#EFF6FF;color:#008BFE;font-size:12px;font-weight:900;">02</div>
+        <h3>Cliente Ideal</h3>
+        <p>ICP, anti-ICP e setores em crescimento. O que define um bom cliente.</p>
+        <span class="mbadge" style="background:#EFF6FF;color:#008BFE;">ICP</span>
+        <div class="cover" style="background:#008BFE"></div>
       </div>
-
-      <div class="moment" onclick="go('obj')">
-        <div class="mi" style="background:#fff5fb;color:var(--rosa);font-size:13px;font-weight:900;letter-spacing:.5px;">03</div>
-        <h3>Objeção</h3>
-        <p>17 scripts prontos. Gerais, Marketplace, Compras Free e concorrentes.</p>
-        <span class="mbadge" style="background:#fff5fb;color:var(--rosa);">CAMPO</span>
-        <div class="cover" style="background:var(--rosa)"></div>
+      <div class="moment" onclick="go('modelos')" style="cursor:pointer">
+        <div class="mi" style="background:#fff5fb;color:#FF38C6;font-size:12px;font-weight:900;">03</div>
+        <h3>Modelos</h3>
+        <p>Contratação Direta, Marketplace Privado e Compras Free. O modelo certo para cada perfil.</p>
+        <span class="mbadge" style="background:#fff5fb;color:#FF38C6;">Oferta</span>
+        <div class="cover" style="background:#FF38C6"></div>
       </div>
-
-      <div class="moment" onclick="go('demo')">
-        <div class="mi" style="background:#EFF6FF;color:var(--navy);font-size:13px;font-weight:900;letter-spacing:.5px;">04</div>
-        <h3>Demo</h3>
-        <p>Fluxo por modelo. Marketplace Privado / Contratação Direta e Compras Free — separados.</p>
-        <span class="mbadge" style="background:#EFF6FF;color:var(--navy);">DEMONSTRAÇÃO</span>
-        <div class="cover" style="background:var(--navy)"></div>
+      <div class="moment" onclick="go('decisores')" style="cursor:pointer">
+        <div class="mi" style="background:#FFFBEB;color:#D97706;font-size:12px;font-weight:900;">04</div>
+        <h3>Decisores & Objeções</h3>
+        <p>Quem decide, o que responder, e por que vendas travam.</p>
+        <span class="mbadge" style="background:#FFFBEB;color:#D97706;">Campo</span>
+        <div class="cover" style="background:#D97706"></div>
       </div>
-
-      <div class="moment" onclick="go('fech')">
-        <div class="mi" style="background:var(--amber-mid);color:var(--amber);font-size:13px;font-weight:900;letter-spacing:.5px;">05</div>
-        <h3>Fechamento</h3>
-        <p>Business case em 4 números, tática do executivo e scripts de encerramento.</p>
-        <span class="mbadge" style="background:var(--amber-mid);color:var(--amber);">CLOSE</span>
-        <div class="cover" style="background:var(--amber)"></div>
+      <div class="moment" onclick="go('narrativa')" style="cursor:pointer">
+        <div class="mi" style="background:#0A0A93;color:#fff;font-size:12px;font-weight:900;">05</div>
+        <h3>Narrativa Central</h3>
+        <p>Messaging Core e os 4 pilares. A história que todos os times contam.</p>
+        <span class="mbadge" style="background:#EFF6FF;color:#0A0A93;">Messaging</span>
+        <div class="cover" style="background:#0A0A93"></div>
       </div>
-
-      <div class="moment" onclick="go('novo')">
-        <div class="mi" style="background:var(--verde-bg);color:#0A0A93;font-size:12px;font-weight:900;letter-spacing:.5px;">NV</div>
-        <h3>Onboarding</h3>
-        <p>O que estudar, em qual ordem e como se preparar para a primeira reunião.</p>
-        <span class="mbadge" style="background:var(--verde-bg);color:#0A0A93;">NOVO VENDEDOR</span>
-        <div class="cover" style="background:var(--verde)"></div>
+      <div class="moment" onclick="go('campo')" style="cursor:pointer">
+        <div class="mi" style="background:#EFF6FF;color:#008BFE;font-size:12px;font-weight:900;">06</div>
+        <h3>Lições de Campo</h3>
+        <p>3 reuniões reais, 3 desfechos, 3 aprendizados que valem para toda venda.</p>
+        <span class="mbadge" style="background:#EFF6FF;color:#008BFE;">Casos Reais</span>
+        <div class="cover" style="background:#008BFE"></div>
       </div>
-
-    </div>
-
-  </div><!-- /home -->
-
-  <!-- ═══ ANTES DA CALL ═══ -->
-  <div class="screen" id="s-antes">
-    <button class="back-btn" onclick="go('home')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Home</button>
-    <div class="ph">Antes da Call</div>
-    <div class="ps">5 minutos de preparo evitam 30 minutos de call mal direcionada.</div>
-
-    <div style="background:#EFF6FF;border-left:4px solid var(--navy);border-radius:10px;padding:12px 16px;margin-bottom:16px;display:flex;gap:12px;align-items:flex-start">
-      <div style="font-size:22px;line-height:1;flex-shrink:0">⏱</div>
-      <div>
-        <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:4px">Por que o cliente precisa mudar agora</div>
-        <div style="font-size:12px;font-weight:600;color:#1e3a5f;line-height:1.65">Empresas que operam compras sem rastreabilidade perdem controle em ruptura de fornecedores, ciclos longos e custo invisível. Ficar no processo atual não é neutro — é o dinheiro e o tempo que o cliente gasta toda semana sem perceber. Use esse argumento para abrir a conversa de urgência quando o cliente disser "não é prioridade agora".</div>
+      <div class="moment" onclick="go('comp')" style="cursor:pointer">
+        <div class="mi" style="background:#fff5fb;color:#FF38C6;font-size:12px;font-weight:900;">07</div>
+        <h3>Concorrência</h3>
+        <p>Battlecard: NIMBI, Coupa, SAP Ariba, GAP e Comlink com scripts de campo.</p>
+        <span class="mbadge" style="background:#fff5fb;color:#FF38C6;">Battlecard</span>
+        <div class="cover" style="background:#FF38C6"></div>
+      </div>
+      <div class="moment" onclick="go('bench')" style="cursor:pointer">
+        <div class="mi" style="background:#f5fbd8;color:#0A0A93;font-size:12px;font-weight:900;">08</div>
+        <h3>Benchmarks</h3>
+        <p>Maturidade de SE e o que o mercado prova em números.</p>
+        <span class="mbadge" style="background:#f5fbd8;color:#0A0A93;">Mercado</span>
+        <div class="cover" style="background:#BDE44E"></div>
+      </div>
+      <div class="moment" onclick="go('resultados')" style="cursor:pointer">
+        <div class="mi" style="background:#0A0A93;color:#BDE44E;font-size:12px;font-weight:900;">09</div>
+        <h3>Resultados Reais</h3>
+        <p>Métricas extraídas diretamente da plataforma. Período de 12 meses.</p>
+        <span class="mbadge" style="background:#EFF6FF;color:#0A0A93;">Dados</span>
+        <div class="cover" style="background:#0A0A93"></div>
       </div>
     </div>
+    <div class="k" style="margin-top:8px">Materiais de Apoio</div>
+    <div class="g2">
+      <div class="moment" onclick="go('onepager')" style="cursor:pointer">
+        <div class="mi" style="background:#EFF6FF;color:#0A0A93;font-size:10px;font-weight:900;letter-spacing:.3px;">OP</div>
+        <h3>One Pager Executivo</h3>
+        <p>Documento compacto para deixar com o CFO ou enviar antes da reunião.</p>
+        <span class="mbadge" style="background:#EFF6FF;color:#0A0A93;">Imprimir · PDF</span>
+        <div class="cover" style="background:#0A0A93"></div>
+      </div>
+      <div class="moment" onclick="go('flux')" style="cursor:pointer">
+        <div class="mi" style="background:#f5fbd8;color:#0A0A93;font-size:10px;font-weight:900;letter-spacing:.3px;">FX</div>
+        <h3>Fluxograma de Vendas</h3>
+        <p>Swimlane completo com todos os times e etapas do processo comercial.</p>
+        <span class="mbadge" style="background:#f5fbd8;color:#0A0A93;">Visual</span>
+        <div class="cover" style="background:#BDE44E"></div>
+      </div>
+    </div>
+  </div>
 
+  <!-- ═══ CAP 01: FLUXO COMERCIAL ═══ -->
+  <div class="screen" id="s-fluxo">
+    <button class="back-btn" onclick="go('home')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Voltar</button>
+    <div class="ph">Fluxo Comercial</div>
+    <div class="ps">9 etapas, 5 times. A venda no ME é um revezamento — cada passagem de bastão precisa ser limpa.</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px">
+      <span style="font-size:9px;font-weight:800;letter-spacing:.5px;padding:4px 10px;border-radius:20px;background:#6C3FC5;color:#fff">Marketing / SDR</span>
+      <span style="font-size:9px;font-weight:800;letter-spacing:.5px;padding:4px 10px;border-radius:20px;background:#0A0A93;color:#fff">Comercial · Hunter</span>
+      <span style="font-size:9px;font-weight:800;letter-spacing:.5px;padding:4px 10px;border-radius:20px;background:#FF38C6;color:#fff">Pré-vendas</span>
+      <span style="font-size:9px;font-weight:800;letter-spacing:.5px;padding:4px 10px;border-radius:20px;background:#008BFE;color:#fff">Projetos · PS</span>
+      <span style="font-size:9px;font-weight:800;letter-spacing:.5px;padding:4px 10px;border-radius:20px;background:#BDE44E;color:#0A0A93">KAM · Farmer</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div class="card" style="border-left:4px solid #6C3FC5;display:flex;gap:16px;align-items:flex-start;padding:16px 20px">
+        <div style="width:32px;height:32px;border-radius:50%;background:#6C3FC5;color:#fff;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0">1</div>
+        <div><div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:4px">Geração de Leads</div><div style="font-size:11.5px;font-weight:600;color:var(--muted)">Dois caminhos: campanhas de Marketing via SDR, ou prospecção ativa do Hunter (cold call, LinkedIn, indicação). Empresas 200–499 colaboradores → canal parceiro; 500+ → Hunter.</div></div>
+        <span style="flex-shrink:0;font-size:9px;font-weight:800;padding:3px 9px;border-radius:20px;background:rgba(108,63,197,.1);color:#6C3FC5">Mkt/SDR + Comercial</span>
+      </div>
+      <div class="card" style="border-left:4px solid #0A0A93;display:flex;gap:16px;align-items:flex-start;padding:16px 20px">
+        <div style="width:32px;height:32px;border-radius:50%;background:#0A0A93;color:#BDE44E;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0">2</div>
+        <div><div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:4px">Descoberta de Dores</div><div style="font-size:11.5px;font-weight:600;color:var(--muted)">Processo manual por e-mail, sem rastreabilidade, aprovações lentas, ciclo de compra acima de 20 dias. O vendedor investiga a intensidade da dor antes de falar de produto.</div></div>
+        <span style="flex-shrink:0;font-size:9px;font-weight:800;padding:3px 9px;border-radius:20px;background:#EFF6FF;color:#0A0A93">Comercial</span>
+      </div>
+      <div class="card" style="border-left:4px solid #0A0A93;display:flex;gap:16px;align-items:flex-start;padding:16px 20px">
+        <div style="width:32px;height:32px;border-radius:50%;background:#0A0A93;color:#BDE44E;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0">3</div>
+        <div><div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:4px">Mapeamento de Decisores</div><div style="font-size:11.5px;font-weight:600;color:var(--muted)">Gerente de Compras decide a ferramenta; TI avalia integração e LGPD; CFO aprova o orçamento. Sem mapear os três, a venda trava mais adiante.</div></div>
+        <span style="flex-shrink:0;font-size:9px;font-weight:800;padding:3px 9px;border-radius:20px;background:#EFF6FF;color:#0A0A93">Comercial</span>
+      </div>
+      <div class="card" style="border-left:4px solid #FF38C6;display:flex;gap:16px;align-items:flex-start;padding:16px 20px">
+        <div style="width:32px;height:32px;border-radius:50%;background:#FF38C6;color:#fff;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0">4</div>
+        <div><div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:4px">Demonstração</div><div style="font-size:11.5px;font-weight:600;color:var(--muted)">Comercial faz a introdução (até 10 min). Pré-vendas conduz a demo navegando no portal real — sem PowerPoint. Foco nas dores do cliente, não nas funcionalidades.</div></div>
+        <span style="flex-shrink:0;font-size:9px;font-weight:800;padding:3px 9px;border-radius:20px;background:#fff5fb;color:#FF38C6">Comercial + Pré-vendas</span>
+      </div>
+      <div class="card" style="border-left:4px solid #0A0A93;display:flex;gap:16px;align-items:flex-start;padding:16px 20px">
+        <div style="width:32px;height:32px;border-radius:50%;background:#0A0A93;color:#BDE44E;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0">5</div>
+        <div><div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:4px">Modelo de Contratação</div><div style="font-size:11.5px;font-weight:600;color:var(--muted)">Contratação Direta, Marketplace Privado ou Compras Free. O modelo certo depende do perfil e do budget do cliente. Ver Capítulo 03.</div></div>
+        <span style="flex-shrink:0;font-size:9px;font-weight:800;padding:3px 9px;border-radius:20px;background:#EFF6FF;color:#0A0A93">Comercial</span>
+      </div>
+      <div class="card" style="border-left:4px solid #FF38C6;display:flex;gap:16px;align-items:flex-start;padding:16px 20px">
+        <div style="width:32px;height:32px;border-radius:50%;background:#FF38C6;color:#fff;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0">6</div>
+        <div><div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:4px">Proposta Comercial</div><div style="font-size:11.5px;font-weight:600;color:var(--muted)">Valor de referência alto com negociação aberta. Destaque para flexibilidade, integração e métricas antes/depois por segmento.</div></div>
+        <span style="flex-shrink:0;font-size:9px;font-weight:800;padding:3px 9px;border-radius:20px;background:#fff5fb;color:#FF38C6">Comercial + Pré-vendas</span>
+      </div>
+      <div class="card" style="border-left:4px solid #FF38C6;display:flex;gap:16px;align-items:flex-start;padding:16px 20px">
+        <div style="width:32px;height:32px;border-radius:50%;background:#FF38C6;color:#fff;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0">7</div>
+        <div><div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:4px">Tratamento de Objeções</div><div style="font-size:11.5px;font-weight:600;color:var(--muted)">Preço, ERP legado, prioridade concorrente, decisor fora do radar. Cada objeção tem uma resposta estruturada. Ver Capítulo 04.</div></div>
+        <span style="flex-shrink:0;font-size:9px;font-weight:800;padding:3px 9px;border-radius:20px;background:#fff5fb;color:#FF38C6">Comercial + Pré-vendas</span>
+      </div>
+      <div class="card" style="border-left:4px solid #0A0A93;display:flex;gap:16px;align-items:flex-start;padding:16px 20px">
+        <div style="width:32px;height:32px;border-radius:50%;background:#0A0A93;color:#BDE44E;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0">8</div>
+        <div><div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:4px">Fechamento</div><div style="font-size:11.5px;font-weight:600;color:var(--muted)">Contrato assinado → passagem formal aos times de Projetos e KAM, com briefing completo do contexto do cliente.</div></div>
+        <span style="flex-shrink:0;font-size:9px;font-weight:800;padding:3px 9px;border-radius:20px;background:#EFF6FF;color:#0A0A93">Comercial</span>
+      </div>
+      <div class="card" style="border-left:4px solid #008BFE;display:flex;gap:16px;align-items:flex-start;padding:16px 20px">
+        <div style="width:32px;height:32px;border-radius:50%;background:#008BFE;color:#fff;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0">9</div>
+        <div><div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:4px">Handoff — Projetos e KAM</div><div style="font-size:11.5px;font-weight:600;color:var(--muted)">Projetos assume a implantação técnica (configuração, ERP, go-live). O KAM assume o relacionamento: expansão, renovação, upsell e NPS.</div></div>
+        <span style="flex-shrink:0;font-size:9px;font-weight:800;padding:3px 9px;border-radius:20px;background:#EFF6FF;color:#008BFE">Projetos · KAM</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ CAP 02: CLIENTE IDEAL ═══ -->
+  <div class="screen" id="s-icp">
+    <button class="back-btn" onclick="go('home')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Voltar</button>
+    <div class="ph">O Cliente Ideal</div>
+    <div class="ps">O setor é uma pista — o que define um bom cliente é a intensidade da dor operacional.</div>
+    <div class="g2" style="margin-bottom:16px">
+      <div class="card" style="border-top:4px solid var(--ciano)">
+        <div class="k" style="color:var(--ciano)">ICP · Perfil Ideal</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:4px">
+          <li style="font-size:12px;font-weight:600;color:var(--texto);padding-left:16px;position:relative"><span style="position:absolute;left:0;color:var(--ciano);font-weight:900">›</span>200+ colaboradores</li>
+          <li style="font-size:12px;font-weight:600;color:var(--texto);padding-left:16px;position:relative"><span style="position:absolute;left:0;color:var(--ciano);font-weight:900">›</span>150+ pedidos por mês</li>
+          <li style="font-size:12px;font-weight:600;color:var(--texto);padding-left:16px;position:relative"><span style="position:absolute;left:0;color:var(--ciano);font-weight:900">›</span>Processo de compras manual e caótico</li>
+          <li style="font-size:12px;font-weight:600;color:var(--texto);padding-left:16px;position:relative"><span style="position:absolute;left:0;color:var(--ciano);font-weight:900">›</span>Dor visível: sem rastreabilidade, ciclo longo</li>
+        </ul>
+        <div style="margin-top:14px;font-size:11px;font-weight:600;color:var(--muted);line-height:1.55">O cliente que mais fecha tem um dia a dia reconhecível: recebe requisição por e-mail ou planilha, manda cotação manual para 10 fornecedores em 10 e-mails, monta um mapa comparativo à mão, e o ciclo inteiro leva mais de 20 dias.</div>
+      </div>
+      <div class="card" style="border-top:4px solid var(--rosa)">
+        <div class="k" style="color:var(--rosa)">Anti-ICP · Sinal de Alerta</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:4px">
+          <li style="font-size:12px;font-weight:600;color:var(--texto);padding-left:16px;position:relative"><span style="position:absolute;left:0;color:var(--rosa);font-weight:900">›</span>Área de compras com menos de 3 pessoas</li>
+          <li style="font-size:12px;font-weight:600;color:var(--texto);padding-left:16px;position:relative"><span style="position:absolute;left:0;color:var(--rosa);font-weight:900">›</span>Interesse alto, mas ROI difícil de justificar</li>
+          <li style="font-size:12px;font-weight:600;color:var(--texto);padding-left:16px;position:relative"><span style="position:absolute;left:0;color:var(--rosa);font-weight:900">›</span>Empresa interessada ≠ empresa que fecha</li>
+        </ul>
+        <div style="margin-top:14px;background:var(--amber-bg);border-radius:8px;padding:10px 13px;font-size:11px;font-weight:700;color:var(--amber);line-height:1.5">Qualificar pelo tamanho da operação antes de investir tempo numa demo completa. O problema do cliente pequeno não é falta de vontade — é falta de ROI claro para ele mesmo.</div>
+      </div>
+    </div>
     <div class="card">
-      <span class="k" style="color:var(--ciano)">Checklist pré-call</span>
-      <div class="card-title" style="color:var(--ciano)">Pesquise antes de entrar</div>
-      <ul class="checklist">
-        <li class="cl-item"><div class="cl-num">1</div><span><strong>Identifique o modelo:</strong> o cliente tem perfil de Marketplace Privado, Compras Free ou Contratação Direta? Adapte o argumento antes de entrar.</span></li>
-        <li class="cl-item"><div class="cl-num">2</div><span><strong>Pesquise a empresa:</strong> setor, volume estimado de compras, ERP que usam (SAP? Totvs? Oracle?).</span></li>
-        <li class="cl-item"><div class="cl-num">3</div><span><strong>Qual o time de compras:</strong> buscou no LinkedIn se tem "Gerente de Compras" ou "Head de Procurement"? Se sim → Marketplace Privado / Cont. Direta. Se não → Compras Free.</span></li>
-        <li class="cl-item"><div class="cl-num">4</div><span><strong>Sabe quem decide:</strong> Gerente de Compras, CFO ou ambos? Identifique o champion e o assinante antes de entrar.</span></li>
-        <li class="cl-item"><div class="cl-num">5</div><span><strong>Prepare o argumento financeiro:</strong> qual referência de saving usar para o setor desse cliente? (ver Fechamento)</span></li>
-        <li class="cl-item"><div class="cl-num">6</div><span><strong>Revise 2 objeções prováveis</strong> para o perfil do cliente. Leva 2 minutos e evita travamento em call.</span></li>
+      <div class="k">Setores em crescimento</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px">
+        <span style="font-size:10px;font-weight:700;padding:5px 12px;border-radius:20px;background:var(--claro);border:1.5px solid var(--borda);color:var(--navy)">Todos os setores</span>
+        <span style="font-size:10px;font-weight:700;padding:5px 12px;border-radius:20px;background:#BDE44E;border:1.5px solid #BDE44E;color:#0A0A93">Agronegócio</span>
+        <span style="font-size:10px;font-weight:700;padding:5px 12px;border-radius:20px;background:#BDE44E;border:1.5px solid #BDE44E;color:#0A0A93">Comércio</span>
+        <span style="font-size:10px;font-weight:700;padding:5px 12px;border-radius:20px;background:#BDE44E;border:1.5px solid #BDE44E;color:#0A0A93">Construção</span>
+        <span style="font-size:10px;font-weight:700;padding:5px 12px;border-radius:20px;background:#BDE44E;border:1.5px solid #BDE44E;color:#0A0A93">Indústria</span>
+        <span style="font-size:10px;font-weight:700;padding:5px 12px;border-radius:20px;background:#BDE44E;border:1.5px solid #BDE44E;color:#0A0A93">Logística</span>
+        <span style="font-size:10px;font-weight:700;padding:5px 12px;border-radius:20px;background:var(--claro);border:1.5px solid var(--borda);color:var(--navy)">Química e Farmácia (base histórica)</span>
+      </div>
+    </div>
+    <div class="card" style="background:#0A0A93;border:none;margin-top:0">
+      <div class="k" style="color:#BDE44E">Gatilho emocional</div>
+      <div style="font-size:13px;font-weight:700;color:#fff;line-height:1.6">O estigma de que "compras é lenta e burocrática" é o gatilho mais poderoso da venda. Quando o comprador quer sair dessa imagem, ele está pronto para ouvir.</div>
+    </div>
+  </div>
+
+  <!-- ═══ CAP 03: MODELOS ═══ -->
+  <div class="screen" id="s-modelos">
+    <button class="back-btn" onclick="go('home')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Voltar</button>
+    <div class="ph">Os 3 Modelos de Contratação</div>
+    <div class="ps">Não existe um jeito único de contratar o ME — existe o modelo certo para cada perfil de cliente.</div>
+    <div class="g3" style="margin-bottom:16px">
+      <div class="card" style="border-top:4px solid var(--ciano)">
+        <div class="k" style="color:var(--ciano)">Modelo 1</div>
+        <div style="font-size:15px;font-weight:900;color:var(--navy);margin-bottom:8px">Contratação Direta</div>
+        <div style="font-size:11px;font-weight:700;color:var(--muted);margin-bottom:10px">Controle total · Plataforma ME</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:5px">
+          <li style="font-size:11px;font-weight:600;color:var(--texto);padding-left:13px;position:relative;line-height:1.45"><span style="position:absolute;left:0;color:var(--ciano);font-weight:900">›</span>Cliente paga mensalidade previsível</li>
+          <li style="font-size:11px;font-weight:600;color:var(--texto);padding-left:13px;position:relative;line-height:1.45"><span style="position:absolute;left:0;color:var(--ciano);font-weight:900">›</span>Custo por pedidos + usuários</li>
+          <li style="font-size:11px;font-weight:600;color:var(--texto);padding-left:13px;position:relative;line-height:1.45"><span style="position:absolute;left:0;color:var(--ciano);font-weight:900">›</span>Dashboard de saving e lead time em tempo real</li>
+          <li style="font-size:11px;font-weight:600;color:var(--texto);padding-left:13px;position:relative;line-height:1.45"><span style="position:absolute;left:0;color:var(--ciano);font-weight:900">›</span>Proposta de referência alta, com negociação aberta</li>
+        </ul>
+        <div style="margin-top:12px;background:#EFF6FF;border-radius:8px;padding:10px 12px">
+          <div style="font-size:8.5px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--ciano);margin-bottom:3px">Resultado Real · Telecom</div>
+          <div style="font-size:11px;font-weight:700;color:var(--navy)">R$ 3,1M de saving · 11,41% · lead time médio 3,4 dias</div>
+        </div>
+      </div>
+      <div class="card" style="border-top:4px solid var(--rosa)">
+        <div class="k" style="color:var(--rosa)">Modelo 2</div>
+        <div style="font-size:15px;font-weight:900;color:var(--navy);margin-bottom:8px">Marketplace Privado</div>
+        <div style="font-size:11px;font-weight:700;color:var(--muted);margin-bottom:10px">Custo zero para o comprador</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:5px">
+          <li style="font-size:11px;font-weight:600;color:var(--texto);padding-left:13px;position:relative;line-height:1.45"><span style="position:absolute;left:0;color:var(--rosa);font-weight:900">›</span>Cliente não paga — fornecedores pagam take rate (até 3%)</li>
+          <li style="font-size:11px;font-weight:600;color:var(--texto);padding-left:13px;position:relative;line-height:1.45"><span style="position:absolute;left:0;color:var(--rosa);font-weight:900">›</span>Excedente dividido: 50% ME · 50% cliente (para todos, sem exceção)</li>
+          <li style="font-size:11px;font-weight:600;color:var(--texto);padding-left:13px;position:relative;line-height:1.45"><span style="position:absolute;left:0;color:var(--rosa);font-weight:900">›</span>Indicado: setor alimentício, construção, indústria</li>
+        </ul>
+        <div style="margin-top:12px;background:#fff5fb;border-radius:8px;padding:10px 12px">
+          <div style="font-size:8.5px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--rosa);margin-bottom:3px">Resultado Real · Indústria Alimentícia</div>
+          <div style="font-size:11px;font-weight:700;color:var(--navy)">R$ 9,3M em saving · lead time 2,3h · 97% de conversão</div>
+        </div>
+      </div>
+      <div class="card" style="border-top:4px solid var(--amber)">
+        <div class="k" style="color:var(--amber)">Modelo 3</div>
+        <div style="font-size:15px;font-weight:900;color:var(--navy);margin-bottom:8px">Compras Free / BPO</div>
+        <div style="font-size:11px;font-weight:700;color:var(--muted);margin-bottom:10px">Operação gerida por especialistas ME</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:5px">
+          <li style="font-size:11px;font-weight:600;color:var(--texto);padding-left:13px;position:relative;line-height:1.45"><span style="position:absolute;left:0;color:var(--amber);font-weight:900">›</span>ME assume as compras não críticas</li>
+          <li style="font-size:11px;font-weight:600;color:var(--texto);padding-left:13px;position:relative;line-height:1.45"><span style="position:absolute;left:0;color:var(--amber);font-weight:900">›</span>Ticket mínimo: R$ 3 mil · SLA e prazos definidos</li>
+          <li style="font-size:11px;font-weight:600;color:var(--texto);padding-left:13px;position:relative;line-height:1.45"><span style="position:absolute;left:0;color:var(--amber);font-weight:900">›</span>Libera o time do cliente para o estratégico</li>
+        </ul>
+        <div style="margin-top:12px;background:var(--amber-bg);border-radius:8px;padding:10px 12px">
+          <div style="font-size:8.5px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--amber);margin-bottom:3px">Resultado Real · Energia Renovável</div>
+          <div style="font-size:11px;font-weight:700;color:var(--navy)">11,84% de saving · R$ 312k · crescimento 18× em 12 meses</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="k">Sobre a desconfiança do rebate</div>
+      <div style="font-size:12.5px;font-weight:600;color:var(--texto);line-height:1.6">Clientes temem que o fornecedor suba o preço para cobrir a taxa do Marketplace. <strong style="color:var(--navy)">Na prática isso não acontece:</strong> o fornecedor está competindo com outros na cotação — subir preço significa perder o pedido. E o argumento único: o ME é o único que divide o take rate com o cliente (50/50). NIMBI, Coupa, SAP Ariba e GAP ficam com 100% para si.</div>
+    </div>
+    <div class="g4">
+      <div class="stat-card"><div class="stat-val">6–12%</div><div class="stat-label">Saving sobre o spend gerenciado</div></div>
+      <div class="stat-card"><div class="stat-val">↓ 95%</div><div class="stat-label">Redução de lead time vs. processo manual</div></div>
+      <div class="stat-card"><div class="stat-val">real time</div><div class="stat-label">Evolução de spend por categoria</div></div>
+      <div class="stat-card"><div class="stat-val">+20 anos</div><div class="stat-label">de operação em procurement B2B</div></div>
+    </div>
+  </div>
+
+  <!-- ═══ CAP 04: DECISORES & OBJEÇÕES ═══ -->
+  <div class="screen" id="s-decisores">
+    <button class="back-btn" onclick="go('home')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Voltar</button>
+    <div class="ph">Decisores &amp; Objeções</div>
+    <div class="ps">A decisão nunca é de uma pessoa só — e objeções não se combatem com argumentos técnicos.</div>
+    <div class="k">O comitê de compras</div>
+    <div class="g3" style="margin-bottom:16px">
+      <div class="card" style="border-top:4px solid var(--navy);text-align:center">
+        <div style="font-size:28px;margin-bottom:8px">👔</div>
+        <div style="font-size:13px;font-weight:900;color:var(--navy);margin-bottom:6px">Gerente de Compras</div>
+        <div style="font-size:11px;font-weight:600;color:var(--muted);line-height:1.5;margin-bottom:10px">Quer resolver o problema operacional. Decide a ferramenta e convence a equipe — mas busca validação interna antes de fechar.</div>
+        <div style="font-size:11px;font-weight:700;color:var(--navy);background:#EFF6FF;border-radius:8px;padding:8px 10px;line-height:1.5">Argumento: controle, rastreabilidade e o fim do caos de e-mails e planilhas.</div>
+      </div>
+      <div class="card" style="border-top:4px solid var(--ciano);text-align:center">
+        <div style="font-size:28px;margin-bottom:8px">💻</div>
+        <div style="font-size:13px;font-weight:900;color:var(--navy);margin-bottom:6px">TI</div>
+        <div style="font-size:11px;font-weight:600;color:var(--muted);line-height:1.5;margin-bottom:10px">Avalia integração com ERP, segurança e LGPD. Um ERP muito antigo pode barrar a compra.</div>
+        <div style="font-size:11px;font-weight:700;color:var(--navy);background:#EFF6FF;border-radius:8px;padding:8px 10px;line-height:1.5">Argumento: o ME integra com qualquer ERP, sem forçar o cliente a mudar o que já usa.</div>
+      </div>
+      <div class="card" style="border-top:4px solid var(--rosa);text-align:center">
+        <div style="font-size:28px;margin-bottom:8px">💰</div>
+        <div style="font-size:13px;font-weight:900;color:var(--navy);margin-bottom:6px">CFO</div>
+        <div style="font-size:11px;font-weight:600;color:var(--muted);line-height:1.5;margin-bottom:10px">Aprova o orçamento — é a última barreira. Precisa de ROI em números.</div>
+        <div style="font-size:11px;font-weight:700;color:var(--navy);background:#EFF6FF;border-radius:8px;padding:8px 10px;line-height:1.5">Argumento: métricas antes/depois de saving e lead time, com dados reais por segmento.</div>
+      </div>
+    </div>
+    <div class="card" style="background:var(--navy);border:none;margin-bottom:8px">
+      <div class="k" style="color:#BDE44E">Regra de ouro do mapeamento</div>
+      <div style="font-size:13px;font-weight:700;color:#fff;line-height:1.6">"Se você está falando com um comprador, mas há três cargos acima dele que vão tomar a decisão, você não tem o contato de quem vai assinar."</div>
+    </div>
+    <div class="card" style="border-left:4px solid var(--amber);background:var(--amber-bg)">
+      <div class="k" style="color:var(--amber)">Sinal de risco</div>
+      <div style="font-size:12px;font-weight:600;color:#92400E;line-height:1.55">Depois de duas reuniões sem saber quem assina o contrato, a venda vai travar. Esse é o momento de escalar para o decisor final — e preparar o champion interno com argumentos para o superior.</div>
+    </div>
+    <div class="k" style="margin-top:4px">Principais objeções</div>
+    <div class="g2" style="margin-bottom:16px">
+      <div class="card" style="border-left:4px solid var(--navy)">
+        <div style="font-size:10px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--navy);margin-bottom:6px">Preço</div>
+        <div style="font-size:12px;font-weight:600;color:var(--texto);line-height:1.55">Abrir negociação. Mostrar valor frente a concorrentes engessados. Destacar suporte próximo e flexibilidade. Objeção de preço antes da demo = o cliente ainda não enxergou o valor.</div>
+      </div>
+      <div class="card" style="border-left:4px solid var(--ciano)">
+        <div style="font-size:10px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--ciano);margin-bottom:6px">ERP Legado</div>
+        <div style="font-size:12px;font-weight:600;color:var(--texto);line-height:1.55">Apresentar a planilha de integrações e a documentação de APIs. Se necessário, indicar consultoria ou desenvolvedor temporário.</div>
+      </div>
+      <div class="card" style="border-left:4px solid var(--amber)">
+        <div style="font-size:10px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--amber);margin-bottom:6px">Prioridade Concorrente</div>
+        <div style="font-size:12px;font-weight:600;color:var(--texto);line-height:1.55">Mapear quando o projeto volta ao radar. Manter o relacionamento ativo nos ciclos orçamentários do cliente.</div>
+      </div>
+      <div class="card" style="border-left:4px solid var(--rosa)">
+        <div style="font-size:10px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--rosa);margin-bottom:6px">Decisor Fora do Radar</div>
+        <div style="font-size:12px;font-weight:600;color:var(--texto);line-height:1.55">Escalar para quem assina. Preparar o champion interno com os argumentos certos para levar ao superior.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="k">Por que as vendas se perdem</div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:4px">
+        <li style="font-size:12px;font-weight:600;color:var(--texto);padding-left:14px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--rosa);font-weight:900">›</span>Sem acesso ao decisor — o champion não tem argumento suficiente para convencer quem assina</li>
+        <li style="font-size:12px;font-weight:600;color:var(--texto);padding-left:14px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--rosa);font-weight:900">›</span>ERP incompatível — sistemas tão específicos que exigem consultoria especializada</li>
+        <li style="font-size:12px;font-weight:600;color:var(--texto);padding-left:14px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--rosa);font-weight:900">›</span>Prioridade concorrente — reforma tributária, troca de ERP, reestruturação</li>
+        <li style="font-size:12px;font-weight:600;color:var(--texto);padding-left:14px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--rosa);font-weight:900">›</span>Champion saiu da empresa — relacionamento desconecta, venda recomeça do zero</li>
+        <li style="font-size:12px;font-weight:600;color:var(--texto);padding-left:14px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--rosa);font-weight:900">›</span>Concorrente já estabelecido — decisão tomada antes do ME entrar na conversa</li>
       </ul>
     </div>
+    <div class="card" style="background:var(--claro);border-color:var(--navy)">
+      <div class="k">Estratégia que funciona</div>
+      <div style="font-size:12.5px;font-weight:600;color:var(--texto);line-height:1.6">Proposta de referência alta + abertura explícita para negociar. O cliente sente que "ganhou" na negociação — e o valor final continua rentável. <strong style="color:var(--navy)">Quem já viu a demo e sente a dor é muito mais fácil de converter.</strong></div>
+    </div>
+  </div>
 
+  <!-- ═══ CAP 05: NARRATIVA CENTRAL ═══ -->
+  <div class="screen" id="s-narrativa">
+    <button class="back-btn" onclick="go('home')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Voltar</button>
+    <div class="ph">Narrativa Central</div>
+    <div class="ps">O Messaging Core é a história única que todos os times contam. Sem ele, cada vendedor descreve um ME diferente — e o cliente percebe a incoerência.</div>
+    <div class="quote-block">
+      <div class="k" style="color:#BDE44E">Messaging Core</div>
+      <div class="quote-text">"O ME existe para times de compras que ainda operam entre e-mails, planilhas e cobranças manuais — sem controle, sem rastreabilidade e com ciclos que frustram quem pediu. Com o ME, o mesmo time compra mais, negocia melhor e fecha mais rápido, com tudo centralizado, rastreável e integrado ao ERP que já usa."</div>
+    </div>
+    <div class="g2" style="margin-bottom:16px">
+      <div class="card">
+        <div class="k">Dor concreta</div>
+        <div style="font-size:12.5px;font-weight:600;color:var(--texto);line-height:1.6">E-mails, planilhas, cobranças manuais — palavras do dia a dia em que o cliente se reconhece na hora.</div>
+      </div>
+      <div class="card">
+        <div class="k">Impacto emocional</div>
+        <div style="font-size:12.5px;font-weight:600;color:var(--texto);line-height:1.6">Ciclos que frustram quem pediu — a dor que o comprador sente todos os dias.</div>
+      </div>
+      <div class="card">
+        <div class="k">Transformação</div>
+        <div style="font-size:12.5px;font-weight:600;color:var(--texto);line-height:1.6">Compra mais, negocia melhor, fecha mais rápido — sustentado por casos reais de clientes.</div>
+      </div>
+      <div class="card">
+        <div class="k">Diferencial</div>
+        <div style="font-size:12.5px;font-weight:600;color:var(--texto);line-height:1.6">Integrado ao ERP que já usam — o argumento central frente a NIMBI, Coupa e Ariba.</div>
+      </div>
+    </div>
+    <div class="k">Os 4 pilares da mensagem</div>
+    <div class="g4" style="margin-bottom:16px">
+      <div class="card" style="text-align:center;border-top:3px solid var(--ciano)"><div style="font-size:18px;font-weight:900;color:var(--ciano);margin-bottom:4px">Agilidade</div><div style="font-size:11px;font-weight:600;color:var(--muted)">Lead time de dias para horas</div></div>
+      <div class="card" style="text-align:center;border-top:3px solid var(--lima)"><div style="font-size:18px;font-weight:900;color:#0A0A93;margin-bottom:4px">Economia</div><div style="font-size:11px;font-weight:600;color:var(--muted)">6–12% de saving sobre o spend</div></div>
+      <div class="card" style="text-align:center;border-top:3px solid var(--navy)"><div style="font-size:18px;font-weight:900;color:var(--navy);margin-bottom:4px">Governança</div><div style="font-size:11px;font-weight:600;color:var(--muted)">Rastreabilidade e compliance</div></div>
+      <div class="card" style="text-align:center;border-top:3px solid var(--rosa)"><div style="font-size:18px;font-weight:900;color:var(--rosa);margin-bottom:4px">Colaboração</div><div style="font-size:11px;font-weight:600;color:var(--muted)">Fornecedores e equipes integrados</div></div>
+    </div>
+    <div class="card" style="border-left:4px solid var(--amber);background:var(--amber-bg)">
+      <div class="k" style="color:var(--amber)">Núcleo único, execução adaptada</div>
+      <div style="font-size:12.5px;font-weight:600;color:#92400E;line-height:1.6">A promessa não muda — a conversa muda. Comercial fala de ROI e integração; SMB fala de facilidade e custo zero via marketplace; Compras Free fala de tirar o peso da operação. <strong>Se cada time contar uma história completamente diferente, o cliente que falar com dois times vai sentir que são duas empresas.</strong></div>
+    </div>
+  </div>
+
+  <!-- ═══ CAP 06: LIÇÕES DE CAMPO ═══ -->
+  <div class="screen" id="s-campo">
+    <button class="back-btn" onclick="go('home')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Voltar</button>
+    <div class="ph">Lições de Campo</div>
+    <div class="ps">Três reuniões reais com clientes, três desfechos diferentes — e três aprendizados que valem para toda venda.</div>
+    <div class="g3">
+      <div class="field-case win">
+        <div class="field-status">Fechou</div>
+        <div style="font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Indústria · Operação complexa</div>
+        <div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:8px">Cliente A</div>
+        <div style="font-size:11.5px;font-weight:600;color:var(--texto);line-height:1.55">Grande empresa com materiais e serviços de longo prazo. Precisava de integração com ERP, aprovações por alçada e gestão de contratos. Cliente técnico, engajado, câmera ligada, perguntas profundas.</div>
+        <div style="margin-top:10px;font-size:11px;font-weight:700;color:var(--muted)">O que convenceu: flexibilidade, medição de serviço e integração gradual.</div>
+        <div class="field-lesson">Cliente técnico quer profundidade. O vendedor precisa dominar o produto — não só o pitch.</div>
+      </div>
+      <div class="field-case neg">
+        <div class="field-status">Em negociação</div>
+        <div style="font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Marketplace B2B · Órgãos públicos</div>
+        <div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:8px">Cliente B</div>
+        <div style="font-size:11.5px;font-weight:600;color:var(--texto);line-height:1.55">Mais de duas décadas de mercado, milhares de clientes — quase todos órgãos públicos. Quer usar o ME como infraestrutura do próprio marketplace. Não é o ICP padrão — não é um cliente comprando para uso interno.</div>
+        <div class="field-lesson">Perfil diferente exige abordagem e material específicos. Não usar o padrão de procurement.</div>
+      </div>
+      <div class="field-case lost">
+        <div class="field-status">Travou</div>
+        <div style="font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Regional · Norte do país · Resistente</div>
+        <div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:8px">Cliente C</div>
+        <div style="font-size:11.5px;font-weight:600;color:var(--texto);line-height:1.55">Três compradores, operação manual, histórico de resistência à tecnologia. A demo usou exemplos de São Paulo — e o cliente queria ver a realidade da região dele. A objeção real nunca foi descoberta.</div>
+        <div class="field-lesson">A demo precisa espelhar a realidade do cliente. E um bom discovery descobre a objeção real antes que ela trave a venda.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ CAP 07: CONCORRÊNCIA ═══ -->
+  <div class="screen" id="s-comp">
+    <button class="back-btn" onclick="go('home')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Voltar</button>
+    <div class="ph">Concorrência</div>
+    <div class="ps">Cinco concorrentes aparecem nas mesas de negociação. Para cada um, o ME tem uma resposta clara.</div>
+    <div class="card" style="border-top:4px solid var(--navy);margin-bottom:20px">
+      <div class="k">Diferenciais do ME</div>
+      <div class="g2" style="margin-top:4px;gap:8px">
+        <div style="font-size:11.5px;font-weight:600;color:var(--texto);padding-left:13px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--navy);font-weight:900">›</span>Mais de 1 milhão de fornecedores ativos · R$ 180 bilhões/ano transacionados</div>
+        <div style="font-size:11.5px;font-weight:600;color:var(--texto);padding-left:13px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--navy);font-weight:900">›</span>Demo no portal real com dados reais (não PowerPoint)</div>
+        <div style="font-size:11.5px;font-weight:600;color:var(--texto);padding-left:13px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--navy);font-weight:900">›</span>Marketplace Privado com rebate — argumento único no mercado</span></div>
+        <div style="font-size:11.5px;font-weight:600;color:var(--texto);padding-left:13px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--navy);font-weight:900">›</span>Integra com qualquer ERP · suporte local em português · IA embarcada</div>
+        <div style="font-size:11.5px;font-weight:600;color:var(--texto);padding-left:13px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--navy);font-weight:900">›</span>Divide o take rate com o cliente: 50% ME · 50% cliente (NIMBI, Coupa e Ariba ficam com 100%)</div>
+        <div style="font-size:11.5px;font-weight:600;color:var(--texto);padding-left:13px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--navy);font-weight:900">›</span>Preço em reais · implantação em semanas, não meses</div>
+      </div>
+    </div>
+    <div class="k">Comparativo por dimensão</div>
+    <div class="comp-table-wrap">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Dimensão</th>
+            <th style="background:#1a1ab0">ME</th>
+            <th>NIMBI</th>
+            <th>Coupa</th>
+            <th>SAP Ariba</th>
+            <th>GAP</th>
+            <th>Comlink</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Ecossistema de fornecedores</td><td class="me tick">1M+ ativos · BR</td><td>Menor</td><td>Baixa adoção BR</td><td>Fee por fornecedor</td><td>Internacional</td><td>Serviços agro · SP</td></tr>
+          <tr><td>Custo de implementação</td><td class="me tick">Incluso</td><td>Baixo</td><td>US$ 50–500k+</td><td>Alto · 3 camadas</td><td>Médio a alto</td><td>Baixo a médio</td></tr>
+          <tr><td>Marketplace c/ rebate</td><td class="me tick">Único no Brasil</td><td class="cross">Não tem</td><td class="cross">Não tem no BR</td><td class="cross">Não tem</td><td class="cross">Não tem</td><td class="cross">Não tem</td></tr>
+          <tr><td>Divide take rate c/ cliente</td><td class="me tick">Sim · 50/50</td><td class="cross">Não</td><td class="cross">Não</td><td class="cross">Não</td><td class="cross">Não</td><td class="cross">Não</td></tr>
+          <tr><td>Suporte local em português</td><td class="me tick">Sim · time BR</td><td class="tick">Sim · BR</td><td>Limitado</td><td>Parcial</td><td>Limitado</td><td class="tick">Sim · BR</td></tr>
+          <tr><td>Integração com ERP</td><td class="me tick">Qualquer ERP</td><td>Principais ERPs</td><td>Foco SAP/Oracle</td><td>Nativo SAP apenas</td><td>Principais ERPs</td><td>Parcial</td></tr>
+          <tr><td>Demo no sistema real</td><td class="me tick">Sim · dados reais</td><td class="cross">PowerPoint</td><td class="cross">PowerPoint</td><td>Ambiente demo</td><td>Ambiente demo</td><td class="cross">PowerPoint</td></tr>
+          <tr><td>Preço em moeda local</td><td class="me tick">Sim · R$</td><td class="tick">Sim · R$</td><td class="cross">Não · USD</td><td>Parcial</td><td class="cross">EUR/USD</td><td class="tick">Sim · R$</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="k">Scripts de campo por concorrente</div>
+    <div>
+      <div class="comp-head" onclick="this.classList.toggle('open');this.nextElementSibling.style.display=this.classList.contains('open')?'block':'none'">
+        <div><div class="comp-head-name">NIMBI</div><div class="comp-head-tag">Principal concorrente nacional · "mais barata e mais simples"</div></div>
+        <div class="comp-head-arr">⌄</div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-gain-lbl">Onde o ME ganha</div>
+        <ul class="comp-gain-list"><li>Integração com ERP mais completa e flexível</li><li>Processo adaptado ao cliente — não o contrário</li><li>Ecossistema maior de fornecedores brasileiros</li><li>Marketplace Privado com rebate 50/50</li><li>Demo no sistema real, não em PowerPoint</li></ul>
+        <div class="comp-scripts-lbl">Scripts de campo</div>
+        <div class="comp-script"><div class="comp-trigger">"A NIMBI é mais barata."</div><div class="comp-response">"Faz sentido comparar. A diferença de preço existe, mas com a NIMBI o cliente fica preso ao processo dela — adaptar ao ERP, criar categorias específicas ou integrar mais de um sistema esbarra em limitações. O ME se ajusta ao processo que vocês já têm. Quer ver isso na prática?"</div></div>
+        <div class="comp-script"><div class="comp-trigger">"Já estamos avaliando a NIMBI."</div><div class="comp-response">"Ótimo que estão avaliando bem as opções. Na demo deles, peçam para mostrar como a ferramenta se adapta ao processo de vocês — não ao processo padrão deles. Aí vocês comparam de igual para igual. Posso te mostrar como o ME faz isso agora?"</div></div>
+        <div class="comp-script"><div class="comp-trigger">O cliente fecha com a NIMBI e some.</div><div class="comp-response">"Deixa meu contato com você. A gente vê bastante isso — em 12, 18 meses o cliente volta quando começa a sentir as limitações na prática. Quando acontecer, me chama."</div></div>
+      </div>
+      <div class="comp-head" onclick="this.classList.toggle('open');this.nextElementSibling.style.display=this.classList.contains('open')?'block':'none'">
+        <div><div class="comp-head-name">Coupa</div><div class="comp-head-tag">Enterprise internacional · aparece em multinacionais · preço em USD</div></div>
+        <div class="comp-head-arr">⌄</div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-gain-lbl">Onde o ME ganha</div>
+        <ul class="comp-gain-list"><li>Custo total muito menor em reais</li><li>Implantação em semanas, não meses</li><li>Adoção de fornecedores brasileiros</li><li>Suporte local em português</li><li>Preços em R$ sem exposição cambial</li></ul>
+        <div style="background:var(--amber-bg);border-radius:8px;padding:10px 12px;margin-bottom:12px;font-size:11px;font-weight:700;color:#92400E">Atenção: a Coupa está se localizando no Brasil (estrutura fiscal própria) e baixando o preço para ganhar market share. O gap em relação ao ME diminuiu — principalmente em volumes altos.</div>
+        <div class="comp-scripts-lbl">Scripts de campo</div>
+        <div class="comp-script"><div class="comp-trigger">"Nossa sede usa Coupa, vai ser difícil mudar."</div><div class="comp-response">"Entendo o contexto. Mas o Coupa foi escolhido globalmente — o que acontece com as operações locais que têm especificidades brasileiras? O ME pode operar em paralelo para os processos locais: fornecedores regionais, categorias não cobertas pelo global, Marketplace Privado com rebate. Complementa, não substitui."</div></div>
+        <div class="comp-script"><div class="comp-trigger">"O Coupa tem mais funcionalidades."</div><div class="comp-response">"O Coupa tem mais camadas, isso é verdade. A questão é: vocês vão usar todas elas? Porque cada camada que vocês não usam é um custo que pagam mesmo assim — subscription + implementação + treinamento. No ME, vocês partem do que precisam e expandem no ritmo de vocês."</div></div>
+      </div>
+      <div class="comp-head" onclick="this.classList.toggle('open');this.nextElementSibling.style.display=this.classList.contains('open')?'block':'none'">
+        <div><div class="comp-head-name">SAP Ariba</div><div class="comp-head-tag">Ecossistema SAP · aparece em clientes SAP · 3 camadas de cobrança</div></div>
+        <div class="comp-head-arr">⌄</div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-gain-lbl">Onde o ME ganha</div>
+        <ul class="comp-gain-list"><li>Custo real transparente (subscription + transação + fee fornecedor vs. ME incluso)</li><li>Integra qualquer ERP — não só SAP</li><li>Fornecedores não pagam para entrar</li><li>Interface intuitiva vs. ~20h de treinamento por usuário no Ariba</li></ul>
+        <div class="comp-scripts-lbl">Scripts de campo</div>
+        <div class="comp-script"><div class="comp-trigger">"Já usamos SAP, o Ariba faz sentido como extensão."</div><div class="comp-response">"O Ariba é nativo SAP — mas procurement B2B no Brasil tem especificidades que o Ariba não cobre bem: ecossistema de fornecedores locais, Marketplace Privado com rebate, suporte em português. O ME integra com o SAP de vocês e traz o que o Ariba não tem no contexto brasileiro."</div></div>
+        <div class="comp-script"><div class="comp-trigger">"O Ariba já está integrado com o SAP que usamos."</div><div class="comp-response">"Integração é o argumento mais usado pelo SAP para vender o Ariba. Mas dois pontos: a integração SAP–Ariba não é gratuita — tem custo de licença e manutenção. E o ME também se integra ao SAP via API — e os fornecedores de vocês não pagam taxa para participar, ao contrário do Ariba."</div></div>
+      </div>
+      <div class="comp-head" onclick="this.classList.toggle('open');this.nextElementSibling.style.display=this.classList.contains('open')?'block':'none'">
+        <div><div class="comp-head-name">GAP</div><div class="comp-head-tag">Europeu emergente no Brasil · Gartner Magic Quadrant · adquiriu CostDrives</div></div>
+        <div class="comp-head-arr">⌄</div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-gain-lbl">Onde o ME ganha</div>
+        <ul class="comp-gain-list"><li>Implantação mais ágil e custo total menor</li><li>Ecossistema local com 1M+ fornecedores brasileiros</li><li>Suporte em português · Marketplace Privado com rebate</li><li>Procurement operacional consolidado — não em construção</li></ul>
+        <div style="background:var(--amber-bg);border-radius:8px;padding:10px 12px;margin-bottom:12px;font-size:11px;font-weight:700;color:#92400E">Alerta: empresa com capital, velocidade e presença no Gartner — crescendo rápido no Brasil. A entrada foi pela inteligência de mercado (CostDrives); o procurement operacional ainda está sendo integrado.</div>
+        <div class="comp-scripts-lbl">Script de campo</div>
+        <div class="comp-script"><div class="comp-trigger">"Estamos avaliando a GAP — eles estão no Gartner."</div><div class="comp-response">"Eles chegaram forte ao Brasil e têm um produto sólido na Europa. A questão é que a entrada deles foi pela inteligência de mercado — via aquisição da CostDrives. O procurement operacional ainda está sendo integrado a isso. O ME tem mais de 20 anos operando procurement no Brasil, com ecossistema construído localmente. Para a operação de vocês hoje, quero mostrar o que já funciona — não o que está sendo construído."</div></div>
+      </div>
+      <div class="comp-head" onclick="this.classList.toggle('open');this.nextElementSibling.style.display=this.classList.contains('open')?'block':'none'">
+        <div><div class="comp-head-name">Comlink</div><div class="comp-head-tag">Nacional · forte em serviços no agronegócio · região de Ribeirão Preto</div></div>
+        <div class="comp-head-arr">⌄</div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-gain-lbl">Onde o ME ganha</div>
+        <ul class="comp-gain-list"><li>Plataforma completa além de serviços: MRO, materiais, contratos, integração ERP</li><li>Ecossistema nacional · Marketplace Privado com rebate</li><li>Cobertura em todas as regiões do Brasil</li></ul>
+        <div style="background:var(--claro);border-radius:8px;padding:10px 12px;margin-bottom:12px;font-size:11px;font-weight:700;color:var(--navy)">Atenção: clientes do agronegócio no interior paulista podem já ter relação com a Comlink — adaptar o pitch para esse público.</div>
+        <div class="comp-scripts-lbl">Script de campo</div>
+        <div class="comp-script"><div class="comp-trigger">"No nosso setor, todo mundo usa Comlink."</div><div class="comp-response">"Eles são muito bons em serviços para o agronegócio — faz sentido essa percepção. Mas quando a operação vai além de serviços — MRO, materiais, contratos de fornecimento, integração com ERP — a Comlink tem limitações. O ME cobre todas as categorias numa única plataforma, com Marketplace Privado para reduzir custo e fornecedores que vocês já conhecem. Posso mostrar como clientes do setor usam isso na prática?"</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ CAP 08: BENCHMARKS ═══ -->
+  <div class="screen" id="s-bench">
+    <button class="back-btn" onclick="go('home')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Voltar</button>
+    <div class="ph">Maturidade &amp; Benchmarks</div>
+    <div class="ps">Sales Enablement tem níveis de evolução — e números que mostram por que vale a pena subir de nível.</div>
+    <div class="k">O impacto em números</div>
+    <div class="g4" style="margin-bottom:20px">
+      <div class="stat-card"><div class="stat-val">58%</div><div class="stat-label">mais propensos a bater meta — reps que usam conteúdo de SE</div><div class="stat-source">HubSpot Research</div></div>
+      <div class="stat-card"><div class="stat-val">+6pp</div><div class="stat-label">de win rate com SE estruturado — de 43% para 49%</div><div class="stat-source">CSO Insights</div></div>
+      <div class="stat-card"><div class="stat-val">30%</div><div class="stat-label">mais resultado no 1º ano com onboarding estruturado</div><div class="stat-source">RD Station</div></div>
+      <div class="stat-card"><div class="stat-val">33%</div><div class="stat-label">de redução no ciclo de venda com SE estruturado</div><div class="stat-source">Forrester</div></div>
+    </div>
+    <div class="k">Níveis de maturidade</div>
+    <div class="g4" style="margin-bottom:20px">
+      <div class="mat-level l1">
+        <div class="mat-lv-badge">Nível 1</div>
+        <div style="font-size:14px;font-weight:900;color:var(--navy);margin-bottom:6px">Reativo</div>
+        <div style="font-size:11.5px;font-weight:600;color:var(--muted);line-height:1.5">Cada vendedor por si. Conteúdo espalhado, sem repositório, sem padrão. O resultado depende do talento individual.</div>
+        <div style="margin-top:10px;font-size:9px;font-weight:800;letter-spacing:1px;color:#9ca3af;text-transform:uppercase">Ponto de partida</div>
+      </div>
+      <div class="mat-level l2">
+        <div class="mat-lv-badge" style="background:var(--amber-bg);color:var(--amber)">Nível 2</div>
+        <div style="font-size:14px;font-weight:900;color:var(--navy);margin-bottom:6px">Estruturado</div>
+        <div style="font-size:11.5px;font-weight:600;color:var(--muted);line-height:1.5">Repositório centralizado, processos padronizados, materiais criados com critério. Ramp time menor, menos improviso.</div>
+        <div style="margin-top:10px;font-size:9px;font-weight:800;letter-spacing:1px;color:var(--amber);text-transform:uppercase">Em construção</div>
+      </div>
+      <div class="mat-level l3">
+        <div class="mat-lv-badge" style="background:#EFF6FF;color:var(--ciano)">Nível 3</div>
+        <div style="font-size:14px;font-weight:900;color:var(--navy);margin-bottom:6px">Conectado</div>
+        <div style="font-size:11.5px;font-weight:600;color:var(--muted);line-height:1.5">SE integrado ao CRM, métricas acompanhadas, coaching com dados reais. Win rate sobe, ciclo cai.</div>
+      </div>
+      <div class="mat-level l4">
+        <div class="mat-lv-badge" style="background:#EFF6FF;color:var(--navy)">Nível 4</div>
+        <div style="font-size:14px;font-weight:900;color:var(--navy);margin-bottom:6px">Estratégico</div>
+        <div style="font-size:11.5px;font-weight:600;color:var(--muted);line-height:1.5">Data-driven, IA embarcada, SE antecipa necessidades antes do time pedir.</div>
+      </div>
+    </div>
+    <div class="k">Boas práticas comprovadas</div>
     <div class="card">
-      <span class="k" style="color:var(--ciano)">Bifurcação rápida</span>
-      <div class="card-title" style="color:var(--ciano)">Qual produto levar para essa call?</div>
-      <div class="bifurc">
-        <div class="bif-lado cf">
-          <b>→ Compras Free / BPO</b>
-          <p>Empresa sem área de compras estruturada ou com 1–3 pessoas tentando cobrir tudo. Quer terceirizar, não comprar ferramenta.</p>
-          <div class="bif-sinal">Sinal: "não tenho time pra isso" · "só eu cuido de compras aqui"</div>
-          <span class="bif-tag cf">→ Rota Compras Free</span>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:7px">
+        <li style="font-size:12px;font-weight:600;color:var(--texto);padding-left:14px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--navy);font-weight:900">›</span>Responsável dedicado de SE desde o início · playbook antes de treinar</li>
+        <li style="font-size:12px;font-weight:600;color:var(--texto);padding-left:14px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--navy);font-weight:900">›</span>Vendedores envolvidos na criação — nada entregue pronto</li>
+        <li style="font-size:12px;font-weight:600;color:var(--texto);padding-left:14px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--navy);font-weight:900">›</span>Lançamento em ondas: 1 material, medir adoção, criar o próximo</li>
+        <li style="font-size:12px;font-weight:600;color:var(--texto);padding-left:14px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--navy);font-weight:900">›</span>Cada material mapeado a uma etapa da jornada — nada existe "solto"</li>
+        <li style="font-size:12px;font-weight:600;color:var(--texto);padding-left:14px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--navy);font-weight:900">›</span>Regra dos 15 segundos: se o rep não acha em 15s, o material não existe</li>
+        <li style="font-size:12px;font-weight:600;color:var(--texto);padding-left:14px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--navy);font-weight:900">›</span>Battlecards criados de dados reais de chamadas — não de suposição</li>
+        <li style="font-size:12px;font-weight:600;color:var(--texto);padding-left:14px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--navy);font-weight:900">›</span>Cada material testado em vendas reais antes de virar oficial</li>
+      </ul>
+    </div>
+    <div class="k">Como outras empresas B2B fizeram</div>
+    <div class="g3">
+      <div class="card" style="border-top:3px solid var(--rosa)">
+        <div style="font-size:13px;font-weight:900;color:var(--navy);margin-bottom:4px">RD Station</div>
+        <div style="font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Brasil · SaaS B2B</div>
+        <div style="font-size:12px;font-weight:600;color:var(--texto);line-height:1.5">Time entrega em 9 meses o que levaria 12 sem estrutura de SE.</div>
+      </div>
+      <div class="card" style="border-top:3px solid var(--ciano)">
+        <div style="font-size:13px;font-weight:900;color:var(--navy);margin-bottom:4px">HubSpot</div>
+        <div style="font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px">EUA · SaaS B2B</div>
+        <div style="font-size:12px;font-weight:600;color:var(--texto);line-height:1.5">Equipes alinhadas são 103% mais propensas a superar metas.</div>
+      </div>
+      <div class="card" style="border-top:3px solid var(--amber)">
+        <div style="font-size:13px;font-weight:900;color:var(--navy);margin-bottom:4px">Gong</div>
+        <div style="font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px">EUA · Revenue Intelligence</div>
+        <div style="font-size:12px;font-weight:600;color:var(--texto);line-height:1.5">Top performers fazem 6× mais roleplay que a média.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ CAP 09: RESULTADOS REAIS ═══ -->
+  <div class="screen" id="s-resultados">
+    <button class="back-btn" onclick="go('home')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Voltar</button>
+    <div class="ph">Resultados Reais da Plataforma</div>
+    <div class="ps">Métricas extraídas diretamente dos ambientes de clientes via ME Genius — nenhum dado estimado ou interpolado. Período de 12 meses.</div>
+    <div class="g3" style="margin-bottom:16px">
+      <div class="result-card">
+        <div class="result-card-header" style="background:#EFF6FF">
+          <span class="result-tag" style="background:var(--ciano);color:#fff">Marketplace Privado</span>
         </div>
-        <div class="bif-seta">↔</div>
-        <div class="bif-lado mp">
-          <b>→ Marketplace Privado / Contratação Direta</b>
-          <p>Empresa com time de compras existente que quer digitalizar o processo, reduzir lead time e/ou gerar rebate.</p>
-          <div class="bif-sinal">Sinal: "meu time trabalha em planilha" · "quero uma ferramenta"</div>
-          <span class="bif-tag mp">→ Marketplace / Cont. Direta</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <span class="k" style="color:var(--ciano)">Abertura da call</span>
-      <div class="card-title" style="color:var(--ciano)">Duas perguntas que abrem espaço sem pressionar</div>
-      <div class="g2">
-        <div style="border:1.5px solid var(--borda);border-radius:10px;padding:16px">
-          <div style="font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Opção A — contexto</div>
-          <div style="font-size:13.5px;font-weight:600;color:var(--texto);line-height:1.6">"Me conta um pouco sobre como funciona o processo de compras de vocês hoje — do pedido até o pagamento."</div>
-          <div style="font-size:11px;font-weight:600;color:var(--muted);margin-top:8px">Use quando não sabe nada sobre o processo. A resposta vai te bifurcar em qual produto seguir.</div>
-        </div>
-        <div style="border:1.5px solid var(--borda);border-radius:10px;padding:16px">
-          <div style="font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Opção B — competitivo</div>
-          <div style="font-size:13.5px;font-weight:600;color:var(--texto);line-height:1.6">"Antes de começar — com quem vocês estão nos comparando? Quero entender se a comparação está sendo feita de igual para igual."</div>
-          <div style="font-size:11px;font-weight:600;color:var(--muted);margin-top:8px">Use quando sabe que há concorrente em avaliação. Coloca a narrativa nas suas mãos desde o início.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" style="border-left:4px solid var(--navy)">
-      <span class="k" style="color:var(--navy)">One Pager — quando usar no outbound</span>
-      <div class="card-title">O material serve antes da primeira reunião, não só depois</div>
-      <div class="g2" style="margin-top:8px">
-        <div style="border:1.5px solid var(--borda);border-radius:10px;padding:14px">
-          <div style="font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:6px">Outbound frio — antes da call</div>
-          <div style="font-size:12.5px;font-weight:600;color:var(--texto);line-height:1.55">"Você cuida de compras na [empresa]? Tenho um resumo de uma página com cases reais do setor — saving médio de 6–12%. Posso te mandar antes de conversarmos?"</div>
-          <div style="font-size:10.5px;font-weight:600;color:var(--muted);margin-top:8px">Use para criar ancoragem de credibilidade antes da primeira reunião. Filtra leads frios que não têm dor real.</div>
-        </div>
-        <div style="border:1.5px solid var(--borda);border-radius:10px;padding:14px">
-          <div style="font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:6px">Pós-reunião positiva</div>
-          <div style="font-size:12.5px;font-weight:600;color:var(--texto);line-height:1.55">"Vou te mandar uma síntese de uma página com os números que seu diretor vai querer ver: saving de clientes reais do mesmo setor e o modelo de ROI simplificado."</div>
-          <div style="font-size:10.5px;font-weight:600;color:var(--muted);margin-top:8px">Use quando o champion precisa escalar para o CFO.</div>
-        </div>
-      </div>
-    </div>
-
-    <div style="display:flex;justify-content:flex-end;margin-top:4px">
-      <button onclick="go('onepager')" class="btn" style="background:var(--navy)">Ver One Pager personalizado →</button>
-    </div>
-  </div><!-- /antes -->
-
-  <!-- ═══ QUALIFICAÇÃO ═══ -->
-  <div class="screen" id="s-qualif">
-    <button class="back-btn" onclick="go('home')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Home</button>
-    <div class="ph">Qualificação</div>
-    <div class="ps">Uma pergunta resolve. Dois caminhos, dois produtos, dois discursos.</div>
-
-    <div class="big-question">
-      <div class="bq-label">A pergunta que bifurca tudo</div>
-      <div class="bq-text">"Você tem um time de compras hoje<br><b>ou você é o time?"</b></div>
-      <div class="bq-note">Se a resposta for "tem time" → Marketplace Privado / Contratação Direta. Se for "sou eu" ou "uma pessoa só" → Compras Free. Não avance no discurso antes de saber isso.</div>
-    </div>
-
-    <div class="g2">
-
-      <div class="rota cf">
-        <span class="rota-label">Rota Compras Free / BPO</span>
-        <div class="rota-title">A empresa não tem time — ou tem 1–2 pessoas</div>
-        <div style="font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:8px">Sinais de CF</div>
-        <ul class="signal-list">
-          <li>Sem área de compras estruturada</li>
-          <li>1–3 pessoas tentando cobrir tudo</li>
-          <li>Volume de pedidos com repetição (MRO, indiretos)</li>
-          <li>Quer terceirizar, não comprar ferramenta</li>
-          <li>Setor: energia, manufatura, serviços, agro</li>
-        </ul>
-        <div style="font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:8px">Perguntas de discovery</div>
-        <div class="disc-list">
-          <div class="disc-item"><b>Volume:</b> "Quantas compras por mês? Quais categorias?"</div>
-          <div class="disc-item"><b>Time:</b> "Quantas pessoas cuidam de compras hoje?"</div>
-          <div class="disc-item"><b>Dor:</b> "Quanto tempo você passa em cotações e pedidos operacionais?"</div>
-          <div class="disc-item"><b>Decisão:</b> "Quem aprovaria a terceirização?"</div>
-        </div>
-        <div style="margin-top:10px;background:rgba(16,163,74,.08);border:1px solid #86efac;border-radius:8px;padding:10px 12px">
-          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#008BFE;margin-bottom:5px">Prova de campo</div>
-          <div style="font-size:11.5px;font-weight:800;color:#166534;margin-bottom:4px">EDP — 8 anos · 1º cliente Compras Free ME</div>
-          <div style="font-size:10.5px;font-weight:600;color:#166534;line-height:1.55">R$181M transacionados · 12 mil pedidos · R$4,5M de economia · NPS Promotor · Renovação em 2025</div>
-        </div>
-      </div>
-
-      <div class="rota mp">
-        <span class="rota-label">Rota Marketplace Privado / Contratação Direta</span>
-        <div class="rota-title">A empresa tem time — e quer ferramenta</div>
-        <div style="font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:8px">Sinais de Marketplace Privado / Cont. Direta</div>
-        <ul class="signal-list">
-          <li>Time de compras existente (2+ pessoas)</li>
-          <li>Processo atual em planilha ou e-mail</li>
-          <li>Quer digitalizar e ganhar visibilidade</li>
-          <li>Volume relevante de compras (R$5M+/ano)</li>
-          <li>Interesse em reduzir custo da plataforma (MPP = R$0)</li>
-        </ul>
-        <div style="font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:8px">Perguntas de discovery</div>
-        <div class="disc-list">
-          <div class="disc-item"><b>Spend:</b> "Quanto vocês compram por ano? Quantos fornecedores ativos?"</div>
-          <div class="disc-item"><b>Processo:</b> "Como uma cotação acontece hoje do início ao fim?"</div>
-          <div class="disc-item"><b>ERP:</b> "Qual ERP usam? SAP, Totvs, Oracle?"</div>
-          <div class="disc-item"><b>Decisão:</b> "Quem participa da avaliação de uma ferramenta assim?"</div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="card" style="margin-top:16px;border-left:4px solid var(--amber)">
-      <span class="k" style="color:var(--amber)">Critério de corte — antes de agendar a demo</span>
-      <div class="card-title">3 perguntas obrigatórias. Se o lead não passar, agende uma call de discovery de 15 min antes da demo.</div>
-      <div class="g3" style="margin-top:8px">
-        <div style="border:1.5px solid var(--borda);border-radius:10px;padding:13px">
-          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:6px">Critério 1 — Volume</div>
-          <div style="font-size:12.5px;font-weight:700;color:var(--texto);line-height:1.5">"Qual o volume de compras da empresa por ano?"</div>
-          <div style="font-size:10.5px;font-weight:600;color:var(--muted);margin-top:6px">Mínimo recomendado: R$3M/ano para MPP · R$500k/ano para Compras Free (ticket mínimo R$3k/pedido)</div>
-        </div>
-        <div style="border:1.5px solid var(--borda);border-radius:10px;padding:13px">
-          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:6px">Critério 2 — Cadência</div>
-          <div style="font-size:12.5px;font-weight:700;color:var(--texto);line-height:1.5">"Quantos pedidos de compra a empresa faz por mês?"</div>
-          <div style="font-size:10.5px;font-weight:600;color:var(--muted);margin-top:6px">Mínimo recomendado: 20+ pedidos/mês. Abaixo disso, ROI de plataforma é difícil de justificar.</div>
-        </div>
-        <div style="border:1.5px solid var(--borda);border-radius:10px;padding:13px">
-          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:6px">Critério 3 — Decisor</div>
-          <div style="font-size:12.5px;font-weight:700;color:var(--texto);line-height:1.5">"Quem precisa aprovar a contratação?"</div>
-          <div style="font-size:10.5px;font-weight:600;color:var(--muted);margin-top:6px">Se o contato não sabe quem assina → não agende demo ainda. Peça que ele confirme antes.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" style="margin-top:16px">
-      <span class="k" style="color:var(--navy)">Mapeamento do decisor</span>
-      <div class="card-title">Quem está na sala e o que cada um precisa ouvir</div>
-      <div class="dec-grid">
-        <div class="dec-card primary">
-          <div class="dec-role">Champion · decisor operacional</div>
-          <div class="dec-name">Gerente de Compras</div>
-          <div class="dec-body">Sente a dor diretamente. É quem vai defender internamente. Quer resolver o problema operacional, não aprovar orçamento.</div>
-          <div class="dec-arg">Mostre como o processo muda na prática. Fale em horas e pedidos, não em percentuais.</div>
-        </div>
-        <div class="dec-card">
-          <div class="dec-role">Barreira técnica</div>
-          <div class="dec-name">TI</div>
-          <div class="dec-body">Avalia integração com ERP, segurança e LGPD. Pode travar a compra. Transforme em aliado com documentação técnica antes da reunião de TI.</div>
-          <div class="dec-arg">API com SAP, Totvs, Oracle. Convide para a próxima call.</div>
-        </div>
-        <div class="dec-card">
-          <div class="dec-role">Aprovação final</div>
-          <div class="dec-name">CFO / Diretor</div>
-          <div class="dec-body">Aprova o orçamento. Raramente participa das demos. Precisa ver ROI em números — não em funcionalidades. Última barreira antes do contrato.</div>
-          <div class="dec-arg">Deixe o one-pager executivo com ele. Proponha reunião executiva para avançar.</div>
-        </div>
-      </div>
-      <div style="margin-top:14px;background:#FEF3C7;border:1px solid var(--amber);border-radius:10px;padding:12px 14px">
-        <div style="font-size:8.5px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:6px">⚠️ Sinal de risco</div>
-        <div style="font-size:12.5px;font-weight:600;color:#78350F;line-height:1.55">Depois de 2 reuniões sem saber quem assina o contrato, a venda vai travar. Peça ao champion para escalar para o decisor — ofereça o <button onclick="go('onepager')" style="display:inline;background:none;border:none;padding:0;font-family:inherit;font-size:12.5px;font-weight:800;color:#92400E;text-decoration:underline;text-underline-offset:3px;cursor:pointer;">resumo executivo de 1 página</button> para ele fazer essa apresentação internamente.</div>
-      </div>
-    </div>
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:8px">
-      <span style="font-size:11.5px;font-weight:600;color:var(--muted)">Qualificou o lead? Agora prepare as respostas para o que vai surgir em call.</span>
-      <button onclick="go('obj')" class="btn" style="background:var(--rosa);flex:0 0 auto">Ver scripts de objeção →</button>
-    </div>
-  </div><!-- /qualif -->
-
-  <!-- ═══ OBJEÇÃO ═══ -->
-  <div class="screen" id="s-obj">
-    <button class="back-btn" onclick="go('home')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Home</button>
-    <div class="ph">Objeção</div>
-    <div class="ps">17 scripts. Clique para expandir o que você precisa agora.</div>
-
-    <div class="filter-bar">
-      <button class="filt-btn on" data-group="all" onclick="filterObj('all',this)">Todos (17)</button>
-      <button class="filt-btn" data-group="geral" onclick="filterObj('geral',this)">Gerais (4)</button>
-      <button class="filt-btn" data-group="mp" onclick="filterObj('mp',this)">Marketplace Privado (4)</button>
-      <button class="filt-btn" data-group="cf" onclick="filterObj('cf',this)" style="border-color:var(--ciano);color:var(--ciano)">Compras Free (4)</button>
-      <button class="filt-btn" data-group="comp" onclick="filterObj('comp',this)">Concorrentes (5)</button>
-    </div>
-    <div id="obj-counter" style="font-size:11px;font-weight:700;color:var(--muted);margin-bottom:14px;display:none">Exibindo <span id="obj-counter-n"></span> de 17 scripts</div>
-
-    <!-- GERAL -->
-    <div class="obj-card" data-group="geral">
-      <div class="obj-head" onclick="toggleObj(this)">
-        <div class="obj-num" style="background:var(--navy)">1</div>
-        <div class="obj-trigger">"O preço está alto para o nosso momento"</div>
-        <div class="obj-tag" style="background:#EFF6FF;color:var(--navy)">#1 mais ouvida</div>
-      </div>
-      <div class="obj-body">
-        <div class="obj-label">Como responder</div>
-        <blockquote>"Antes de falarmos de valor — com quem você está nos comparando? Tem as mesmas funcionalidades? A comparação precisa ser honesta porque a diferença de escopo muda tudo. Se for a NIMBI, o processo dela é padrão; o ME se ajusta ao processo de vocês. Se o preço ainda estiver alto depois disso, me conta o momento: vocês não têm verba agora ou o orçamento foi para outra prioridade? A resposta muda como a gente pode ajudar."</blockquote>
-        <div class="warn-box">
-          <div class="warn-label">⚠️ Atenção — modelo de cobrança</div>
-          <div class="warn-text">O ME cobra por todos os usuários ativos, não só pelos compradores. Com 100+ usuários, a proposta pode parecer cara na comparação com ferramentas que cobram por comprador. Antes de enviar o valor, confirme quantas pessoas realmente usarão a plataforma.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="obj-card" data-group="geral">
-      <div class="obj-head" onclick="toggleObj(this)">
-        <div class="obj-num" style="background:var(--navy)">2</div>
-        <div class="obj-trigger">"Não temos orçamento aprovado agora"</div>
-        <div class="obj-tag" style="background:#EFF6FF;color:var(--navy)">Budget</div>
-      </div>
-      <div class="obj-body">
-        <div class="obj-label">Como responder</div>
-        <blockquote>"Se vocês ficarem mais 12 meses sem resolver o processo de compras, qual é o impacto para a operação? Se esse impacto for relevante, a conversa sobre budget muda. Posso mandar um resumo executivo de uma página para você apresentar internamente?"</blockquote>
-      </div>
-    </div>
-
-    <div class="obj-card" data-group="geral">
-      <div class="obj-head" onclick="toggleObj(this)">
-        <div class="obj-num" style="background:var(--navy)">3</div>
-        <div class="obj-trigger">"Precisamos envolver o TI antes de decidir"</div>
-        <div class="obj-tag" style="background:#EFF6FF;color:var(--navy)">TI</div>
-      </div>
-      <div class="obj-body">
-        <div class="obj-label">Como responder</div>
-        <blockquote>"Ótimo — quanto antes o TI entrar, melhor. O ME tem integração via API com os principais ERPs: SAP, Totvs, Oracle. Posso incluir o TI de vocês na próxima call? Quero que eles vejam a demo e conheçam a documentação técnica antes de qualquer dúvida virar bloqueio. Quanto mais cedo a gente converter o TI para o nosso lado, mais fácil fica o processo."</blockquote>
-      </div>
-    </div>
-
-    <div class="obj-card" data-group="geral">
-      <div class="obj-head" onclick="toggleObj(this)">
-        <div class="obj-num" style="background:var(--navy)">4</div>
-        <div class="obj-trigger">"Deixa eu apresentar para o meu diretor e te retorno"</div>
-        <div class="obj-tag" style="background:#EFF6FF;color:var(--navy)">Decisor</div>
-      </div>
-      <div class="obj-body">
-        <div class="obj-label">Como responder</div>
-        <blockquote>"Claro — posso te ajudar a preparar essa apresentação. Tenho um resumo executivo de uma página com os números que o diretor vai querer ver. E se fizer sentido, consigo trazer nossa diretoria comercial para uma reunião executiva: papo de diretoria para diretoria tende a acelerar a decisão. Você quer me incluir na reunião ou prefere receber o material antes?"</blockquote>
-        <div class="tip-box">
-          <div class="tip-label">✓ Por que funciona</div>
-          <div class="tip-text">Reunião executiva entre diretores tira o vendedor da posição de pressionar e coloca pares numa conversa de igual para igual. Funciona especialmente quando o decisor final ainda não conhece o ME.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- MARKETPLACE PRIVADO -->
-    <div class="obj-card" data-group="mp">
-      <div class="obj-head" onclick="toggleObj(this)">
-        <div class="obj-num" style="background:#008BFE">5</div>
-        <div class="obj-trigger">"Nossos fornecedores não vão adotar uma nova plataforma"</div>
-        <div class="obj-tag" style="background:#DCFCE7;color:#0A0A93">Adoção · MPP</div>
-      </div>
-      <div class="obj-body">
-        <div class="obj-label">Como responder</div>
-        <blockquote>"O ME tem mais de 1 milhão de fornecedores ativos no ecossistema — a chance de os seus fornecedores já estarem lá é alta. Posso verificar agora quantos dos seus principais fornecedores já estão cadastrados? Isso muda completamente a percepção de esforço de adoção."</blockquote>
-      </div>
-    </div>
-
-    <div class="obj-card" data-group="mp">
-      <div class="obj-head" onclick="toggleObj(this)">
-        <div class="obj-num" style="background:#008BFE">6</div>
-        <div class="obj-trigger">"Temos contratos exclusivos, não podemos abrir concorrência"</div>
-        <div class="obj-tag" style="background:#DCFCE7;color:#0A0A93">Exclusividade · MPP</div>
-      </div>
-      <div class="obj-body">
-        <div class="obj-label">Como responder</div>
-        <blockquote>"O Marketplace Privado não substitui seus fornecedores estratégicos — eles continuam. O que ele faz é dar uma camada de controle e visibilidade sobre as transações que já acontecem. Para contratos de longa data, vocês continuam diretamente. Para as demais categorias, a cotação entra onde faz sentido."</blockquote>
-      </div>
-    </div>
-
-    <div class="obj-card" data-group="mp">
-      <div class="obj-head" onclick="toggleObj(this)">
-        <div class="obj-num" style="background:#008BFE">7</div>
-        <div class="obj-trigger">"O rebate parece interessante — qual é o valor real para nós?"</div>
-        <div class="obj-tag" style="background:#DCFCE7;color:#0A0A93">Rebate · MPP</div>
-      </div>
-      <div class="obj-body">
-        <div class="obj-label">Como responder</div>
-        <blockquote>"Uma referência real: um cliente com volume similar gerou mais de R$6,6 milhões em saving nas cotações em 12 meses — e o rebate do MPP adicionou entre R$500 mil e R$1 milhão em cima disso. Com R$0 de mensalidade para o comprador. O custo de não fazer isso não é zero — é o dinheiro que você deixa na mesa toda semana."</blockquote>
-        <div class="warn-box">
-          <div class="warn-label">⚠️ Quando usar este argumento</div>
-          <div class="warn-text">Não inicie o tema de rebate proativamente com todos os perfis. Em empresas com forte foco em compliance ou familiares, pode soar como "troca de favores". Use <strong>reativamente</strong> — quando o cliente perguntar, responda com os números.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="obj-card" data-group="mp">
-      <div class="obj-head" onclick="toggleObj(this)">
-        <div class="obj-num" style="background:#008BFE">8</div>
-        <div class="obj-trigger">"Se o fornecedor paga para entrar, vai repassar no preço"</div>
-        <div class="obj-tag" style="background:#DCFCE7;color:#0A0A93">Custo · MPP</div>
-      </div>
-      <div class="obj-body">
-        <div class="obj-label">Como responder</div>
-        <blockquote>"Os dados mostram o contrário. Quando um fornecedor sabe que está concorrendo com outros, ele coloca o melhor preço — não o mais alto. A concorrência pressiona o preço para baixo. É exatamente isso que gera o saving médio acima de 6% que vemos nos clientes."</blockquote>
-      </div>
-    </div>
-
-    <!-- COMPRAS FREE -->
-    <div class="obj-card" data-group="cf">
-      <div class="obj-head" onclick="toggleObj(this)">
-        <div class="obj-num" style="background:var(--amber)">9</div>
-        <div class="obj-trigger">"Já trabalhamos com Level Group / BPO e estamos satisfeitos"</div>
-        <div class="obj-tag" style="background:var(--amber-mid);color:#92400E">Compras Free</div>
-      </div>
-      <div class="obj-body">
-        <div class="obj-label">Como responder</div>
-        <blockquote>"Entendo — a Level é uma referência no mercado. Me conta uma coisa: hoje você tem visibilidade em tempo real do que está sendo cotado para você? Consegue ver o status de cada pedido sem precisar ligar para alguém? Com o ME, seu time interno entra no sistema e vê tudo — histórico completo, comparativo de preços, fornecedor escolhido. BPO tradicional raramente entrega essa transparência."</blockquote>
-      </div>
-    </div>
-
-    <div class="obj-card" data-group="cf">
-      <div class="obj-head" onclick="toggleObj(this)">
-        <div class="obj-num" style="background:var(--amber)">10</div>
-        <div class="obj-trigger">"O que vocês fazem de diferente de um BPO qualquer?"</div>
-        <div class="obj-tag" style="background:var(--amber-mid);color:#92400E">Compras Free</div>
-      </div>
-      <div class="obj-body">
-        <div class="obj-label">Como responder</div>
-        <blockquote>"A maioria dos BPOs opera com planilha e e-mail — e precisa de uma equipe grande para isso. A gente tem tecnologia própria, então consegue fazer com 5 pessoas o que outro BPO faz com 10. E o que muda para você: BI, rastreabilidade e histórico completo de cada cotação. Você não terceiriza só a operação, você ganha visibilidade do que está acontecendo."</blockquote>
-      </div>
-    </div>
-
-    <div class="obj-card" data-group="cf">
-      <div class="obj-head" onclick="toggleObj(this)">
-        <div class="obj-num" style="background:var(--amber)">11</div>
-        <div class="obj-trigger">Cliente não entende a diferença entre Compras Free e ter uma plataforma</div>
-        <div class="obj-tag" style="background:var(--amber-mid);color:#92400E">Compras Free</div>
-      </div>
-      <div class="obj-body">
-        <div class="obj-label">Como responder</div>
-        <blockquote>"Deixa eu separar para ficar claro: tem empresa que quer uma plataforma de compras para o próprio time usar — Marketplace Privado ou Contratação Direta. E tem empresa que não tem time de compras, ou tem uma pessoa só tentando cobrir tudo — aí o Compras Free é para você. Você não compra um sistema, você contrata a operação. Você fica com o resultado, a gente cuida do processo."</blockquote>
-      </div>
-    </div>
-
-    <div class="obj-card" data-group="cf">
-      <div class="obj-head" onclick="toggleObj(this)">
-        <div class="obj-num" style="background:var(--amber)">12</div>
-        <div class="obj-trigger">"Como funciona a transição? Fico com medo de perder o controle"</div>
-        <div class="obj-tag" style="background:var(--amber-mid);color:#92400E">Compras Free</div>
-      </div>
-      <div class="obj-body">
-        <div class="obj-label">Como responder</div>
-        <blockquote>"A gente começa mapeando as categorias de compra que você quer terceirizar — não precisa ser tudo de uma vez. Definimos juntos o que entra no escopo, como os pedidos chegam para a gente, e como você acompanha. A transição é gradual: primeiro rodamos em paralelo com o que você já tem, depois assumimos. Você mantém visibilidade de tudo pela plataforma."</blockquote>
-        <div class="warn-box">
-          <div class="warn-label">Atenção</div>
-          <div class="warn-text">Confirmar o processo exato de transição internamente antes de detalhar em call com cliente.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CONCORRENTES -->
-    <div class="obj-card" data-group="comp">
-      <div class="obj-head" onclick="toggleObj(this)">
-        <div class="obj-num" style="background:#D97706">13</div>
-        <div class="obj-trigger">"A NIMBI é mais barata / já estamos avaliando a NIMBI"</div>
-        <div class="obj-tag" style="background:#FEF3C7;color:#92400E">NIMBI</div>
-      </div>
-      <div class="obj-body">
-        <div class="obj-label">Como responder</div>
-        <blockquote>"Faz sentido comparar. Com a NIMBI, o cliente fica preso no processo dela — se precisar adaptar ao ERP, criar categorias específicas ou integrar com mais de um sistema, esbarra em limitações. O ME se ajusta ao processo que vocês já têm. Na demo deles, pede para mostrar como a ferramenta se adapta ao processo de vocês — não o processo padrão deles. Aí vocês comparam de igual para igual."</blockquote>
-        <div class="tip-box">
-          <div class="tip-label">Onde o ME ganha</div>
-          <div class="tip-text">Integração com ERP · Processo adaptado ao cliente · Demo no sistema do cliente. Risco: investimento total pode ser menor com NIMBI para e-Procurement simples.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="obj-card" data-group="comp">
-      <div class="obj-head" onclick="toggleObj(this)">
-        <div class="obj-num" style="background:#D97706">14</div>
-        <div class="obj-trigger">"Nossa sede usa Coupa, vai ser difícil mudar"</div>
-        <div class="obj-tag" style="background:#FEF3C7;color:#92400E">Coupa</div>
-      </div>
-      <div class="obj-body">
-        <div class="obj-label">Como responder</div>
-        <blockquote>"O Coupa foi escolhido globalmente. Mas o que acontece com as operações locais que têm especificidades brasileiras? O ME pode operar em paralelo para fornecedores regionais, categorias não cobertas pelo global e MPP com rebate. Complementa — não substitui."</blockquote>
-        <div class="tip-box">
-          <div class="tip-label">Onde o ME ganha sobre o Coupa</div>
-          <div class="tip-text">Preço em R$ (Coupa cobra em USD) · Fornecedores regionais · Suporte em Português · Implantação mais rápida · ME divide rebate 50/50 com o cliente — Coupa fica com 100%.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="obj-card" data-group="comp">
-      <div class="obj-head" onclick="toggleObj(this)">
-        <div class="obj-num" style="background:#D97706">15</div>
-        <div class="obj-trigger">"Já usamos SAP — o Ariba faz sentido como extensão"</div>
-        <div class="obj-tag" style="background:#FEF3C7;color:#92400E">SAP Ariba</div>
-      </div>
-      <div class="obj-body">
-        <div class="obj-label">Como responder</div>
-        <blockquote>"O Ariba é nativo SAP — mas procurement no Brasil tem especificidades que o Ariba não cobre: ecossistema de fornecedores locais, MPP com rebate, suporte em português. O ME integra com o SAP de vocês e traz o que o Ariba não tem no contexto brasileiro."</blockquote>
-      </div>
-    </div>
-
-    <div class="obj-card" data-group="comp">
-      <div class="obj-head" onclick="toggleObj(this)">
-        <div class="obj-num" style="background:#D97706">16</div>
-        <div class="obj-trigger">"Estamos avaliando o GEP — eles estão no Gartner"</div>
-        <div class="obj-tag" style="background:#FEF3C7;color:#92400E">GEP</div>
-      </div>
-      <div class="obj-body">
-        <div class="obj-label">Como responder</div>
-        <blockquote>"Eles chegaram forte ao Brasil e têm um produto sólido na Europa. A entrada deles foi via análise estratégica — pela aquisição da CostDrives. O procurement operacional ainda está sendo integrado. O ME tem mais de 20 anos operando procurement no Brasil, com ecossistema de fornecedores construído localmente. Para a operação de vocês hoje, posso mostrar o que já funciona — não o que está sendo construído."</blockquote>
-      </div>
-    </div>
-
-    <div class="obj-card" data-group="comp">
-      <div class="obj-head" onclick="toggleObj(this)">
-        <div class="obj-num" style="background:#D97706">17</div>
-        <div class="obj-trigger">"No nosso setor todo mundo usa Comlink"</div>
-        <div class="obj-tag" style="background:#FEF3C7;color:#92400E">Comlink</div>
-      </div>
-      <div class="obj-body">
-        <div class="obj-label">Como responder</div>
-        <blockquote>"Eles são muito bons em serviços para o agronegócio — faz sentido essa percepção. Mas quando a operação vai além de serviços — MRO, materiais, contratos de fornecimento, integração com ERP — a Comlink tem limitações. O ME cobre todas as categorias numa única plataforma, com Marketplace Privado para reduzir custo e fornecedores que vocês já conhecem. Posso mostrar como clientes do setor usam isso na prática?"</blockquote>
-      </div>
-    </div>
-
-  </div><!-- /obj -->
-
-  <!-- ═══ DEMO ═══ -->
-  <div class="screen" id="s-demo">
-    <button class="back-btn" onclick="go('home')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Home</button>
-    <div class="ph">Demo</div>
-    <div class="ps">Dois produtos, dois fluxos. Nunca misture — a conversa é diferente.</div>
-
-    <div class="g2">
-
-      <div class="demo-flow mp">
-        <span class="demo-label">Marketplace Privado / Contratação Direta</span>
-        <h3>Transforme Compras em Centro de Lucro</h3>
-        <div class="demo-steps">
-          <div class="ds">
-            <div class="ds-n">1</div>
-            <div class="ds-t"><strong>Antes da demo:</strong> "Quanto vocês compram por ano? Quantos fornecedores ativos?" — calibra o que mostrar e já inicia a conversa de rebate.</div>
-          </div>
-          <div class="ds">
-            <div class="ds-n">2</div>
-            <div class="ds-t"><strong>Mostre o ecossistema:</strong> busque ao vivo um fornecedor do cliente dentro do portal ME. O impacto de ver o próprio fornecedor já lá é imediato.</div>
-          </div>
-          <div class="ds">
-            <div class="ds-n">3</div>
-            <div class="ds-t"><strong>Demonstre uma cotação:</strong> abra o mapa comparativo, mostre como funciona da cotação ao pedido em tempo real.</div>
-          </div>
-          <div class="ds">
-            <div class="ds-n">4</div>
-            <div class="ds-t"><strong>Convide para análise:</strong> "Posso fazer um estudo de caso com o spend de vocês? Apresentamos os resultados direto ao time Financeiro — é uma hora de reunião com números reais do setor."</div>
-          </div>
-          <div class="ds">
-            <div class="ds-n">5</div>
-            <div class="ds-t"><strong>Reforce o controle:</strong> "Fornecedores estratégicos podem ser isentos. O cliente decide quem entra e pode usar os valores do rebate como quiser."</div>
+        <div class="result-card-body">
+          <div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:12px">Indústria alimentícia · Custo zero para o cliente</div>
+          <div class="g2" style="gap:8px">
+            <div class="result-metric"><div class="result-metric-val">R$ 9,34M</div><div class="result-metric-lbl">Saving acumulado · 6,2% do spend</div></div>
+            <div class="result-metric"><div class="result-metric-val">2,3h</div><div class="result-metric-lbl">Lead time médio (mediana: 3 min)</div></div>
+            <div class="result-metric"><div class="result-metric-val">R$ 150M</div><div class="result-metric-lbl">Volume gerenciado · 237 pedidos</div></div>
+            <div class="result-metric"><div class="result-metric-val">97%</div><div class="result-metric-lbl">Conversão cotação → pedido</div></div>
           </div>
         </div>
-        <div class="demo-tip"><strong>Frase de fechamento para o CFO:</strong> "Seus fornecedores já pagam para estar no ME. Com R$0 de mensalidade e rebate sobre cada transação, o custo de não fazer isso é o dinheiro que você deixa na mesa toda semana."</div>
       </div>
-
-      <div class="demo-flow cf">
-        <span class="demo-label">Compras Free / BPO</span>
-        <h3>O ME assume o que seu time não dá conta</h3>
-        <div class="demo-steps">
-          <div class="ds">
-            <div class="ds-n">1</div>
-            <div class="ds-t"><strong>Antes da demo:</strong> "Quantas pessoas você tem em compras hoje? Qual o volume mensal de pedidos?" — calibra o escopo que será mostrado.</div>
-          </div>
-          <div class="ds">
-            <div class="ds-n">2</div>
-            <div class="ds-t"><strong>Abre um pedido:</strong> mostra como o cliente (requisitante) faz um pedido no sistema. O fluxo dele — não o da equipe ME.</div>
-          </div>
-          <div class="ds">
-            <div class="ds-n">3</div>
-            <div class="ds-t"><strong>Mostra a cotação em andamento:</strong> como a equipe ME gerencia, compara fornecedores, negocia — tudo visível para o cliente em tempo real.</div>
-          </div>
-          <div class="ds">
-            <div class="ds-n">4</div>
-            <div class="ds-t"><strong>Resultado na tela:</strong> comparativo de preços, fornecedor escolhido, histórico. Perguntar: <em>"Hoje você consegue ver isso?"</em></div>
+      <div class="result-card">
+        <div class="result-card-header" style="background:#fff5fb">
+          <span class="result-tag" style="background:var(--rosa);color:#fff">Compras Free / BPO</span>
+        </div>
+        <div class="result-card-body">
+          <div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:12px">Energia renovável</div>
+          <div class="g2" style="gap:8px">
+            <div class="result-metric"><div class="result-metric-val">R$ 312k</div><div class="result-metric-lbl">Saving acumulado · 11,84%</div></div>
+            <div class="result-metric"><div class="result-metric-val">5–7 dias</div><div class="result-metric-lbl">Lead time médio (mínimo: 1–2 dias)</div></div>
+            <div class="result-metric"><div class="result-metric-val">R$ 9,04M</div><div class="result-metric-lbl">Volume gerenciado · 200 pedidos</div></div>
+            <div class="result-metric"><div class="result-metric-val">+1.745%</div><div class="result-metric-lbl">Crescimento de spend em 12 meses</div></div>
           </div>
         </div>
-        <div class="demo-tip"><strong>Foco do discurso:</strong> "quanto tempo você libera por semana" e "quanto você está pagando para fazer isso internamente hoje". O ROI é tempo + custo de oportunidade.</div>
       </div>
-
-    </div>
-
-    <div class="card" style="margin-top:4px">
-      <span class="k" style="color:var(--navy)">Referência — cliente Compras Free pioneiro</span>
-      <div class="card-title">Empresa D (energia elétrica) — 8 anos · 1º cliente Compras Free ME</div>
-      <div class="g4" style="margin-top:4px">
-        <div style="background:var(--verde-bg);border:1px solid var(--verde);border-radius:10px;padding:14px;text-align:center">
-          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#0A0A93;margin-bottom:4px">Parceria</div>
-          <div style="font-size:24px;font-weight:900;color:#0A0A93">8 anos</div>
-          <div style="font-size:10px;font-weight:700;color:#0A0A93">Desde 2017</div>
+      <div class="result-card">
+        <div class="result-card-header" style="background:#EFF6FF">
+          <span class="result-tag" style="background:var(--navy);color:#fff">Contratação Direta</span>
         </div>
-        <div style="background:var(--verde-bg);border:1px solid var(--verde);border-radius:10px;padding:14px;text-align:center">
-          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#0A0A93;margin-bottom:4px">Pedidos</div>
-          <div style="font-size:24px;font-weight:900;color:#0A0A93">12 mil</div>
-          <div style="font-size:10px;font-weight:700;color:#0A0A93">Via Compras Free</div>
-        </div>
-        <div style="background:var(--verde-bg);border:1px solid var(--verde);border-radius:10px;padding:14px;text-align:center">
-          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#0A0A93;margin-bottom:4px">Volume</div>
-          <div style="font-size:24px;font-weight:900;color:#0A0A93">R$181M</div>
-          <div style="font-size:10px;font-weight:700;color:#0A0A93">Transacionados</div>
-        </div>
-        <div style="background:var(--verde-bg);border:1px solid var(--verde);border-radius:10px;padding:14px;text-align:center">
-          <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#0A0A93;margin-bottom:4px">Economia</div>
-          <div style="font-size:24px;font-weight:900;color:#0A0A93">R$4,5M</div>
-          <div style="font-size:10px;font-weight:700;color:#0A0A93">NPS Promotor · Nota 8</div>
-        </div>
-      </div>
-      <div style="margin-top:12px;font-size:11.5px;font-weight:600;color:var(--muted)">Use para mostrar longevidade e confiança — dados cumulativos desde 2021. Para ROI em 12 meses, use o case Energia Renovável (Elera, 11,84%).</div>
-    </div>
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:8px">
-      <span style="font-size:11.5px;font-weight:600;color:var(--muted)">Demo bem-feita? Hora de converter com números reais e a tática do executivo.</span>
-      <button onclick="go('fech')" class="btn" style="background:var(--navy);flex:0 0 auto">Ir para Fechamento →</button>
-    </div>
-  </div><!-- /demo -->
-
-  <!-- ═══ FECHAMENTO ═══ -->
-  <div class="screen" id="s-fech">
-    <button class="back-btn" onclick="go('home')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Home</button>
-    <div class="ph">Fechamento</div>
-    <div class="ps">Números reais, tática do executivo e scripts de encerramento.</div>
-
-    <div class="card">
-      <span class="k" style="color:var(--amber)">Business case — 4 clientes reais</span>
-      <div class="card-title">Use o argumento certo para o modelo de contratação do seu lead</div>
-      <div class="proof-grid">
-        <div class="proof-item">
-          <div class="proof-sector">Setor Alimentício</div>
-          <div class="proof-num" style="color:var(--navy)">R$6,61M</div>
-          <div class="proof-desc">Saving · 97% conversão cotação → pedido · R$150M vol.</div>
-          <span class="proof-model" style="background:var(--navy)">Marketplace Privado</span>
-        </div>
-        <div class="proof-item">
-          <div class="proof-sector">Energia Renovável</div>
-          <div class="proof-num" style="color:var(--ciano)">11,84%</div>
-          <div class="proof-desc">Saving · R$312k economia · R$9M/ano gerenciado</div>
-          <span class="proof-model" style="background:var(--ciano)">Compras Free</span>
-        </div>
-        <div class="proof-item">
-          <div class="proof-sector">Telecomunicações</div>
-          <div class="proof-num" style="color:#5a8a00">R$3,1M</div>
-          <div class="proof-desc">Saving · 11,41% · R$27M em cotações · 200 pedidos</div>
-          <span class="proof-model" style="background:#5a8a00">Contratação Direta</span>
-        </div>
-        <div class="proof-item">
-          <div class="proof-sector">Energia Elétrica</div>
-          <div class="proof-num" style="color:#0A0A93">8 anos</div>
-          <div class="proof-desc">R$181M transacionados · R$4,5M economia · NPS 10</div>
-          <span class="proof-model" style="background:var(--verde)">Compras Free · Pioneer</span>
-        </div>
-      </div>
-      <div style="margin-top:10px;font-size:10.5px;font-weight:600;color:var(--muted)">Cases 1–3: dados Jul/2025–Jul/2026 · Case 4 (energia elétrica): dados cumulativos desde 2021 · todos anonimizados · uso interno</div>
-    </div>
-
-    <div class="silvio-card">
-      <div class="silvio-label">Tática validada em campo</div>
-      <div class="silvio-title">Reunião Executiva — papo de diretoria para diretoria</div>
-      <div class="silvio-script">"Claro — posso te ajudar a preparar essa apresentação. Tenho um resumo executivo de uma página com os números que o diretor vai querer ver. E se fizer sentido, consigo trazer nossa diretoria comercial para uma reunião executiva: papo de diretoria para diretoria tende a acelerar a decisão. Você quer me incluir na reunião ou prefere receber o material antes?"</div>
-      <div class="silvio-note">Use depois da 2ª reunião sem saber quem assina. Retira o vendedor da posição de pressionar — coloca pares numa conversa de igual para igual.</div>
-    </div>
-
-    <div class="card">
-      <span class="k" style="color:var(--navy)">Scripts de encerramento</span>
-      <div class="close-scripts">
-        <div class="cs-item">
-          <div class="cs-head"><strong>Quando a venda trava e não anda:</strong> deixar a porta aberta</div>
-          <div class="cs-body">"Guarda o meu contato, não exclui não. Implementações de nova ferramenta têm taxa alta de frustrações — quando isso acontecer, me chama. A gente vê bastante isso." <br><span style="font-size:11px;color:var(--muted);font-style:italic">Use quando a decisão for irrevogável (mandato de matriz, GEP, Coupa). Não insista — deixe a porta aberta.</span></div>
-        </div>
-        <div class="cs-item">
-          <div class="cs-head"><strong>Para enviar o one-pager:</strong> posicione antes de mandar</div>
-          <div class="cs-body">"Vou te mandar uma síntese de uma página com os números que seu diretor vai querer ver: saving de clientes reais do mesmo setor e o modelo de ROI simplificado. Você consegue colocar isso na agenda dele antes de sexta?" <br><span style="font-size:11px;color:var(--muted);font-style:italic">Use o botão "Imprimir / PDF" no one-pager executivo para exportar e enviar.</span></div>
-        </div>
-        <div class="cs-item">
-          <div class="cs-head"><strong>Para proposta após reunião positiva:</strong> criar urgência sem pressionar</div>
-          <div class="cs-body">"Duas coisas antes de montar a proposta: me confirma o volume de compras e quantas pessoas usarão a plataforma. Com esses dois dados eu monto o modelo de ROI específico para vocês — para o diretor ver o retorno do investimento antes de assinar."</div>
+        <div class="result-card-body">
+          <div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:12px">Engenharia e telecomunicações</div>
+          <div class="g2" style="gap:8px">
+            <div class="result-metric"><div class="result-metric-val">R$ 3,1M</div><div class="result-metric-lbl">Saving acumulado · 11,41%</div></div>
+            <div class="result-metric"><div class="result-metric-val">3,4 dias</div><div class="result-metric-lbl">Lead time médio (mínimo: 0,1 dia)</div></div>
+            <div class="result-metric"><div class="result-metric-val">~R$ 27,2M</div><div class="result-metric-lbl">Volume em cotações · 200 pedidos</div></div>
+            <div class="result-metric"><div class="result-metric-val">75%</div><div class="result-metric-lbl">Concentração do saving em EPI/EPC + Materiais de Rede</div></div>
+          </div>
         </div>
       </div>
     </div>
-  </div><!-- /fech -->
-
-  <!-- ═══ NOVO VENDEDOR ═══ -->
-  <div class="screen" id="s-novo">
-    <button class="back-btn" onclick="go('home')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Home</button>
-    <div class="ph">Onboarding — Novo Vendedor</div>
-    <div class="ps">Siga as três etapas abaixo. Quando concluir o quiz, você está pronto para a primeira reunião.</div>
-
-    <!-- STEPPER -->
-    <div class="ob-stepper" id="ob-stepper">
-      <div class="ob-step active" id="ob-s1">
-        <div class="ob-step-dot" id="ob-d1">1</div>
-        <div class="ob-step-label">Fundamentos<br>ME</div>
-      </div>
-      <div class="ob-step" id="ob-s2">
-        <div class="ob-step-dot" id="ob-d2">2</div>
-        <div class="ob-step-label">Estude os<br>materiais</div>
-      </div>
-      <div class="ob-step" id="ob-s3">
-        <div class="ob-step-dot" id="ob-d3">3</div>
-        <div class="ob-step-label">Quiz de<br>validação</div>
-      </div>
+    <div class="card" style="background:var(--navy);border:none">
+      <div class="k" style="color:#BDE44E">Referência de mercado</div>
+      <div style="font-size:13px;font-weight:700;color:#fff;line-height:1.65">Operações de procurement sem plataforma digital atingem saving médio de 2–3% e lead time de 3–5 dias (Gartner · Aberdeen Group). Os clientes ME operam com <strong style="color:#BDE44E">saving de 6% a quase 12%</strong> — e lead time que chega a horas, não dias.</div>
     </div>
-
-    <!-- ── PÁGINA 1: FUNDAMENTOS ME ── -->
-    <div class="ob-page ob-active" id="ob-pg1">
-    <div class="card" style="border-left:4px solid var(--navy);margin-bottom:20px">
-      <div class="k" style="color:var(--navy)">Etapa 1 — Fundamentos ME</div>
-      <div style="font-size:13px;font-weight:600;color:var(--texto)">Antes de qualquer reunião, entenda o que é o ME, para quem vende e como funciona o processo comercial.</div>
-    </div>
-    <div class="fund-section">
-      <div class="fund-cards">
-
-        <div class="fund-card" id="fc-msg">
-          <div class="fund-card-head" onclick="toggleFund('fc-msg')">
-            <div class="fund-card-icon" style="width:28px;height:28px;border-radius:8px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:var(--navy);letter-spacing:.3px">ME</div>
-            <div class="fund-card-title">O que é o ME — mensagem central</div>
-            <div class="fund-card-arrow">▼</div>
-          </div>
-          <div class="fund-card-body">
-            <div style="background:#EFF6FF;border-left:3px solid var(--navy);border-radius:8px;padding:11px 14px;margin-bottom:12px">
-              <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:5px">Por que agora?</div>
-              <div style="font-size:11.5px;font-weight:600;color:#1e3a5f;line-height:1.6">Após 2020, empresas que terceirizaram compras sem rastreabilidade foram as que mais sofreram com ruptura de fornecedores e perda de controle. O mercado não tolera mais o ciclo invisível — comprador que não sabe o que está sendo cotado para ele perde eficiência todo dia. Ficar no processo atual tem custo real: tempo, preço e exposição.</div>
-            </div>
-            <div class="fund-quote">"O ME existe para times de compras que ainda operam entre e-mails, planilhas e cobranças manuais — sem controle, sem rastreabilidade e com ciclos que frustram quem pediu. Com o ME, o mesmo time compra mais, negocia melhor e fecha mais rápido, com tudo centralizado, rastreável e integrado ao ERP que já usam."</div>
-            <div class="fund-list" style="margin-bottom:10px">
-              <li><strong>Dor concreta:</strong> e-mails, planilhas, cobranças manuais — o cliente se reconhece</li>
-              <li><strong>Impacto emocional:</strong> ciclos que frustram quem pediu — a dor que o comprador sente todo dia</li>
-              <li><strong>Transformação:</strong> compra mais, negocia melhor, fecha mais rápido</li>
-              <li><strong>Diferencial:</strong> integrado ao ERP que já usam — argumento central contra NIMB, Coupa e Ariba</li>
-            </div>
-            <div class="fund-insight"><strong>Insight de campo:</strong> O estigma de "compras é lenta e burocrática" é o gatilho emocional mais poderoso. Quando o comprador quer sair dessa imagem, ele está pronto para ouvir.</div>
-          </div>
-        </div>
-
-        <div class="fund-card" id="fc-icp">
-          <div class="fund-card-head" onclick="toggleFund('fc-icp')">
-            <div class="fund-card-icon" style="width:28px;height:28px;border-radius:8px;background:var(--amber-mid);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:#92400E;letter-spacing:.3px">ICP</div>
-            <div class="fund-card-title">Quem é o cliente certo — ICP</div>
-            <div class="fund-card-arrow">▼</div>
-          </div>
-          <div class="fund-card-body">
-            <div style="font-size:11px;font-weight:700;color:var(--muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px">Cliente ideal — sinais positivos</div>
-            <div class="fund-row">
-              <span class="fund-chip icp">Processo manual com e-mail e planilha</span>
-              <span class="fund-chip icp">Ciclo de compra &gt; 20 dias</span>
-              <span class="fund-chip icp">Setor: Agro · Comércio · Construção · Indústria · Logística</span>
-              <span class="fund-chip icp">Time de compras + 3 pessoas</span>
-            </div>
-            <div class="fund-quote" style="margin-top:10px">"A principal característica não é o segmento, mas a dificuldade que eles têm hoje com o processo manual. Recebem requisição por e-mail ou planilha, mandam cotação para 10 fornecedores separados, montam o mapa comparativo à mão — todo esse ciclo leva mais de 20 dias."</div>
-            <div style="font-size:11px;font-weight:700;color:#DC2626;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;margin-top:10px">Anti-ICP — não prospectar</div>
-            <div class="fund-row">
-              <span class="fund-chip anti">Área de compras com menos de 3 pessoas</span>
-              <span class="fund-chip anti">Empresa muito pequena — ROI difícil de justificar</span>
-            </div>
-            <div class="fund-insight" style="margin-top:10px"><strong>Atenção:</strong> Empresa interessada ≠ empresa que fecha. Qualificar pelo tamanho da operação antes de investir tempo em demo completa.</div>
-          </div>
-        </div>
-
-        <div class="fund-card" id="fc-mod">
-          <div class="fund-card-head" onclick="toggleFund('fc-mod')">
-            <div class="fund-card-icon" style="width:28px;height:28px;border-radius:8px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:var(--ciano);letter-spacing:.3px">3M</div>
-            <div class="fund-card-title">Os 3 modelos de contratação</div>
-            <div class="fund-card-arrow">▼</div>
-          </div>
-          <div class="fund-card-body">
-            <div class="fund-model-grid">
-              <div class="fund-model cd">
-                <div class="fund-model-name">Contratação Direta</div>
-                Mensalidade por pedidos + usuários. Para quem tem budget direto e quer controle total da operação.
-              </div>
-              <div class="fund-model mp">
-                <div class="fund-model-name">Marketplace Privado</div>
-                Fornecedores pagam taxa (rebate). Cliente não paga mensalidade. ICP: alimentício e construção. O take rate pode chegar a 3%.
-              </div>
-              <div class="fund-model bpo">
-                <div class="fund-model-name">Compras Free (BPO)</div>
-                Time ME terceiriza compras não críticas do cliente. SLA definido. Ticket mínimo R$3k. Libera o time para o estratégico.
-              </div>
-            </div>
-            <div class="fund-insight" style="margin-top:12px"><strong>Dica de campo:</strong> Clientes desconfiam que o fornecedor vai subir preço para cobrir o rebate. Na prática isso não acontece — ele está competindo na cotação, então subir preço significa perder o pedido.</div>
-            <button class="fund-link" onclick="goFlux()" style="cursor:pointer;font-family:inherit">Ver fluxograma completo dentro do kit →</button>
-          </div>
-        </div>
-
-        <div class="fund-card" id="fc-per">
-          <div class="fund-card-head" onclick="toggleFund('fc-per')">
-            <div class="fund-card-icon" style="width:28px;height:28px;border-radius:8px;background:#fff5fb;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:var(--rosa);letter-spacing:.3px">CF</div>
-            <div class="fund-card-title">Lições de campo — personas reais</div>
-            <div class="fund-card-arrow">▼</div>
-          </div>
-          <div class="fund-card-body">
-            <div style="display:flex;flex-direction:column;gap:10px">
-              <div style="border-radius:10px;padding:12px 14px;background:#f0fdf4;border-left:4px solid #008BFE">
-                <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;color:#008BFE;text-transform:uppercase;margin-bottom:4px">Fechou ✓</div>
-                <div style="font-size:12px;font-weight:800;color:#166534;margin-bottom:6px">Oleoplan — Indústria, operação complexa</div>
-                <ul class="fund-list"><li>Grande empresa, materiais + serviços de longo prazo</li><li>Câmera ligada, perguntas técnicas, engajamento alto</li><li>Convenceu: flexibilidade, medição de serviço, integração gradual</li></ul>
-                <div style="font-size:11px;font-weight:700;color:#166534;margin-top:8px;padding:7px 10px;background:rgba(22,163,74,.1);border-radius:6px">Cliente técnico quer profundidade. Vendedor precisa dominar o produto — não só o pitch.</div>
-              </div>
-              <div style="border-radius:10px;padding:12px 14px;background:#fef2f2;border-left:4px solid #DC2626">
-                <div style="font-size:9px;font-weight:900;letter-spacing:1.5px;color:#DC2626;text-transform:uppercase;margin-bottom:4px">Travou ✗</div>
-                <div style="font-size:12px;font-weight:800;color:#DC2626;margin-bottom:6px">Novatec — Regional, Manaus, resistente</div>
-                <ul class="fund-list"><li>Demo usou exemplos de SP — cliente queria ver Manaus</li><li>Objeção real não descoberta: "Minha dúvida não é sobre o produto"</li><li>Histórico de resistência à tecnologia: "É difícil pra cacete"</li></ul>
-                <div style="font-size:11px;font-weight:700;color:#b91c1c;margin-top:8px;padding:7px 10px;background:rgba(220,38,38,.08);border-radius:6px">Demo precisa espelhar a realidade do cliente — dados e fornecedores da região certa.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /fund-cards -->
-
-    </div><!-- /etapa 1 -->
-    <div class="ob-page-nav">
-      <span></span>
-      <button class="ob-page-nav-btn primary" id="fund-done-btn" onclick="markFundDone()">
-        Concluir Etapa 1 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2l5 5-5 5"/></svg>
-      </button>
-    </div>
-    </div><!-- /ob-pg1 -->
-
-    <!-- ── PÁGINA 2: MATERIAIS ── -->
-    <div class="ob-page" id="ob-pg2">
-    <div class="card" style="border-left:4px solid var(--navy);margin-bottom:20px">
-      <div class="k" style="color:var(--navy)">Etapa 2 — Estude os materiais em ordem</div>
-      <div style="font-size:13px;font-weight:600;color:var(--texto)">Cada material tem um momento certo no ciclo de vendas. Estude nessa sequência e marque como concluído ao terminar.</div>
-    </div>
-    <div class="fund-section">
-      <div class="mat-study-list" id="mat-list">
-
-        <div class="mat-card" id="mc-qualif">
-          <div class="mat-num">1</div>
-          <div class="mat-info">
-            <div class="mat-name">Qualificação</div>
-            <div class="mat-desc">A pergunta de bifurcação e os sinais de Compras Free vs. Marketplace Privado. Comece aqui.</div>
-          </div>
-          <div class="mat-actions">
-            <button class="mat-go-btn" onclick="goMat('qualif')">Ir →</button>
-            <input type="checkbox" class="mat-check" id="chk-qualif" onchange="checkMatProgress()">
-          </div>
-        </div>
-
-        <div class="mat-card" id="mc-antes">
-          <div class="mat-num">2</div>
-          <div class="mat-info">
-            <div class="mat-name">Antes da Call</div>
-            <div class="mat-desc">Checklist de pesquisa e abertura de call. Aplique antes de toda reunião.</div>
-          </div>
-          <div class="mat-actions">
-            <button class="mat-go-btn" onclick="goMat('antes')">Ir →</button>
-            <input type="checkbox" class="mat-check" id="chk-antes" onchange="checkMatProgress()">
-          </div>
-        </div>
-
-        <div class="mat-card" id="mc-obj">
-          <div class="mat-num">3</div>
-          <div class="mat-info">
-            <div class="mat-name">Objeção</div>
-            <div class="mat-desc">Leia os 4 scripts Gerais agora. O resto você consulta na hora certa.</div>
-          </div>
-          <div class="mat-actions">
-            <button class="mat-go-btn" onclick="goMat('obj')">Ir →</button>
-            <input type="checkbox" class="mat-check" id="chk-obj" onchange="checkMatProgress()">
-          </div>
-        </div>
-
-        <div class="mat-card" id="mc-demo">
-          <div class="mat-num">4</div>
-          <div class="mat-info">
-            <div class="mat-name">Demo</div>
-            <div class="mat-desc">Dois fluxos distintos por modelo. Saiba qual usar para cada perfil de cliente.</div>
-          </div>
-          <div class="mat-actions">
-            <button class="mat-go-btn" onclick="goMat('demo')">Ir →</button>
-            <input type="checkbox" class="mat-check" id="chk-demo" onchange="checkMatProgress()">
-          </div>
-        </div>
-
-        <div class="mat-card" id="mc-fech">
-          <div class="mat-num">5</div>
-          <div class="mat-info">
-            <div class="mat-name">Fechamento</div>
-            <div class="mat-desc">4 cases com números reais. Tenha pelo menos um na cabeça antes de qualquer conversa de ROI.</div>
-          </div>
-          <div class="mat-actions">
-            <button class="mat-go-btn" onclick="goMat('fech')">Ir →</button>
-            <input type="checkbox" class="mat-check" id="chk-fech" onchange="checkMatProgress()">
-          </div>
-        </div>
-
-        <div class="mat-card" id="mc-op">
-          <div class="mat-num">6</div>
-          <div class="mat-info">
-            <div class="mat-name">One Pager</div>
-            <div class="mat-desc">Material para o CFO. Saiba quando usar: outbound e pós-reunião positiva.</div>
-          </div>
-          <div class="mat-actions">
-            <button class="mat-go-btn" onclick="goMat('onepager')">Ir →</button>
-            <input type="checkbox" class="mat-check" id="chk-op" onchange="checkMatProgress()">
-          </div>
-        </div>
-
-      </div>
-    </div><!-- /etapa 2 -->
-    <div class="ob-page-nav">
-      <button class="ob-page-nav-btn ghost" onclick="goOBPage(1)">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg> Fundamentos
-      </button>
-      <button class="ob-page-nav-btn primary" onclick="goOBPage(3)">
-        Ir para o Quiz <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2l5 5-5 5"/></svg>
-      </button>
-    </div>
-    </div><!-- /ob-pg2 -->
-
-    <!-- ── PÁGINA 3: QUIZ ── -->
-    <div class="ob-page" id="ob-pg3">
-    <div class="card" style="border-left:4px solid var(--navy);margin-bottom:20px">
-      <div class="k" style="color:var(--navy)">Etapa 3 — Quiz de validação</div>
-      <div style="font-size:13px;font-weight:600;color:var(--texto)">6 perguntas sobre o que você estudou. Acerte todas para estar pronto para a primeira reunião com o cliente.</div>
-    </div>
-    <div class="ob-page-nav" style="margin-top:0;margin-bottom:20px">
-      <button class="ob-page-nav-btn ghost" onclick="goOBPage(2)">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg> Materiais
-      </button>
-      <span></span>
-    </div>
-    <div class="quiz-wrap" id="quiz-wrap">
-      <div class="quiz-header">
-        <div class="quiz-header-icon" style="width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:#fff;flex-shrink:0">?</div>
-        <div>
-          <div class="quiz-header-title">Teste rápido — você está pronto?</div>
-          <div class="quiz-header-sub">6 perguntas baseadas nos materiais deste kit</div>
-        </div>
-      </div>
-      <div class="quiz-progress"><div class="quiz-progress-bar" id="quiz-bar" style="width:0%"></div></div>
-
-      <div class="quiz-body" id="quiz-body">
-
-        <div class="quiz-q" data-qi="0">
-          <div class="quiz-q-label">Qualificação</div>
-          <div class="quiz-q-text">Qual pergunta define o modelo certo para o cliente?</div>
-          <div class="quiz-options">
-            <label class="quiz-opt"><input type="radio" name="q0" value="a"><span>"Qual é o orçamento anual de compras?"</span></label>
-            <label class="quiz-opt"><input type="radio" name="q0" value="b" data-correct><span>"Vocês têm um time de compras próprio?"</span></label>
-            <label class="quiz-opt"><input type="radio" name="q0" value="c"><span>"Quantos fornecedores vocês gerenciam hoje?"</span></label>
-            <label class="quiz-opt"><input type="radio" name="q0" value="d"><span>"Já usaram algum sistema de procurement antes?"</span></label>
-          </div>
-        </div>
-
-        <div class="quiz-q" data-qi="1">
-          <div class="quiz-q-label">Compras Free vs. Marketplace</div>
-          <div class="quiz-q-text">Empresa sem time de compras, compras feitas por cada área diretamente. Qual produto indicar?</div>
-          <div class="quiz-options">
-            <label class="quiz-opt"><input type="radio" name="q1" value="a"><span>Marketplace Privado — mais robusto e completo</span></label>
-            <label class="quiz-opt"><input type="radio" name="q1" value="b"><span>Contratação Direta — mais simples de implantar</span></label>
-            <label class="quiz-opt"><input type="radio" name="q1" value="c" data-correct><span>Compras Free — não precisa de time de compras centralizado</span></label>
-            <label class="quiz-opt"><input type="radio" name="q1" value="d"><span>Depende do volume de transações mensais</span></label>
-          </div>
-        </div>
-
-        <div class="quiz-q" data-qi="2">
-          <div class="quiz-q-label">Objeção</div>
-          <div class="quiz-q-text">O cliente diz: "Está caro." Como você abre a resposta?</div>
-          <div class="quiz-options">
-            <label class="quiz-opt"><input type="radio" name="q2" value="a"><span>"Entendo. Posso verificar algum desconto para vocês."</span></label>
-            <label class="quiz-opt"><input type="radio" name="q2" value="b"><span>"Na verdade nosso preço é bastante competitivo no mercado."</span></label>
-            <label class="quiz-opt"><input type="radio" name="q2" value="c" data-correct><span>"Caro comparado a quê? Ao processo atual ou a um concorrente específico?"</span></label>
-            <label class="quiz-opt"><input type="radio" name="q2" value="d"><span>"Vamos calcular o ROI juntos para ver se faz sentido."</span></label>
-          </div>
-        </div>
-
-        <div class="quiz-q" data-qi="3">
-          <div class="quiz-q-label">Cases reais</div>
-          <div class="quiz-q-text">O case de energia renovável (Elera) registrou qual percentual de saving?</div>
-          <div class="quiz-options">
-            <label class="quiz-opt"><input type="radio" name="q3" value="a"><span>6,5%</span></label>
-            <label class="quiz-opt"><input type="radio" name="q3" value="b"><span>9,3%</span></label>
-            <label class="quiz-opt"><input type="radio" name="q3" value="c" data-correct><span>11,84%</span></label>
-            <label class="quiz-opt"><input type="radio" name="q3" value="d"><span>15,2%</span></label>
-          </div>
-        </div>
-
-        <div class="quiz-q" data-qi="4">
-          <div class="quiz-q-label">Fechamento</div>
-          <div class="quiz-q-text">Quando é o momento certo para propor a Reunião Executiva?</div>
-          <div class="quiz-options">
-            <label class="quiz-opt"><input type="radio" name="q4" value="a"><span>Quando o cliente pede desconto e você precisa de autorização</span></label>
-            <label class="quiz-opt"><input type="radio" name="q4" value="b" data-correct><span>Quando o contato operacional aprova mas não tem poder de decisão para avançar</span></label>
-            <label class="quiz-opt"><input type="radio" name="q4" value="c"><span>Quando a demo correu bem e você quer fechar na mesma semana</span></label>
-            <label class="quiz-opt"><input type="radio" name="q4" value="d"><span>Quando o concorrente oferece preço menor e você precisa de argumento de peso</span></label>
-          </div>
-        </div>
-
-        <div class="quiz-q" data-qi="5">
-          <div class="quiz-q-label">Antes da Call</div>
-          <div class="quiz-q-text">O que é indispensável verificar antes de entrar em qualquer reunião?</div>
-          <div class="quiz-options">
-            <label class="quiz-opt"><input type="radio" name="q5" value="a"><span>Preparar a demo ao vivo para mostrar durante a call</span></label>
-            <label class="quiz-opt"><input type="radio" name="q5" value="b"><span>Revisar o one-pager para enviar ao final da reunião</span></label>
-            <label class="quiz-opt"><input type="radio" name="q5" value="c" data-correct><span>Pesquisar a empresa no LinkedIn, identificar o decisor e o contexto de compras atual</span></label>
-            <label class="quiz-opt"><input type="radio" name="q5" value="d"><span>Confirmar a presença do cliente por ligação antes do horário</span></label>
-          </div>
-        </div>
-
-      </div><!-- /quiz-body -->
-
-      <div class="quiz-footer">
-        <button class="quiz-btn" onclick="checkQuiz()">Verificar respostas</button>
-        <span class="quiz-result-msg" id="quiz-msg"></span>
-      </div>
-
-      <!-- TELA DE APROVAÇÃO -->
-      <div class="quiz-pass" id="quiz-pass">
-        <div class="quiz-pass-badge">
-          <div class="quiz-pass-icon" style="font-size:48px;font-weight:900;color:#BDE44E;line-height:1">✓</div>
-          <div class="quiz-pass-title">Pronto para a primeira reunião</div>
-          <div class="quiz-pass-sub">Você domina o essencial do kit de campo</div>
-        </div>
-        <div class="quiz-pass-checks">
-          <div class="quiz-pass-check">Sabe bifurcar Compras Free vs. Marketplace com uma pergunta</div>
-          <div class="quiz-pass-check">Sabe responder objeção de preço sem defensividade</div>
-          <div class="quiz-pass-check">Conhece pelo menos um case real com número</div>
-          <div class="quiz-pass-check">Sabe quando acionar a reunião executiva</div>
-          <div class="quiz-pass-check">Chega preparado — empresa e decisor pesquisados</div>
-        </div>
-        <button class="quiz-pass-retry" onclick="resetQuiz()">Refazer o teste</button>
-      </div>
-
-    </div><!-- /quiz-wrap -->
-    </div><!-- /ob-pg3 -->
-
-  </div><!-- /novo -->
+    <div style="margin-top:14px;font-size:10.5px;font-weight:600;color:var(--muted);text-align:center">Todos os casos anonimizados · dados cumulativos do período informado · uso interno</div>
+  </div>
 
   <!-- ═══ ONE PAGER ═══ -->
   <div class="screen" id="s-onepager">
-    <button class="back-btn" onclick="go('home')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Home</button>
-    <div class="ph">One Pager</div>
-    <div class="ps">Material para enviar ao lead ou deixar com o CFO após a reunião.</div>
-
+    <button class="back-btn" onclick="go('home')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Voltar</button>
     <div class="op-toolbar">
-      <div class="op-toolbar-label">Uso externo · clientes e prospects</div>
-      <div class="op-btn-group">
-        <button class="op-copy-btn" id="copy-btn-top" onclick="copyOnePagerPNG(this)">Copiar como imagem</button>
-        <button class="op-print-btn" onclick="window.print()">Imprimir / PDF</button>
-      </div>
+      <span style="font-size:10px;font-weight:700;color:var(--muted)">One Pager Executivo · ME · uso interno</span>
+      <button onclick="window.print()" style="font-family:inherit;font-size:10.5px;font-weight:800;padding:7px 16px;border-radius:8px;border:1.5px solid var(--navy);background:#fff;color:var(--navy);cursor:pointer;transition:.15s" onmouseover="this.style.background='var(--navy)';this.style.color='#fff'" onmouseout="this.style.background='#fff';this.style.color='var(--navy)'">Imprimir / PDF</button>
     </div>
-
-    <div class="warn-box" style="margin-bottom:14px">
-      <div class="warn-label">⚠ Se os botões acima não funcionarem</div>
-      <div class="warn-text">Isso acontece quando o arquivo está sendo visto direto na pré-visualização do SharePoint/OneDrive. Baixe o arquivo (ícone de download) e abra localmente no navegador — aí "Copiar como imagem" e "Imprimir / PDF" funcionam normalmente.</div>
-    </div>
-
-    <div class="op-cat-bar">
-      <span class="op-cat-lbl">O cliente compra:</span>
-      <button class="op-cat-btn active" id="opcat-a" onclick="setOPVariant('a')">Indiretos &amp; MRO</button>
-      <button class="op-cat-btn" id="opcat-b" onclick="setOPVariant('b')">Serviços &amp; Terceiros</button>
-      <button class="op-cat-btn" id="opcat-c" onclick="setOPVariant('c')">Insumos &amp; Matéria-prima</button>
-      <span style="font-size:10px;font-weight:600;color:var(--amber);margin-left:4px;white-space:nowrap">⚠ Escolha antes de copiar ou imprimir</span>
-    </div>
-
-    <div style="background:#f0f0f6;border-radius:12px;padding:10px;margin-bottom:14px">
-      <div id="op-wrap">
-
-        <!-- HERO -->
-        <div class="op-hero">
-          <div class="op-headline" id="op-headline">Suas compras operacionais podem custar menos<br><em>e demorar muito menos.</em></div>
-          <div class="op-sub" id="op-sub">O ME centraliza compras de suprimentos, manutenção e indiretos — com rastreabilidade total, lead time reduzido e saving comprovado em operações reais.</div>
-          <div class="op-badge">
-            <div class="op-badge-item">
-              <div class="op-badge-val" id="op-b1v">↓ 95%</div>
-              <div class="op-badge-lbl" id="op-b1l">redução de lead time vs. processo manual</div>
-            </div>
-            <div class="op-badge-item">
-              <div class="op-badge-val" id="op-b2v">R$181M</div>
-              <div class="op-badge-lbl" id="op-b2l">transacionados · 1º cliente Compras Free ME</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- CASOS -->
-        <div class="op-cases" id="op-cases-inner">
-          <div class="op-case">
-            <div class="op-case-bar" style="background:#008BFE"></div>
-            <div class="op-case-sector" style="color:#008BFE">Energia Elétrica — Indiretos operacionais</div>
-            <div class="op-case-data">8 anos de parceria · 12 mil pedidos · R$181M transacionados · R$4,5M de economia · NPS Promotor</div>
-          </div>
-          <div class="op-case">
-            <div class="op-case-bar" style="background:#FF38C6"></div>
-            <div class="op-case-sector" style="color:#c0209d">Energia Renovável — MRO &amp; serviços</div>
-            <div class="op-case-data">11,84% de saving · R$312k economizados · volume gerenciado 18× maior em 12 meses</div>
-          </div>
-          <div class="op-case">
-            <div class="op-case-bar" style="background:#0A0A93"></div>
-            <div class="op-case-sector" style="color:#0A0A93">Indústria Alimentícia — suprimentos &amp; embalagens</div>
-            <div class="op-case-data">R$9,3M em saving · lead time 2,3h · 97% conversão cotação→pedido</div>
-          </div>
-        </div>
-
-        <!-- MÉTRICAS -->
-        <div class="op-metrics">
-          <div class="op-metric">
-            <div class="op-metric-ey">Saving</div>
-            <div class="op-metric-val">6–12%</div>
-            <div class="op-metric-lbl">sobre o spend gerenciado</div>
-          </div>
-          <div class="op-metric">
-            <div class="op-metric-ey">Lead time</div>
-            <div class="op-metric-val">↓ 95%</div>
-            <div class="op-metric-lbl">vs. processo manual</div>
-          </div>
-          <div class="op-metric">
-            <div class="op-metric-ey">Visibilidade</div>
-            <div class="op-metric-val">real time</div>
-            <div class="op-metric-lbl">Evolução de spend por categoria</div>
-          </div>
-          <div class="op-metric">
-            <div class="op-metric-ey">Mercado</div>
-            <div class="op-metric-val">+20 anos</div>
-            <div class="op-metric-lbl">de operação em procurement B2B</div>
-          </div>
-        </div>
-
-        <!-- COMO FUNCIONA -->
-        <div class="op-how">
-          <div class="op-how-title">Como funciona na prática</div>
-          <div class="op-steps">
-            <div class="op-step">
-              <div class="op-step-num">1</div>
-              <div class="op-step-text">Diagnóstico de compras</div>
-              <div class="op-step-sub">Mapeamos seu volume, categorias e processo atual</div>
-            </div>
-            <div class="op-step">
-              <div class="op-step-num">2</div>
-              <div class="op-step-text">Modelo recomendado</div>
-              <div class="op-step-sub">Identificamos qual modelo gera mais resultado para o seu perfil</div>
-            </div>
-            <div class="op-step">
-              <div class="op-step-num">3</div>
-              <div class="op-step-text">Implementação e onboarding</div>
-              <div class="op-step-sub">Time ME estrutura a operação com sua equipe</div>
-            </div>
-            <div class="op-step">
-              <div class="op-step-num">4</div>
-              <div class="op-step-text">Resultado mensurável</div>
-              <div class="op-step-sub">Saving, lead time e spend visíveis desde o 1º ciclo</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- FOOTER -->
-        <div class="op-footer">
-          <div class="op-footer-brand">
-            <div class="op-footer-logo">me<span>.</span></div>
-            <div class="op-footer-tagline">Soluções tecnológicas para compras B2B</div>
-          </div>
-          <div>
-            <div class="op-footer-contact-lbl">Fale com um especialista</div>
-            <div class="op-footer-contact-info">
-              comercial@me.com.br<br>
-              +55 11 2175.3500
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /op-wrap -->
-    </div>
-
-    <div class="card" style="border-left:4px solid var(--navy);display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap">
-      <div style="flex:1">
-        <div class="k" style="color:var(--navy)">Como usar este material</div>
-        <div class="g2" style="margin-top:0;gap:12px">
-          <div style="font-size:12.5px;font-weight:600;color:var(--texto);line-height:1.55"><strong style="color:var(--navy)">Outbound</strong> — Lead pediu material antes de aceitar a reunião. Copie a imagem e cole no corpo do e-mail para enviá-lo.</div>
-          <div style="font-size:12.5px;font-weight:600;color:var(--texto);line-height:1.55"><strong style="color:var(--navy)">Pós-reunião</strong> — Deixe com o CFO ou Diretor de Compras ao final. Facilita a aprovação interna sem o vendedor presente.</div>
+    <div id="op-wrap">
+      <div class="op-hero">
+        <div class="op-brand">me. Mercado Eletrônico</div>
+        <div class="op-headline">Suas compras podem gerar<br><em>resultado financeiro real.</em></div>
+        <div class="op-sub">O ME é a plataforma de procurement que transforma o processo de compras em vantagem competitiva — com dados, eficiência e resultado comprovado.</div>
+        <div class="op-badge">
+          <div class="op-badge-item"><div class="op-badge-val">6–12%</div><div class="op-badge-lbl">saving médio sobre o spend</div></div>
+          <div class="op-badge-item"><div class="op-badge-val">2,3h</div><div class="op-badge-lbl">lead time médio (vs. 3–5 dias)</div></div>
         </div>
       </div>
-      <div class="op-btn-group" style="flex:0 0 auto;align-self:center">
-        <button class="op-copy-btn" id="copy-btn-bottom" onclick="copyOnePagerPNG(this)">Copiar como imagem</button>
-        <button class="op-print-btn" onclick="window.print()">Imprimir / PDF</button>
+      <div class="op-cases">
+        <div class="op-case">
+          <div class="op-case-bar" style="background:#0A0A93"></div>
+          <div class="op-case-sector" style="color:#0A0A93">Indústria alimentícia</div>
+          <div class="op-case-data">R$ 9,3M em saving · lead time 2,3h · 97% de conversão cotação→pedido</div>
+        </div>
+        <div class="op-case">
+          <div class="op-case-bar" style="background:#FF38C6"></div>
+          <div class="op-case-sector" style="color:#FF38C6">Energia renovável</div>
+          <div class="op-case-data">11,84% de saving · R$ 312k economizados · crescimento 18× em 12 meses</div>
+        </div>
+        <div class="op-case">
+          <div class="op-case-bar" style="background:#008BFE"></div>
+          <div class="op-case-sector" style="color:#008BFE">Telecomunicações</div>
+          <div class="op-case-data">11,41% de saving · R$ 3,1M economizados · lead time médio 3,4 dias</div>
+        </div>
       </div>
+      <div class="op-metrics">
+        <div class="op-metric"><div class="op-metric-ey">Saving</div><div class="op-metric-val">6–12%</div><div class="op-metric-lbl">Sobre o spend<br>gerenciado</div></div>
+        <div class="op-metric"><div class="op-metric-ey">Lead time</div><div class="op-metric-val">↓ 95%</div><div class="op-metric-lbl">Redução vs.<br>processo manual</div></div>
+        <div class="op-metric"><div class="op-metric-ey">Visibilidade</div><div class="op-metric-val">real time</div><div class="op-metric-lbl">Spend por<br>categoria</div></div>
+        <div class="op-metric"><div class="op-metric-ey">Mercado</div><div class="op-metric-val">+20 anos</div><div class="op-metric-lbl">de operação em<br>procurement B2B</div></div>
+      </div>
+      <div class="op-how">
+        <div class="op-how-title">Como funciona na prática</div>
+        <div class="op-steps">
+          <div class="op-step"><div class="op-step-num">1</div><div class="op-step-text">Diagnóstico de compras</div><div class="op-step-sub">Mapeamos seu volume, categorias e processo atual</div></div>
+          <div class="op-step"><div class="op-step-num">2</div><div class="op-step-text">Modelo recomendado</div><div class="op-step-sub">Identificamos qual modelo gera mais resultado para o seu perfil</div></div>
+          <div class="op-step"><div class="op-step-num">3</div><div class="op-step-text">Implementação e onboarding</div><div class="op-step-sub">Time ME estrutura a operação com sua equipe</div></div>
+          <div class="op-step"><div class="op-step-num">4</div><div class="op-step-text">Resultado mensurável</div><div class="op-step-sub">Saving, lead time e evolução de spend visíveis desde o 1º ciclo</div></div>
+        </div>
+      </div>
+      <div class="op-footer">
+        <div class="op-footer-brand">
+          <div class="op-footer-logo">me<span style="color:#BDE44E">.</span></div>
+          <div class="op-footer-tagline">Soluções tecnológicas para compras B2B</div>
+        </div>
+        <div>
+          <div class="op-footer-contact-lbl">Fale com um especialista</div>
+          <div class="op-footer-contact-info">
+            <a href="mailto:comercial@me.com.br">comercial@me.com.br</a><br>
+            +55 11 2175.3500
+          </div>
+        </div>
+      </div>
+      <div class="op-confidential">Documento interno · ME · uso restrito</div>
     </div>
   </div><!-- /onepager -->
 
   <!-- ═══ FLUXOGRAMA ═══ -->
   <div class="screen" id="s-flux">
-    <button class="back-btn" onclick="go(window._fluxFromOnboarding ? 'novo' : 'home'); window._fluxFromOnboarding = false;"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Voltar</button>
+    <button class="back-btn" onclick="go('home')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Voltar</button>
 
     <div style="margin-bottom:8px;">
       <span style="font-size:13px;font-weight:900;color:var(--navy);letter-spacing:.3px;">Fluxograma de Vendas</span>
@@ -2174,402 +1748,29 @@ nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
 <div id="op-toast">Imagem copiada!</div>
 
 <script>
-const SCREENS = ['home','antes','qualif','obj','demo','fech','novo','onepager','flux'];
+const SCREENS = ['home','fluxo','icp','modelos','decisores','narrativa','campo','comp','bench','resultados','onepager','flux'];
 const LABELS = {
-  home:'Home', antes:'Antes da Call', qualif:'Qualificação',
-  obj:'Objeção', demo:'Demo', fech:'Fechamento', novo:'Novo Vendedor', onepager:'One Pager', flux:'Fluxograma de Vendas'
+  home:'Home',
+  fluxo:'01 · Fluxo Comercial', icp:'02 · Cliente Ideal', modelos:'03 · Modelos',
+  decisores:'04 · Decisores & Objeções', narrativa:'05 · Narrativa Central',
+  campo:'06 · Lições de Campo', comp:'07 · Concorrência',
+  bench:'08 · Benchmarks', resultados:'09 · Resultados Reais',
+  onepager:'One Pager', flux:'Fluxograma de Vendas'
 };
-const NAV_IDS = ['home','antes','qualif','obj','demo','fech','novo','onepager','flux'];
 
-const BACK_SVG = '<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>';
-
-function goMat(screen) {
-  window._returnToNovoPg2 = true;
-  go(screen, 'novo');
-}
-
-function goFlux() {
-  window._fluxFromOnboarding = true;
-  go('flux');
-}
-
-function go(id, from) {
-  if (id === 'novo') {
-    if (window._returnToNovoPg2) {
-      window._returnToNovoPg2 = false;
-      SCREENS.forEach(s => document.getElementById('s-'+s).classList.toggle('on', s===id));
-      NAV_IDS.forEach(s => { const n = document.getElementById('n-'+s); if(n) n.classList.toggle('on', s===id); });
-      document.getElementById('crumb').textContent = LABELS[id];
-      document.querySelector('.canvas').scrollTop = 0;
-      goOBPage(2);
-      return;
-    }
-    resetOBState();
-  }
+function go(id) {
   SCREENS.forEach(s => {
-    document.getElementById('s-'+s).classList.toggle('on', s===id);
+    const el = document.getElementById('s-'+s);
+    if (el) el.classList.toggle('on', s===id);
   });
-  NAV_IDS.forEach(s => {
+  SCREENS.forEach(s => {
     const n = document.getElementById('n-'+s);
     if (n) n.classList.toggle('on', s===id);
   });
   document.getElementById('crumb').textContent = LABELS[id] || id;
   document.querySelector('.canvas').scrollTop = 0;
-  // Update back button of destination screen when navigating from a specific origin
-  if (from) {
-    const screen = document.getElementById('s-'+id);
-    const backBtn = screen && screen.querySelector('.back-btn');
-    if (backBtn) {
-      backBtn.innerHTML = BACK_SVG + (LABELS[from] || from);
-      backBtn.onclick = (function(f){ return function(){ go(f); }; })(from);
-    }
-  }
 }
 
-function resetOBState() {
-  try { localStorage.removeItem('me_ob'); } catch {}
-  // Reset fund button to initial state
-  const btn = document.getElementById('fund-done-btn');
-  if (btn) {
-    btn.innerHTML = 'Concluir Etapa 1 →';
-    btn.classList.remove('done');
-    btn.onclick = markFundDone;
-  }
-  // Uncheck all material cards
-  ['qualif','antes','obj','demo','fech','op'].forEach(function(id) {
-    const chk = document.getElementById('chk-'+id);
-    const mc = document.getElementById('mc-'+id);
-    if (chk) chk.checked = false;
-    if (mc) mc.classList.remove('checked');
-  });
-  // Reset quiz
-  document.querySelectorAll('.quiz-opt input[type=radio]').forEach(function(r){ r.checked = false; });
-  document.querySelectorAll('.quiz-q').forEach(function(q){ q.classList.remove('answered','correct','wrong'); });
-  document.querySelectorAll('.quiz-opt').forEach(function(o){ o.classList.remove('correct','wrong','show-answer'); });
-  var qb = document.getElementById('quiz-body'); if (qb) qb.style.display = '';
-  var qf = document.querySelector('.quiz-footer'); if (qf) qf.style.display = '';
-  var qp = document.getElementById('quiz-pass'); if (qp) qp.classList.remove('show');
-  var qbar = document.getElementById('quiz-bar'); if (qbar) qbar.style.width = '0%';
-  var qmsg = document.getElementById('quiz-msg'); if (qmsg) { qmsg.textContent = ''; qmsg.className = 'quiz-result-msg'; }
-  // Show page 1
-  document.querySelectorAll('.ob-page').forEach(function(p, i){ p.classList.toggle('ob-active', i === 0); });
-  // Reset stepper
-  ['ob-s1','ob-s2','ob-s3'].forEach(function(sid){
-    const el = document.getElementById(sid);
-    if (el) el.classList.remove('active','done');
-  });
-  const d1 = document.getElementById('ob-d1'), d2 = document.getElementById('ob-d2'), d3 = document.getElementById('ob-d3');
-  if (d1) d1.textContent = '1';
-  if (d2) d2.textContent = '2';
-  if (d3) d3.textContent = '3';
-  const s1 = document.getElementById('ob-s1');
-  if (s1) s1.classList.add('active');
-}
-
-function filterObj(group, btn) {
-  document.querySelectorAll('.filt-btn').forEach(b => {
-    b.classList.remove('on','rosa','amber','comp');
-  });
-  if (btn) {
-    btn.classList.add('on');
-    if (group === 'mp') btn.classList.add('rosa');
-    if (group === 'cf') btn.classList.add('amber');
-    if (group === 'comp') btn.classList.add('comp');
-  }
-  var visible = 0;
-  document.querySelectorAll('.obj-card').forEach(c => {
-    var show = (group === 'all' || c.dataset.group === group);
-    c.style.display = show ? '' : 'none';
-    if (show) visible++;
-  });
-  var counter = document.getElementById('obj-counter');
-  var counterN = document.getElementById('obj-counter-n');
-  if (counter && counterN) {
-    if (group === 'all') {
-      counter.style.display = 'none';
-    } else {
-      counterN.textContent = visible;
-      counter.style.display = '';
-    }
-  }
-}
-
-function toggleObj(head) {
-  const body = head.nextElementSibling;
-  const isOpen = body.classList.contains('open');
-  document.querySelectorAll('.obj-body.open').forEach(b => b.classList.remove('open'));
-  if (!isOpen) body.classList.add('open');
-}
-
-go('home');
-restoreOBState();
-
-/* ── ONBOARDING TRACKING ── */
-function getOBState() {
-  try { return JSON.parse(localStorage.getItem('me_ob') || '{}'); } catch { return {}; }
-}
-function saveOBState(s) { try { localStorage.setItem('me_ob', JSON.stringify(s)); } catch {} }
-
-function toggleFund(id) {
-  const el = document.getElementById(id);
-  el.classList.toggle('open');
-}
-
-function goOBPage(n) {
-  document.querySelectorAll('.ob-page').forEach((p, i) => {
-    p.classList.toggle('ob-active', i + 1 === n);
-  });
-  const s = getOBState(); s.page = n; saveOBState(s);
-  updateStepper(n);
-  document.querySelector('.canvas').scrollTop = 0;
-}
-
-function markFundDone() {
-  const s = getOBState(); s.fund = true; saveOBState(s);
-  const btn = document.getElementById('fund-done-btn');
-  btn.innerHTML = '✓ Etapa 1 concluída';
-  btn.classList.add('done');
-  btn.onclick = () => goOBPage(2);
-  updateStepper(1);
-  setTimeout(() => goOBPage(2), 350);
-}
-
-function checkMatProgress() {
-  const checks = ['qualif','antes','obj','demo','fech','op'];
-  const s = getOBState();
-  checks.forEach(id => {
-    const el = document.getElementById('mc-'+id);
-    const chk = document.getElementById('chk-'+id);
-    if (chk.checked) el.classList.add('checked'); else el.classList.remove('checked');
-    s['mat_'+id] = chk.checked;
-  });
-  const allDone = checks.every(id => document.getElementById('chk-'+id).checked);
-  s.mats = allDone;
-  saveOBState(s);
-  updateStepper();
-}
-
-function updateStepper(currentPage) {
-  const s = getOBState();
-  const page = currentPage || s.page || 1;
-  const s1 = document.getElementById('ob-s1'), d1 = document.getElementById('ob-d1');
-  const s2 = document.getElementById('ob-s2'), d2 = document.getElementById('ob-d2');
-  const s3 = document.getElementById('ob-s3'), d3 = document.getElementById('ob-d3');
-  [s1,s2,s3].forEach(el => el.classList.remove('active','done'));
-  // done flags from completion state
-  if (s.fund) { s1.classList.add('done'); d1.textContent = '✓'; } else { d1.textContent = '1'; }
-  if (s.mats) { s2.classList.add('done'); d2.textContent = '✓'; } else { d2.textContent = '2'; }
-  if (s.quiz_done) { s3.classList.add('done'); d3.textContent = '✓'; } else { d3.textContent = '3'; }
-  // active = current page (overrides done for the current step)
-  if (page === 1) { s1.classList.remove('done'); s1.classList.add('active'); d1.textContent = '1'; }
-  else if (page === 2) { s2.classList.remove('done'); s2.classList.add('active'); d2.textContent = '2'; }
-  else if (page === 3) s3.classList.add('active');
-}
-
-function restoreOBState() {
-  const s = getOBState();
-  if (s.fund) {
-    const btn = document.getElementById('fund-done-btn');
-    if (btn) {
-      btn.innerHTML = '✓ Etapa 1 concluída';
-      btn.classList.add('done');
-      btn.onclick = () => goOBPage(2);
-    }
-  }
-  ['qualif','antes','obj','demo','fech','op'].forEach(id => {
-    if (s['mat_'+id]) {
-      const chk = document.getElementById('chk-'+id);
-      if (chk) { chk.checked = true; document.getElementById('mc-'+id).classList.add('checked'); }
-    }
-  });
-  if (s.quiz_done) {
-    document.getElementById('quiz-body').style.display = 'none';
-    document.querySelector('.quiz-footer').style.display = 'none';
-    document.getElementById('quiz-pass').classList.add('show');
-    document.getElementById('quiz-bar').style.width = '100%';
-  }
-  goOBPage(s.page || 1);
-}
-
-function checkQuiz() {
-  const answers = {q0:'b',q1:'c',q2:'c',q3:'c',q4:'b',q5:'c'};
-  let erros = 0;
-  let respondidas = 0;
-
-  Object.entries(answers).forEach(([name, correct]) => {
-    const selected = document.querySelector(`input[name="${name}"]:checked`);
-    const opts = document.querySelectorAll(`input[name="${name}"]`);
-    // reset
-    opts.forEach(o => o.closest('.quiz-opt').classList.remove('correct','wrong','show-answer'));
-    if (!selected) { erros++; return; }
-    respondidas++;
-    const selectedOpt = selected.closest('.quiz-opt');
-    const correctOpt = document.querySelector(`input[name="${name}"][data-correct]`)?.closest('.quiz-opt');
-    if (selected.value === correct) {
-      selectedOpt.classList.add('correct');
-    } else {
-      selectedOpt.classList.add('wrong');
-      if (correctOpt) correctOpt.classList.add('show-answer');
-      erros++;
-    }
-  });
-
-  const total = Object.keys(answers).length;
-  const acertos = total - erros;
-  const pct = Math.round((acertos / total) * 100);
-  document.getElementById('quiz-bar').style.width = pct + '%';
-
-  const msg = document.getElementById('quiz-msg');
-  if (erros === 0) {
-    msg.textContent = '';
-    document.getElementById('quiz-body').style.display = 'none';
-    document.querySelector('.quiz-footer').style.display = 'none';
-    document.getElementById('quiz-pass').classList.add('show');
-    // marca etapa 3 como concluída no stepper
-    const s3 = document.getElementById('ob-s3');
-    const d3 = document.getElementById('ob-d3');
-    if (s3) { s3.classList.remove('active'); s3.classList.add('done'); }
-    if (d3) { d3.textContent = '✓'; }
-    try { const st = JSON.parse(localStorage.getItem('me_ob')||'{}'); st.quiz_done = true; localStorage.setItem('me_ob', JSON.stringify(st)); } catch {}
-  } else {
-    const faltam = respondidas < total ? ` (responda todas as ${total} perguntas)` : '';
-    msg.textContent = `${acertos} de ${total} corretas${faltam} — revise as marcadas em vermelho`;
-    msg.className = 'quiz-result-msg erros';
-  }
-}
-
-function resetQuiz() {
-  document.querySelectorAll('.quiz-opt input').forEach(i => i.checked = false);
-  document.querySelectorAll('.quiz-opt').forEach(o => o.classList.remove('correct','wrong','show-answer'));
-  document.getElementById('quiz-bar').style.width = '0%';
-  document.getElementById('quiz-msg').textContent = '';
-  document.getElementById('quiz-body').style.display = '';
-  document.querySelector('.quiz-footer').style.display = '';
-  document.getElementById('quiz-pass').classList.remove('show');
-}
-
-/* ── ONE PAGER CATEGORY VARIANTS ── */
-const OP_VARIANTS = {
-  a: {
-    headline: 'Suas compras operacionais podem custar menos<br><em>e demorar muito menos.</em>',
-    sub: 'O ME centraliza compras de suprimentos, manutenção e indiretos — com rastreabilidade total, lead time reduzido e saving comprovado em operações reais.',
-    b1v: '↓ 95%', b1l: 'redução de lead time vs. processo manual',
-    b2v: 'R$181M', b2l: 'transacionados · 1º cliente Compras Free ME',
-    cases: `
-      <div class="op-case">
-        <div class="op-case-bar" style="background:#008BFE"></div>
-        <div class="op-case-sector" style="color:#008BFE">Energia Elétrica — Indiretos operacionais</div>
-        <div class="op-case-data">8 anos de parceria · 12 mil pedidos · R$181M transacionados · R$4,5M de economia · NPS Promotor</div>
-      </div>
-      <div class="op-case">
-        <div class="op-case-bar" style="background:#FF38C6"></div>
-        <div class="op-case-sector" style="color:#c0209d">Energia Renovável — MRO &amp; serviços</div>
-        <div class="op-case-data">11,84% de saving · R$312k economizados · volume gerenciado 18× maior em 12 meses</div>
-      </div>
-      <div class="op-case">
-        <div class="op-case-bar" style="background:#0A0A93"></div>
-        <div class="op-case-sector" style="color:#0A0A93">Indústria Alimentícia — suprimentos &amp; embalagens</div>
-        <div class="op-case-data">R$9,3M em saving · lead time 2,3h · 97% conversão cotação→pedido</div>
-      </div>`
-  },
-  b: {
-    headline: 'Terceirizou o serviço.<br><em>O controle fica com você.</em>',
-    sub: 'O ME rastreia contratações de serviço do pedido ao pagamento — com histórico completo, comparativo de fornecedores e controle de escopo sem planilha.',
-    b1v: '↓ 95%', b1l: 'lead time vs. processo manual de e-mail',
-    b2v: '+20 anos', b2l: 'de operação em procurement B2B',
-    cases: `
-      <div class="op-case">
-        <div class="op-case-bar" style="background:#008BFE"></div>
-        <div class="op-case-sector" style="color:#008BFE">Telecomunicações — serviços &amp; terceiros</div>
-        <div class="op-case-data">11,41% de saving · R$3,1M economizados · R$27M em cotações · 200 pedidos gerenciados</div>
-      </div>
-      <div class="op-case">
-        <div class="op-case-bar" style="background:#008BFE"></div>
-        <div class="op-case-sector" style="color:#008BFE">Energia Elétrica — parceria de longo prazo</div>
-        <div class="op-case-data">8 anos · R$181M transacionados · contrato renovado em 2025 · NPS Promotor · nota 8</div>
-      </div>
-      <div class="op-case">
-        <div class="op-case-bar" style="background:#FF38C6"></div>
-        <div class="op-case-sector" style="color:#c0209d">Energia Renovável — Compras Free</div>
-        <div class="op-case-data">11,84% de saving · operação cresceu 18× · time interno liberado para o estratégico</div>
-      </div>`
-  },
-  c: {
-    headline: 'Mais fornecedores concorrendo.<br><em>Mais saving. Menos dependência.</em>',
-    sub: 'O ME cria um marketplace privado com seus fornecedores de insumos — cotação competitiva, múltiplos fornecedores concorrendo e integração com o ERP que você já usa.',
-    b1v: '6–12%', b1l: 'saving médio sobre o spend gerenciado',
-    b2v: '97%', b2l: 'conversão cotação→pedido · cliente alimentício',
-    cases: `
-      <div class="op-case">
-        <div class="op-case-bar" style="background:#0A0A93"></div>
-        <div class="op-case-sector" style="color:#0A0A93">Indústria Alimentícia — insumos &amp; embalagens</div>
-        <div class="op-case-data">R$9,3M em saving · lead time 2,3h · 97% conversão · R$150M de volume gerenciado</div>
-      </div>
-      <div class="op-case">
-        <div class="op-case-bar" style="background:#008BFE"></div>
-        <div class="op-case-sector" style="color:#008BFE">Telecomunicações — materiais &amp; equipamentos</div>
-        <div class="op-case-data">11,41% de saving · R$3,1M economizados · R$27M em cotações gerenciadas</div>
-      </div>
-      <div class="op-case">
-        <div class="op-case-bar" style="background:#FF38C6"></div>
-        <div class="op-case-sector" style="color:#c0209d">Energia Renovável — insumos operacionais</div>
-        <div class="op-case-data">11,84% de saving · R$312k economizados · volume gerenciado 18× maior em 12 meses</div>
-      </div>`
-  }
-};
-
-function setOPVariant(v) {
-  const d = OP_VARIANTS[v];
-  if (!d) return;
-  document.getElementById('op-headline').innerHTML = d.headline;
-  document.getElementById('op-sub').textContent = d.sub;
-  document.getElementById('op-b1v').textContent = d.b1v;
-  document.getElementById('op-b1l').textContent = d.b1l;
-  document.getElementById('op-b2v').textContent = d.b2v;
-  document.getElementById('op-b2l').textContent = d.b2l;
-  document.getElementById('op-cases-inner').innerHTML = d.cases;
-  ['a','b','c'].forEach(k => {
-    document.getElementById('opcat-'+k).classList.toggle('active', k === v);
-  });
-}
-
-async function copyOnePagerPNG(btn) {
-  const btns = document.querySelectorAll('.op-copy-btn');
-  btns.forEach(b => { b.classList.add('loading'); b.textContent = '⏳ Gerando...'; });
-  try {
-    const el = document.getElementById('op-wrap');
-    const canvas = await html2canvas(el, {
-      scale: 2,
-      useCORS: true,
-      allowTaint: true,
-      backgroundColor: '#ffffff',
-      logging: false
-    });
-    canvas.toBlob(async blob => {
-      try {
-        await navigator.clipboard.write([new ClipboardItem({'image/png': blob})]);
-        showToast('Imagem copiada! Cole diretamente no e-mail.');
-      } catch {
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url; a.download = 'me-onepager.png'; a.click();
-        URL.revokeObjectURL(url);
-        showToast('Imagem salva! (Ctrl+C não disponível neste navegador)');
-      }
-      btns.forEach(b => { b.classList.remove('loading'); b.textContent = 'Copiar como imagem'; });
-    }, 'image/png');
-  } catch(e) {
-    btns.forEach(b => { b.classList.remove('loading'); b.textContent = 'Copiar como imagem'; });
-    showToast('Erro ao gerar imagem. Tente pelo PDF.');
-  }
-}
-
-function showToast(msg) {
-  const t = document.getElementById('op-toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 3000);
-}
 </script>
 </body>
 </html>
