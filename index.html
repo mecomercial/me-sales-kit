@@ -677,7 +677,7 @@ table.comp-table{width:100%;border-collapse:collapse;font-size:10.5px}
       <span class="dot"></span>Home
     </button>
     <div class="nav-sec">Capítulos</div>
-    <button class="ni" id="n-fluxo" onclick="go('fluxo')">
+    <button class="ni" id="n-flux" onclick="go('flux')">
       <span class="dot"></span>01 · Fluxo Comercial
     </button>
     <button class="ni" id="n-icp" onclick="go('icp')">
@@ -708,9 +708,6 @@ table.comp-table{width:100%;border-collapse:collapse;font-size:10.5px}
     <button class="ni" id="n-onepager" onclick="go('onepager')">
       <span class="dot"></span>One Pager
     </button>
-    <button class="ni" id="n-flux" onclick="go('flux')">
-      <span class="dot"></span>Fluxograma
-    </button>
   </nav>
 </aside>
 
@@ -727,7 +724,7 @@ table.comp-table{width:100%;border-collapse:collapse;font-size:10.5px}
     <div class="ph">Sales Enablement no ME</div>
     <div class="ps">Um estudo de Karina · Marketing de Produto · 9 capítulos sobre o fluxo comercial, o cliente ideal, a narrativa e os materiais que sustentam cada etapa da venda.</div>
     <div class="moment-grid">
-      <div class="moment" onclick="go('fluxo')" style="cursor:pointer">
+      <div class="moment" onclick="go('flux')" style="cursor:pointer">
         <div class="mi" style="background:#0A0A93;color:#BDE44E;font-size:12px;font-weight:900;">01</div>
         <h3>Fluxo Comercial</h3>
         <p>9 etapas, 5 times. A venda como um revezamento estruturado.</p>
@@ -806,67 +803,6 @@ table.comp-table{width:100%;border-collapse:collapse;font-size:10.5px}
         <p>Swimlane completo com todos os times e etapas do processo comercial.</p>
         <span class="mbadge" style="background:#f5fbd8;color:#0A0A93;">Visual</span>
         <div class="cover" style="background:#BDE44E"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══ CAP 01: FLUXO COMERCIAL ═══ -->
-  <div class="screen" id="s-fluxo">
-    <button class="back-btn" onclick="go('home')"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>Voltar</button>
-    <div class="ph">Fluxo Comercial</div>
-    <div class="ps">9 etapas, 5 times. A venda no ME é um revezamento — cada passagem de bastão precisa ser limpa.</div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px">
-      <span style="font-size:9px;font-weight:800;letter-spacing:.5px;padding:4px 10px;border-radius:20px;background:#6C3FC5;color:#fff">Marketing / SDR</span>
-      <span style="font-size:9px;font-weight:800;letter-spacing:.5px;padding:4px 10px;border-radius:20px;background:#0A0A93;color:#fff">Comercial · Hunter</span>
-      <span style="font-size:9px;font-weight:800;letter-spacing:.5px;padding:4px 10px;border-radius:20px;background:#FF38C6;color:#fff">Pré-vendas</span>
-      <span style="font-size:9px;font-weight:800;letter-spacing:.5px;padding:4px 10px;border-radius:20px;background:#008BFE;color:#fff">Projetos · PS</span>
-      <span style="font-size:9px;font-weight:800;letter-spacing:.5px;padding:4px 10px;border-radius:20px;background:#BDE44E;color:#0A0A93">KAM · Farmer</span>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:10px">
-      <div class="card" style="border-left:4px solid #6C3FC5;display:flex;gap:16px;align-items:flex-start;padding:16px 20px">
-        <div style="width:32px;height:32px;border-radius:50%;background:#6C3FC5;color:#fff;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0">1</div>
-        <div><div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:4px">Geração de Leads</div><div style="font-size:11.5px;font-weight:600;color:var(--muted)">Dois caminhos: campanhas de Marketing via SDR, ou prospecção ativa do Hunter (cold call, LinkedIn, indicação). Empresas 200–499 colaboradores → canal parceiro; 500+ → Hunter.</div></div>
-        <span style="flex-shrink:0;font-size:9px;font-weight:800;padding:3px 9px;border-radius:20px;background:rgba(108,63,197,.1);color:#6C3FC5">Mkt/SDR + Comercial</span>
-      </div>
-      <div class="card" style="border-left:4px solid #0A0A93;display:flex;gap:16px;align-items:flex-start;padding:16px 20px">
-        <div style="width:32px;height:32px;border-radius:50%;background:#0A0A93;color:#BDE44E;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0">2</div>
-        <div><div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:4px">Descoberta de Dores</div><div style="font-size:11.5px;font-weight:600;color:var(--muted)">Processo manual por e-mail, sem rastreabilidade, aprovações lentas, ciclo de compra acima de 20 dias. O vendedor investiga a intensidade da dor antes de falar de produto.</div></div>
-        <span style="flex-shrink:0;font-size:9px;font-weight:800;padding:3px 9px;border-radius:20px;background:#EFF6FF;color:#0A0A93">Comercial</span>
-      </div>
-      <div class="card" style="border-left:4px solid #0A0A93;display:flex;gap:16px;align-items:flex-start;padding:16px 20px">
-        <div style="width:32px;height:32px;border-radius:50%;background:#0A0A93;color:#BDE44E;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0">3</div>
-        <div><div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:4px">Mapeamento de Decisores</div><div style="font-size:11.5px;font-weight:600;color:var(--muted)">Gerente de Compras decide a ferramenta; TI avalia integração e LGPD; CFO aprova o orçamento. Sem mapear os três, a venda trava mais adiante.</div></div>
-        <span style="flex-shrink:0;font-size:9px;font-weight:800;padding:3px 9px;border-radius:20px;background:#EFF6FF;color:#0A0A93">Comercial</span>
-      </div>
-      <div class="card" style="border-left:4px solid #FF38C6;display:flex;gap:16px;align-items:flex-start;padding:16px 20px">
-        <div style="width:32px;height:32px;border-radius:50%;background:#FF38C6;color:#fff;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0">4</div>
-        <div><div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:4px">Demonstração</div><div style="font-size:11.5px;font-weight:600;color:var(--muted)">Comercial faz a introdução (até 10 min). Pré-vendas conduz a demo navegando no portal real — sem PowerPoint. Foco nas dores do cliente, não nas funcionalidades.</div></div>
-        <span style="flex-shrink:0;font-size:9px;font-weight:800;padding:3px 9px;border-radius:20px;background:#fff5fb;color:#FF38C6">Comercial + Pré-vendas</span>
-      </div>
-      <div class="card" style="border-left:4px solid #0A0A93;display:flex;gap:16px;align-items:flex-start;padding:16px 20px">
-        <div style="width:32px;height:32px;border-radius:50%;background:#0A0A93;color:#BDE44E;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0">5</div>
-        <div><div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:4px">Modelo de Contratação</div><div style="font-size:11.5px;font-weight:600;color:var(--muted)">Contratação Direta, Marketplace Privado ou Compras Free. O modelo certo depende do perfil e do budget do cliente. Ver Capítulo 03.</div></div>
-        <span style="flex-shrink:0;font-size:9px;font-weight:800;padding:3px 9px;border-radius:20px;background:#EFF6FF;color:#0A0A93">Comercial</span>
-      </div>
-      <div class="card" style="border-left:4px solid #FF38C6;display:flex;gap:16px;align-items:flex-start;padding:16px 20px">
-        <div style="width:32px;height:32px;border-radius:50%;background:#FF38C6;color:#fff;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0">6</div>
-        <div><div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:4px">Proposta Comercial</div><div style="font-size:11.5px;font-weight:600;color:var(--muted)">Valor de referência alto com negociação aberta. Destaque para flexibilidade, integração e métricas antes/depois por segmento.</div></div>
-        <span style="flex-shrink:0;font-size:9px;font-weight:800;padding:3px 9px;border-radius:20px;background:#fff5fb;color:#FF38C6">Comercial + Pré-vendas</span>
-      </div>
-      <div class="card" style="border-left:4px solid #FF38C6;display:flex;gap:16px;align-items:flex-start;padding:16px 20px">
-        <div style="width:32px;height:32px;border-radius:50%;background:#FF38C6;color:#fff;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0">7</div>
-        <div><div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:4px">Tratamento de Objeções</div><div style="font-size:11.5px;font-weight:600;color:var(--muted)">Preço, ERP legado, prioridade concorrente, decisor fora do radar. Cada objeção tem uma resposta estruturada. Ver Capítulo 04.</div></div>
-        <span style="flex-shrink:0;font-size:9px;font-weight:800;padding:3px 9px;border-radius:20px;background:#fff5fb;color:#FF38C6">Comercial + Pré-vendas</span>
-      </div>
-      <div class="card" style="border-left:4px solid #0A0A93;display:flex;gap:16px;align-items:flex-start;padding:16px 20px">
-        <div style="width:32px;height:32px;border-radius:50%;background:#0A0A93;color:#BDE44E;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0">8</div>
-        <div><div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:4px">Fechamento</div><div style="font-size:11.5px;font-weight:600;color:var(--muted)">Contrato assinado → passagem formal aos times de Projetos e KAM, com briefing completo do contexto do cliente.</div></div>
-        <span style="flex-shrink:0;font-size:9px;font-weight:800;padding:3px 9px;border-radius:20px;background:#EFF6FF;color:#0A0A93">Comercial</span>
-      </div>
-      <div class="card" style="border-left:4px solid #008BFE;display:flex;gap:16px;align-items:flex-start;padding:16px 20px">
-        <div style="width:32px;height:32px;border-radius:50%;background:#008BFE;color:#fff;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0">9</div>
-        <div><div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:4px">Handoff — Projetos e KAM</div><div style="font-size:11.5px;font-weight:600;color:var(--muted)">Projetos assume a implantação técnica (configuração, ERP, go-live). O KAM assume o relacionamento: expansão, renovação, upsell e NPS.</div></div>
-        <span style="flex-shrink:0;font-size:9px;font-weight:800;padding:3px 9px;border-radius:20px;background:#EFF6FF;color:#008BFE">Projetos · KAM</span>
       </div>
     </div>
   </div>
@@ -975,6 +911,21 @@ table.comp-table{width:100%;border-collapse:collapse;font-size:10.5px}
       <div class="stat-card"><div class="stat-val">real time</div><div class="stat-label">Evolução de spend por categoria</div></div>
       <div class="stat-card"><div class="stat-val">+20 anos</div><div class="stat-label">de operação em procurement B2B</div></div>
     </div>
+    <div class="card" style="border-top:4px solid var(--ciano);margin-top:0">
+  <div class="k">Resultados por categoria — não por segmento</div>
+  <div style="font-size:12.5px;font-weight:600;color:var(--texto);line-height:1.6;margin-bottom:12px">O ME organiza o resultado por categoria de compra, não por segmento de empresa. Toda empresa compra as mesmas categorias — a diferença está em como compra.</div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px">
+    <span style="font-size:10px;font-weight:700;padding:5px 11px;border-radius:20px;background:var(--claro);border:1.5px solid var(--borda);color:var(--navy)">Tecnologia e TI</span>
+    <span style="font-size:10px;font-weight:700;padding:5px 11px;border-radius:20px;background:var(--claro);border:1.5px solid var(--borda);color:var(--navy)">Manutenção e MRO</span>
+    <span style="font-size:10px;font-weight:700;padding:5px 11px;border-radius:20px;background:var(--claro);border:1.5px solid var(--borda);color:var(--navy)">Material de Escritório</span>
+    <span style="font-size:10px;font-weight:700;padding:5px 11px;border-radius:20px;background:var(--claro);border:1.5px solid var(--borda);color:var(--navy)">EPI e Segurança</span>
+    <span style="font-size:10px;font-weight:700;padding:5px 11px;border-radius:20px;background:var(--claro);border:1.5px solid var(--borda);color:var(--navy)">Serviços Gerais</span>
+    <span style="font-size:10px;font-weight:700;padding:5px 11px;border-radius:20px;background:var(--claro);border:1.5px solid var(--borda);color:var(--navy)">Logística</span>
+    <span style="font-size:10px;font-weight:700;padding:5px 11px;border-radius:20px;background:var(--claro);border:1.5px solid var(--borda);color:var(--navy)">Equipamentos</span>
+    <span style="font-size:10px;font-weight:700;padding:5px 11px;border-radius:20px;background:var(--ciano);border:1.5px solid var(--ciano);color:#fff">+ categorias personalizadas</span>
+  </div>
+  <div style="background:#EFF6FF;border-radius:8px;padding:12px 14px;font-size:11.5px;font-weight:600;color:var(--navy);line-height:1.6"><strong>Por que isso importa para a venda:</strong> falar de resultado por categoria permite mostrar ao cliente um benchmark que ele reconhece — "empresas que compram MRO como você economizam X" — em vez de uma média genérica que não convence o CFO.</div>
+</div>
   </div>
 
   <!-- ═══ CAP 04: DECISORES & OBJEÇÕES ═══ -->
@@ -1011,6 +962,9 @@ table.comp-table{width:100%;border-collapse:collapse;font-size:10.5px}
       <div class="k" style="color:var(--amber)">Sinal de risco</div>
       <div style="font-size:12px;font-weight:600;color:#92400E;line-height:1.55">Depois de duas reuniões sem saber quem assina o contrato, a venda vai travar. Esse é o momento de escalar para o decisor final — e preparar o champion interno com argumentos para o superior.</div>
     </div>
+    <div class="card" style="background:var(--claro);border-color:var(--borda);margin-bottom:0">
+  <div style="font-size:13px;font-weight:700;color:var(--navy);line-height:1.6">Objeções não se combatem com argumentos técnicos. Se tratam com contexto, reenquadramento e prova de valor.</div>
+</div>
     <div class="k" style="margin-top:4px">Principais objeções</div>
     <div class="g2" style="margin-bottom:16px">
       <div class="card" style="border-left:4px solid var(--navy)">
@@ -1748,14 +1702,14 @@ table.comp-table{width:100%;border-collapse:collapse;font-size:10.5px}
 <div id="op-toast">Imagem copiada!</div>
 
 <script>
-const SCREENS = ['home','fluxo','icp','modelos','decisores','narrativa','campo','comp','bench','resultados','onepager','flux'];
+const SCREENS = ['home','flux','icp','modelos','decisores','narrativa','campo','comp','bench','resultados','onepager'];
 const LABELS = {
   home:'Home',
-  fluxo:'01 · Fluxo Comercial', icp:'02 · Cliente Ideal', modelos:'03 · Modelos',
+  flux:'01 · Fluxo Comercial', icp:'02 · Cliente Ideal', modelos:'03 · Modelos',
   decisores:'04 · Decisores & Objeções', narrativa:'05 · Narrativa Central',
   campo:'06 · Lições de Campo', comp:'07 · Concorrência',
   bench:'08 · Benchmarks', resultados:'09 · Resultados Reais',
-  onepager:'One Pager', flux:'Fluxograma de Vendas'
+  onepager:'One Pager'
 };
 
 function go(id) {
