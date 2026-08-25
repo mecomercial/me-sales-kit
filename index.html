@@ -679,9 +679,10 @@ table.comp-table{width:100%;border-collapse:collapse;font-size:10.5px}
 .pb-script{background:var(--claro);border-radius:8px;padding:10px 13px;font-size:11.5px;font-weight:600;color:var(--texto);line-height:1.6;font-style:italic}
 .pb-script b{font-style:normal;font-weight:800;color:var(--navy)}
 .pb-alert{background:#FFFBEB;border-radius:8px;padding:9px 13px;font-size:11px;font-weight:600;color:#92400e;line-height:1.5;border-left:3px solid var(--amber)}
-.pb-footer{padding:10px 20px;border-top:1px solid var(--borda);display:flex;gap:6px;flex-wrap:wrap}
-.pb-deepen{font-size:10px;font-weight:700;color:var(--muted);cursor:pointer;padding:3px 8px;border-radius:6px;background:var(--claro);border:0;font-family:inherit;transition:.12s}
-.pb-deepen:hover{color:var(--navy);background:var(--borda)}
+.pb-footer{padding:10px 20px 14px;border-top:1px solid var(--borda);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pb-footer-lbl{font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);opacity:.6;white-space:nowrap}
+.pb-deepen{font-size:10.5px;font-weight:800;cursor:pointer;padding:4px 10px;border-radius:6px;border:0;font-family:inherit;transition:.12s;text-decoration:underline;text-underline-offset:2px;background:transparent}
+.pb-deepen:hover{opacity:.75}
 @media(max-width:860px){.pb-grid{grid-template-columns:1fr}}
 
 /* ── HOME REDESIGN ── */
@@ -1744,8 +1745,9 @@ table.comp-table{width:100%;border-collapse:collapse;font-size:10.5px}
           <div class="pb-alert">Se não sabe quem vai na reunião além do contato principal, o decisor financeiro provavelmente não estará presente.</div>
         </div>
         <div class="pb-footer">
-          <button class="pb-deepen" onclick="go('icp')">Cap 02 · Cliente Ideal</button>
-          <button class="pb-deepen" onclick="go('decisores')">Cap 04 · Decisores</button>
+          <span class="pb-footer-lbl">Saiba mais em</span>
+          <button class="pb-deepen" style="color:var(--navy)" onclick="go('icp')">Cap 02 · Cliente Ideal</button>
+          <button class="pb-deepen" style="color:var(--navy)" onclick="go('decisores')">Cap 04 · Decisores</button>
         </div>
       </div>
 
@@ -1773,7 +1775,8 @@ table.comp-table{width:100%;border-collapse:collapse;font-size:10.5px}
           <div class="pb-alert">Se o cliente não sabe o próprio volume de compras, o diagnóstico não terminou — não avance para proposta.</div>
         </div>
         <div class="pb-footer">
-          <button class="pb-deepen" onclick="go('modelos')">Cap 03 · Modelos</button>
+          <span class="pb-footer-lbl">Saiba mais em</span>
+          <button class="pb-deepen" style="color:var(--rosa)" onclick="go('modelos')">Cap 03 · Modelos</button>
         </div>
       </div>
 
@@ -1803,8 +1806,9 @@ table.comp-table{width:100%;border-collapse:collapse;font-size:10.5px}
           <div class="pb-alert">Se travou no decisor sem que o usuário tenha defendido internamente, volte uma etapa antes de reforçar a proposta.</div>
         </div>
         <div class="pb-footer">
-          <button class="pb-deepen" onclick="go('decisores')">Cap 04 · Objeções</button>
-          <button class="pb-deepen" onclick="go('comp')">Cap 07 · Concorrência</button>
+          <span class="pb-footer-lbl">Saiba mais em</span>
+          <button class="pb-deepen" style="color:var(--amber)" onclick="go('decisores')">Cap 04 · Objeções</button>
+          <button class="pb-deepen" style="color:var(--amber)" onclick="go('comp')">Cap 07 · Concorrência</button>
         </div>
       </div>
 
@@ -1831,7 +1835,8 @@ table.comp-table{width:100%;border-collapse:collapse;font-size:10.5px}
           <div class="pb-alert">Não confirme o fechamento sem definir o ponto focal do cliente — sem isso o onboarding emperra e o PS/KAM começa às cegas.</div>
         </div>
         <div class="pb-footer">
-          <button class="pb-deepen" onclick="go('flux')">Cap 01 · Fluxo Comercial</button>
+          <span class="pb-footer-lbl">Saiba mais em</span>
+          <button class="pb-deepen" style="color:var(--ciano)" onclick="go('flux')">Cap 01 · Fluxo Comercial</button>
         </div>
       </div>
 
