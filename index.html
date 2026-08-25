@@ -24,30 +24,28 @@ body{font-family:'Montserrat',Arial,sans-serif;background:var(--canvas);color:va
 .app{display:grid;grid-template-columns:230px 1fr;height:100vh}
 
 /* ── SIDEBAR ── */
-aside{background:var(--navy);color:#fff;display:flex;flex-direction:column;padding:0 0 16px;overflow:hidden;position:relative}
-aside::after{content:"";position:absolute;left:-70px;bottom:-70px;width:240px;height:240px;border-radius:50%;
-  background:radial-gradient(circle,rgba(255,56,198,.22),transparent 65%);pointer-events:none}
-.logo{padding:24px 24px 20px;border-bottom:1px solid rgba(255,255,255,.09)}
-.logo-mark{font-size:28px;font-weight:900;letter-spacing:-1.2px;color:#fff;line-height:1}
-.logo-mark b{color:var(--lima)}
-.logo-sub{font-size:8.5px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.38);margin-top:5px}
-nav{flex:1;padding:14px 12px;overflow-y:auto;position:relative;z-index:1}
-.nav-sec{font-size:8.5px;font-weight:800;letter-spacing:2.4px;text-transform:uppercase;
-  color:rgba(255,255,255,.3);padding:16px 10px 6px}
+aside{background:#fff;border-right:1px solid var(--borda);display:flex;flex-direction:column;padding:0 0 16px;overflow:hidden}
+.logo{padding:22px 22px 18px;border-bottom:1px solid var(--borda)}
+.logo-mark{font-size:26px;font-weight:900;letter-spacing:-1.2px;color:var(--navy);line-height:1}
+.logo-mark b{color:var(--rosa)}
+.logo-sub{font-size:8px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-top:4px;opacity:.7}
+nav{flex:1;padding:12px 10px;overflow-y:auto}
+.nav-sec{font-size:8px;font-weight:800;letter-spacing:2.2px;text-transform:uppercase;
+  color:var(--muted);padding:14px 10px 5px;opacity:.6}
 .nav-sec:first-child{padding-top:4px}
-.ni{display:flex;align-items:center;gap:10px;width:100%;border:0;background:none;color:rgba(255,255,255,.6);
-  font-family:inherit;font-size:12.5px;font-weight:700;padding:9px 12px;border-radius:10px;cursor:pointer;
-  text-align:left;transition:.15s;letter-spacing:.1px;position:relative}
-.ni .dot{width:8px;height:8px;border-radius:50%;flex:0 0 8px;background:rgba(255,255,255,.2)}
-.ni:hover{color:#fff;background:rgba(255,255,255,.07)}
-.ni.on{color:#fff;background:rgba(255,255,255,.11)}
-.ni.on .dot{background:var(--lima)}
-.userchip{margin:0 12px;background:rgba(255,255,255,.07);border-radius:10px;padding:11px 13px;
-  display:flex;gap:10px;align-items:center;position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.06);margin-top:8px}
-.av{width:30px;height:30px;border-radius:50%;background:var(--rosa);display:flex;align-items:center;
-  justify-content:center;font-size:11px;font-weight:900;flex:0 0 30px;color:#fff}
-.un{font-size:11.5px;font-weight:800;color:#fff;line-height:1.25}
-.ur{font-size:9.5px;color:rgba(255,255,255,.45);font-weight:600}
+.ni{display:flex;align-items:center;gap:9px;width:100%;border:0;background:none;color:var(--muted);
+  font-family:inherit;font-size:12px;font-weight:600;padding:8px 11px;border-radius:8px;cursor:pointer;
+  text-align:left;transition:.12s;letter-spacing:.05px;position:relative}
+.ni .dot{width:7px;height:7px;border-radius:50%;flex:0 0 7px;background:var(--borda)}
+.ni:hover{color:var(--navy);background:var(--claro)}
+.ni.on{color:var(--navy);background:var(--claro);font-weight:800}
+.ni.on .dot{background:var(--navy)}
+.userchip{margin:0 10px;background:var(--claro);border-radius:10px;padding:10px 12px;
+  display:flex;gap:10px;align-items:center;border:1px solid var(--borda);margin-top:8px}
+.av{width:28px;height:28px;border-radius:50%;background:var(--rosa);display:flex;align-items:center;
+  justify-content:center;font-size:10px;font-weight:900;flex:0 0 28px;color:#fff}
+.un{font-size:11px;font-weight:800;color:var(--navy);line-height:1.25}
+.ur{font-size:9px;color:var(--muted);font-weight:600}
 
 /* ── MAIN ── */
 .main{display:flex;flex-direction:column;height:100vh;overflow:hidden}
@@ -545,7 +543,9 @@ table.comp-table{width:100%;border-collapse:collapse;font-size:10.5px}
   #s-onepager > .op-cat-bar,
   #s-onepager > .card{display:none!important}
   #s-onepager > div{padding:0!important;background:transparent!important;border-radius:0!important;margin:0!important}
-  #op-wrap{max-width:none!important;width:100%!important;box-shadow:none!important;border-radius:0!important}
+  #op-wrap{max-width:none!important;width:100%!important;box-shadow:none!important;border-radius:0!important;
+    display:flex!important;flex-direction:column!important;min-height:100vh!important}
+  #op-wrap .op-steps{flex:1!important;align-items:flex-start!important}
 }
 
 /* ── FLUXOGRAMA EMBUTIDO (escopo #s-flux) ── */
@@ -661,6 +661,46 @@ table.comp-table{width:100%;border-collapse:collapse;font-size:10.5px}
 #s-flux .hc-kam ul li::before{color:#0A0A93}
 #s-flux .badge-source{font-size:10px;font-weight:700;color:#aaa;text-align:center;margin-top:48px;line-height:1.8}
 #s-flux .badge-source span{color:#0A0A93;font-weight:800}
+
+/* ── PLAYBOOK DE CAMPO ── */
+.pb-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:860px}
+.pb-card{background:#fff;border-radius:14px;border:1px solid var(--borda);overflow:hidden;display:flex;flex-direction:column}
+.pb-head{padding:16px 20px 14px;display:flex;align-items:center;gap:12px}
+.pb-num{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex:0 0 32px;color:#fff}
+.pb-moment-title{font-size:14px;font-weight:900;color:var(--navy);line-height:1.2}
+.pb-when{font-size:10.5px;font-weight:600;color:var(--muted);padding:0 20px 12px;line-height:1.5;border-bottom:1px solid var(--borda)}
+.pb-when b{color:var(--texto);font-weight:700}
+.pb-body{padding:14px 20px;flex:1;display:flex;flex-direction:column;gap:12px}
+.pb-lbl{font-size:8px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:5px;opacity:.7}
+.pb-checks{list-style:none;display:flex;flex-direction:column;gap:4px}
+.pb-checks li{font-size:11.5px;font-weight:600;color:var(--texto);padding-left:13px;position:relative;line-height:1.5}
+.pb-checks li::before{content:"›";position:absolute;left:0;font-weight:900;color:var(--rosa)}
+.pb-checks li b{font-weight:800;color:var(--navy)}
+.pb-script{background:var(--claro);border-radius:8px;padding:10px 13px;font-size:11.5px;font-weight:600;color:var(--texto);line-height:1.6;font-style:italic}
+.pb-script b{font-style:normal;font-weight:800;color:var(--navy)}
+.pb-alert{background:#FFFBEB;border-radius:8px;padding:9px 13px;font-size:11px;font-weight:600;color:#92400e;line-height:1.5;border-left:3px solid var(--amber)}
+.pb-footer{padding:10px 20px;border-top:1px solid var(--borda);display:flex;gap:6px;flex-wrap:wrap}
+.pb-deepen{font-size:10px;font-weight:700;color:var(--muted);cursor:pointer;padding:3px 8px;border-radius:6px;background:var(--claro);border:0;font-family:inherit;transition:.12s}
+.pb-deepen:hover{color:var(--navy);background:var(--borda)}
+@media(max-width:860px){.pb-grid{grid-template-columns:1fr}}
+
+/* ── HOME REDESIGN ── */
+.h-eyebrow{font-size:9px;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--rosa);margin-bottom:14px}
+.h-title{font-size:30px;font-weight:900;color:var(--navy);line-height:1.15;margin-bottom:10px;letter-spacing:-1px;max-width:580px}
+.h-underline{width:44px;height:3px;background:var(--rosa);border-radius:2px;margin-bottom:22px}
+.h-body{font-size:13.5px;font-weight:500;color:var(--texto);line-height:1.75;margin-bottom:14px;max-width:620px}
+.h-tese{background:var(--navy);border-radius:14px;padding:22px 26px;margin-bottom:28px;max-width:640px}
+.h-tese-lbl{font-size:8px;font-weight:900;letter-spacing:2.5px;text-transform:uppercase;color:var(--rosa);margin-bottom:10px}
+.h-tese-text{font-size:13.5px;font-weight:700;color:#fff;line-height:1.65}
+.h-tese-text strong{color:var(--lima)}
+.h-sumario-lbl{font-size:8px;font-weight:900;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;opacity:.65}
+.h-toc{max-width:700px}
+.h-row{display:flex;align-items:baseline;gap:14px;padding:13px 0;border-bottom:1px solid var(--borda);cursor:pointer;transition:.12s}
+.h-row:last-child{border-bottom:none}
+.h-row:hover .h-row-title{color:var(--rosa)}
+.h-row-num{font-size:11px;font-weight:900;color:var(--rosa);width:24px;flex:0 0 24px;letter-spacing:.5px}
+.h-row-title{font-size:13px;font-weight:800;color:var(--navy);flex:1;line-height:1.3}
+.h-row-desc{font-size:11px;font-weight:500;color:var(--muted);text-align:right;flex:0 0 260px;line-height:1.4}
 </style>
 </head>
 <body>
@@ -708,6 +748,9 @@ table.comp-table{width:100%;border-collapse:collapse;font-size:10.5px}
     <button class="ni" id="n-onepager" onclick="go('onepager')">
       <span class="dot"></span>One Pager
     </button>
+    <button class="ni" id="n-playbook" onclick="go('playbook')">
+      <span class="dot"></span>Playbook de Campo
+    </button>
   </nav>
 </aside>
 
@@ -721,88 +764,66 @@ table.comp-table{width:100%;border-collapse:collapse;font-size:10.5px}
 
   <!-- ═══ HOME ═══ -->
   <div class="screen on" id="s-home">
-    <div class="ph">Sales Enablement no ME</div>
-    <div class="ps">Um estudo de Karina · Marketing de Produto · 9 capítulos sobre o fluxo comercial, o cliente ideal, a narrativa e os materiais que sustentam cada etapa da venda.</div>
-    <div class="moment-grid">
-      <div class="moment" onclick="go('flux')" style="cursor:pointer">
-        <div class="mi" style="background:#0A0A93;color:#BDE44E;font-size:12px;font-weight:900;">01</div>
-        <h3>Fluxo Comercial</h3>
-        <p>9 etapas, 5 times. A venda como um revezamento estruturado.</p>
-        <span class="mbadge" style="background:#EFF6FF;color:#0A0A93;">Processo</span>
-        <div class="cover" style="background:#0A0A93"></div>
-      </div>
-      <div class="moment" onclick="go('icp')" style="cursor:pointer">
-        <div class="mi" style="background:#EFF6FF;color:#008BFE;font-size:12px;font-weight:900;">02</div>
-        <h3>Cliente Ideal</h3>
-        <p>ICP, anti-ICP e setores em crescimento. O que define um bom cliente.</p>
-        <span class="mbadge" style="background:#EFF6FF;color:#008BFE;">ICP</span>
-        <div class="cover" style="background:#008BFE"></div>
-      </div>
-      <div class="moment" onclick="go('modelos')" style="cursor:pointer">
-        <div class="mi" style="background:#fff5fb;color:#FF38C6;font-size:12px;font-weight:900;">03</div>
-        <h3>Modelos</h3>
-        <p>Contratação Direta, Marketplace Privado e Compras Free. O modelo certo para cada perfil.</p>
-        <span class="mbadge" style="background:#fff5fb;color:#FF38C6;">Oferta</span>
-        <div class="cover" style="background:#FF38C6"></div>
-      </div>
-      <div class="moment" onclick="go('decisores')" style="cursor:pointer">
-        <div class="mi" style="background:#FFFBEB;color:#D97706;font-size:12px;font-weight:900;">04</div>
-        <h3>Decisores & Objeções</h3>
-        <p>Quem decide, o que responder, e por que vendas travam.</p>
-        <span class="mbadge" style="background:#FFFBEB;color:#D97706;">Campo</span>
-        <div class="cover" style="background:#D97706"></div>
-      </div>
-      <div class="moment" onclick="go('narrativa')" style="cursor:pointer">
-        <div class="mi" style="background:#0A0A93;color:#fff;font-size:12px;font-weight:900;">05</div>
-        <h3>Narrativa Central</h3>
-        <p>Messaging Core e os 4 pilares. A história que todos os times contam.</p>
-        <span class="mbadge" style="background:#EFF6FF;color:#0A0A93;">Messaging</span>
-        <div class="cover" style="background:#0A0A93"></div>
-      </div>
-      <div class="moment" onclick="go('campo')" style="cursor:pointer">
-        <div class="mi" style="background:#EFF6FF;color:#008BFE;font-size:12px;font-weight:900;">06</div>
-        <h3>Lições de Campo</h3>
-        <p>3 reuniões reais, 3 desfechos, 3 aprendizados que valem para toda venda.</p>
-        <span class="mbadge" style="background:#EFF6FF;color:#008BFE;">Casos Reais</span>
-        <div class="cover" style="background:#008BFE"></div>
-      </div>
-      <div class="moment" onclick="go('comp')" style="cursor:pointer">
-        <div class="mi" style="background:#fff5fb;color:#FF38C6;font-size:12px;font-weight:900;">07</div>
-        <h3>Concorrência</h3>
-        <p>Battlecard: NIMBI, Coupa, SAP Ariba, GAP e Comlink com scripts de campo.</p>
-        <span class="mbadge" style="background:#fff5fb;color:#FF38C6;">Battlecard</span>
-        <div class="cover" style="background:#FF38C6"></div>
-      </div>
-      <div class="moment" onclick="go('bench')" style="cursor:pointer">
-        <div class="mi" style="background:#f5fbd8;color:#0A0A93;font-size:12px;font-weight:900;">08</div>
-        <h3>Benchmarks</h3>
-        <p>Maturidade de SE e o que o mercado prova em números.</p>
-        <span class="mbadge" style="background:#f5fbd8;color:#0A0A93;">Mercado</span>
-        <div class="cover" style="background:#BDE44E"></div>
-      </div>
-      <div class="moment" onclick="go('resultados')" style="cursor:pointer">
-        <div class="mi" style="background:#0A0A93;color:#BDE44E;font-size:12px;font-weight:900;">09</div>
-        <h3>Resultados Reais</h3>
-        <p>Métricas extraídas diretamente da plataforma. Período de 12 meses.</p>
-        <span class="mbadge" style="background:#EFF6FF;color:#0A0A93;">Dados</span>
-        <div class="cover" style="background:#0A0A93"></div>
-      </div>
+    <div class="h-eyebrow">Antes de Começar</div>
+    <div class="h-title">O que é Sales Enablement — e por que ele importa</div>
+    <div class="h-underline"></div>
+    <p class="h-body">Sales Enablement é dar ao time de vendas os materiais, o discurso e a clareza de que ele precisa para vender melhor — conectando o que o produto é ao que o vendedor comunica na reunião com o cliente.</p>
+    <p class="h-body">Este ebook reúne um estudo completo feito dentro do ME: entrevistas com o time de Pré-vendas, análise de reuniões reais com clientes, pesquisa de mercado sobre concorrentes e extração de métricas reais da plataforma. O resultado é um retrato de como o ME vende hoje — e um mapa de como vender ainda melhor.</p>
+    <div class="h-tese">
+      <div class="h-tese-lbl">A Tese Central</div>
+      <div class="h-tese-text">Sales Enablement não é uma etapa da venda. É a infraestrutura que sustenta todas as etapas — da geração do lead ao handoff pós-fechamento. <strong>Para cada momento da venda, existe um material certo.</strong></div>
     </div>
-    <div class="k" style="margin-top:8px">Materiais de Apoio</div>
-    <div class="g2">
-      <div class="moment" onclick="go('onepager')" style="cursor:pointer">
-        <div class="mi" style="background:#EFF6FF;color:#0A0A93;font-size:10px;font-weight:900;letter-spacing:.3px;">OP</div>
-        <h3>One Pager Executivo</h3>
-        <p>Documento compacto para deixar com o CFO ou enviar antes da reunião.</p>
-        <span class="mbadge" style="background:#EFF6FF;color:#0A0A93;">Imprimir · PDF</span>
-        <div class="cover" style="background:#0A0A93"></div>
+    <div class="h-sumario-lbl">Neste Ebook</div>
+    <div class="h-toc">
+      <div class="h-row" onclick="go('flux')">
+        <span class="h-row-num">01</span>
+        <span class="h-row-title">O fluxo comercial do ME</span>
+        <span class="h-row-desc">As 9 etapas, do lead ao handoff</span>
       </div>
-      <div class="moment" onclick="go('flux')" style="cursor:pointer">
-        <div class="mi" style="background:#f5fbd8;color:#0A0A93;font-size:10px;font-weight:900;letter-spacing:.3px;">FX</div>
-        <h3>Fluxograma de Vendas</h3>
-        <p>Swimlane completo com todos os times e etapas do processo comercial.</p>
-        <span class="mbadge" style="background:#f5fbd8;color:#0A0A93;">Visual</span>
-        <div class="cover" style="background:#BDE44E"></div>
+      <div class="h-row" onclick="go('icp')">
+        <span class="h-row-num">02</span>
+        <span class="h-row-title">O cliente ideal</span>
+        <span class="h-row-desc">ICP, anti-ICP e setores em crescimento</span>
+      </div>
+      <div class="h-row" onclick="go('modelos')">
+        <span class="h-row-num">03</span>
+        <span class="h-row-title">Os 3 modelos de contratação</span>
+        <span class="h-row-desc">Direta · Marketplace Privado · Compras Free</span>
+      </div>
+      <div class="h-row" onclick="go('decisores')">
+        <span class="h-row-num">04</span>
+        <span class="h-row-title">Decisores, objeções e vendas que travam</span>
+        <span class="h-row-desc">Quem decide e o que responder</span>
+      </div>
+      <div class="h-row" onclick="go('narrativa')">
+        <span class="h-row-num">05</span>
+        <span class="h-row-title">A narrativa central</span>
+        <span class="h-row-desc">Messaging Core e os 4 pilares</span>
+      </div>
+      <div class="h-row" onclick="go('campo')">
+        <span class="h-row-num">06</span>
+        <span class="h-row-title">Lições de campo</span>
+        <span class="h-row-desc">3 reuniões reais, 3 aprendizados</span>
+      </div>
+      <div class="h-row" onclick="go('comp')">
+        <span class="h-row-num">07</span>
+        <span class="h-row-title">Concorrência</span>
+        <span class="h-row-desc">Battlecard: NIMBI, Coupa, Ariba, GAP e Comlink</span>
+      </div>
+      <div class="h-row" onclick="go('bench')">
+        <span class="h-row-num">08</span>
+        <span class="h-row-title">Maturidade e benchmarks</span>
+        <span class="h-row-desc">Onde estamos e o que o mercado prova</span>
+      </div>
+      <div class="h-row" onclick="go('resultados')">
+        <span class="h-row-num">09</span>
+        <span class="h-row-title">Resultados reais</span>
+        <span class="h-row-desc">Números extraídos da plataforma</span>
+      </div>
+      <div class="h-row" onclick="go('onepager')">
+        <span class="h-row-num" style="color:var(--navy)">OP</span>
+        <span class="h-row-title">One Pager Executivo</span>
+        <span class="h-row-desc">Documento para o CFO · Imprimir / PDF</span>
       </div>
     </div>
   </div>
@@ -1362,7 +1383,6 @@ table.comp-table{width:100%;border-collapse:collapse;font-size:10.5px}
           </div>
         </div>
       </div>
-      <div class="op-confidential">Documento interno · ME · uso restrito</div>
     </div>
   </div><!-- /onepager -->
 
@@ -1695,6 +1715,130 @@ table.comp-table{width:100%;border-collapse:collapse;font-size:10.5px}
     <p class="badge-source"><span>me. Marketing de Produto</span></p>
   </div><!-- /flux -->
 
+  <!-- ═══ PLAYBOOK DE CAMPO ═══ -->
+  <div class="screen" id="s-playbook">
+    <div class="ph">Playbook de Campo</div>
+    <div class="ps">Consulta rápida filtrada por momento da venda. Abra o cartão certo antes ou durante cada etapa.</div>
+    <div class="pb-grid">
+
+      <!-- Cartão 1 -->
+      <div class="pb-card">
+        <div class="pb-head">
+          <div class="pb-num" style="background:var(--navy)">01</div>
+          <div class="pb-moment-title">Antes da Reunião</div>
+        </div>
+        <div class="pb-when"><b>Quando:</b> Reunião agendada no CRM com nome e cargo do contato confirmados.</div>
+        <div class="pb-body">
+          <div>
+            <div class="pb-lbl">O que checar</div>
+            <ul class="pb-checks">
+              <li>Setor e porte da empresa</li>
+              <li>Quem vai estar na sala (além do contato principal)</li>
+              <li>Já usam alguma ferramenta de compras?</li>
+              <li>Volume estimado de compras mensais</li>
+            </ul>
+          </div>
+          <div>
+            <div class="pb-lbl">O que perguntar</div>
+            <div class="pb-script">"Hoje como vocês gerenciam o processo de cotação — é centralizado ou cada área compra por conta?"</div>
+          </div>
+          <div class="pb-alert">Se não sabe quem vai na reunião além do contato principal, o decisor financeiro provavelmente não estará presente.</div>
+        </div>
+        <div class="pb-footer">
+          <button class="pb-deepen" onclick="go('icp')">Cap 02 · Cliente Ideal</button>
+          <button class="pb-deepen" onclick="go('decisores')">Cap 04 · Decisores</button>
+        </div>
+      </div>
+
+      <!-- Cartão 2 -->
+      <div class="pb-card">
+        <div class="pb-head">
+          <div class="pb-num" style="background:var(--rosa)">02</div>
+          <div class="pb-moment-title">Na Proposta</div>
+        </div>
+        <div class="pb-when"><b>Quando:</b> Cliente pediu proposta formal ou perguntou sobre preço ou modelo.</div>
+        <div class="pb-body">
+          <div>
+            <div class="pb-lbl">O que checar</div>
+            <ul class="pb-checks">
+              <li>Volume de compras (sabe responder?)</li>
+              <li>Quem assina o contrato</li>
+              <li>Processo de compras atual é estruturado ou informal?</li>
+              <li>Qual modelo se encaixa — <b>Direta, Marketplace Privado ou Compras Free?</b></li>
+            </ul>
+          </div>
+          <div>
+            <div class="pb-lbl">O que dizer</div>
+            <div class="pb-script">"Com base no seu volume e perfil, o modelo que gera mais resultado pra vocês é [X] — deixa eu te mostrar o que clientes com esse perfil alcançaram."</div>
+          </div>
+          <div class="pb-alert">Se o cliente não sabe o próprio volume de compras, o diagnóstico não terminou — não avance para proposta.</div>
+        </div>
+        <div class="pb-footer">
+          <button class="pb-deepen" onclick="go('modelos')">Cap 03 · Modelos</button>
+        </div>
+      </div>
+
+      <!-- Cartão 3 -->
+      <div class="pb-card">
+        <div class="pb-head">
+          <div class="pb-num" style="background:var(--amber)">03</div>
+          <div class="pb-moment-title">Quando Travar</div>
+        </div>
+        <div class="pb-when"><b>Quando:</b> Silêncio de 5+ dias úteis após envio de proposta, ou objeção levantada diretamente na reunião.</div>
+        <div class="pb-body">
+          <div>
+            <div class="pb-lbl">O que checar</div>
+            <ul class="pb-checks">
+              <li><b>Se travou por objeção ativa:</b> qual foi a objeção exata? Mencionou concorrente? (qual?)</li>
+              <li><b>Se travou por silêncio:</b> a última interação foi com o usuário ou o decisor? A proposta chegou a quem decide?</li>
+            </ul>
+          </div>
+          <div>
+            <div class="pb-lbl">O que dizer</div>
+            <div class="pb-script">
+              Preço: "O que você usa hoje também tem custo — só que escondido no tempo da equipe."<br><br>
+              Silêncio: "Quis checar se surgiu alguma dúvida depois que você viu a proposta — é normal aparecer algo depois."<br><br>
+              Concorrente: veja os scripts no Cap 07.
+            </div>
+          </div>
+          <div class="pb-alert">Se travou no decisor sem que o usuário tenha defendido internamente, volte uma etapa antes de reforçar a proposta.</div>
+        </div>
+        <div class="pb-footer">
+          <button class="pb-deepen" onclick="go('decisores')">Cap 04 · Objeções</button>
+          <button class="pb-deepen" onclick="go('comp')">Cap 07 · Concorrência</button>
+        </div>
+      </div>
+
+      <!-- Cartão 4 -->
+      <div class="pb-card">
+        <div class="pb-head">
+          <div class="pb-num" style="background:var(--ciano)">04</div>
+          <div class="pb-moment-title">Fechamento e Handoff</div>
+        </div>
+        <div class="pb-when"><b>Quando:</b> Cliente disse "vamos em frente", "pode mandar o contrato" ou equivalente.</div>
+        <div class="pb-body">
+          <div>
+            <div class="pb-lbl">O que checar</div>
+            <ul class="pb-checks">
+              <li>Modelo de contratação definido</li>
+              <li>Quem é o ponto focal no cliente para o onboarding</li>
+              <li>Prazo de início combinado</li>
+            </ul>
+          </div>
+          <div>
+            <div class="pb-lbl">O que dizer</div>
+            <div class="pb-script">"Ótimo — já vou acionar o time de implementação. Eles entram em contato em até 2 dias úteis. Só preciso confirmar quem será o ponto focal de vocês para o onboarding."</div>
+          </div>
+          <div class="pb-alert">Não confirme o fechamento sem definir o ponto focal do cliente — sem isso o onboarding emperra e o PS/KAM começa às cegas.</div>
+        </div>
+        <div class="pb-footer">
+          <button class="pb-deepen" onclick="go('flux')">Cap 01 · Fluxo Comercial</button>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /playbook -->
+
   </div><!-- /canvas -->
 </div><!-- /main -->
 </div><!-- /app -->
@@ -1702,14 +1846,14 @@ table.comp-table{width:100%;border-collapse:collapse;font-size:10.5px}
 <div id="op-toast">Imagem copiada!</div>
 
 <script>
-const SCREENS = ['home','flux','icp','modelos','decisores','narrativa','campo','comp','bench','resultados','onepager'];
+const SCREENS = ['home','flux','icp','modelos','decisores','narrativa','campo','comp','bench','resultados','onepager','playbook'];
 const LABELS = {
   home:'Home',
   flux:'01 · Fluxo Comercial', icp:'02 · Cliente Ideal', modelos:'03 · Modelos',
   decisores:'04 · Decisores & Objeções', narrativa:'05 · Narrativa Central',
   campo:'06 · Lições de Campo', comp:'07 · Concorrência',
   bench:'08 · Benchmarks', resultados:'09 · Resultados Reais',
-  onepager:'One Pager'
+  onepager:'One Pager', playbook:'Playbook de Campo'
 };
 
 function go(id) {
